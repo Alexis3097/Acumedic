@@ -20,9 +20,9 @@ class CreateFichaPacienteTable extends Migration
             $table->string('LugarOrigen');
             $table->string('Direccion');
             $table->string('Correo');
-            $table->decimal('Peso');
-            $table->decimal('Talla');
-            $table->string('TipoSangre');
+            $table->decimal('Peso')->nullable();
+            $table->decimal('Talla')->nullable();
+            $table->string('TipoSangre')->nullable();
             $table->softDeletes();
             $table->timestamps();
 

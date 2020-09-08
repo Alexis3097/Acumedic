@@ -12,12 +12,12 @@ class DetalleAntecedente extends Model
         'IdTipoAntecedente','Nombre','Descripcion',
     ];
 
-    public function TipoAntecedente()
+    public function tipoAntecedente()
     {
         return $this->hasOne(TipoAntecedente::class);
     }
 
-    public function FichaPacientes()
+    public function fichaPacientes()
     {
         return $this->belongsToMany(FichaPaciente::class, 'FichaAntecedente','IdDetalleAntecedente','IdFichaAntecedente')
                         ->as('FichaAntecedente')

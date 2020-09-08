@@ -14,22 +14,22 @@ class Cita extends Model
         'Descripcion','IdPaciente','IdTipoConsulta','IdEstatusConsulta','Fecha',
     ];
 
-    public function Paciente()
+    public function paciente()
     {
         return $this->hasOne(Paciente::class);
     }
 
-    public function TipoConsulta()
+    public function tipoConsulta()
     {
         return $this->hasOne(TipoConsulta::class);
     }
 
-    public function EstatusConsulta()
+    public function estatusConsulta()
     {
         return $this->hasOne(EstatusConsulta::class);
     }
 
-    public function Horarios()
+    public function horarios()
     {
         return $this->belongsToMany(Horario::class, 'CitaHorario','IdCita','IdHorario')
                         ->as('CitaHorario')

@@ -13,17 +13,17 @@ class FichaPaciente extends Model
         'IdPaciente','IdSexo','LugarOrigen','Direccion','Correo','Peso','Talla','TipoSangre',
     ];
 
-    public function Sexo()
+    public function sexo()
     {
         return $this->hasOne(Sexo::class);
     }
     
-    public function Paciente()
+    public function paciente()
     {
         return $this->hasOne(Paciente::class);
     }
 
-    public function DetalleAntecedentes()
+    public function detalleAntecedentes()
     {
         return $this->belongsToMany(DetalleAntecedente::class, 'FichaAntecedente','IdFichaPaciente','IdDetalleAntecedente')
                         ->as('FichaAntecedente')

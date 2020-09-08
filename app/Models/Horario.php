@@ -11,7 +11,7 @@ class Horario extends Model
         'Horario',
     ];
     
-    public function Citas()
+    public function citas()
     {
         return $this->belongsToMany(Cita::class, 'CitaHorario','IdHorario','IdCita')
                         ->as('CitaHorario')
