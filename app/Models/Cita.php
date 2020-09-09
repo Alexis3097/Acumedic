@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Models;
-namespace App\Models\Paciente;
-namespace App\Models\TipoConsulta;
-namespace App\Models\EstatusConsulta;
-namespace App\Models\Horario;
+use App\Models\Paciente;
+use App\Models\TipoConsulta;
+use App\Models\EstatusConsulta;
+use App\Models\Horario;
 
 use Illuminate\Database\Eloquent\Model;
 

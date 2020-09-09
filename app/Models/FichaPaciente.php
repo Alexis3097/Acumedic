@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Models;
-namespace App\Models\Sexo;
-namespace App\Models\Paciente;
-namespace App\Models\DetalleAntecedente;
+use App\Models\Sexo;
+use App\Models\Paciente;
+use App\Models\DetalleAntecedente;
 
 use Illuminate\Database\Eloquent\Model;
 

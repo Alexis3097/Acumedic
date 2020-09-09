@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-namespace App\Models\Cita;
+use App\Models\Cita;
 
 use Illuminate\Database\Eloquent\Model;
 

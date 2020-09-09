@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Models;
-namespace App\Models\FichaPaciente;
-namespace App\Models\TipoAntecedente;
+use App\Models\FichaPaciente;
+use App\Models\TipoAntecedente;
 
 use Illuminate\Database\Eloquent\Model;
 
