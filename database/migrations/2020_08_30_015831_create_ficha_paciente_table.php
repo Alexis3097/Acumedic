@@ -18,11 +18,17 @@ class CreateFichaPacienteTable extends Migration
             $table->unsignedBigInteger('IdPaciente');
             $table->unsignedBigInteger('IdSexo');
             $table->string('LugarOrigen');
+            $table->string('LugarResidencia');
             $table->string('Direccion');
-            $table->string('Correo');
-            $table->decimal('Peso')->nullable();
-            $table->decimal('Talla')->nullable();
+            $table->string('Correo')->nullable();
+            $table->decimal('Peso');
+            $table->decimal('Talla');
             $table->string('TipoSangre')->nullable();
+            $table->Integer('SPO2');
+            $table->Integer('FC');
+            $table->Integer('FR');
+            $table->Integer('TA');
+            $table->Integer('Dextrosis');
             $table->softDeletes();
             $table->timestamps();
 

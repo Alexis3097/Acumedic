@@ -3,11 +3,12 @@
 namespace App\Models;
 use App\Models\FichaPaciente;
 use App\Models\TipoAntecedente;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
 class DetalleAntecedente extends Model
 {
+    use softDeletes;
     protected $fillable = [
         'IdTipoAntecedente','Nombre','Descripcion',
     ];

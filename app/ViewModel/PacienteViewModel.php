@@ -2,7 +2,6 @@
 
 namespace App\ViewModel;
 use App\Models\Paciente;
-//use Carbon\Carbon;
 class PacienteViewModel
 {
     public function create($pacienteData): Paciente
@@ -14,6 +13,9 @@ class PacienteViewModel
         $paciente->ApellidoMaterno = $pacienteData->ApellidoMaterno;
         $paciente->Telefono = $pacienteData->Telefono;
         $paciente->FechaNacimiento = $pacienteData->FechaNacimiento;
+        if(!$pacienteData->Foto == '' || $pacienteData->Foto == NULL){
+            $paciente->Foto = $pacienteData->FechaNacimiento;
+        }
         $paciente->save();
         return $paciente;
     }

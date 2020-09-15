@@ -12,7 +12,7 @@ class EstatusConsultaSeeder extends Seeder
     public function run()
     {
         DB::table('EstatusConsulta')->insert([
-            'Nombre' => 'Agendada',
+            'Nombre' => 'En espera',
             'Descripcion' => 'Cuando se ha hecho la cita',
         ]);
 
