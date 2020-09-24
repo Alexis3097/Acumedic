@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDetalleAntecedenteTable extends Migration
+class CreateConsulta extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateDetalleAntecedenteTable extends Migration
      */
     public function up()
     {
-        Schema::create('DetalleAntecedente', function (Blueprint $table) {
+        Schema::create('Consulta', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('IdPaciente');
-            $table->unsignedBigInteger('IdTipoAntecedente');
-            $table->string('Nombre')->nullable();
-            $table->string('Descripcion')->nullable();
+            $table->string('Motivo');
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('IdTipoAntecedente')->references('id')->on('TipoAntecedente');
             $table->foreign('IdPaciente')->references('id')->on('Paciente');
         });
     }
@@ -34,6 +31,6 @@ class CreateDetalleAntecedenteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('DetalleAntecedente');
+        Schema::dropIfExists('Consulta');
     }
 }

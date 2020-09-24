@@ -13,16 +13,22 @@ class CreatePacienteTable extends Migration
      */
     public function up()
     {
-        Schema::create('Pacientes', function (Blueprint $table) {
+        Schema::create('Paciente', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('IdSexo');
             $table->string("Nombre");
             $table->string("ApellidoPaterno");
             $table->string("ApellidoMaterno");
             $table->date("FechaNacimiento");
             $table->string("Telefono");
             $table->string("Foto")->nullable();
+            $table->string("LugarOrigen")->nullable();
+            $table->string("Correo")->nullable();
+            $table->string('TipoSangre')->nullable();
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('IdSexo')->references('id')->on('Sexo');
         });
     }
 
@@ -33,6 +39,6 @@ class CreatePacienteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Pacientes');
+        Schema::dropIfExists('Paciente');
     }
 }

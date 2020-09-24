@@ -15,15 +15,15 @@ class CreateCitaTable extends Migration
     {
         Schema::create('Cita', function (Blueprint $table) {
             $table->id();
-            $table->string("Descripcion");
             $table->unsignedBigInteger('IdPaciente');
             $table->unsignedBigInteger('IdTipoConsulta');
             $table->unsignedBigInteger('IdEstatusConsulta');
+            $table->string("Descripcion");
             $table->date('Fecha');
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('IdPaciente')->references('id')->on('Pacientes');
+            $table->foreign('IdPaciente')->references('id')->on('Paciente');
             $table->foreign('IdTipoConsulta')->references('id')->on('TipoConsulta');
             $table->foreign('IdEstatusConsulta')->references('id')->on('EstatusConsulta');
         });

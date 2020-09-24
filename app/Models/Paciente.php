@@ -4,12 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use App\Models\Sexo;
 class Paciente extends Model
 {
-    protected $table = 'Pacientes';
+    
     use SoftDeletes;
     protected $fillable = [
-        'Nombre','ApellidoPaterno','ApellidoMaterno','FechaNacimiento','Telefono', 'Foto',
+        'IdSexo','Nombre','ApellidoPaterno','ApellidoMaterno','FechaNacimiento','Telefono', 'Foto','LugarOrigen','Correo','TipoSangre',
     ];
+
+    public function sexo()
+    {
+        return $this->hasOne(Sexo::class);
+    }
 }

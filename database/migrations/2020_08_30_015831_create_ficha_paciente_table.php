@@ -16,14 +16,10 @@ class CreateFichaPacienteTable extends Migration
         Schema::create('FichaPaciente', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('IdPaciente');
-            $table->unsignedBigInteger('IdSexo');
-            $table->string('LugarOrigen');
             $table->string('LugarResidencia');
             $table->string('Direccion');
-            $table->string('Correo')->nullable();
             $table->decimal('Peso');
             $table->decimal('Talla');
-            $table->string('TipoSangre')->nullable();
             $table->Integer('SPO2');
             $table->Integer('FC');
             $table->Integer('FR');
@@ -32,8 +28,7 @@ class CreateFichaPacienteTable extends Migration
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('IdPaciente')->references('id')->on('Pacientes');
-            $table->foreign('IdSexo')->references('id')->on('Sexo');
+            $table->foreign('IdPaciente')->references('id')->on('Paciente');
         });
     }
 
