@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test', 'testController@index')->name('test');
+Route::get('/inicio', 'testController@index')->name('test');
 Route::get('/test/nuevoPaciente', 'testController@nuevo')->name('paciente');
 Route::post('/test/guardarPaciente', 'testController@store')->name('paciente.store');
 

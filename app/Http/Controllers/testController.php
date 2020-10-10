@@ -9,7 +9,7 @@ use App\ViewModel\PacienteViewModel;
 class testController extends Controller
 {
     public function index(){
-        return view('test');
+        return view('Shared.masterAdmin');
     }
 
     public function nuevo()
