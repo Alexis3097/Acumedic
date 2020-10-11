@@ -136,7 +136,7 @@
                             </a>
                             <div class="dropdown-divider"></div>
 
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <a href="{{ route('salir') }}" class="dropdown-item notify-item">
                                 <i data-feather="log-out" class="icon-dual icon-xs mr-2"></i>
                                 <span>Cerrar sesión</span>
                             </a>

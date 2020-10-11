@@ -23,6 +23,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('Admin.home');
+    }
+
+    public function doLogout()
+    {
+        
+ 
+        return redirect()->route('inicio');
     }
 }
