@@ -42,33 +42,32 @@
         <div class="col-md-4 footer-logo">
           <figure class="figure-footer"><img src="{{asset('img/acumedic-logo.png')}}" alt=""></figure>
           <div class="desc">
-            <p class="descripcion">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-              piece</p>
+            <p class="descripcion">Centro especializado en Acupuntura-Naturopatia y geriatría. Diplomados profesionales en salud alternativa</p>
             <ul>
               <li><i class="icono fas fa-map-marker-alt"></i>
-                <p>123 Lorem ipsum dolor sit amet, consectetur</p>
+                <p>Monseni #124. Fraccionamiento Montserrat. C.P.29070 Tuxtla Gutiérrez, Chiapas, México</p>
               </li>
               <li><i class="icono far fa-envelope"></i>
-                <p>123 Lorem ipsum dolor sit amet, consectetur</p>
+                <p>medicalternativa@hotmail.com</p>
               </li>
               <li><i class="icono fas fa-phone"></i>
-                <p>123 Lorem ipsum dolor sit amet, consectetur</p>
+                <p>961-173-4245</p>
               </li>
               <li><i class="icono far fa-clock"></i>
-                <p>123 Lorem ipsum dolor sit amet, consectetur</p>
+                <p>Lun a Vie : 10:00 - 20:00</p>
               </li>
             </ul>
           </div>
         </div>
         <div class="col-md-4 colFooter">
           <div class="tituloFooter">
-            <p>Links Frecuentes</p>
+            <p>Páginas de interes</p>
           </div>
           <div class="sublinks">
             <ul>
-              <li><a>coronavairas</a></li>
-              <li><a>coronavairas</a></li>
-              <li><a>coronavairas</a></li>
+              <li><a>Contacto</a></li>
+              <li><a>Productos</a></li>
+              <li><a>Servicios</a></li>
             </ul>
           </div>
         </div>
@@ -78,9 +77,8 @@
           </div>
           <div class="sublinks">
             <ul>
-              <li><a>coronavairas</a></li>
-              <li><a>coronavairas</a></li>
-              <li><a>coronavairas</a></li>
+              <li><a>Nosotros</a></li>
+              <li><a>¿Qués es la Acunputura</a></li>
             </ul>
           </div>
         </div>
@@ -92,8 +90,8 @@
       <div class="row">
         <div class="col-md-6">
           <div class="social-media">
-            <p><i class="fab fa-facebook-f"></i></p>
-            <p><i class="fab fa-instagram"></i></p>
+            <a><i class="fab fa-facebook-f"></i></a>
+            <a><i class="fab fa-instagram"></i></a>
           </div>
         </div>
         <div class="col-md-6">

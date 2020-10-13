@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="{{asset('css/Admin/bootstrap.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/bootstrap.min.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/icon.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/Admin/icons.min.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/app.min.css')}}" type="text/css">
         @livewireStyles
     </head>
@@ -26,10 +27,10 @@
                     <!-- LOGO -->
                     <a href="index.html" class="navbar-brand mr-0 mr-md-2 logo">
                         <span class="logo-lg">
-                            <img src="assets/images/logo.png" alt="" height="50" />
+                            <img src="{{asset('img/acumedic-logo.png')}}" alt="" height="50" />
                         </span>
                         <span class="logo-sm">
-                            <img src="assets/images/logo.png" alt="" height="24">
+                            <img src="{{asset('img/acumedic-logo.png')}}" alt="" height="24">
                         </span>
                     </a>
 
@@ -64,7 +65,7 @@
                             <a class="nav-link dropdown-toggle nav-user mr-0" data-toggle="dropdown" href="#" role="button"
                                 aria-haspopup="false" aria-expanded="false">
                                 <div class="media user-profile ">
-                                    <img src="assets/images/users/avatar-7.jpg" alt="user-image" class="rounded-circle align-self-center" />
+                                    <img src="{{asset('img/Admin/users/avatar-4.png')}}" alt="user-image" class="rounded-circle align-self-center" />
                                     <div class="media-body text-left">
                                         <h6 class="pro-user-name ml-2 my-0">
                                             <span>Shreyu N</span>
@@ -112,8 +113,8 @@
             <!-- ========== Left Sidebar Start ========== -->
             <div class="left-side-menu">
                 <div class="media user-profile mt-2 mb-2">
-                    <img src="assets/images/users/avatar-7.jpg" class="avatar-sm rounded-circle mr-2" alt="Shreyu" />
-                    <img src="assets/images/users/avatar-7.jpg" class="avatar-xs rounded-circle mr-2" alt="Shreyu" />
+                    <img src="{{asset('img/Admin/users/avatar-4.png')}}" class="avatar-sm rounded-circle mr-2" alt="Shreyu" />
+                    <img src="{{asset('img/Admin/users/avatar-4.png')}}" class="avatar-xs rounded-circle mr-2" alt="Shreyu" />
 
                     <div class="media-body">
                         <h6 class="pro-user-name mt-0 mb-0">Alexis Montoya</h6>

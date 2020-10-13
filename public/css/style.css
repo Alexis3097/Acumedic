@@ -932,10 +932,11 @@ footer .footer-logo .desc ul li .icono{
   margin-right: 5px;
 }
 footer .footer-logo .desc ul li p{
-  color:#fff;
+  color: #fff;
   font-weight: lighter;
   font-size: var(--font-s);
   display: inline-block;
+  width: 93%;
 }
 footer .colFooter{
   padding: 1% 4%;
@@ -961,6 +962,10 @@ footer .colFooter .sublinks ul li a{
   line-height: 40px;
   font-size: var(--font-s);
   text-align: left;
+  transition:ease all .2s;
+}
+footer .colFooter .sublinks ul li a:hover{
+  color:var(--blue2);
 }
 .toe{
   padding: 1% 0%;
@@ -968,12 +973,17 @@ footer .colFooter .sublinks ul li a{
   min-height: 1vh;
   width: 100%!important;
 }
-.toe .social-media p{
-  color:#fff;
+.toe .social-media a{
+  color:#fff!important;
   margin: 5px;
   box-sizing: border-box;
   display: inline-block;
+  transition:ease all .2s;
   font-size: var(--font-s);
+  cursor: pointer;
+}
+.toe .social-media a:hover{
+  color:var(--blue2)!important;
 }
 .toe .copyright p{
   color:#fff;
