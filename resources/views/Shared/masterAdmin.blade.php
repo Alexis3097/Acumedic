@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8" />
-        <title>Shreyu - Admin & Dashboard Template</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-        <meta content="Coderthemes" name="author" />
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link rel="shortcut icon" href="{{asset('img/Admin/favicon.ico')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('libs/flatpickr/flatpickr.min.css')}}" type="text/css">
@@ -137,10 +138,15 @@
                             </a>
                             <div class="dropdown-divider"></div>
 
-                            <a href="{{ route('salir') }}" class="dropdown-item notify-item">
+                            <a href="{{ route('logout') }}" class="dropdown-item notify-item"
+                                onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
                                 <i data-feather="log-out" class="icon-dual icon-xs mr-2"></i>
                                 <span>Cerrar sesión</span>
                             </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </div>
                     </div>
                 </div>

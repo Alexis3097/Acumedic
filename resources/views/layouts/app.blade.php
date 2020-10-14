@@ -25,7 +25,7 @@
     @livewireStyles
 </head>
 <body>
-            @yield('content')
+    @yield('content')
     <script src="{{asset('js/Admin/vendor.min.js')}}"></script>
     <script src="{{asset('js/Admin/app.js')}}"></script>
     @livewireScripts

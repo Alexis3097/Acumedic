@@ -19,7 +19,7 @@
                                         <h6 class="h5 mb-0 mt-4">{{ __('Login') }}</h6>
                                         <p class="text-muted mt-1 mb-4">Ingresa con tu nombre de usuario</p>
 
-                                        <form method="POST" action="{{ route('login') }}" class="authentication-form">
+                                        <form method="POST" action="{{ route('login') }}" >
                                             @csrf
                                             <div class="form-group">
                                                 <label for="email" class="form-control-label">{{ __('E-Mail Address') }}</label>
@@ -29,7 +29,7 @@
                                                             <i class="icon-dual" data-feather="user"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="tu usuario" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="tu usuario">
                                                 
                                                 @error('email')
                                                     <span class="invalid-feedback" role="alert">
