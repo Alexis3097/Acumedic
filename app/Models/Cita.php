@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cita extends Model
 {
     use softDeletes;
+    protected $table = 'Cita';
     protected $fillable = [
         'IdPaciente','IdTipoConsulta','IdEstatusConsulta','Descripcion','Fecha',
     ];

@@ -12,7 +12,7 @@
           </div>
           <div class="col-md-3">
             <div class="redirect">
-              <h3><i class="icono fas fa-home"></i><a style="color:#fff;" href="">Inicio</a><i
+              <h3><i class="icono fas fa-home"></i><a style="color:#fff;" href="{{ route('inicio') }}">Inicio</a><i
                   class="icono fas fa-chevron-right"></i> Servicios</h3>
             </div>
           </div>
@@ -35,7 +35,7 @@
                   <p class="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel saepe accusantium
                     repellendus aspernatur quisquam et ducimus rem commodi animi tempore culpa iusto odio sapiente vero
                     quo aut, magni inventore! Repudiandae?</p>
-                  <a href="" class="goToServicio">Leer más</a>
+                  <a href="{{ route('servicio-detallado') }}" class="goToServicio">Leer más</a>
                 </div>
               </div>
             </div>
@@ -49,7 +49,7 @@
                   <p class="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel saepe accusantium
                     repellendus aspernatur quisquam et ducimus rem commodi animi tempore culpa iusto odio sapiente vero
                     quo aut, magni inventore! Repudiandae?</p>
-                  <a href="" class="goToServicio">Leer más</a>
+                  <a href="{{ route('servicio-detallado') }}" class="goToServicio">Leer más</a>
                 </div>
               </div>
             </div>
@@ -63,7 +63,7 @@
                   <p class="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel saepe accusantium
                     repellendus aspernatur quisquam et ducimus rem commodi animi tempore culpa iusto odio sapiente vero
                     quo aut, magni inventore! Repudiandae?</p>
-                  <a href="" class="goToServicio">Leer más</a>
+                  <a href="{{ route('servicio-detallado') }}" class="goToServicio">Leer más</a>
                 </div>
               </div>
             </div>

@@ -9,6 +9,7 @@ class Paciente extends Model
 {
     
     use SoftDeletes;
+    protected $table = 'Paciente';
     protected $fillable = [
         'IdSexo','Nombre','ApellidoPaterno','ApellidoMaterno','FechaNacimiento','Telefono', 'Foto','LugarOrigen','Correo','TipoSangre',
     ];

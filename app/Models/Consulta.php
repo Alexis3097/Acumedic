@@ -9,6 +9,7 @@ use App\Models\SintomaSubjetivo;
 class Consulta extends Model
 {
     use SoftDeletes;
+    protected $table = 'Consulta';
     protected $fillable = [
         'IdPaciente','Motivo',
     ];
