@@ -23,10 +23,10 @@
         <span class="bar"></span>
       </div>
       <ul class="nav no-search">
-        <li class="nav-item"><a href="#">Inicio</a></li>
-        <li class="nav-item"><a href="#">Nosotros</a></li>
-        <li class="nav-item"><a href="#">Servicios</a></li>
-        <li class="nav-item"><a href="#">Contacto</a></li>
+        <li class="nav-item"><a href="{{ route('inicio') }}">Inicio</a></li>
+        <li class="nav-item"><a href="{{ route('nosotros') }}">Nosotros</a></li>
+        <li class="nav-item"><a href="{{ route('servicios') }}">Servicios</a></li>
+        <li class="nav-item"><a href="{{ route('contacto') }}">Contacto</a></li>
         <li class="nav-item"><a href="#"class="btn-nav">Productos</a></li>
       </ul>
     </nav>

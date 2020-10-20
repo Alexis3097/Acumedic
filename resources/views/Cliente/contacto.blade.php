@@ -11,7 +11,7 @@
           </div>
           <div class="col-md-3">
             <div class="redirect">
-              <h3><i class="icono fas fa-home"></i><a style="color:#fff;" href="">Inicio</a><i
+              <h3><i class="icono fas fa-home"></i><a style="color:#fff;" href="{{ route('inicio') }}">Inicio</a><i
                   class="icono fas fa-chevron-right"></i> Contacto</h3>
             </div>
           </div>

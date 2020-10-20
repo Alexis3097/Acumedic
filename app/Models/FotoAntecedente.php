@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Paciente;
 class FotoAntecedente extends Model
 {
+    protected $table = 'FotoAntecedente';
     protected $fillable = [
         'IdPaciente','Tipo','Url','Nombre','Descripcion',
     ];

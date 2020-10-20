@@ -37,7 +37,7 @@
                         <h3 class="mb-0">{{ __('New Client') }}</h3>
                     </div>
                     <div>
-                        <a href="{{ route('test') }}" class="btn btn-danger">
+                        <a href="" class="btn btn-danger">
                             {{ __('Cancel')}}
                         </a>
                     </div>

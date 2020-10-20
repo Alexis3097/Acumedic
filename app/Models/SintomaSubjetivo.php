@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Consulta;
 class SintomaSubjetivo extends Model
 {
+    protected $table = 'SintomaSubjetivo';
     protected $fillable = [
         'IdConsulta','Nombre','Descripcion',
     ];

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class FichaPaciente extends Model
 {
     use SoftDeletes;
+    protected $table = 'FichaPaciente';
     protected $fillable = [
         'IdPaciente','LugarResidencia','Direccion',
         'Peso','Talla','SPO2','FC','FR','TA','Dextrosis',
