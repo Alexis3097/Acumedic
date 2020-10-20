@@ -217,6 +217,7 @@
     @yield('content')
         <!-- Vendor js -->
         <script src="{{asset('js/Admin/vendor.min.js')}}"></script>
+        <script src="{{asset('js/all.js')}}"></script>
         <script src="{{asset('js/Admin/libs/moment/moment.min.js')}}"></script>
         <script src="{{asset('js/Admin/libs/apexcharts/apexcharts.min.js')}}"></script>
         <script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
