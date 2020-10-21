@@ -53,7 +53,7 @@
                                     <a href="" class="btn btn-primary btn-sm float-right">
                                         <i class='uil uil-export ml-1'></i> Exportar
                                     </a>
-                                    <a href="" style="margin-right:10px;" class="btn btn-primary btn-sm float-right">
+                                    <a href="{{ route('NuevaCita') }}" style="margin-right:10px;" class="btn btn-primary btn-sm float-right">
                                         <i class='uil uil-export ml-2'></i> Crear cita
                                     </a>
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista de citas</h5>
@@ -62,7 +62,7 @@
                                         <table class="table table-hover table-nowrap mb-0">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Cliente</th>
+                                                    <th scope="col">Paciente</th>
                                                     <th scope="col">Fecha </th>
                                                     <th scope="col">Hora</th>
                                                     <th scope="col">Estatus</th>
@@ -70,9 +70,10 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            @foreach($Citas as $cita)
                                                 <tr>
-                                                    <td>Luis Felipe Martínezz Ortega</td>
-                                                    <td>05/10/2020</td>
+                                                    <td>{{$cita->paciente->NombreCompleto}}</td>
+                                                    <td>{{$cita->Fecha}}</td>
                                                     <td>05:00 - 15:00</td>
                                                     <td><span class="badge badge-soft-warning py-1">Pending</span></td>
                                                     <td><button type="button" class="btn btn-outline-success"><i class="fa fa-trash"></i></button>
@@ -80,26 +81,7 @@
                                                         <button type="button" class="btn btn-outline-warning"><i class="fa fa-check"></i></button>
                                                         <button type="button" class="btn btn-outline-info"><i class="fa fa-search"></i></button></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Luis Felipe Martínezz Ortega</td>
-                                                    <td>05/10/2020</td>
-                                                    <td>05:00 - 15:00</td>
-                                                    <td><span class="badge badge-soft-warning py-1">Pending</span></td>
-                                                    <td><button type="button" class="btn btn-outline-success"><i class="fa fa-trash"></i></button>
-                                                        <button type="button" class="btn btn-outline-danger"><i class="fa fa-edit"></i></button>
-                                                        <button type="button" class="btn btn-outline-warning"><i class="fa fa-check"></i></button>
-                                                        <button type="button" class="btn btn-outline-info"><i class="fa fa-search"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Luis Felipe Martínezz Ortega</td>
-                                                    <td>05/10/2020</td>
-                                                    <td>05:00 - 15:00</td>
-                                                    <td><span class="badge badge-soft-warning py-1">Pending</span></td>
-                                                    <td><button type="button" class="btn btn-outline-success"><i class="fa fa-trash"></i></button>
-                                                        <button type="button" class="btn btn-outline-danger"><i class="fa fa-edit"></i></button>
-                                                        <button type="button" class="btn btn-outline-warning"><i class="fa fa-check"></i></button>
-                                                        <button type="button" class="btn btn-outline-info"><i class="fa fa-search"></i></button></td>
-                                                </tr>
+                                            @endforeach    
                                             </tbody>
                                         </table>
                                     </div> <!-- end table-responsive-->
@@ -120,7 +102,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
-                            2019 &copy; Shreyu. All Rights Reserved. Crafted with <i class='uil uil-heart text-danger font-size-12'></i> by <a href="https://coderthemes.com" target="_blank">Coderthemes</a>
+                            <!-- 2019 &copy; Shreyu. All Rights Reserved. Crafted with <i class='uil uil-heart text-danger font-size-12'></i> by <a href="https://coderthemes.com" target="_blank">Coderthemes</a> -->
                         </div>
                     </div>
                 </div>

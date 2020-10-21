@@ -13,7 +13,7 @@
                             <form class="form-inline float-sm-right mt-3 mt-sm-0">
                                 <div class="btn-group mb-sm-0 mr-2">
 
-                                    <button type="button" class="btn btn-outline-danger">
+                                    <button type="button" class="btn btn-outline-danger" href="{{ route('NuevaCita') }}">
                                         <i class='fas fa-times'></i> Cancelar
                                     </button>
                                 </div>

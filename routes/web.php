@@ -51,4 +51,5 @@ Route::get('/consulta', function () {
 
 //Rutas de administrador
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/exit', 'HomeController@doLogout')->name('salir');
+Route::get('/citas', 'CitasController@index')->name('listaCitas');
+Route::get('/NuevaCita', 'CitasController@create')->name('NuevaCita');

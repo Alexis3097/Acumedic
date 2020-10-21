@@ -26,7 +26,7 @@
             <div class="navbar navbar-expand flex-column flex-md-row navbar-custom">
                 <div class="container-fluid">
                     <!-- LOGO -->
-                    <a href="index.html" class="navbar-brand mr-0 mr-md-2 logo">
+                    <a href="{{ route('home') }}" class="navbar-brand mr-0 mr-md-2 logo">
                         <span class="logo-lg">
                             <img src="{{asset('img/acumedic-logo.png')}}" alt="" height="50" />
                         </span>
@@ -157,7 +157,7 @@
                             <li class="menu-title">Navegación</li>
 
                             <li>
-                                <a href="index.html">
+                                <a href="{{ route('home') }}">
                                     <i data-feather="home"></i>
                                     <span class="badge badge-success float-right">1</span>
                                     <span> Inicio </span>
@@ -165,7 +165,7 @@
                             </li>
                             <li class="menu-title">Funciones</li>
                             <li>
-                                <a href="apps-calendar.html">
+                                <a href="{{ route('listaCitas') }}">
                                     <i data-feather="calendar"></i>
                                     <span> Citas </span>
                                 </a>
