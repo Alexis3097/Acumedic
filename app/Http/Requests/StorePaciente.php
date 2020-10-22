@@ -25,10 +25,10 @@ class StorePaciente extends FormRequest
     }
 
     public function messages()
-{
-    return [
-        'Nombre.required' => 'El :attribute es requerido',
-        
-    ];
-}
+    {
+        return [
+            'Nombre.required' => 'El :attribute es requerido',
+            
+        ];
+    }
 }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\Cita;
+use App\ViewModel\CitaViewModel;
+use App\Http\Requests\StoreCita;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class CitasController extends Controller
 {
     /**
@@ -11,9 +13,9 @@ class CitasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(CitaViewModel $CitaViewModel)
     {
-        $Citas = Cita::all();
+        $Citas = $CitaViewModel->Citas();
         return view('Admin.Citas.citas', compact('Citas'));
 
     }
@@ -23,9 +25,12 @@ class CitasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(CitaViewModel $CitaViewModel)
     {
-        return view('Admin.Citas.crearCita');
+        $fecha = $CitaViewModel->fecha();
+        $tipoConsultas = $CitaViewModel->tipoConsulta();
+        $horarios = $CitaViewModel->horarios();
+        return view('Admin.Citas.crearCita', compact('fecha','tipoConsultas','horarios'));
     }
 
     /**
@@ -34,9 +39,10 @@ class CitasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCita $request)
     {
-        //
+       dd($request->toArray());
+        
     }
 
     /**
