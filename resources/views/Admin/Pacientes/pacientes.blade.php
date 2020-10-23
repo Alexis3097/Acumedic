@@ -48,7 +48,7 @@
                                     <a href="" class="btn btn-primary btn-sm float-right">
                                         <i class='uil uil-export ml-1'></i> Exportar
                                     </a>
-                                    <a href="" style="margin-right:10px;" class="btn btn-primary btn-sm float-right">
+                                    <a href="{{ route('nuevoPaciente') }}" style="margin-right:10px;" class="btn btn-primary btn-sm float-right">
                                         <i class='uil uil-export ml-2'></i> Nuevo paciente
                                     </a>
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista de pacientes</h5>

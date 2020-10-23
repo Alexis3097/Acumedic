@@ -53,5 +53,9 @@ Route::get('/consulta', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 //CITAS
 Route::get('/citas', 'CitasController@index')->name('listaCitas');
-Route::get('/NuevaCita', 'CitasController@create')->name('NuevaCita');
-Route::post('/CrearCita', 'CitasController@store')->name('CrearCita');
+Route::get('/nuevaCita', 'CitasController@create')->name('NuevaCita');
+Route::post('/crearCita', 'CitasController@store')->name('CrearCita');
+
+//PACIENTES
+Route::get('/pacientes', 'PacienteController@index')->name('listaPacientes');
+Route::get('/nuevoPaciente', 'PacienteController@create')->name('nuevoPaciente');
