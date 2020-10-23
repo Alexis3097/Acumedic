@@ -26,7 +26,7 @@ class Cita extends Model
 
     public function estatusConsulta()
     {
-        return $this->hasOne(EstatusConsulta::class);
+        return $this->belongsTo(EstatusConsulta::class,'IdEstatusConsulta');
     }
 
     public function horarios()

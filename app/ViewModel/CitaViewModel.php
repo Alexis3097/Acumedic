@@ -3,6 +3,7 @@
 namespace App\ViewModel;
 use App\Models\Paciente;
 use App\Models\TipoConsulta;
+use App\Models\Sexo;
 use App\Models\Cita;
 use App\Models\Horario;
 use Carbon\Carbon;
@@ -10,21 +11,27 @@ class CitaViewModel
 {
     public function fecha()
     {
-        return Carbon::now();
+      return Carbon::now();
     }
 
     public function tipoConsulta()
     {
-       return TipoConsulta::All();
+      return TipoConsulta::All();
     }
 
     public function Citas()
     {
-       return Cita::All();
+      return Cita::All();
     }
 
     public function horarios()
     {
-       return Horario::All();
+      return Horario::All();
     }
+
+    public function sexo()
+    {
+      return Sexo::All();
+    }
+
 }

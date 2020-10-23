@@ -30,7 +30,8 @@ class CitasController extends Controller
         $fecha = $CitaViewModel->fecha();
         $tipoConsultas = $CitaViewModel->tipoConsulta();
         $horarios = $CitaViewModel->horarios();
-        return view('Admin.Citas.crearCita', compact('fecha','tipoConsultas','horarios'));
+        $sexos = $CitaViewModel->sexo();
+        return view('Admin.Citas.crearCita', compact('fecha','tipoConsultas','horarios','sexos'));
     }
 
     /**

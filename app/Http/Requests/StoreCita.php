@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\FechaMenorAHoy;
 use App\Rules\FechaMayorAHoy;
+use App\Rules\OptionSelect;
 class StoreCita extends FormRequest
 {
     /**
@@ -28,6 +29,9 @@ class StoreCita extends FormRequest
             'Nombre' => 'required',
             'ApellidoPaterno' => 'required',
             'ApellidoMaterno' => 'required',
+            'Sexo' => [new OptionSelect],
+            'Horario' => [new OptionSelect],
+            'TipoConsulta' => [new OptionSelect],
             'FechaNacimiento' => ['required',new FechaMenorAHoy],
             'Telefono' => 'required|numeric',
             'Fecha' => ['required',new FechaMayorAHoy],

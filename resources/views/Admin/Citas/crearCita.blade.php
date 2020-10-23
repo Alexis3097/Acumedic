@@ -36,8 +36,8 @@
                                             <input type="text" class="form-control" placeholder="Buscar">
                                         </div> -->
                                         <div class="form-group col-md-4">
-                                            <label for="validationCustom01">Nombre (s)</label>
-                                            <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="validationCustom01" placeholder="Nombre" required>
+                                            <label for="Nombre">Nombre (s)</label>
+                                            <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="Nombre" placeholder="Nombre" required>
                                             @error('Nombre')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -45,8 +45,8 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="validationCustom02">Apellido paterno</label>
-                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" id="validationCustom02" placeholder="Apellido paterno" required>
+                                            <label for="ApellidoPaterno">Apellido paterno</label>
+                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" id="ApellidoPaterno" placeholder="Apellido paterno" required>
                                             @error('ApellidoPaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -54,8 +54,8 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="validationCustom02">Apellido materno</label>
-                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" id="validationCustom02" placeholder="Apellido materno" required>
+                                            <label for="ApellidoMaterno">Apellido materno</label>
+                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" id="ApellidoMaterno" placeholder="Apellido materno" required>
                                             @error('ApellidoMaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -63,8 +63,22 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="validationCustom01">Fecha de nacimiento</label>
-                                            <input type="date" name="FechaNacimiento" class="form-control @error('FechaNacimiento') is-invalid @enderror" id="validationCustom01" placeholder="Fecha de nacimiento" value="{{ $fecha->format('Y-m-d')}}" required>
+                                            <label for="Sexo">Sexo</label>
+                                            <select data-plugin="customselect" class="form-control @error('Sexo') is-invalid @enderror" name="Sexo">
+                                                <option value="0" selected>Seleccione</option>
+                                            @foreach($sexos as $sexo)
+                                                <option value="{{$sexo->id}}">{{$sexo->Sexo}}</option>
+                                            @endforeach
+                                            </select>
+                                            @error('Sexo')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="FechaNacimiento">Fecha de nacimiento</label>
+                                            <input type="date" name="FechaNacimiento" class="form-control @error('FechaNacimiento') is-invalid @enderror" id="FechaNacimiento" placeholder="Fecha de nacimiento" value="{{ $fecha->format('Y-m-d')}}" required>
                                             @error('FechaNacimiento')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -72,8 +86,8 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="validationCustom02">Teléfono</label>
-                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" id="validationCustom02" placeholder="Telefono" required>
+                                            <label for="Telefono">Teléfono</label>
+                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" id="Telefono" placeholder="Telefono" required>
                                             @error('Telefono')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -81,17 +95,23 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="validationCustom02">Tipo de consulta</label>
-                                            <select data-plugin="customselect" class="form-control" name="TipoConsulta">
+                                            <label for="TipoConsulta">Tipo de consulta</label>
+                                            <select data-plugin="customselect" class="form-control @error('TipoConsulta') is-invalid @enderror" name="TipoConsulta">
+                                                <option value="0">Seleccione</option>
                                             @foreach($tipoConsultas as $tipoConsulta)
                                                 <option value="{{$tipoConsulta->id}}">{{$tipoConsulta->Nombre}}</option>
                                             @endforeach
                                             </select>
+                                            @error('TipoConsulta')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label class="col-lg-2 col-form-label"
-                                            for="example-date">Fecha</label>
-                                            <input class="form-control @error('Fecha') is-invalid @enderror" name="Fecha" id="example-date" type="date" value="{{ $fecha->format('Y-m-d')}}">
+                                            for="Fecha">Fecha</label>
+                                            <input class="form-control @error('Fecha') is-invalid @enderror" name="Fecha" id="Fecha" type="date" value="{{ $fecha->format('Y-m-d')}}">
                                             @error('Fecha')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -100,11 +120,17 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Hora">Horario</label>
-                                            <select data-plugin="customselect" class="form-control" name="Horario">
+                                            <select data-plugin="customselect" class="form-control @error('Horario') is-invalid @enderror" name="Horario" id="Hora" multiple>
+                                                <option value="0" selected>Seleccione</option>
                                             @foreach($horarios as $horario)
                                                 <option value="{{$horario->id}}">{{$horario->Horario}}</option>
                                             @endforeach
                                             </select>
+                                            @error('Horario')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-6">
                                             <a href="{{ route('listaCitas') }}" class="btn btn-danger" >Cancelar</a>
