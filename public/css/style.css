@@ -386,6 +386,7 @@ input {
   min-height: auto;
   padding: 2% 4%;
   width: 90%;
+  background-size:cover;
   background-repeat: no-repeat;
   display: block;
   margin: auto;
