@@ -15,11 +15,11 @@ class CreatePacienteTable extends Migration
     {
         Schema::create('Paciente', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('IdSexo');
+            $table->unsignedBigInteger('IdSexo')->nullable();
             $table->string("Nombre");
             $table->string("ApellidoPaterno");
             $table->string("ApellidoMaterno");
-            $table->date("FechaNacimiento");
+            $table->date("FechaNacimiento")->nullable();
             $table->string("Telefono");
             $table->string("Foto")->nullable();
             $table->string("LugarOrigen")->nullable();

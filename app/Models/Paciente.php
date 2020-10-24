@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Sexo;
 use App\Models\Cita;
+use Carbon\Carbon;
 class Paciente extends Model
 {
     
@@ -28,5 +29,11 @@ class Paciente extends Model
     public function getNombreCompletoAttribute()
     {
         return "{$this->Nombre} {$this->ApellidoPaterno} {$this->ApellidoMaterno}";
+    }
+    
+    public function getEdadAttribute()
+    {
+        $fechaSplit = explode("-", $this->FechaNacimiento);
+        return Carbon::createFromDate($fechaSplit[0], $fechaSplit[1], $fechaSplit[2])->age;
     }
 }

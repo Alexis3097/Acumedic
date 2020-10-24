@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 class CitasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +19,7 @@ class CitasController extends Controller
      */
     public function index(CitaViewModel $CitaViewModel)
     {
-        $Citas = $CitaViewModel->Citas();
+        $Citas = $CitaViewModel->getCitas();
         return view('Admin.Citas.citas', compact('Citas'));
 
     }
@@ -27,11 +31,10 @@ class CitasController extends Controller
      */
     public function create(CitaViewModel $CitaViewModel)
     {
-        $fecha = $CitaViewModel->fecha();
-        $tipoConsultas = $CitaViewModel->tipoConsulta();
-        $horarios = $CitaViewModel->horarios();
-        $sexos = $CitaViewModel->sexo();
-        return view('Admin.Citas.crearCita', compact('fecha','tipoConsultas','horarios','sexos'));
+        $fecha = $CitaViewModel->getFecha();
+        $tipoConsultas = $CitaViewModel->getTipoConsulta();
+        $horarios = $CitaViewModel->getHorarios();
+        return view('Admin.Citas.crearCita', compact('fecha','tipoConsultas','horarios'));
     }
 
     /**

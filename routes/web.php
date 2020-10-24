@@ -59,3 +59,4 @@ Route::post('/crearCita', 'CitasController@store')->name('CrearCita');
 //PACIENTES
 Route::get('/pacientes', 'PacienteController@index')->name('listaPacientes');
 Route::get('/nuevoPaciente', 'PacienteController@create')->name('nuevoPaciente');
+Route::post('/CrearPaciente', 'PacienteController@store')->name('CrearPaciente');

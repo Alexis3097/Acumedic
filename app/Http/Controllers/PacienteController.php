@@ -3,17 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\ViewModel\PacienteViewModel;
+use App\Http\Requests\StorePaciente;
 class PacienteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(PacienteViewModel $PacienteViewModel)
     {
-        return view('Admin.Pacientes.pacientes');
+        $pacientes = $PacienteViewModel->getPacientes();
+        return view('Admin.Pacientes.pacientes', compact('pacientes'));
     }
 
     /**
@@ -21,9 +27,11 @@ class PacienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(PacienteViewModel $PacienteViewModel)
     {
-        return view('Admin.Pacientes.crearPaciente');
+        $fecha = $PacienteViewModel->getFecha();
+        $Sexos = $PacienteViewModel->getSexos();
+        return view('Admin.Pacientes.crearPaciente', compact('fecha', 'Sexos'));
     }
 
     /**
@@ -32,9 +40,10 @@ class PacienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePaciente $request, PacienteViewModel $PacienteViewModel)
     {
-        //
+        $paciente = $PacienteViewModel->create($request);
+        return redirect()->route('listaPacientes');
     }
 
     /**

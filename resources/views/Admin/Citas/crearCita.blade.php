@@ -63,29 +63,6 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="Sexo">Sexo</label>
-                                            <select data-plugin="customselect" class="form-control @error('Sexo') is-invalid @enderror" name="Sexo">
-                                                <option value="0" selected>Seleccione</option>
-                                            @foreach($sexos as $sexo)
-                                                <option value="{{$sexo->id}}">{{$sexo->Sexo}}</option>
-                                            @endforeach
-                                            </select>
-                                            @error('Sexo')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="FechaNacimiento">Fecha de nacimiento</label>
-                                            <input type="date" name="FechaNacimiento" class="form-control @error('FechaNacimiento') is-invalid @enderror" id="FechaNacimiento" placeholder="Fecha de nacimiento" value="{{ $fecha->format('Y-m-d')}}" required>
-                                            @error('FechaNacimiento')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group col-md-4">
                                             <label for="Telefono">Teléfono</label>
                                             <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" id="Telefono" placeholder="Telefono" required>
                                             @error('Telefono')
@@ -109,7 +86,7 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label class="col-lg-2 col-form-label"
+                                            <label 
                                             for="Fecha">Fecha</label>
                                             <input class="form-control @error('Fecha') is-invalid @enderror" name="Fecha" id="Fecha" type="date" value="{{ $fecha->format('Y-m-d')}}">
                                             @error('Fecha')
@@ -132,7 +109,7 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-12">
                                             <a href="{{ route('listaCitas') }}" class="btn btn-danger" >Cancelar</a>
                                             <button class="btn btn-primary" type="submit">Crear cita</button>
                                         </div>

@@ -9,27 +9,27 @@ use App\Models\Horario;
 use Carbon\Carbon;
 class CitaViewModel
 {
-    public function fecha()
+    public function getFecha()
     {
       return Carbon::now();
     }
 
-    public function tipoConsulta()
+    public function getTipoConsulta()
     {
       return TipoConsulta::All();
     }
 
-    public function Citas()
+    public function getCitas()
     {
       return Cita::All();
     }
 
-    public function horarios()
+    public function getHorarios()
     {
       return Horario::All();
     }
 
-    public function sexo()
+    public function getSexos()
     {
       return Sexo::All();
     }

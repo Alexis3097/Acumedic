@@ -13,9 +13,9 @@
                             <form class="form-inline float-sm-right mt-3 mt-sm-0">
                                 <div class="btn-group mb-sm-0 mr-2">
 
-                                    <button type="button" class="btn btn-outline-danger">
+                                    <a href="{{ route('listaPacientes') }}" class="btn btn-outline-danger">
                                         <i class='fas fa-times'></i> Cancelar
-                                    </button>
+                                    </a>
                                 </div>
                             </form>
                         </div>
@@ -29,84 +29,109 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="needs-validation row" novalidate>
+                                    <form class="needs-validation row" novalidate method="POST" action="{{ route ('CrearPaciente') }}" enctype="multipart/form-data">
+                                    @csrf
                                         <div class="form-group col-md-4">
-                                            <label for="validationCustom01">Nombre (s)</label>
-                                            <input type="text" class="form-control" id="validationCustom01" placeholder="First name" required>
-                                            <div class="valid-feedback">
-                                                Guardado
-                                            </div>
+                                            <label for="Nombre">Nombre (s)</label>
+                                            <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="Nombre" placeholder="Nombres" required>
+                                            @error('Nombre')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="validationCustom02">Apellido paterno</label>
-                                            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" required>
-                                            <div class="valid-feedback">
-                                                Guardado
-                                            </div>
+                                            <label for="ApellidoPaterno">Apellido paterno</label>
+                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" id="ApellidoPaterno" placeholder="Apellido paterno" required>
+                                            @error('ApellidoPaterno')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="validationCustom02">Apellido materno</label>
-                                            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" required>
-                                            <div class="valid-feedback">
-                                                Guardado
-                                            </div>
+                                            <label for="ApellidoMaterno">Apellido materno</label>
+                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" id="ApellidoMaterno" placeholder="Apellido materno" required>
+                                            @error('ApellidoMaterno')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="validationCustom01">Fecha de nacimiento</label>
-                                            <input type="text" class="form-control" id="validationCustom01" placeholder="First name" required>
-                                            <div class="valid-feedback">
-                                                Guardado
-                                            </div>
+                                            <label for="FechaNacimiento">Fecha de nacimiento</label>
+                                            <input type="date" name="FechaNacimiento" class="form-control @error('FechaNacimiento') is-invalid @enderror" id="FechaNacimiento" value="{{ $fecha->format('Y-m-d')}}">
+                                            @error('FechaNacimiento')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="validationCustom02">Teléfono</label>
-                                            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" required>
-                                            <div class="valid-feedback">
-                                                Guardado
-                                            </div>
+                                            <label for="Telefono">Teléfono</label>
+                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" id="Telefono" placeholder="Telefono" required>
+                                            @error('Telefono')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="validationCustom02">Sexo</label>
-                                            <select data-plugin="customselect" class="form-control">
-                                                <option value="0">Sin definir</option>
-                                                <option value="1">Femenino</option>
-                                                <option value="0">Masculino</option>
+                                            <label for="IdSexo">Sexo</label>
+                                            <select data-plugin="customselect" class="form-control @error('IdSexo') is-invalid @enderror" name="IdSexo">
+                                            <option value="0">Seleccione</option>
+                                                @foreach($Sexos as $sexo)
+                                                    <option value="{{$sexo->id}}">{{$sexo->Sexo}}</option>
+                                                @endforeach
                                             </select>
+                                            @error('IdSexo')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label class="col-lg-2 col-form-label"
-                                            for="example-date">E-mail</label>
-                                            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" required>
-                                            <div class="valid-feedback">
-                                                Guardado
-                                            </div>
+                                            <label
+                                            for="Correo">E-mail</label>
+                                            <input type="text" name ="Correo" class="form-control @error('Correo') is-invalid @enderror" id="Correo" placeholder="E-mail" required>
+                                            @error('Correo')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label class="col-lg-2 col-form-label"
-                                            for="example-date">Origen</label>
-                                            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" required>
-                                            <div class="valid-feedback">
-                                                Guardado
-                                            </div>
+                                            <label
+                                            for="LugarOrigen">Lugar de origen</label>
+                                            <input type="text" name="LugarOrigen" class="form-control @error('LugarOrigen') is-invalid @enderror" id="LugarOrigen" placeholder="Lugar de origen" required>
+                                            @error('LugarOrigen')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label class="col-lg-2 col-form-label"
-                                            for="example-date">Sangre</label>
-                                            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" required>
-                                            <div class="valid-feedback">
-                                                Guardado
-                                            </div>
+                                            <label
+                                            for="TipoSangre">Tipo de sangre</label>
+                                            <input type="text" class="form-control @error('TipoSangre') is-invalid @enderror" id="TipoSangre" placeholder="Tipo de sangre" required name="TipoSangre">
+                                            @error('TipoSangre')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label class="col-lg-2 col-form-label"
-                                            for="example-date">Imagen</label>
-                                            <div class="fallback">
-                                                <input name="file" type="file" multiple />
-                                            </div>
+                                            <label for="example-date">Imagen</label>
+                                            <input name="Foto" type="file" accept="image/*"/>
+                                            @error('Foto')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <button class="btn btn-danger" type="submit">Cancelar</button>
-                                            <button class="btn btn-primary" type="submit">Guardar paciente</button>
+                                            <a href="{{ route('listaPacientes') }}" class="btn btn-danger" >Cancelar</a>
+                                            <button type="submit" class="btn btn-primary" >Guardar paciente</button>
                                         </div>
                                     </form>
 
@@ -122,17 +147,7 @@
 
             
 
-            <!-- Footer Start -->
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            2019 &copy; Shreyu. All Rights Reserved. Crafted with <i class='uil uil-heart text-danger font-size-12'></i> by <a href="https://coderthemes.com" target="_blank">Coderthemes</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!-- end Footer -->
+            
 
 </div>
 

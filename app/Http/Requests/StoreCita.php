@@ -29,10 +29,8 @@ class StoreCita extends FormRequest
             'Nombre' => 'required',
             'ApellidoPaterno' => 'required',
             'ApellidoMaterno' => 'required',
-            'Sexo' => [new OptionSelect],
-            'Horario' => [new OptionSelect],
+            'Horario' => ['required',new OptionSelect],
             'TipoConsulta' => [new OptionSelect],
-            'FechaNacimiento' => ['required',new FechaMenorAHoy],
             'Telefono' => 'required|numeric',
             'Fecha' => ['required',new FechaMayorAHoy],
         ];
@@ -42,7 +40,11 @@ class StoreCita extends FormRequest
     {
         return [
             'Nombre.required' => 'El :attribute es requerido',
+            'ApellidoPaterno.required' => 'El :attribute es requerido',
+            'ApellidoMaterno.required' => 'El :attribute es requerido',
+            'Horario.required' => 'El :attribute es requerido',
             'Telefono.numeric' => 'El :attribute debe ser de tipo numerico',
+            'Fecha.required' => 'El :attribute es requerido',
             
         ];
     }
