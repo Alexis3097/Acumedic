@@ -165,13 +165,13 @@
                             </li>
                             <li class="menu-title">Funciones</li>
                             <li>
-                                <a href="{{ route('listaCitas') }}">
+                                <a href="{{ route('citas.list') }}">
                                     <i data-feather="calendar"></i>
                                     <span> Citas </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('listaPacientes') }}">
+                                <a href="{{ route('paciente.list') }}">
                                     <i data-feather="user"></i>
                                     <span> Pacientes </span>
                                     

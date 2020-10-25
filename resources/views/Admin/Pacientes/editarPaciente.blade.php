@@ -6,7 +6,7 @@
                 <div class="container-fluid">
                     <div class="row page-title align-items-center">
                         <div class="col-sm-4 col-xl-6">
-                            <h4 class="mb-1 mt-0">Crear paciente</h4>
+                            <h4 class="mb-1 mt-0">Editar paciente</h4>
                            
                         </div>
                         <div class="col-sm-8 col-xl-6">
@@ -29,11 +29,12 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="needs-validation row" novalidate method="POST" action="{{ route ('paciente.create') }}" enctype="multipart/form-data">
+                                    <form class="needs-validation row" novalidate method="POST"  action="{{ route('paciente.update', ['id'=>$paciente->id]) }}" enctype="multipart/form-data">
                                     @csrf
+                                        <input type="hidden" name="_method" value="PUT">
                                         <div class="form-group col-md-4">
                                             <label for="Nombre">Nombre (s)</label>
-                                            <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="Nombre" placeholder="Nombres" required>
+                                            <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="Nombre" value="{{$paciente->Nombre}}" placeholder="Nombres" required>
                                             @error('Nombre')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -42,7 +43,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoPaterno">Apellido paterno</label>
-                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" id="ApellidoPaterno" placeholder="Apellido paterno" required>
+                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" value="{{$paciente->ApellidoPaterno}}" id="ApellidoPaterno" placeholder="Apellido paterno" required>
                                             @error('ApellidoPaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -51,7 +52,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoMaterno">Apellido materno</label>
-                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" id="ApellidoMaterno" placeholder="Apellido materno" required>
+                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" value="{{$paciente->ApellidoMaterno}}" id="ApellidoMaterno" placeholder="Apellido materno" required>
                                             @error('ApellidoMaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -60,7 +61,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="FechaNacimiento">Fecha de nacimiento</label>
-                                            <input type="date" name="FechaNacimiento" class="form-control @error('FechaNacimiento') is-invalid @enderror" id="FechaNacimiento" value="{{ $fecha->format('Y-m-d')}}">
+                                            <input type="date" name="FechaNacimiento" class="form-control @error('FechaNacimiento') is-invalid @enderror" id="FechaNacimiento"  value="{{$paciente->FechaNacimiento}}">
                                             @error('FechaNacimiento')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -69,7 +70,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Telefono">Teléfono</label>
-                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" id="Telefono" placeholder="Telefono" required>
+                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" value="{{$paciente->Telefono}}" id="Telefono" placeholder="Telefono" required>
                                             @error('Telefono')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -79,9 +80,10 @@
                                         <div class="form-group col-md-4">
                                             <label for="IdSexo">Sexo</label>
                                             <select data-plugin="customselect" class="form-control @error('IdSexo') is-invalid @enderror" name="IdSexo">
-                                            <option value="0" selected>Seleccione</option>
+                                            <option value="0">Seleccione</option>
                                                 @foreach($Sexos as $sexo)
-                                                    <option value="{{$sexo->id}}">{{$sexo->Sexo}}</option>
+                                                <option value="{{$sexo->id}}"
+                                                 @if( (int) $sexo->id === (int) $paciente->IdSexo) selected='selected' @endif>{{$sexo->Sexo}}</option>
                                                 @endforeach
                                             </select>
                                             @error('IdSexo')
@@ -93,7 +95,7 @@
                                         <div class="form-group col-md-4">
                                             <label
                                             for="Correo">E-mail</label>
-                                            <input type="text" name ="Correo" class="form-control @error('Correo') is-invalid @enderror" id="Correo" placeholder="E-mail" required>
+                                            <input type="text" name ="Correo" class="form-control @error('Correo') is-invalid @enderror" value="{{$paciente->Correo}}" id="Correo" placeholder="E-mail" required>
                                             @error('Correo')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -103,7 +105,7 @@
                                         <div class="form-group col-md-4">
                                             <label
                                             for="LugarOrigen">Lugar de origen</label>
-                                            <input type="text" name="LugarOrigen" class="form-control @error('LugarOrigen') is-invalid @enderror" id="LugarOrigen" placeholder="Lugar de origen" required>
+                                            <input type="text" name="LugarOrigen" class="form-control @error('LugarOrigen') is-invalid @enderror" value="{{$paciente->LugarOrigen}}" id="LugarOrigen" placeholder="Lugar de origen" required>
                                             @error('LugarOrigen')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -113,7 +115,7 @@
                                         <div class="form-group col-md-4">
                                             <label
                                             for="TipoSangre">Tipo de sangre</label>
-                                            <input type="text" class="form-control @error('TipoSangre') is-invalid @enderror" id="TipoSangre" placeholder="Tipo de sangre" required name="TipoSangre">
+                                            <input type="text" class="form-control @error('TipoSangre') is-invalid @enderror" value="{{$paciente->TipoSangre}}" id="TipoSangre" placeholder="Tipo de sangre" required name="TipoSangre">
                                             @error('TipoSangre')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -140,8 +142,15 @@
                         </div> <!-- end col-->
                     </div>
                     <!-- end row -->
+                    <!-- stats + charts -->
 
                 </div>
             </div> <!-- content -->
+
+            
+
+            
+
 </div>
+
 @endsection

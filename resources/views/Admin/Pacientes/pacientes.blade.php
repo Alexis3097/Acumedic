@@ -14,7 +14,7 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <a href="{{ route('nuevoPaciente') }}" style="margin-right:10px;" class="btn btn-primary btn-sm float-right">
+                                    <a href="{{ route('paciente.new') }}" style="margin-right:10px;" class="btn btn-primary btn-sm float-right">
                                         <i class='uil uil-export ml-2'></i> Nuevo paciente
                                     </a>
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista de pacientes</h5>
@@ -35,8 +35,10 @@
                                                     <td>{{$paciente->NombreCompleto}}</td>
                                                     <td>{{$paciente->Edad}}</td>
                                                     <td>{{$paciente->Telefono}}</td>
-                                                    <td><button type="button" class="btn btn-outline-success"><i class="fa fa-trash"></i></button>
-                                                        <button type="button" class="btn btn-outline-danger"><i class="fa fa-edit"></i></button></td>
+                                                    <td>
+                                                        <a href="{{ route('paciente.edit', ['id' => $paciente->id]) }}" class="btn btn-outline-danger"><i class="fa fa-edit"></i></a>
+                                                        <button type="button" class="btn btn-outline-success"><i class="fa fa-trash"></i></button>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                             </tbody>

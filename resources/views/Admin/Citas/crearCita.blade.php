@@ -7,13 +7,12 @@
                     <div class="row page-title align-items-center">
                         <div class="col-sm-4 col-xl-6">
                             <h4 class="mb-1 mt-0">Crear nueva cita</h4>
-                           
                         </div>
                         <div class="col-sm-8 col-xl-6">
                             <form class="form-inline float-sm-right mt-3 mt-sm-0">
                                 <div class="btn-group mb-sm-0 mr-2">
 
-                                    <a class="btn btn-outline-danger" href="{{ route('listaCitas') }}">
+                                    <a class="btn btn-outline-danger" href="{{ route('citas.list') }}">
                                         <i class='fas fa-times'></i> Cancelar
                                     </a>
                                 </div>
@@ -29,7 +28,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="{{ route('CrearCita') }}" class="needs-validation row" novalidate method="POST">
+                                    <form action="{{ route('citas.create') }}" class="needs-validation row" novalidate method="POST">
                                     @csrf
                                         <!-- <div class="form-group col-md-12">
                                             <label for="validationCustom01">Buscar</label>
@@ -97,7 +96,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Hora">Horario</label>
-                                            <select data-plugin="customselect" class="form-control @error('Horario') is-invalid @enderror" name="Horario" id="Hora" multiple>
+                                            <select data-plugin="customselect" class="form-control @error('Horario') is-invalid @enderror" name="Horario" id="Hora">
                                                 <option value="0" selected>Seleccione</option>
                                             @foreach($horarios as $horario)
                                                 <option value="{{$horario->id}}">{{$horario->Horario}}</option>
@@ -110,7 +109,7 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <a href="{{ route('listaCitas') }}" class="btn btn-danger" >Cancelar</a>
+                                            <a href="{{ route('citas.list') }}" class="btn btn-danger" >Cancelar</a>
                                             <button class="btn btn-primary" type="submit">Crear cita</button>
                                         </div>
                                     </form>

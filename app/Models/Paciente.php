@@ -36,4 +36,8 @@ class Paciente extends Model
         $fechaSplit = explode("-", $this->FechaNacimiento);
         return Carbon::createFromDate($fechaSplit[0], $fechaSplit[1], $fechaSplit[2])->age;
     }
+    public function getFechaCarbonAttribute()
+    {
+        return Carbon::now();
+    }
 }

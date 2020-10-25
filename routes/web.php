@@ -52,11 +52,13 @@ Route::get('/consulta', function () {
 //-------------------------------Rutas de administrador-------------------------------
 Route::get('/home', 'HomeController@index')->name('home');
 //CITAS
-Route::get('/citas', 'CitasController@index')->name('listaCitas');
-Route::get('/nuevaCita', 'CitasController@create')->name('NuevaCita');
-Route::post('/crearCita', 'CitasController@store')->name('CrearCita');
+Route::get('/citas', 'CitasController@index')->name('citas.list');
+Route::get('/citas/nueva', 'CitasController@create')->name('citas.new');
+Route::post('/citas/crear', 'CitasController@store')->name('citas.create');
 
 //PACIENTES
-Route::get('/pacientes', 'PacienteController@index')->name('listaPacientes');
-Route::get('/nuevoPaciente', 'PacienteController@create')->name('nuevoPaciente');
-Route::post('/CrearPaciente', 'PacienteController@store')->name('CrearPaciente');
+Route::get('/pacientes', 'PacienteController@index')->name('paciente.list');
+Route::get('/pacientes/nuevo', 'PacienteController@create')->name('paciente.new');
+Route::post('/pacientes/crear', 'PacienteController@store')->name('paciente.create');
+Route::get('/pacientes/edit/{id}', 'PacienteController@show')->name('paciente.edit');
+Route::put('/pacientes/update/{id}', 'PacienteController@update')->name('paciente.update');

@@ -43,7 +43,7 @@ class PacienteController extends Controller
     public function store(StorePaciente $request, PacienteViewModel $PacienteViewModel)
     {
         $paciente = $PacienteViewModel->create($request);
-        return redirect()->route('listaPacientes');
+        return redirect()->route('paciente.list');
     }
 
     /**
@@ -52,9 +52,12 @@ class PacienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(PacienteViewModel $PacienteViewModel, $id)
     {
-        //
+        $paciente = $PacienteViewModel->getPaciente($id);
+        $fecha = $PacienteViewModel->getFecha();
+        $Sexos = $PacienteViewModel->getSexos();
+        return view('Admin.Pacientes.editarPaciente', compact('paciente','fecha', 'Sexos'));
     }
 
     /**
@@ -75,9 +78,10 @@ class PacienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePaciente $request, $id, PacienteViewModel $PacienteViewModel)
     {
-        //
+        $paciente = $PacienteViewModel->update($request, $id);
+        return redirect()->route('paciente.list');
     }
 
     /**

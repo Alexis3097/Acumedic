@@ -11,6 +11,11 @@ class PacienteViewModel
         return Paciente::All();
     }
 
+    public function getPaciente($id)
+    {
+        return Paciente::find($id);
+    }
+
     public function getFecha()
     {
       return Carbon::now();
@@ -26,6 +31,29 @@ class PacienteViewModel
     {
         
         $paciente = new Paciente();
+        if($archivo = $pacienteData->file('Foto'))
+        {
+          $nombre = time().'.'.$archivo->getClientOriginalExtension();
+          $archivo->move('uploads', $nombre);
+          $paciente->Foto = $nombre;
+        }
+        $paciente->IdSexo = $pacienteData->IdSexo;
+        $paciente->Nombre = $pacienteData->Nombre;
+        $paciente->ApellidoPaterno = $pacienteData->ApellidoPaterno;
+        $paciente->ApellidoMaterno = $pacienteData->ApellidoMaterno;
+        $paciente->FechaNacimiento = $pacienteData->FechaNacimiento;
+        $paciente->Telefono = $pacienteData->Telefono;
+        $paciente->LugarOrigen = $pacienteData->LugarOrigen;
+        $paciente->Correo = $pacienteData->Correo;
+        $paciente->TipoSangre = $pacienteData->TipoSangre;
+        $paciente->save();
+        return  $paciente;
+    }
+
+    public function update($pacienteData, $id)
+    {
+        
+        $paciente = Paciente::find($id);
         if($archivo = $pacienteData->file('Foto'))
         {
           $nombre = time().'.'.$archivo->getClientOriginalExtension();
