@@ -6,7 +6,7 @@
                 <div class="container-fluid">
                     <div class="row page-title align-items-center">
                         <div class="col-sm-4 col-xl-6">
-                            <h4 class="mb-1 mt-0"> </h4>
+                            <h4 class="mb-1 mt-0">Citas</h4>
                            
                         </div>
                         
