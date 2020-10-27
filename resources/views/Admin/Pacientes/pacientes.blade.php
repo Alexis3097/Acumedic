@@ -30,17 +30,20 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($pacientes as $paciente)
-                                                <tr>
-                                                    <td>{{$paciente->NombreCompleto}}</td>
-                                                    <td>{{$paciente->Edad}}</td>
-                                                    <td>{{$paciente->Telefono}}</td>
-                                                    <td>
-                                                        <a href="{{ route('paciente.edit', ['id' => $paciente->id]) }}" class="btn btn-outline-danger"><i class="fa fa-edit"></i></a>
-                                                        <button type="button" class="btn btn-outline-success"><i class="fa fa-trash"></i></button>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
+                                                <div class="container">
+                                                    @foreach($pacientes as $paciente)
+                                                        <tr>
+                                                            <td>{{$paciente->NombreCompleto}}</td>
+                                                            <td>{{$paciente->Edad}}</td>
+                                                            <td>{{$paciente->Telefono}}</td>
+                                                            <td>
+                                                                <a href="{{ route('paciente.edit', ['id' => $paciente->id]) }}" class="btn btn-outline-danger"><i class="fa fa-edit"></i></a>
+                                                                <button type="button" class="btn btn-outline-success"><i class="fa fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                </div>
+                                                {{ $pacientes->links() }}
                                             </tbody>
                                         </table>
                                     </div> <!-- end table-responsive-->

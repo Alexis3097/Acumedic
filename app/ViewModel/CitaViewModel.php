@@ -5,6 +5,7 @@ use App\Models\Paciente;
 use App\Models\TipoConsulta;
 use App\Models\Sexo;
 use App\Models\Cita;
+use App\Models\CitaHorario;
 use App\Models\Horario;
 use Carbon\Carbon;
 class CitaViewModel
@@ -21,7 +22,7 @@ class CitaViewModel
 
     public function getCitas()
     {
-      return Cita::All();
+      return Cita::paginate(15);
     }
 
     public function getHorarios()
@@ -45,10 +46,18 @@ class CitaViewModel
 
       $cita = new Cita();
       $cita->IdPaciente = $paciente->id;
-      $cita->IdTipoConsulta = $citaData->IdTipoConsulta;
-      $cita->IdEstatusConsulta = $citaData->IdEstatusConsulta;
+      $cita->IdTipoConsulta = $citaData->TipoConsulta;
+      $cita->IdEstatusConsulta = 1;
       $cita->Descripcion = 'Guardado';
       $cita->Fecha = $citaData->Fecha;
+      $cita->save();
+
+      $citaHorario = new CitaHorario();
+      $citaHorario->IdCita = $cita->id;
+      $citaHorario->IdHorario = $citaData->Horario;
+      $citaHorario->save();
+
+      return $cita;
     }
 
 }

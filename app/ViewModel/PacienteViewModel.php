@@ -8,7 +8,7 @@ class PacienteViewModel
 {
     public function getPacientes()
     {
-        return Paciente::All();
+        return Paciente::paginate(15);
     }
 
     public function getPaciente($id)

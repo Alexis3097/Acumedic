@@ -43,9 +43,10 @@ class CitasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCita $request)
+    public function store(StoreCita $request, CitaViewModel $CitaViewModel)
     {
-       dd($request->toArray());
+        $cita = $CitaViewModel->create($request);
+        return redirect()->route('citas.list');
         
     }
 
