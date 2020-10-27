@@ -33,6 +33,10 @@ class Paciente extends Model
     
     public function getEdadAttribute()
     {
+        if(is_null($this->FechaNacimiento))
+        {
+            return 0;
+        }
         $fechaSplit = explode("-", $this->FechaNacimiento);
         return Carbon::createFromDate($fechaSplit[0], $fechaSplit[1], $fechaSplit[2])->age;
     }
