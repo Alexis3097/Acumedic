@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Sexo;
+use App\Models\CitaHorario;
 use App\Models\Cita;
 use Carbon\Carbon;
 class Paciente extends Model

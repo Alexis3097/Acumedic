@@ -55,6 +55,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/citas', 'CitasController@index')->name('citas.list');
 Route::get('/citas/nueva', 'CitasController@create')->name('citas.new');
 Route::post('/citas/crear', 'CitasController@store')->name('citas.create');
+Route::get('/citas/edit/{id}', 'CitasController@show')->name('citas.edit');
+Route::put('/citas/update/{id}', 'CitasController@update')->name('citas.update');
 
 //PACIENTES
 Route::get('/pacientes', 'PacienteController@index')->name('paciente.list');
