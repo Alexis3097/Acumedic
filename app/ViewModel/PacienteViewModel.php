@@ -29,25 +29,14 @@ class PacienteViewModel
 
     public function create($pacienteData): Paciente
     {
-        
-        $paciente = new Paciente();
+        $modelPaciente = $pacienteData->except('_token');
         if($archivo = $pacienteData->file('Foto'))
         {
           $nombre = time().'.'.$archivo->getClientOriginalExtension();
           $archivo->move('uploads', $nombre);
-          $paciente->Foto = $nombre;
+          $modelPaciente['Foto']  = $nombre;
         }
-        $paciente->IdSexo = $pacienteData->IdSexo;
-        $paciente->Nombre = $pacienteData->Nombre;
-        $paciente->ApellidoPaterno = $pacienteData->ApellidoPaterno;
-        $paciente->ApellidoMaterno = $pacienteData->ApellidoMaterno;
-        $paciente->FechaNacimiento = $pacienteData->FechaNacimiento;
-        $paciente->Telefono = $pacienteData->Telefono;
-        $paciente->LugarOrigen = $pacienteData->LugarOrigen;
-        $paciente->Correo = $pacienteData->Correo;
-        $paciente->TipoSangre = $pacienteData->TipoSangre;
-        $paciente->save();
-        return  $paciente;
+        return Paciente::create($modelPaciente);
     }
 
     public function update($pacienteData, $id)

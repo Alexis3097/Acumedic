@@ -38,8 +38,7 @@ class CitaViewModel
 
     public function getHorariosXCita($id)
     { 
-        $ID = (int) $id;
-        $horariosXCita = CitaHorario::where('IdCita', '=' , $ID)->get();
+        $horariosXCita = CitaHorario::where('IdCita', '=' , $id)->get();
         return $horariosXCita;
     }
 

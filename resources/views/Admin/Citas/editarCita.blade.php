@@ -30,7 +30,7 @@
                                 <div class="card-body">
                                     <form action="{{ route('citas.update', ['id' => $cita->id]) }}" class="needs-validation row" novalidate method="POST">
                                     @csrf
-                                        <input type="hidden" name="_method" value="PUT">
+                                    @method('PUT')
                                         <div class="form-group col-md-4">
                                             <label for="Nombre">Nombre (s)</label>
                                             <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="Nombre" placeholder="Nombre" required value="{{$cita->paciente->Nombre}}">

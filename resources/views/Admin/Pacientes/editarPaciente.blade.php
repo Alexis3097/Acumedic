@@ -34,7 +34,7 @@
                                 <div class="card-body">
                                     <form class="needs-validation row" novalidate method="POST"  action="{{ route('paciente.update', ['id'=>$paciente->id]) }}" enctype="multipart/form-data">
                                     @csrf
-                                        <input type="hidden" name="_method" value="PUT">
+                                    @method('PUT')
                                         <div class="form-group col-md-4">
                                             <label for="Nombre">Nombre (s)</label>
                                             <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="Nombre" value="{{$paciente->Nombre}}" placeholder="Nombres" required>
