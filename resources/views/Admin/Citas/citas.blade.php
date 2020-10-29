@@ -56,10 +56,12 @@
                                                         @endforeach
                                                     </td>
                                                     <td><span class="badge badge-soft-warning py-1">{{$cita->estatusConsulta->Nombre}}</span></td>
-                                                    <td><button type="button" class="btn btn-outline-success"><i class="fa fa-trash"></i></button>
-                                                        <button type="button" class="btn btn-outline-danger"><i class="fa fa-edit"></i></button>
+                                                    <td>
+                                                        <a href="{{ route('citas.edit', ['id' => $cita->id]) }}"  class="btn btn-outline-danger"><i class="fa fa-edit"></i></a>
+                                                        <button type="button" class="btn btn-outline-success"><i class="fa fa-trash"></i></button>
                                                         <button type="button" class="btn btn-outline-warning"><i class="fa fa-check"></i></button>
-                                                        <button type="button" class="btn btn-outline-info"><i class="fa fa-search"></i></button></td>
+                                                        <button type="button" class="btn btn-outline-info"><i class="fa fa-search"></i></button>
+                                                    </td>
                                                 </tr>
                                             @endforeach    
                                             </tbody>

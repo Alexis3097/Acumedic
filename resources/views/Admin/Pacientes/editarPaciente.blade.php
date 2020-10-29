@@ -28,10 +28,13 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
+                                <div class="card-header">
+                                    Editar paciente
+                                </div>
                                 <div class="card-body">
                                     <form class="needs-validation row" novalidate method="POST"  action="{{ route('paciente.update', ['id'=>$paciente->id]) }}" enctype="multipart/form-data">
                                     @csrf
-                                        <input type="hidden" name="_method" value="PUT">
+                                    @method('PUT')
                                         <div class="form-group col-md-4">
                                             <label for="Nombre">Nombre (s)</label>
                                             <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="Nombre" value="{{$paciente->Nombre}}" placeholder="Nombres" required>
@@ -59,15 +62,28 @@
                                                 </div>
                                             @enderror
                                         </div>
+                                        @if(is_null($paciente->FechaNacimiento))
                                         <div class="form-group col-md-4">
-                                            <label for="FechaNacimiento">Fecha de nacimiento</label>
-                                            <input type="date" name="FechaNacimiento" class="form-control @error('FechaNacimiento') is-invalid @enderror" id="FechaNacimiento"  value="{{$paciente->FechaNacimiento}}">
+                                            <label for="FechaNacimiento1">Fecha de nacimiento</label>
+                                            <input type="date" name="FechaNacimiento" class="form-control @error('FechaNacimiento') is-invalid @enderror" id="FechaNacimiento1"  value="{{$paciente->FechaCarbon->format('Y-m-d')}}">
                                             @error('FechaNacimiento')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
                                             @enderror
                                         </div>
+                                        @else
+                                        <div class="form-group col-md-4">
+                                            <label for="FechaNacimiento2">Fecha de nacimiento</label>
+                                            <input type="date" name="FechaNacimiento" class="form-control @error('FechaNacimiento') is-invalid @enderror" id="FechaNacimiento2"  value="{{$paciente->FechaNacimiento}}">
+                                            @error('FechaNacimiento')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        @endif
+
                                         <div class="form-group col-md-4">
                                             <label for="Telefono">Teléfono</label>
                                             <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" value="{{$paciente->Telefono}}" id="Telefono" placeholder="Telefono" required>

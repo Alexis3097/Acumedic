@@ -56,9 +56,14 @@ class CitasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(CitaViewModel $CitaViewModel,$id)
     {
-        //
+        $cita = $CitaViewModel->getCita($id);
+        $horariosXCita = $CitaViewModel->getHorariosXCita($id);
+        $fecha = $CitaViewModel->getFecha();
+        $tipoConsultas = $CitaViewModel->getTipoConsulta();
+        $horarios = $CitaViewModel->getHorarios();
+        return view('Admin.Citas.editarCita', compact('fecha','tipoConsultas','horarios', 'cita','horariosXCita'));
     }
 
     /**
@@ -79,7 +84,7 @@ class CitasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreCita $request, CitaViewModel $CitaViewModel, $id)
     {
         //
     }

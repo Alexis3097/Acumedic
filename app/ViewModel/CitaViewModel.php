@@ -24,10 +24,22 @@ class CitaViewModel
     {
       return Cita::paginate(15);
     }
+    
+    public function getCita($id)
+    {
+      return Cita::find($id);
+    }
 
     public function getHorarios()
     {
       return Horario::All();
+    }
+    
+
+    public function getHorariosXCita($id)
+    { 
+        $horariosXCita = CitaHorario::where('IdCita', '=' , $id)->get();
+        return $horariosXCita;
     }
 
     public function getSexos()
@@ -58,6 +70,10 @@ class CitaViewModel
       $citaHorario->save();
 
       return $cita;
+    }
+
+    public function update($citaData, $id){
+      
     }
 
 }
