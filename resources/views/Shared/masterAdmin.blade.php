@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="{{asset('css/Admin/bootstrap.min.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/icon.min.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/icons.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/Admin/app.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/app.min.css')}}" type="text/css">
         @livewireStyles
     </head>
@@ -116,7 +117,6 @@
                 <div class="media user-profile mt-2 mb-2">
                     <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" class="avatar-sm rounded-circle mr-2" alt="Shreyu" />
                     <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" class="avatar-xs rounded-circle mr-2" alt="Shreyu" />
-
                     <div class="media-body">
                         <h6 class="pro-user-name mt-0 mb-0">Alexis Montoya</h6>
                         <span class="pro-user-desc">Administrador</span>
@@ -131,13 +131,11 @@
                                 <i data-feather="user" class="icon-dual icon-xs mr-2"></i>
                                 <span>Mi cuenta</span>
                             </a>
-
                             <a href="javascript:void(0);" class="dropdown-item notify-item">
                                 <i data-feather="settings" class="icon-dual icon-xs mr-2"></i>
                                 <span>Configuraciones</span>
                             </a>
                             <div class="dropdown-divider"></div>
-
                             <a href="{{ route('logout') }}" class="dropdown-item notify-item"
                                 onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
@@ -155,7 +153,6 @@
                     <div id="sidebar-menu" class="slimscroll-menu">
                         <ul class="metismenu" id="menu-bar">
                             <li class="menu-title">Navegación</li>
-
                             <li>
                                 <a href="{{ route('home') }}">
                                     <i data-feather="home"></i>
@@ -173,8 +170,7 @@
                             <li>
                                 <a href="{{ route('paciente.list') }}">
                                     <i data-feather="user"></i>
-                                    <span> Pacientes </span>
-                                    
+                                    <span> Pacientes </span>                                    
                                 </a>
                             </li>
                             <li>
@@ -195,7 +191,6 @@
                                     <span> Usuarios </span>
                                 </a>
                             </li>
-
                             <li>
                                 <a href="javascript: void(0);">
                                     <i data-feather="octagon"></i>
@@ -205,24 +200,24 @@
                         </ul>
                     </div>
                     <!-- End Sidebar -->
-
                     <div class="clearfix"></div>
                 </div>
                 <!-- Sidebar -left -->
-
             </div>
             <!-- Left Sidebar End -->
         </div>
         <!-- fin wrapper -->
     @yield('content')
         <!-- Vendor js -->
-        <script src="{{asset('js/Admin/vendor.min.js')}}"></script>
+        <script src="{{asset('js/jquery.js')}}"></script>
         <script src="{{asset('js/all.js')}}"></script>
+        <script src="{{asset('js/Admin/vendor.min.js')}}"></script>
         <script src="{{asset('js/Admin/libs/moment/moment.min.js')}}"></script>
         <script src="{{asset('js/Admin/libs/apexcharts/apexcharts.min.js')}}"></script>
         <script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
         <script src="{{asset('js/Admin/pages/dashboard.init.js')}}"></script>
         <script src="{{asset('js/Admin/app.js')}}"></script>
+        <script src="{{asset('js/Admin/app.min.js')}}"></script>
     @livewireScripts
     </body>
 </html>

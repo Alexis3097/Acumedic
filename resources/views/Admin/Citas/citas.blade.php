@@ -4,13 +4,28 @@
 <div class="content-page">
             <div class="content">
                 <div class="container-fluid">
-                    <div class="row page-title align-items-center">
-                        <div class="col-sm-4 col-xl-6">
-                            <h4 class="mb-1 mt-0">Citas</h4>
-                           
+                <div class="row page-title align-items-center">
+                            <div class="col-sm-4 col-xl-6">
+                                <h4 class="mb-1 mt-0">Citas</h4>
+                                <div class="input-group">
+                                <input type="text" class="form-control col-lg-12" placeholder="Buscar">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-xl-6">
+                                <form class="form-inline float-sm-right mt-4 mt-sm-0">
+                                <div class="input-group">
+                                <label class="col-md-3 col-form-label" for="example-date">Fecha Inicio:</label>
+                                <input class="form-control  " id="example-date" placeholder="Buscar fecha" type="date" name="date">
+                                <label class="col-md-3 col-form-label" for="example-date">Fecha fin:</label>
+                                <input class="form-control " id="example-date" placeholder="Buscar fecha" type="date" name="date">
+                                </div>
+                                <!-- <div class="form-group mb-sm-0 mr-2">
+                                        <input type="text" class="form-control" id="dash-daterange" style="min-width: 190px;" />
+                                </div> -->
+
+                                </form>
+                            </div>
                         </div>
-                        
-                    </div>
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="card">
