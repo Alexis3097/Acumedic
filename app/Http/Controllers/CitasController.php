@@ -86,7 +86,8 @@ class CitasController extends Controller
      */
     public function update(StoreCita $request, CitaViewModel $CitaViewModel, $id)
     {
-        //
+        $cita = $CitaViewModel->update($request, $id);
+        return redirect()->route('citas.list');
     }
 
     /**

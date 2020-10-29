@@ -64,16 +64,39 @@ class CitaViewModel
       $cita->Fecha = $citaData->Fecha;
       $cita->save();
 
-      $citaHorario = new CitaHorario();
-      $citaHorario->IdCita = $cita->id;
-      $citaHorario->IdHorario = $citaData->Horario;
-      $citaHorario->save();
+      foreach ($citaData->Horario as $IdHorario){
+        $citaHorario = new CitaHorario();
+        $citaHorario->IdCita = $cita->id;
+        $citaHorario->IdHorario = $IdHorario;
+        $citaHorario->save();
+      }
 
       return $cita;
     }
 
     public function update($citaData, $id){
-      
+      //buscar los registro a modificar
+      $citaHorarios = CitaHorario::where('IdCita', '=', $id)->get();
+      foreach($citaHorarios as $citaHorario){
+        $citahorario1 = CitaHorario::find($citaHorario->id);
+        $citahorario1->delete();
+      }
+      //creamos la relacion para la tabla CitaHorario
+      foreach ($citaData->Horario as $IdHorario){
+        $citaHorario = new CitaHorario();
+        $citaHorario->IdCita = $id;
+        $citaHorario->IdHorario = $IdHorario;
+        $citaHorario->save();
+      }
+
+      //buscamos la cita
+      $cita = Cita::find($id);
+      $cita->IdTipoConsulta = $citaData->TipoConsulta;
+      $cita->IdEstatusConsulta = 1;
+      $cita->Descripcion = 'Guardado';
+      $cita->Fecha = $citaData->Fecha;
+      $cita->save();
+      return $cita;
     }
 
 }

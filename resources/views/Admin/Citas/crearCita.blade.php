@@ -96,8 +96,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Hora">Horario</label>
-                                            <select data-plugin="customselect" class="form-control @error('Horario') is-invalid @enderror" name="Horario" id="Hora">
-                                                <option value="0" selected>Seleccione</option>
+                                            <select data-plugin="customselect" class="form-control @error('Horario') is-invalid @enderror" name="Horario[]" id="Hora" multiple>
                                             @foreach($horarios as $horario)
                                                 <option value="{{$horario->id}}">{{$horario->Horario}}</option>
                                             @endforeach
