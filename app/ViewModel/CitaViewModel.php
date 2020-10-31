@@ -22,7 +22,8 @@ class CitaViewModel
 
     public static function getCitas()
     {
-      return Cita::paginate(15);
+      $cita = Cita::where('Fecha','=', date_create()->format('Y-m-d'))->paginate(15);
+      return $cita;
     }
     
     public function getCita($id)
@@ -99,8 +100,8 @@ class CitaViewModel
       return $cita;
     }
 
-    public function getHorariosDisponibles($fecha){
-      $citasOcupadas = Cita::where('Fecha', '=',$fecha)->get();
+    public static function getHorariosDisponibles($fecha, $IdCita = 0){
+      $citasOcupadas = Cita::where('Fecha', '=',$fecha)->where('id','<>',$IdCita)->get();
       if(count($citasOcupadas)==0)
       {
         $horariosAll = Horario::All();
@@ -111,12 +112,17 @@ class CitaViewModel
       }else{
         foreach($citasOcupadas as $citasOcupada){
         
-          $citasOCupadasArray[] = CitaHorario::where('IdCita','=',$citasOcupada->id)->select("IdHorario")->first()->toArray();
+          $citasOCupadasArray0[] = CitaHorario::where('IdCita','=',$citasOcupada->id)->select("IdHorario")->get()->toArray();
         }
+        foreach($citasOCupadasArray0 as $x){
+          foreach($x as $clave=>$value){
+            $citasOCupadasArray[]=$value;
+          }
+        }
+        //---------
         foreach ($citasOCupadasArray as $IdHorario){
          $idHorariosOcupados[$IdHorario['IdHorario']] = $IdHorario['IdHorario'];
         }
-  
         $horarios = Horario::all()->toArray();
         foreach ($horarios as $horario){
           $todosLosHorarios[$horario['id']] = $horario['Horario'];

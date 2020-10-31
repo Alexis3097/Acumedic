@@ -46,3 +46,14 @@ $('#Fecha').change(function(){
         })
     });
 });
+
+$('#FechaEdit').change(function(){
+  var fecha = $(this).val();
+  var IdCita = $('#IdCita').val();
+  $.get('/horariosEdit',{fecha:fecha,IdCita:IdCita},function(horarios){
+      $('#Hora').empty();
+      $.each(horarios,function(index, value){
+          $('#Hora').append("<option value='"+ index + "'> "+ value +"</option>");
+      })
+  });
+});

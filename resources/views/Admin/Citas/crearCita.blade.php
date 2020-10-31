@@ -97,8 +97,8 @@
                                         <div class="form-group col-md-4">
                                             <label for="Hora">Horario</label>
                                             <select data-plugin="customselect" class="form-control @error('Horario') is-invalid @enderror" name="Horario[]" id="Hora" multiple>
-                                            @foreach($horarios as $horario)
-                                                <option value="{{$horario->id}}">{{$horario->Horario}}</option>
+                                            @foreach($horarios as $clave => $valor)
+                                                <option value="{{$clave}}">{{$valor}}</option>
                                             @endforeach
                                             </select>
                                             @error('Horario')

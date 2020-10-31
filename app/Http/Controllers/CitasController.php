@@ -21,7 +21,8 @@ class CitasController extends Controller
     public function index()
     {  
         $Citas = CitaViewModel::getCitas();
-        return view('Admin.Citas.citas', compact('Citas'));
+        $fecha = CitaViewModel::getFecha();
+        return view('Admin.Citas.citas', compact('Citas','fecha'));
 
     }
 
@@ -34,7 +35,7 @@ class CitasController extends Controller
     {
         $fecha = CitaViewModel::getFecha();
         $tipoConsultas = CitaViewModel::getTipoConsulta();
-        $horarios = CitaViewModel::getHorarios();
+        $horarios = CitaViewModel::getHorariosDisponibles(date_create()->format('Y-m-d'));
         return view('Admin.Citas.crearCita', compact('fecha','tipoConsultas','horarios'));
     }
 
@@ -74,7 +75,7 @@ class CitasController extends Controller
         $horariosXCita = $CitaViewModel->getHorariosXCita($id);
         $fecha = CitaViewModel::getFecha();
         $tipoConsultas = CitaViewModel::getTipoConsulta();
-        $horarios = CitaViewModel::getHorarios();
+        $horarios = CitaViewModel::getHorariosDisponibles(date_create()->format('Y-m-d'),$id);
         return view('Admin.Citas.editarCita', compact('fecha','tipoConsultas','horarios', 'cita','horariosXCita'));
     }
 
@@ -102,11 +103,20 @@ class CitasController extends Controller
         //
     }
 
-    public function horarios(Request $request, CitaViewModel $CitaViewModel)
+    public function horarios(Request $request)
     {
         if($request->ajax())
         {
-            $horariosDisponibles = $CitaViewModel->getHorariosDisponibles($request->fecha);
+            $horariosDisponibles = CitaViewModel::getHorariosDisponibles($request->fecha);
+            return response()->json($horariosDisponibles);
+        }
+    }
+
+    public function horariosEdit(Request $request)
+    {
+        if($request->ajax())
+        {
+            $horariosDisponibles = CitaViewModel::getHorariosDisponibles($request->fecha,$request->IdCita);
             return response()->json($horariosDisponibles);
         }
     }

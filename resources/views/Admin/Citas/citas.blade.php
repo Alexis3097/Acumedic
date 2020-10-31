@@ -15,9 +15,9 @@
                                 <form class="form-inline float-sm-right mt-4 mt-sm-0">
                                 <div class="input-group">
                                 <label class="col-md-3 col-form-label" for="example-date">Fecha Inicio:</label>
-                                <input class="form-control  " id="example-date" placeholder="Buscar fecha" type="date" name="date">
+                                <input class="form-control " id="fechaInicio-date" placeholder="Buscar fecha" type="date" name="fechaInicio" value="{{ $fecha->format('Y-m-d')}}">
                                 <label class="col-md-3 col-form-label" for="example-date">Fecha fin:</label>
-                                <input class="form-control " id="example-date" placeholder="Buscar fecha" type="date" name="date">
+                                <input class="form-control" id="fechaFin-date" placeholder="Buscar fecha" type="date" name="fechaFin" value="{{ $fecha->format('Y-m-d')}}">
                                 </div>
                                 <!-- <div class="form-group mb-sm-0 mr-2">
                                         <input type="text" class="form-control" id="dash-daterange" style="min-width: 190px;" />
