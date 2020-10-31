@@ -31,9 +31,18 @@ $('.counter').each(function() {
      }
  
    });  
-   
-   
  
  });
 // contador de info numeros
 // dropdown
+
+//-----------funcion para el cambio de fecha para ver la disponibilidad de citas dependiendo la fecha----------
+$('#Fecha').change(function(){
+    var fecha = $(this).val();
+    $.get('/horarios',{fecha:fecha},function(horarios){
+        $('#Hora').empty();
+        $.each(horarios,function(index, value){
+            $('#Hora').append("<option value='"+ index + "'> "+ value +"</option>");
+        })
+    });
+});

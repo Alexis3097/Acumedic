@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="{{asset('css/Admin/icons.min.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/app.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/app.min.css')}}" type="text/css">
+
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
         @livewireStyles
     </head>
 
@@ -210,6 +212,7 @@
     @yield('content')
         <!-- Vendor js -->
         <script src="{{asset('js/jquery.js')}}"></script>
+        <script src="{{asset('js/acumedic.js')}}"></script>
         <script src="{{asset('js/all.js')}}"></script>
         <script src="{{asset('js/Admin/vendor.min.js')}}"></script>
         <script src="{{asset('js/Admin/libs/moment/moment.min.js')}}"></script>
@@ -219,5 +222,7 @@
         <script src="{{asset('js/Admin/app.js')}}"></script>
         <script src="{{asset('js/Admin/app.min.js')}}"></script>
     @livewireScripts
+    
+    
     </body>
 </html>

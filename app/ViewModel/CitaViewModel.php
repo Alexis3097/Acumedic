@@ -10,17 +10,17 @@ use App\Models\Horario;
 use Carbon\Carbon;
 class CitaViewModel
 {
-    public function getFecha()
+    public static function getFecha()
     {
       return Carbon::now();
     }
 
-    public function getTipoConsulta()
+    public static function getTipoConsulta()
     {
       return TipoConsulta::All();
     }
 
-    public function getCitas()
+    public static function getCitas()
     {
       return Cita::paginate(15);
     }
@@ -30,7 +30,7 @@ class CitaViewModel
       return Cita::find($id);
     }
 
-    public function getHorarios()
+    public static function getHorarios()
     {
       return Horario::All();
     }
@@ -97,6 +97,42 @@ class CitaViewModel
       $cita->Fecha = $citaData->Fecha;
       $cita->save();
       return $cita;
+    }
+
+    public function getHorariosDisponibles($fecha){
+      $citasOcupadas = Cita::where('Fecha', '=',$fecha)->get();
+      if(count($citasOcupadas)==0)
+      {
+        $horariosAll = Horario::All();
+        foreach($horariosAll as $horario){
+            $horariosArray[$horario->id] = $horario->Horario;
+        }
+        return $horariosArray;
+      }else{
+        foreach($citasOcupadas as $citasOcupada){
+        
+          $citasOCupadasArray[] = CitaHorario::where('IdCita','=',$citasOcupada->id)->select("IdHorario")->first()->toArray();
+        }
+        foreach ($citasOCupadasArray as $IdHorario){
+         $idHorariosOcupados[$IdHorario['IdHorario']] = $IdHorario['IdHorario'];
+        }
+  
+        $horarios = Horario::all()->toArray();
+        foreach ($horarios as $horario){
+          $todosLosHorarios[$horario['id']] = $horario['Horario'];
+         }
+        
+         foreach ($idHorariosOcupados as $clave0 =>$valor0){
+           foreach ($todosLosHorarios as $clave1 =>$valor1){
+             if($clave1 == $clave0)
+             {
+                unset($todosLosHorarios[$clave0]);
+             }
+          }
+         }
+         return $todosLosHorarios;
+      }
+      
     }
 
 }

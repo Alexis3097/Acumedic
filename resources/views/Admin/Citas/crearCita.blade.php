@@ -72,7 +72,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="TipoConsulta">Tipo de consulta</label>
-                                            <select data-plugin="customselect" class="form-control @error('TipoConsulta') is-invalid @enderror" name="TipoConsulta">
+                                            <select data-plugin="customselect" class="form-control @error('TipoConsulta') is-invalid @enderror" name="TipoConsulta" id="TipoConsulta">
                                                 <option value="0">Seleccione</option>
                                             @foreach($tipoConsultas as $tipoConsulta)
                                                 <option value="{{$tipoConsulta->id}}">{{$tipoConsulta->Nombre}}</option>
@@ -138,4 +138,6 @@
             <!-- end Footer -->
 
         </div>
+
 @endsection
+
