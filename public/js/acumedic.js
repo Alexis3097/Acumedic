@@ -27,7 +27,7 @@ $('.counter').each(function() {
      },
      complete: function() {
        $this.text(this.countNum);
-       //alert('finished');
+      //  alert('finished');
      }
  
    });  
@@ -37,3 +37,4 @@ $('.counter').each(function() {
  });
 // contador de info numeros
 // dropdown
+
