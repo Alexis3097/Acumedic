@@ -16,9 +16,9 @@ class PacienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(PacienteViewModel $PacienteViewModel)
+    public function index()
     {
-        $pacientes = $PacienteViewModel->getPacientes();
+        $pacientes = PacienteViewModel::getPacientes();
         return view('Admin.Pacientes.pacientes', compact('pacientes'));
     }
 
@@ -27,10 +27,10 @@ class PacienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(PacienteViewModel $PacienteViewModel)
+    public function create()
     {
-        $fecha = $PacienteViewModel->getFecha();
-        $Sexos = $PacienteViewModel->getSexos();
+        $fecha = PacienteViewModel::getFecha();
+        $Sexos = PacienteViewModel::getSexos();
         return view('Admin.Pacientes.crearPaciente', compact('fecha', 'Sexos'));
     }
 
@@ -52,12 +52,9 @@ class PacienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(PacienteViewModel $PacienteViewModel, $id)
+    public function show($id)
     {
-        $paciente = $PacienteViewModel->getPaciente($id);
-        $fecha = $PacienteViewModel->getFecha();
-        $Sexos = $PacienteViewModel->getSexos();
-        return view('Admin.Pacientes.editarPaciente', compact('paciente','fecha', 'Sexos'));
+        //
     }
 
     /**
@@ -66,9 +63,12 @@ class PacienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(PacienteViewModel $PacienteViewModel, $id)
     {
-        //
+        $paciente = $PacienteViewModel->getPaciente($id);
+        $fecha = PacienteViewModel::getFecha();
+        $Sexos = PacienteViewModel::getSexos();
+        return view('Admin.Pacientes.editarPaciente', compact('paciente','fecha', 'Sexos'));
     }
 
     /**

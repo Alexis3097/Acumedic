@@ -29,7 +29,7 @@ class StoreCita extends FormRequest
             'Nombre' => 'required',
             'ApellidoPaterno' => 'required',
             'ApellidoMaterno' => 'required',
-            'Horario' => ['required',new OptionSelect],
+            'Horario' => 'required',
             'TipoConsulta' => [new OptionSelect],
             'Telefono' => 'required|numeric',
             'Fecha' => ['required',new FechaMayorAHoy],

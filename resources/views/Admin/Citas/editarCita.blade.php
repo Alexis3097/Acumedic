@@ -31,6 +31,7 @@
                                     <form action="{{ route('citas.update', ['id' => $cita->id]) }}" class="needs-validation row" novalidate method="POST">
                                     @csrf
                                     @method('PUT')
+                                        <input type="hidden" id="IdCita" value="{{$cita->id}}">
                                         <div class="form-group col-md-4">
                                             <label for="Nombre">Nombre (s)</label>
                                             <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="Nombre" placeholder="Nombre" required value="{{$cita->paciente->Nombre}}">
@@ -85,7 +86,7 @@
                                         <div class="form-group col-md-4">
                                             <label 
                                             for="Fecha">Fecha</label>
-                                            <input class="form-control @error('Fecha') is-invalid @enderror" name="Fecha" id="Fecha" type="date" value="{{$cita->Fecha}}">
+                                            <input class="form-control @error('Fecha') is-invalid @enderror" name="Fecha" id="FechaEdit" type="date" value="{{$cita->Fecha}}">
                                             @error('Fecha')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -94,10 +95,9 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Hora">Horario</label>
-                                            <select data-plugin="customselect" class="form-control @error('Horario') is-invalid @enderror" name="Horario" id="Hora">
-                                                <option value="0" selected>Seleccione</option>
-                                            @foreach($horarios as $horario)
-                                                <option value="{{$horario->id}}" >{{$horario->Horario}}</option>
+                                            <select data-plugin="customselect" class="form-control @error('Horario') is-invalid @enderror" name="Horario[]" id="Hora" multiple>
+                                            @foreach($horarios as $clave =>$valor)
+                                                <option value="{{$clave}}" @if(in_array($clave,$cita->horarios->pluck('id')->toArray())) selected @endif>{{$valor}}</option>
                                             @endforeach
                                             </select>
                                             @error('Horario')

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Cita;
+use App\Models\Horario;
 use App\ViewModel\CitaViewModel;
 use App\Http\Requests\StoreCita;
 use Illuminate\Http\Request;
@@ -17,10 +18,11 @@ class CitasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(CitaViewModel $CitaViewModel)
-    {
-        $Citas = $CitaViewModel->getCitas();
-        return view('Admin.Citas.citas', compact('Citas'));
+    public function index()
+    {  
+        $Citas = CitaViewModel::getCitas();
+        $fecha = CitaViewModel::getFecha();
+        return view('Admin.Citas.citas', compact('Citas','fecha'));
 
     }
 
@@ -29,11 +31,11 @@ class CitasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(CitaViewModel $CitaViewModel)
+    public function create()
     {
-        $fecha = $CitaViewModel->getFecha();
-        $tipoConsultas = $CitaViewModel->getTipoConsulta();
-        $horarios = $CitaViewModel->getHorarios();
+        $fecha = CitaViewModel::getFecha();
+        $tipoConsultas = CitaViewModel::getTipoConsulta();
+        $horarios = CitaViewModel::getHorariosDisponibles(date_create()->format('Y-m-d'));
         return view('Admin.Citas.crearCita', compact('fecha','tipoConsultas','horarios'));
     }
 
@@ -56,14 +58,9 @@ class CitasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(CitaViewModel $CitaViewModel,$id)
+    public function show($id)
     {
-        $cita = $CitaViewModel->getCita($id);
-        $horariosXCita = $CitaViewModel->getHorariosXCita($id);
-        $fecha = $CitaViewModel->getFecha();
-        $tipoConsultas = $CitaViewModel->getTipoConsulta();
-        $horarios = $CitaViewModel->getHorarios();
-        return view('Admin.Citas.editarCita', compact('fecha','tipoConsultas','horarios', 'cita','horariosXCita'));
+        //
     }
 
     /**
@@ -72,9 +69,14 @@ class CitasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(CitaViewModel $CitaViewModel,$id)
     {
-        //
+        $cita = $CitaViewModel->getCita($id);
+        $horariosXCita = $CitaViewModel->getHorariosXCita($id);
+        $fecha = CitaViewModel::getFecha();
+        $tipoConsultas = CitaViewModel::getTipoConsulta();
+        $horarios = CitaViewModel::getHorariosDisponibles(date_create()->format('Y-m-d'),$id);
+        return view('Admin.Citas.editarCita', compact('fecha','tipoConsultas','horarios', 'cita','horariosXCita'));
     }
 
     /**
@@ -86,7 +88,8 @@ class CitasController extends Controller
      */
     public function update(StoreCita $request, CitaViewModel $CitaViewModel, $id)
     {
-        //
+        $cita = $CitaViewModel->update($request, $id);
+        return redirect()->route('citas.list');
     }
 
     /**
@@ -98,5 +101,23 @@ class CitasController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function horarios(Request $request)
+    {
+        if($request->ajax())
+        {
+            $horariosDisponibles = CitaViewModel::getHorariosDisponibles($request->fecha);
+            return response()->json($horariosDisponibles);
+        }
+    }
+
+    public function horariosEdit(Request $request)
+    {
+        if($request->ajax())
+        {
+            $horariosDisponibles = CitaViewModel::getHorariosDisponibles($request->fecha,$request->IdCita);
+            return response()->json($horariosDisponibles);
+        }
     }
 }

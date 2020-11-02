@@ -6,7 +6,7 @@ use App\Models\Sexo;
 use Carbon\Carbon;
 class PacienteViewModel
 {
-    public function getPacientes()
+    public static function getPacientes()
     {
         return Paciente::paginate(15);
     }
@@ -16,12 +16,12 @@ class PacienteViewModel
         return Paciente::find($id);
     }
 
-    public function getFecha()
+    public static function getFecha()
     {
       return Carbon::now();
     }
 
-    public function getSexos()
+    public static function getSexos()
     {
       return Sexo::All();
     }

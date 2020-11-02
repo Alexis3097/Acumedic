@@ -72,7 +72,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="TipoConsulta">Tipo de consulta</label>
-                                            <select data-plugin="customselect" class="form-control @error('TipoConsulta') is-invalid @enderror" name="TipoConsulta">
+                                            <select data-plugin="customselect" class="form-control @error('TipoConsulta') is-invalid @enderror" name="TipoConsulta" id="TipoConsulta">
                                                 <option value="0">Seleccione</option>
                                             @foreach($tipoConsultas as $tipoConsulta)
                                                 <option value="{{$tipoConsulta->id}}">{{$tipoConsulta->Nombre}}</option>
@@ -96,10 +96,9 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Hora">Horario</label>
-                                            <select data-plugin="customselect" class="form-control @error('Horario') is-invalid @enderror" name="Horario" id="Hora">
-                                                <option value="0" selected>Seleccione</option>
-                                            @foreach($horarios as $horario)
-                                                <option value="{{$horario->id}}">{{$horario->Horario}}</option>
+                                            <select data-plugin="customselect" class="form-control @error('Horario') is-invalid @enderror" name="Horario[]" id="Hora" multiple>
+                                            @foreach($horarios as $clave => $valor)
+                                                <option value="{{$clave}}">{{$valor}}</option>
                                             @endforeach
                                             </select>
                                             @error('Horario')
@@ -139,4 +138,6 @@
             <!-- end Footer -->
 
         </div>
+
 @endsection
+

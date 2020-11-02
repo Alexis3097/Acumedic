@@ -39,6 +39,7 @@
                                                             <td>
                                                                 <a href="{{ route('paciente.edit', ['id' => $paciente->id]) }}" class="btn btn-outline-danger"><i class="fa fa-edit"></i></a>
                                                                 <button type="button" class="btn btn-outline-success"><i class="fa fa-trash"></i></button>
+                                                              
                                                             </td>
                                                         </tr>
                                                     @endforeach
