@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\Cita;
 use App\Models\Horario;
+use App\Models\Paciente;
 use App\ViewModel\CitaViewModel;
+use App\ViewModel\PacienteViewModel;
 use App\Http\Requests\StoreCita;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -120,4 +122,15 @@ class CitasController extends Controller
             return response()->json($horariosDisponibles);
         }
     }
+
+    public function paciente(PacienteViewModel $PacienteViewModel, $id)
+    {
+        $paciente = $PacienteViewModel->getPaciente($id);
+        $fecha = CitaViewModel::getFecha();
+        $tipoConsultas = CitaViewModel::getTipoConsulta();
+        $horarios = CitaViewModel::getHorariosDisponibles(date_create()->format('Y-m-d'));
+        return view('Admin.Citas.crearCitaConPaciente', compact('fecha','tipoConsultas','horarios','paciente'));
+    }
+
+
 }

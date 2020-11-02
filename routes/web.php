@@ -21,7 +21,7 @@ Route::get('/test/nuevoPaciente', 'testController@nuevo')->name('paciente');
 Route::post('/test/guardarPaciente', 'testController@store')->name('paciente.store');
 
 Route::get('live', function () {
-    return view('pacienteBlade');
+    return view('testCreate');
 });
 
 //Rutas de cliente
@@ -59,7 +59,7 @@ Route::get('/citas/edit/{id}', 'CitasController@edit')->name('citas.edit');
 Route::put('/citas/update/{id}', 'CitasController@update')->name('citas.update');
 Route::get('/horarios', 'CitasController@horarios')->name('citas.horarios');
 Route::get('/horariosEdit', 'CitasController@horariosEdit')->name('citas.horariosEdit');
-
+Route::get('/citas/paciente/{id}', 'CitasController@paciente')->name('citas.paciente');
 //PACIENTES
 Route::get('/pacientes', 'PacienteController@index')->name('paciente.list');
 Route::get('/pacientes/nuevo', 'PacienteController@create')->name('paciente.new');

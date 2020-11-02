@@ -7,12 +7,8 @@ use Livewire\Component;
 class ContactSearchBar extends Component
 {
     public $query;
-    public $contacts;  
-    public $highlightIndex;  
-    public $Id;  
-    public $Nombre;  
-    public $ApellidoPaterno;  
-    public $ApellidoMaterno;  
+    public $pacientes;  
+    public $highlightIndex;   
 
     public function mount()
     {
@@ -21,36 +17,32 @@ class ContactSearchBar extends Component
     public function resetear()
     {
         $this->query='';
-        $this->Nombre='';
-        $this->ApellidoPaterno='';
-        $this->ApellidoMaterno='';
-        $this->Id=0;
-        $this->highlightIndex=0;
-        $this->contacts=[];
+        $this->pacientes=[];
+        //$this->highlightIndex = 0;
     }
-    public function increment()
-    {
-       if($this->highlightIndex== count($this->contacts)-1)
-       {
-           $this->highlightIndex = 0;
-           return;
-       }
-       $this->highlightIndex++;
-    }
-    public function decrement()
-    {
-        if($this->highlightIndex== 0)
-        {
-            $this->highlightIndex = count($this->contacts)-1;
-            return;
-        }
-        $this->highlightIndex--;
-    }
+    // public function incrementHighlight()
+    // {
+    //    if($this->highlightIndex== count($this->pacientes)-1)
+    //    {
+    //        $this->highlightIndex = 0;
+    //        return;
+    //    }
+    //    $this->highlightIndex++;
+    // }
+
+    // public function decrementHighlight()
+    // {
+    //     if($this->highlightIndex== 0)
+    //     {
+    //         $this->highlightIndex = count($this->pacientes)-1;
+    //         return;
+    //     }
+    //     $this->highlightIndex--;
+    // }
 
     function updatedQuery()
     {
-        //sleep(1);
-        $this->contacts = Paciente::where('Nombre', 'like','%' . $this->query . '%')
+        $this->pacientes = Paciente::where('Nombre', 'like','%' . $this->query . '%')
                 ->get()
                 ->toArray();
     }
@@ -58,8 +50,5 @@ class ContactSearchBar extends Component
     {
         return view('livewire.contact-search-bar');
     }
-    public function selectpaciente()
-    {
-        $this->Nombre ='alexis';
-    }
+ 
 }
