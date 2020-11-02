@@ -191,7 +191,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="{{ route('jelipe')}}">
+                                <a href="">
                                     <i data-feather="file-text"></i>
                                     <span> Ficha clínica </span>
                                 </a>
