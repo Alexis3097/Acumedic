@@ -37,8 +37,9 @@
                                                             <td>{{$paciente->Edad}}</td>
                                                             <td>{{$paciente->Telefono}}</td>
                                                             <td>
-                                                                <a href="{{ route('paciente.edit', ['id' => $paciente->id]) }}" class="btn btn-outline-danger"><i class="fa fa-edit"></i></a>
-                                                                <button type="button" class="btn btn-outline-success"><i class="fa fa-trash"></i></button>
+                                                                <a href="{{ route('paciente.edit', ['id' => $paciente->id]) }}" class="btn btn-outline-secondary"><i class="fa fa-edit"></i></a>
+                                                                <button type="button" class="btn btn-outline-info"><i class="fa fa-file-medical"></i></button>
+                                                                <button type="button" class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
                                                               
                                                             </td>
                                                         </tr>
@@ -56,4 +57,19 @@
                 </div>
             </div> <!-- content -->
         </div>
+<!-- modal ¿are you sure? -->
+<div class="container-body">
+            <div class="col-md-5 container-quest">
+                <div class="title"><p>¿Estar seguro de elimnar <span>este paciente</span>?</p></div>
+                <div class="close"><i class="fa fa-times"></i></div>
+                <div class="button">
+                <button class="btn btn-primary">Eliminar</button>
+                <button class="btn btn-outline-danger">Cancelar</button>
+                </div>
+    </div>
+</div>
+<!-- modal ¿are you sure? -->
+@endsection
+@section('scriptPacientes')
+    <script src="{{asset('js/Admin/modales.js')}}"></script>
 @endsection

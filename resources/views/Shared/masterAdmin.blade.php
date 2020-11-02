@@ -170,25 +170,11 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('paciente.list') }} javascript: void(0);">
+                                <a href="{{ route('paciente.list') }}">
                                     <i data-feather="user"></i>
                                     <span> Pacientes </span> 
-                                    <span class="menu-arrow fa fa-caret-down"></span>                                   
+                                    <span class="menu-arrow"></span>                                   
                                 </a>
-                                <ul class="nav-second-level" aria-expanded="false">
-                                    <li>
-                                        <a href="">Historial clinico</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Consulta médica</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Antecedentes</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Estudios de gabinete</a>
-                                    </li>
-                                </ul>
                             </li>
                             <li>
                                 <a href="javascript: void(0);">
@@ -226,17 +212,17 @@
         <!-- fin wrapper -->
     @yield('content')
         <!-- Vendor js -->
+        <script src="{{asset('js/Admin/vendor.min.js')}}"></script>
+        <script src="{{asset('js/Admin/libs/moment/moment.min.js')}}"></script>
         <script src="{{asset('js/Admin/app.js')}}"></script>
         <script src="{{asset('js/jquery.js')}}"></script>
         <script src="{{asset('js/acumedic.js')}}"></script>
         <script src="{{asset('js/all.js')}}"></script>
-        <script src="{{asset('js/Admin/vendor.min.js')}}"></script>
-        <script src="{{asset('js/Admin/libs/moment/moment.min.js')}}"></script>
         <script src="{{asset('js/Admin/libs/apexcharts/apexcharts.min.js')}}"></script>
         <script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
-        <script src="{{asset('js/Admin/pages/dashboard.init.js')}}"></script>
         <script src="{{asset('js/Admin/app.min.js')}}"></script>
     @livewireScripts
+    @yield('scriptPacientes')
     
     
     </body>

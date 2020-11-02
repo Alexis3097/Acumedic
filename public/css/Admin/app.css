@@ -2723,3 +2723,41 @@ body.authentication-bg {
     bottom: 3rem;
     left: 0;
     right: 0; }
+/* new contents */
+.container-body{
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(0,0,0,.5);
+}
+.container-quest{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 25vh;
+  padding: 1.2%;
+  display: block;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: .3rem;
+  outline: 0;
+}
+.container-quest .title{
+  font-size: 1.2em;
+  color:#232323;
+}
+.container-quest .close{
+  position: absolute;
+  top:15px;
+  right:20px;
+}
+.container-quest .button{
+  padding-top:10%;
+}
+/* new contents */
