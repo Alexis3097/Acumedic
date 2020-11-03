@@ -39,7 +39,7 @@
                                                             <td>
                                                                 <a href="{{ route('paciente.edit', ['id' => $paciente->id]) }}" class="btn btn-outline-secondary"><i class="fa fa-edit"></i></a>
                                                                 <button type="button" class="btn btn-outline-info"><i class="fa fa-file-medical"></i></button>
-                                                                <button type="button" class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
+                                                                <button type="button" class="btn btn-outline-danger btn-modal" data="eliminar-paciente"><i class="fa fa-trash"></i></button>
                                                               
                                                             </td>
                                                         </tr>
@@ -58,14 +58,14 @@
             </div> <!-- content -->
         </div>
 <!-- modal ¿are you sure? -->
-<div class="container-body">
+<div class="container-body" name="eliminar-paciente">
             <div class="col-md-5 container-quest">
                 <div class="title"><p>¿Estar seguro de elimnar <span>este paciente</span>?</p></div>
-                <div class="close"><i class="fa fa-times"></i></div>
+                <div class="close close-modal"><i class="fa fa-times"></i></div>
                 <div class="button">
                 <button class="btn btn-primary">Eliminar</button>
-                <button class="btn btn-outline-danger">Cancelar</button>
-                </div>
+                <button class="btn close-modal btn-outline-danger">Cancelar</button>
+            </div>
     </div>
 </div>
 <!-- modal ¿are you sure? -->

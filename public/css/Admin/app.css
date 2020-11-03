@@ -2729,8 +2729,15 @@ body.authentication-bg {
   width: 100%;
   min-height: 100vh;
   top: 0;
+  opacity: 0;
   z-index: 100;
   background-color: rgba(0,0,0,.5);
+  visibility: hidden;
+  transition:ease all .2s;
+}
+.container-body.active{
+  visibility:visible;
+  opacity: 1;
 }
 .container-quest{
   position: fixed;
@@ -2739,7 +2746,7 @@ body.authentication-bg {
   top: 0;
   bottom: 0;
   margin: auto;
-  height: 25vh;
+  height: 20vh;
   padding: 1.2%;
   display: block;
   background-color: #fff;
@@ -2747,6 +2754,15 @@ body.authentication-bg {
   border: 1px solid rgba(0,0,0,.2);
   border-radius: .3rem;
   outline: 0;
+  transition:ease all .2s;
+  transform:translateY(-15%);
+  opacity:0;
+  visibility: hidden;
+}
+.container-quest.active{
+  transform:translateY(0);
+  opacity:1;
+  visibility:visible;
 }
 .container-quest .title{
   font-size: 1.2em;
@@ -2758,6 +2774,8 @@ body.authentication-bg {
   right:20px;
 }
 .container-quest .button{
-  padding-top:10%;
+  bottom: 10%;
+  position: absolute;
+}
 }
 /* new contents */
