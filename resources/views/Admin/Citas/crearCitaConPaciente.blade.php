@@ -12,8 +12,8 @@
                             <form class="form-inline float-sm-right mt-3 mt-sm-0">
                                 <div class="btn-group mb-sm-0 mr-2">
 
-                                    <a class="btn btn-outline-danger" href="{{ route('citas.list') }}">
-                                        <i class='fas fa-times'></i> Cancelar
+                                    <a class="btn btn-outline-danger" href="{{ route('citas.new') }}">
+                                        <i class='fas fa-redo-alt'></i> Desvincular paciente
                                     </a>
                                 </div>
                             </form>
@@ -31,10 +31,7 @@
                                 <div class="card-body">
                                     <form action="{{ route('citas.create') }}" class="needs-validation row" novalidate method="POST">
                                     @csrf
-                                        <!-- <div class="form-group col-md-12">
-                                            <label for="validationCustom01">Buscar</label>
-                                            <input type="text" class="form-control" placeholder="Buscar">
-                                        </div> -->
+                                        <input type="hidden" name="id" value="{{ $paciente->id }}">
                                         <div class="form-group col-md-4">
                                             <label for="Nombre">Nombre (s)</label>
                                             <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="Nombre" placeholder="Nombre" required value="{{ $paciente->Nombre }}">
@@ -90,6 +87,19 @@
                                             for="Fecha">Fecha</label>
                                             <input class="form-control @error('Fecha') is-invalid @enderror" name="Fecha" id="Fecha" type="date" value="{{ $fecha->format('Y-m-d')}}">
                                             @error('Fecha')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="IdEstatusConsulta">Estatus de consulta</label>
+                                            <select data-plugin="customselect" class="form-control @error('IdEstatusConsulta') is-invalid @enderror" name="IdEstatusConsulta" id="IdEstatusConsulta">
+                                            @foreach($estatus as $estatu)
+                                                <option value="{{$estatu->id}}">{{$estatu->Nombre}}</option>
+                                            @endforeach
+                                            </select>
+                                            @error('IdEstatusConsulta')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>

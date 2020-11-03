@@ -55,7 +55,19 @@
                                                             {{$horario->Horario}}<br>
                                                         @endforeach
                                                     </td>
-                                                    <td><span class="badge badge-soft-warning py-1">{{$cita->estatusConsulta->Nombre}}</span></td>
+                                                    <td>
+                                                    @if($cita->estatusConsulta->Nombre == 'En espera')
+                                                        <span class="badge badge-soft-primary py-1">{{$cita->estatusConsulta->Nombre}}</span>
+                                                    @elseif($cita->estatusConsulta->Nombre == 'Presente')
+                                                        <span class="badge badge-soft-info py-1">{{$cita->estatusConsulta->Nombre}}</span>
+                                                    @elseif($cita->estatusConsulta->Nombre == 'En cita')
+                                                        <span class="badge badge-soft-success py-1">{{$cita->estatusConsulta->Nombre}}</span>
+                                                    @elseif($cita->estatusConsulta->Nombre == 'Cancelada')
+                                                        <span class="badge badge-soft-warning py-1">{{$cita->estatusConsulta->Nombre}}</span>
+                                                    @else
+                                                        <span class="badge badge-soft-danger py-1">{{$cita->estatusConsulta->Nombre}}</span>
+                                                    @endif
+                                                    </td>
                                                     <td>
                                                         <a href="{{ route('citas.edit', ['id' => $cita->id]) }}"  class="btn btn-outline-danger"><i class="fa fa-edit"></i></a>
                                                         <button type="button" class="btn btn-outline-success"><i class="fa fa-trash"></i></button>
