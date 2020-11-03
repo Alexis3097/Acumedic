@@ -177,7 +177,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript: void(0);">
+                                <a href="">
                                     <i data-feather="file-text"></i>
                                     <span> Ficha clínica </span>
                                 </a>

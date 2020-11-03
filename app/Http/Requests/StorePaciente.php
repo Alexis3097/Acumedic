@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\OptionSelect;
-
+use App\Rules\FechaMenorAHoy;
 class StorePaciente extends FormRequest
 {
     
@@ -20,7 +20,7 @@ class StorePaciente extends FormRequest
             'Nombre' => 'required',
             'ApellidoPaterno' => 'required',
             'ApellidoMaterno' => 'required',
-            'FechaNacimiento' => 'required',
+            'FechaNacimiento' => ['required',new FechaMenorAHoy],
             'Telefono' => 'required|numeric',
             'IdSexo' => ['required',new OptionSelect],
             'Correo' => ['required','email'],
