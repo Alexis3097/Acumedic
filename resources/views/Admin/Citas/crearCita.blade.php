@@ -13,7 +13,7 @@
                                 <div class="btn-group mb-sm-0 mr-2">
 
                                     <a class="btn btn-outline-danger" href="{{ route('citas.list') }}">
-                                        <i class='fas fa-times'></i> Cancelar
+                                        <i class='fas fa-redo-alt'></i> Desvincular paciente
                                     </a>
                                 </div>
                             </form>

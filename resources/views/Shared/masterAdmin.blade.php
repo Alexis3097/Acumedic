@@ -16,7 +16,6 @@
         <link rel="stylesheet" href="{{asset('css/Admin/icons.min.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/app.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/app.min.css')}}" type="text/css">
-
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
         @livewireStyles
     </head>
@@ -165,7 +164,7 @@
                             <li class="menu-title">Funciones</li>
                             <li>
                                 <a href="{{ route('citas.list') }}">
-                                    <i data-feather="calendar"></i>
+                                     <i data-feather="calendar"></i>
                                     <span> Citas </span>
                                 </a>
                             </li>

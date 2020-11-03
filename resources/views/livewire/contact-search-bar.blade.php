@@ -1,12 +1,7 @@
+
 <div class="relative">
 
-    <input type="text" 
-    class="form-input" 
-    placeholder="Buscar paciente"
-    wire:model="query"
-    wire:keydown.escape="resetear"
-    wire:keydown.tab="resetear"
-    />
+    <input type="text" class="form-input mdb-select md-form" placeholder="Buscar paciente" wire:model="query" wire:keydown.escape="resetear" wire:keydown.tab="resetear"/>
     <div wire:loading class="absolute z-10 list-group bg-white rounded-t-none shadow-lg">
         <div class="list-item">Buscando..</div>
     </div>
@@ -24,3 +19,4 @@
         </div>
     @endif
 </div>
+
