@@ -36,9 +36,10 @@ class CitasController extends Controller
     public function create()
     {
         $fecha = CitaViewModel::getFecha();
+        $estatus = CitaViewModel::getEstatusConsulta();
         $tipoConsultas = CitaViewModel::getTipoConsulta();
         $horarios = CitaViewModel::getHorariosDisponibles(date_create()->format('Y-m-d'));
-        return view('Admin.Citas.crearCita', compact('fecha','tipoConsultas','horarios'));
+        return view('Admin.Citas.crearCita', compact('fecha','tipoConsultas','horarios','estatus'));
     }
 
     /**
@@ -78,7 +79,8 @@ class CitasController extends Controller
         $fecha = CitaViewModel::getFecha();
         $tipoConsultas = CitaViewModel::getTipoConsulta();
         $horarios = CitaViewModel::getHorariosDisponibles(date_create()->format('Y-m-d'),$id);
-        return view('Admin.Citas.editarCita', compact('fecha','tipoConsultas','horarios', 'cita','horariosXCita'));
+        $estatus = CitaViewModel::getEstatusConsulta();
+        return view('Admin.Citas.editarCita', compact('fecha','tipoConsultas','horarios', 'cita','horariosXCita','estatus'));
     }
 
     /**
@@ -127,10 +129,12 @@ class CitasController extends Controller
     {
         $paciente = $PacienteViewModel->getPaciente($id);
         $fecha = CitaViewModel::getFecha();
+        $estatus = CitaViewModel::getEstatusConsulta();
         $tipoConsultas = CitaViewModel::getTipoConsulta();
         $horarios = CitaViewModel::getHorariosDisponibles(date_create()->format('Y-m-d'));
-        return view('Admin.Citas.crearCitaConPaciente', compact('fecha','tipoConsultas','horarios','paciente'));
+        return view('Admin.Citas.crearCitaConPaciente', compact('fecha','tipoConsultas','horarios','paciente','estatus'));
     }
+    
 
 
 }

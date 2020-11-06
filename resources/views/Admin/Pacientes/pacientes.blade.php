@@ -38,7 +38,7 @@
                                                             <td>{{$paciente->Telefono}}</td>
                                                             <td>
                                                                 <a href="{{ route('paciente.edit', ['id' => $paciente->id]) }}" class="btn btn-outline-secondary"><i class="fa fa-edit"></i></a>
-                                                                <button type="button" class="btn btn-outline-info"><i class="fa fa-file-medical"></i></button>
+                                                                <a href="{{ route('ficha.new')}}"class="btn btn-outline-info"><i class="fa fa-file-medical"></i></a>
                                                                 <button type="button" class="btn btn-outline-danger btn-modal" data="eliminar-paciente"><i class="fa fa-trash"></i></button>
                                                               
                                                             </td>

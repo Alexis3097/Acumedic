@@ -60,6 +60,9 @@ Route::put('/citas/update/{id}', 'CitasController@update')->name('citas.update')
 Route::get('/horarios', 'CitasController@horarios')->name('citas.horarios');
 Route::get('/horariosEdit', 'CitasController@horariosEdit')->name('citas.horariosEdit');
 Route::get('/citas/paciente/{id}', 'CitasController@paciente')->name('citas.paciente');
+//FICHA
+Route::get('/citas/ficha/{id}', 'FichaController@index')->name('ficha.list');
+Route::get('/citas/ficha', 'FichaController@create')->name('ficha.new');
 //PACIENTES
 Route::get('/pacientes', 'PacienteController@index')->name('paciente.list');
 Route::get('/pacientes/nuevo', 'PacienteController@create')->name('paciente.new');

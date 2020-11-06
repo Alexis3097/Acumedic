@@ -12,8 +12,8 @@
                             <form class="form-inline float-sm-right mt-3 mt-sm-0">
                                 <div class="btn-group mb-sm-0 mr-2">
 
-                                    <a class="btn btn-outline-danger" href="{{ route('citas.list') }}">
-                                        <i class='fas fa-times'></i> Cancelar
+                                    <a class="btn btn-outline-danger" href="{{ route('citas.new') }}">
+                                        <i class='fas fa-redo-alt'></i> Desvincular paciente
                                     </a>
                                 </div>
                             </form>
@@ -31,13 +31,10 @@
                                 <div class="card-body">
                                     <form action="{{ route('citas.create') }}" class="needs-validation row" novalidate method="POST">
                                     @csrf
-                                        <!-- <div class="form-group col-md-12">
-                                            <label for="validationCustom01">Buscar</label>
-                                            <input type="text" class="form-control" placeholder="Buscar">
-                                        </div> -->
+                                        <input type="hidden" name="id" value="{{ $paciente->id }}">
                                         <div class="form-group col-md-4">
                                             <label for="Nombre">Nombre (s)</label>
-                                            <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="Nombre" placeholder="Nombre" required value="{{ $paciente->Nombre }}">
+                                            <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="Nombre" placeholder="Nombre" required value="{{ $paciente->Nombre }}" disabled="">
                                             @error('Nombre')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -46,7 +43,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoPaterno">Apellido paterno</label>
-                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" id="ApellidoPaterno" placeholder="Apellido paterno" required value="{{ $paciente->ApellidoPaterno }}">
+                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" id="ApellidoPaterno" placeholder="Apellido paterno" required value="{{ $paciente->ApellidoPaterno }}" disabled="">
                                             @error('ApellidoPaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -55,7 +52,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoMaterno">Apellido materno</label>
-                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" id="ApellidoMaterno" placeholder="Apellido materno" required value="{{ $paciente->ApellidoMaterno }}">
+                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" id="ApellidoMaterno" placeholder="Apellido materno" required value="{{ $paciente->ApellidoMaterno }}" disabled="">
                                             @error('ApellidoMaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -64,7 +61,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Telefono">Teléfono</label>
-                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" id="Telefono" placeholder="Telefono" required value="{{ $paciente->Telefono }}">
+                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" id="Telefono" placeholder="Telefono" required value="{{ $paciente->Telefono }}" disabled="">
                                             @error('Telefono')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -90,6 +87,19 @@
                                             for="Fecha">Fecha</label>
                                             <input class="form-control @error('Fecha') is-invalid @enderror" name="Fecha" id="Fecha" type="date" value="{{ $fecha->format('Y-m-d')}}">
                                             @error('Fecha')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="IdEstatusConsulta">Estatus de consulta</label>
+                                            <select data-plugin="customselect" class="form-control @error('IdEstatusConsulta') is-invalid @enderror" name="IdEstatusConsulta" id="IdEstatusConsulta">
+                                            @foreach($estatus as $estatu)
+                                                <option value="{{$estatu->id}}">{{$estatu->Nombre}}</option>
+                                            @endforeach
+                                            </select>
+                                            @error('IdEstatusConsulta')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>

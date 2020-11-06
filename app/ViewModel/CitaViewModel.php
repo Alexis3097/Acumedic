@@ -5,6 +5,7 @@ use App\Models\Paciente;
 use App\Models\TipoConsulta;
 use App\Models\Sexo;
 use App\Models\Cita;
+use App\Models\EstatusConsulta;
 use App\Models\CitaHorario;
 use App\Models\Horario;
 use Carbon\Carbon;
@@ -13,6 +14,11 @@ class CitaViewModel
     public static function getFecha()
     {
       return Carbon::now();
+    }
+
+    public static function getEstatusConsulta()
+    {
+      return EstatusConsulta::All();
     }
 
     public static function getTipoConsulta()
@@ -50,17 +56,23 @@ class CitaViewModel
 
     public function create($citaData)
     {
-      $paciente = new Paciente();
-      $paciente->Nombre = $citaData->Nombre;
-      $paciente->ApellidoPaterno = $citaData->ApellidoPaterno;
-      $paciente->ApellidoMaterno = $citaData->ApellidoMaterno;
-      $paciente->Telefono = $citaData->Telefono;
-      $paciente->save();
+      if($citaData->input('id') == 0){
+        $paciente = new Paciente();
+        $paciente->Nombre = $citaData->Nombre;
+        $paciente->ApellidoPaterno = $citaData->ApellidoPaterno;
+        $paciente->ApellidoMaterno = $citaData->ApellidoMaterno;
+        $paciente->Telefono = $citaData->Telefono;
+        $paciente->save();
+      }
 
       $cita = new Cita();
-      $cita->IdPaciente = $paciente->id;
+      if($citaData->id == 0){
+        $cita->IdPaciente = $paciente->id;
+      }else{
+        $cita->IdPaciente = $citaData->input('id');
+      }
       $cita->IdTipoConsulta = $citaData->TipoConsulta;
-      $cita->IdEstatusConsulta = 1;
+      $cita->IdEstatusConsulta = $citaData->IdEstatusConsulta;
       $cita->Descripcion = 'Guardado';
       $cita->Fecha = $citaData->Fecha;
       $cita->save();
@@ -93,7 +105,7 @@ class CitaViewModel
       //buscamos la cita
       $cita = Cita::find($id);
       $cita->IdTipoConsulta = $citaData->TipoConsulta;
-      $cita->IdEstatusConsulta = 1;
+      $cita->IdEstatusConsulta = $citaData->IdEstatusConsulta;
       $cita->Descripcion = 'Guardado';
       $cita->Fecha = $citaData->Fecha;
       $cita->save();

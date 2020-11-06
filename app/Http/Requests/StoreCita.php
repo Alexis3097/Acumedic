@@ -33,6 +33,7 @@ class StoreCita extends FormRequest
             'TipoConsulta' => [new OptionSelect],
             'Telefono' => 'required|numeric',
             'Fecha' => ['required',new FechaMayorAHoy],
+            'IdEstatusConsulta' => 'required',
         ];
     }
 
@@ -45,6 +46,7 @@ class StoreCita extends FormRequest
             'Horario.required' => 'El :attribute es requerido',
             'Telefono.numeric' => 'El :attribute debe ser de tipo numerico',
             'Fecha.required' => 'El :attribute es requerido',
+            'IdEstatusConsulta.required' => 'El :attribute es requerido',
             
         ];
     }

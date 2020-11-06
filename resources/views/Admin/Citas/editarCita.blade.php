@@ -8,18 +8,8 @@
                         <div class="col-sm-4 col-xl-6">
                             <h4 class="mb-1 mt-0">Editar cita</h4>
                         </div>
-                        <div class="col-sm-8 col-xl-6">
-                            <form class="form-inline float-sm-right mt-3 mt-sm-0">
-                                <div class="btn-group mb-sm-0 mr-2">
-
-                                    <a class="btn btn-outline-danger" href="{{ route('citas.list') }}">
-                                        <i class='fas fa-times'></i> Cancelar
-                                    </a>
-                                </div>
-                            </form>
-                        </div>
                     </div>
-
+                    <!-- @livewire('paciente-search-bar') -->
                     <!-- content -->
                     <!-- row -->
             
@@ -88,6 +78,20 @@
                                             for="Fecha">Fecha</label>
                                             <input class="form-control @error('Fecha') is-invalid @enderror" name="Fecha" id="FechaEdit" type="date" value="{{$cita->Fecha}}">
                                             @error('Fecha')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="IdEstatusConsulta">Estatus de consulta</label>
+                                            <select data-plugin="customselect" class="form-control @error('IdEstatusConsulta') is-invalid @enderror" name="IdEstatusConsulta" id="IdEstatusConsulta">
+                                            @foreach($estatus as $estatu)
+                                                <option value="{{$estatu->id}}"
+                                                @if( (int) $estatu->id === (int) $cita->IdEstatusConsulta) selected='selected' @endif>{{$estatu->Nombre}}</option>
+                                            @endforeach
+                                            </select>
+                                            @error('IdEstatusConsulta')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
