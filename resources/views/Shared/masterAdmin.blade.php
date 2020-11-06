@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="{{asset('css/Admin/app.min.css')}}" type="text/css">
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
         @livewireStyles
+        @yield('estilosCitas')
     </head>
 
     <body>
@@ -220,9 +221,9 @@
         <script src="{{asset('js/Admin/libs/apexcharts/apexcharts.min.js')}}"></script>
         <script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
         <script src="{{asset('js/Admin/app.min.js')}}"></script>
+        <!-- scripts de crearCita.blade  -->
+<!-- scripts de crearCita.blade  -->
     @livewireScripts
-    @yield('scriptPacientes')
-    
-    
+    @yield('scriptPacientes','scriptCrearCitas')    
     </body>
 </html>
