@@ -34,7 +34,7 @@
                                         <input type="hidden" name="id" value="{{ $paciente->id }}">
                                         <div class="form-group col-md-4">
                                             <label for="Nombre">Nombre (s)</label>
-                                            <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="Nombre" placeholder="Nombre" required value="{{ $paciente->Nombre }}" disabled="">
+                                            <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="Nombre" placeholder="Nombre" required value="{{ $paciente->Nombre }}" >
                                             @error('Nombre')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -43,7 +43,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoPaterno">Apellido paterno</label>
-                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" id="ApellidoPaterno" placeholder="Apellido paterno" required value="{{ $paciente->ApellidoPaterno }}" disabled="">
+                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" id="ApellidoPaterno" placeholder="Apellido paterno" required value="{{ $paciente->ApellidoPaterno }}" >
                                             @error('ApellidoPaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -52,7 +52,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoMaterno">Apellido materno</label>
-                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" id="ApellidoMaterno" placeholder="Apellido materno" required value="{{ $paciente->ApellidoMaterno }}" disabled="">
+                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" id="ApellidoMaterno" placeholder="Apellido materno" required value="{{ $paciente->ApellidoMaterno }}" >
                                             @error('ApellidoMaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -61,7 +61,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Telefono">Teléfono</label>
-                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" id="Telefono" placeholder="Telefono" required value="{{ $paciente->Telefono }}" disabled="">
+                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" id="Telefono" placeholder="Telefono" required value="{{ $paciente->Telefono }}" >
                                             @error('Telefono')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}

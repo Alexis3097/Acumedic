@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\ViewModel\PacienteViewModel;
 use App\Http\Requests\StorePaciente;
 class PacienteController extends Controller

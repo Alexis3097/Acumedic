@@ -9,7 +9,6 @@
                             <h4 class="mb-1 mt-0">Editar cita</h4>
                         </div>
                     </div>
-                    <!-- @livewire('paciente-search-bar') -->
                     <!-- content -->
                     <!-- row -->
             

@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\ViewModel\PacienteViewModel;
+use App\ViewModel\FichaPacienteViewModel;
+use App\Http\Requests\StoreFichaPaciente;
 class FichaController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     *El parametro de id es del paciente
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('Admin.Citas.fichaPaciente');
+        $fichas = FichaPacienteViewModel::getFichasXPaciente($id);
+        return view('Admin.Fichas.fichaPaciente', compact('fichas','id'));
     }
 
     /**
@@ -21,20 +23,18 @@ class FichaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(PacienteViewModel $PacienteViewModel, $id)
     {
-        return view('Admin.Citas.fichaPaciente');
+        $paciente = $PacienteViewModel->getPaciente($id);
+        return view('Admin.Fichas.crearFichaPaciente',compact('paciente'));
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * El request viene del formulario crearFichaPaciente
      */
-    public function store(Request $request)
+    public function store(StoreFichaPaciente $request)
     {
-        //
+        $fichaPaciente = FichaPacienteViewModel::create($request);
     }
 
     /**
@@ -50,13 +50,14 @@ class FichaController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
+     * El id es del paciente para saber a quien guardar
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($IdFicha)
     {
-        //
+        $ficha = FichaPacienteViewModel::getFichaXPaciente($IdFicha);
+        return view('Admin.Fichas.editarFichaPaciente',compact('ficha'));
     }
 
     /**
@@ -66,9 +67,10 @@ class FichaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreFichaPaciente $request, $id)
     {
-        //
+        $ficha = FichaPacienteViewModel::update($request,$id);
+        return redirect()->route('ficha.list',$request->IdPaciente);
     }
 
     /**

@@ -60,12 +60,17 @@ Route::put('/citas/update/{id}', 'CitasController@update')->name('citas.update')
 Route::get('/horarios', 'CitasController@horarios')->name('citas.horarios');
 Route::get('/horariosEdit', 'CitasController@horariosEdit')->name('citas.horariosEdit');
 Route::get('/citas/paciente/{id}', 'CitasController@paciente')->name('citas.paciente');
-//FICHA
-Route::get('/citas/ficha/{id}', 'FichaController@index')->name('ficha.list');
-Route::get('/citas/ficha', 'FichaController@create')->name('ficha.new');
+
 //PACIENTES
 Route::get('/pacientes', 'PacienteController@index')->name('paciente.list');
 Route::get('/pacientes/nuevo', 'PacienteController@create')->name('paciente.new');
 Route::post('/pacientes/crear', 'PacienteController@store')->name('paciente.create');
 Route::get('/pacientes/edit/{id}', 'PacienteController@edit')->name('paciente.edit');
 Route::put('/pacientes/update/{id}', 'PacienteController@update')->name('paciente.update');
+
+//FICHA
+Route::get('/ficha-paciente-{id}', 'FichaController@index')->name('ficha.list');
+Route::get('/ficha-paciente/{id}', 'FichaController@create')->name('ficha.new');
+Route::post('/ficha-paciente/create', 'FichaController@store')->name('ficha.create');
+Route::get('/ficha-paciente/edit/{IdFicha}', 'FichaController@edit')->name('ficha.edit');
+Route::put('/ficha-paciente/update/{id}', 'FichaController@update')->name('ficha.update');
