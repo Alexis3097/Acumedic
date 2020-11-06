@@ -7,7 +7,7 @@
             <div class="card-header">
                 <div class="d-flex justify-content-between">
                     <div>
-                        <h3 class="mb-0">Clientes</h3>
+                        <h3 class="mb-0">Clientess</h3>
                     </div>
                     <div class="d-flex justify-content-between">
                        

@@ -1,13 +1,26 @@
 @extends('Shared.masterAdmin')
 
+@section('estilosCitas')
+<link rel="stylesheet" href="{{asset('js/Admin/libs/bootstrap-tagsinput/bootstrap-tagsinput.css')}}" type="text/css">
+<link rel="stylesheet" href="{{asset('js/Admin/libs/select2/select2.min.css')}}" type="text/css">
+@endsection
 @section('content')
 <div class="content-page">
             <div class="content">
                 <div class="container-fluid">
                     <div class="row page-title align-items-center">
-                        <div class="col-sm-4 col-xl-6">
+                        <div class="col-sm-4 col-xl-4">
                             <h4 class="mb-1 mt-0">Crear nueva cita</h4>
+                            <select data-plugin="customselect" class="mb-1 mt-0 form-control" placeholder="Buscar...">
+                                    <option value="0">Shreyu</option>
+                                    <option value="1">Greeva</option>
+                                    <option value="2">Dhyanu</option>
+                                    <option value="3" disabled>Disabled</option>
+                                    <option value="4">Mannat</option>
+                                </select>
                         </div>
+                        <!-- <div class="col-xl-12 col-sm-12">
+                            </div> -->
                         <div class="col-sm-8 col-xl-6">
                             <form class="form-inline float-sm-right mt-3 mt-sm-0">
                                 <div class="btn-group mb-sm-0 mr-2">
@@ -19,7 +32,7 @@
                             </form>
                         </div>
                     </div>
-                    @livewire('contact-search-bar')
+                    <!-- @livewire('contact-search-bar') -->
 
                     <!-- content -->
                     <!-- row -->
@@ -139,6 +152,9 @@
             <!-- end Footer -->
 
         </div>
-
 @endsection
-
+@section('scriptCrearCitas')
+<script src="{{asset('js/Admin/libs/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>
+<script src="{{asset('js/Admin/libs/select2/select2.min.js')}}"></script>
+<script src="{{asset('js/Admin/pages/form-advanced.init.js')}}"></script>
+@endsection
