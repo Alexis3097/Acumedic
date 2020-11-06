@@ -9,7 +9,7 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row page-title align-items-center">
-                        <div class="col-sm-4 col-xl-4">
+                        <!-- <div class="col-sm-4 col-xl-4">
                             <h4 class="mb-1 mt-0">Crear nueva cita</h4>
                             <select data-plugin="customselect" class="mb-1 mt-0 form-control" placeholder="Buscar...">
                                     <option value="0">Shreyu</option>
@@ -18,7 +18,8 @@
                                     <option value="3" disabled>Disabled</option>
                                     <option value="4">Mannat</option>
                                 </select>
-                        </div>
+                        </div> -->
+                        @livewire('contact-search-bar')
                         <!-- <div class="col-xl-12 col-sm-12">
                             </div> -->
                         <div class="col-sm-8 col-xl-6">
