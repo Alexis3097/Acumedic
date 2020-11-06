@@ -222,11 +222,8 @@
         <script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
         <script src="{{asset('js/Admin/app.min.js')}}"></script>
         <!-- scripts de crearCita.blade  -->
-        <script src="{{asset('js/Admin/libs/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>
-<script src="{{asset('js/Admin/libs/select2/select2.min.js')}}"></script>
-<script src="{{asset('js/Admin/pages/form-advanced.init.js')}}"></script>
 <!-- scripts de crearCita.blade  -->
     @livewireScripts
-    @yield('scriptPacientes')    
+    @yield('scriptPacientes','scriptCrearCitas')    
     </body>
 </html>
