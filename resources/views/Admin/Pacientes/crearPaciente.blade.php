@@ -133,7 +133,7 @@
                                             <a href="{{ route('paciente.list') }}" class="btn btn-danger" >Cancelar</a>
                                             <button type="submit" class="btn btn-primary" >Guardar paciente</button>
                                         </div>
-                                    </form>
+                                    
 
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
@@ -155,14 +155,12 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                        <a href="{{ route('paciente.list') }}" class="btn btn-danger" >Borrar</a>
-                                        <button type="submit" class="btn btn-primary" >Guardar foto</button>
-
                                         <!-- <div class="mt-4 pt-3 border-top text-left">
                                         </div> -->
                                     </div>
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
+                            </form>
                         </div>
                         <!-- end col-->
                     </div>
