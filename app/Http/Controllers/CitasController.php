@@ -116,11 +116,11 @@ class CitasController extends Controller
         }
     }
 
-    public function horariosEdit(Request $request)
+    public function horariosEdit(Request $request, CitaViewModel $CitaViewModel)
     {
         if($request->ajax())
         {
-            $horariosDisponibles = CitaViewModel::getHorariosDisponibles($request->fecha,$request->IdCita);
+            $horariosDisponibles = $CitaViewModel->getHorariosDisponibles($request->fecha,$request->IdCita);
             return response()->json($horariosDisponibles);
         }
     }

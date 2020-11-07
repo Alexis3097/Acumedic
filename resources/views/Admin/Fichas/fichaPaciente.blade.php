@@ -6,7 +6,7 @@
                 <div class="container-fluid">
                     <div class="row page-title align-items-center">
                         <div class="col-sm-4 col-xl-6">
-                            <h4 class="mb-1 mt-0">Pacientes</h4>
+                            <h4 class="mb-1 mt-0">Fichas</h4>
                         </div>
                     </div>
                     <!-- products -->
@@ -14,38 +14,45 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <a href="{{ route('paciente.new') }}" style="margin-right:10px;" class="btn btn-primary btn-sm float-right">
-                                        <i class='fa fa-plus'></i> Nuevo paciente
+                                    <a href="{{ route('ficha.new',['id' => $id])}}" style="margin-right:10px;" class="btn btn-primary btn-sm float-right">
+                                        <i class='uil uil-export ml-2'></i> Nuevo paciente
                                     </a>
-                                    <h5 class="card-title mt-0 mb-0 header-title">Lista de pacientes</h5>
+                                    <h5 class="card-title mt-0 mb-0 header-title">Lista fichas por paciente</h5>
 
                                     <div class="table-responsive mt-12">
                                         <table class="table table-hover table-nowrap mb-0">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Nombre</th>
-                                                    <th scope="col">Edad</th>
-                                                    <th scope="col">Telefono</th>
+                                                    <th scope="col">Peso</th>
+                                                    <th scope="col">Talla</th>
+                                                    <th scope="col">SPO2</th>
+                                                    <th scope="col">FC</th>
+                                                    <th scope="col">FR</th>
+                                                    <th scope="col">TA</th>
+                                                    <th scope="col">Dextrosis</th>
                                                     <th scope="col">Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <div class="container">
-                                                    @foreach($pacientes as $paciente)
+                                                    @foreach($fichas as $ficha)
                                                         <tr>
-                                                            <td>{{$paciente->NombreCompleto}}</td>
-                                                            <td>{{$paciente->Edad}}</td>
-                                                            <td>{{$paciente->Telefono}}</td>
+                                                            <td>{{$ficha->Peso}}</td>
+                                                            <td>{{$ficha->Talla}}</td>
+                                                            <td>{{$ficha->SPO2}}</td>
+                                                            <td>{{$ficha->FC}}</td>
+                                                            <td>{{$ficha->FR}}</td>
+                                                            <td>{{$ficha->TA}}</td>
+                                                            <td>{{$ficha->Dextrosis}}</td>
                                                             <td>
-                                                                <a href="{{ route('paciente.edit', ['id' => $paciente->id]) }}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
-                                                                <a href="{{ route('ficha.list',['id' => $paciente->id])}}"class="btn btn-outline-info"><i class="fa fa-file-medical"></i></a>
+                                                                <a href="{{route('ficha.edit',['IdFicha'=>$id])}}"  class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
                                                                 <button type="button" class="btn btn-outline-danger btn-modal" data="eliminar-paciente"><i class="fa fa-trash"></i></button>
                                                               
                                                             </td>
                                                         </tr>
                                                     @endforeach
                                                 </div>
-                                                {{ $pacientes->links() }}
+                                               
                                             </tbody>
                                         </table>
                                     </div> <!-- end table-responsive-->

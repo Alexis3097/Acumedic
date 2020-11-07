@@ -30,6 +30,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <form class="needs-validation row" novalidate>
+                                    @csrf
                                         <div class="form-group col-md-12">
                                             <label for="validationCustom01">Buscar</label>
                                             <input type="text" class="form-control" placeholder="Buscar">

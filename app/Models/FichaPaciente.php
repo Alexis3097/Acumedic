@@ -16,7 +16,7 @@ class FichaPaciente extends Model
     
     public function paciente()
     {
-        return $this->hasOne(Paciente::class);
+        return $this->hasOne(Paciente::class,'id','IdPaciente');
     }
 
     
