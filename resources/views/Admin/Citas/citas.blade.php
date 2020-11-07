@@ -71,7 +71,7 @@
                                                     <td>
                                                         <a href="{{ route('citas.edit', ['id' => $cita->id]) }}"  class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
                                                         <a  href="{{ route('ficha.new',['id' => $cita->paciente->id])}}" class="btn btn-outline-info"><i class="fa fa-file-medical"></i></a>
-                                                        <button type="button" class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
+                                                        <a href="{{route('citas.delete', ['id' => $cita->id])}}" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             @endforeach    

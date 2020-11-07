@@ -104,7 +104,9 @@ class CitasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cita = CitaViewModel::delete($id);
+      //  dd($cita);
+        return redirect()->route('citas.list');
     }
 
     public function horarios(Request $request)

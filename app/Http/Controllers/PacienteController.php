@@ -90,6 +90,7 @@ class PacienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $paciente = PacienteViewModel::delete($id);
+        return redirect()->route('paciente.list');
     }
 }

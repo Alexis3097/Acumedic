@@ -20,10 +20,8 @@
                             </form>
                         </div>
                     </div>
-
                     <!-- content -->
                     <!-- row -->
-            
                     <!-- products -->
                     <div class="row">
                         <div class="col-lg-12">
@@ -134,13 +132,11 @@
                                             <button type="submit" class="btn btn-primary" >Guardar paciente</button>
                                         </div>
                                     </form>
-
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
                         </div> <!-- end col-->
                     </div>
                     <!-- end row -->
-
                 </div>
             </div> <!-- content -->
 </div>

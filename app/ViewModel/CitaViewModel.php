@@ -112,6 +112,16 @@ class CitaViewModel
       return $cita;
     }
 
+    public static function delete($id){
+      $citasHorarios = CitaHorario::where('IdCita',$id)->get();
+      foreach ($citasHorarios as $citaHorario){
+        $citaHorario->delete();
+      }
+      $cita = Cita::find($id);
+      $cita->delete();
+      return $cita;
+    }
+
     public static function getHorariosDisponibles($fecha, $IdCita = 0){
       $citasOcupadas = Cita::where('Fecha', '=',$fecha)->where('id','<>',$IdCita)->get();
       if(count($citasOcupadas)==0)

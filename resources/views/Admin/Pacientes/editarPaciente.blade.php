@@ -7,7 +7,6 @@
                     <div class="row page-title align-items-center">
                         <div class="col-sm-4 col-xl-6">
                             <h4 class="mb-1 mt-0">Editar paciente</h4>
-                           
                         </div>
                         <div class="col-sm-8 col-xl-6">
                             <form class="form-inline float-sm-right mt-3 mt-sm-0">
@@ -20,10 +19,8 @@
                             </form>
                         </div>
                     </div>
-
                     <!-- content -->
                     <!-- row -->
-            
                     <!-- products -->
                     <div class="row">
                         <div class="col-lg-12">
@@ -149,7 +146,7 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <a href="{{ route('paciente.list') }}" class="btn btn-danger" >Cancelar</a>
-                                            <button type="submit" class="btn btn-primary" >Guardar paciente</button>
+                                            <button type="submit" class="btn btn-primary" >Actualizar paciente</button>
                                         </div>
                                     </form>
 
@@ -159,14 +156,7 @@
                     </div>
                     <!-- end row -->
                     <!-- stats + charts -->
-
                 </div>
             </div> <!-- content -->
-
-            
-
-            
-
 </div>
-
 @endsection

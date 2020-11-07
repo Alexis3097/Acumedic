@@ -60,6 +60,7 @@ Route::put('/citas/update/{id}', 'CitasController@update')->name('citas.update')
 Route::get('/horarios', 'CitasController@horarios')->name('citas.horarios');
 Route::get('/horariosEdit', 'CitasController@horariosEdit')->name('citas.horariosEdit');
 Route::get('/citas/paciente/{id}', 'CitasController@paciente')->name('citas.paciente');
+Route::get('/citas/delete/{id}', 'CitasController@destroy')->name('citas.delete');
 
 //PACIENTES
 Route::get('/pacientes', 'PacienteController@index')->name('paciente.list');
@@ -67,6 +68,7 @@ Route::get('/pacientes/nuevo', 'PacienteController@create')->name('paciente.new'
 Route::post('/pacientes/crear', 'PacienteController@store')->name('paciente.create');
 Route::get('/pacientes/edit/{id}', 'PacienteController@edit')->name('paciente.edit');
 Route::put('/pacientes/update/{id}', 'PacienteController@update')->name('paciente.update');
+Route::get('/pacientes/delete/{id}', 'PacienteController@destroy')->name('paciente.delete');
 
 //FICHA
 Route::get('/ficha-paciente-{id}', 'FichaController@index')->name('ficha.list');
