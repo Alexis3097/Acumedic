@@ -9,35 +9,10 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row page-title align-items-center">
-                        <!-- <div class="col-sm-4 col-xl-4">
-                            <h4 class="mb-1 mt-0">Crear nueva cita</h4>
-                            <select data-plugin="customselect" class="mb-1 mt-0 form-control" placeholder="Buscar...">
-                                    <option value="0">Shreyu</option>
-                                    <option value="1">Greeva</option>
-                                    <option value="2">Dhyanu</option>
-                                    <option value="3" disabled>Disabled</option>
-                                    <option value="4">Mannat</option>
-                                </select>
-                        </div> -->
                         @livewire('contact-search-bar')
-                        <!-- <div class="col-xl-12 col-sm-12">
-                            </div> -->
-                        <div class="col-sm-8 col-xl-6">
-                            <form class="form-inline float-sm-right mt-3 mt-sm-0">
-                                <div class="btn-group mb-sm-0 mr-2">
-
-                                    <a class="btn btn-outline-danger" href="{{ route('citas.list') }}">
-                                        <i class='fas fa-redo-alt'></i> Desvincular paciente
-                                    </a>
-                                </div>
-                            </form>
-                        </div>
                     </div>
-                    <!-- @livewire('contact-search-bar') -->
-
                     <!-- content -->
                     <!-- row -->
-            
                     <!-- products -->
                     <div class="row">
                         <div class="col-lg-12">
@@ -137,31 +112,14 @@
                                             <button class="btn btn-primary" type="submit">Crear cita</button>
                                         </div>
                                     </form>
-
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
                         </div> <!-- end col-->
                     </div>
                     <!-- end row -->
                     <!-- stats + charts -->
-
                 </div>
             </div> <!-- content -->
-
-            
-
-            <!-- Footer Start -->
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!-- end Footer -->
-
         </div>
 @endsection
 @section('scriptCrearCitas')

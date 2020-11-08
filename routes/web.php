@@ -15,15 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
-
-
 Route::get('/test/nuevoPaciente', 'testController@nuevo')->name('paciente');
-Route::post('/test/guardarPaciente', 'testController@store')->name('paciente.store');
-
-Route::get('live', function () {
-    return view('testCreate');
-});
-
 //Rutas de cliente
 Route::get('/', function () {
     return view('Cliente.inicio');
@@ -60,6 +52,7 @@ Route::put('/citas/update/{id}', 'CitasController@update')->name('citas.update')
 Route::get('/horarios', 'CitasController@horarios')->name('citas.horarios');
 Route::get('/horariosEdit', 'CitasController@horariosEdit')->name('citas.horariosEdit');
 Route::get('/citas/paciente/{id}', 'CitasController@paciente')->name('citas.paciente');
+Route::delete('/citas/delete', 'CitasController@destroy')->name('citas.delete');
 
 //PACIENTES
 Route::get('/pacientes', 'PacienteController@index')->name('paciente.list');
@@ -68,6 +61,7 @@ Route::post('/pacientes/crear', 'PacienteController@store')->name('paciente.crea
 Route::get('/pacientes/edit/{id}', 'PacienteController@edit')->name('paciente.edit');
 Route::put('/pacientes/update/{id}', 'PacienteController@update')->name('paciente.update');
 Route::get('/datospaciente', 'testController@index')->name('datosPaciente');
+Route::delete('/pacientes/delete', 'PacienteController@destroy')->name('paciente.delete');
 
 //FICHA
 Route::get('/ficha-paciente-{id}', 'FichaController@index')->name('ficha.list');
@@ -75,3 +69,4 @@ Route::get('/ficha-paciente/{id}', 'FichaController@create')->name('ficha.new');
 Route::post('/ficha-paciente/create', 'FichaController@store')->name('ficha.create');
 Route::get('/ficha-paciente/edit/{IdFicha}', 'FichaController@edit')->name('ficha.edit');
 Route::put('/ficha-paciente/update/{id}', 'FichaController@update')->name('ficha.update');
+Route::delete('/ficha-paciente/delete', 'FichaController@destroy')->name('ficha.delete');

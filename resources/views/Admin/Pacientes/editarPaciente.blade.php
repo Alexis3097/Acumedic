@@ -9,33 +9,18 @@
                             <h4 class="mb-1 mt-0">Editar paciente</h4>
                            
                         </div>
-                        <div class="col-sm-8 col-xl-6">
-                            <form class="form-inline float-sm-right mt-3 mt-sm-0">
-                                <div class="btn-group mb-sm-0 mr-2">
-
-                                    <a href="{{ route('paciente.list') }}" class="btn btn-outline-danger">
-                                        <i class='fas fa-times'></i> Cancelar
-                                    </a>
-                                </div>
-                            </form>
-                        </div>
                     </div>
-
                     <!-- content -->
                     <!-- row -->
-            
                     <!-- products -->
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-9">
                             <div class="card">
-                                <div class="card-header">
-                                    Editar paciente
-                                </div>
                                 <div class="card-body">
-                                    <form class="needs-validation row" novalidate method="POST"  action="{{ route('paciente.update', ['id'=>$paciente->id]) }}" enctype="multipart/form-data">
+                                    <form class="needs-validation row" novalidate method="POST" action="{{ route('paciente.update', ['id'=>$paciente->id]) }}" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
-                                        <div class="form-group col-md-4">
+                                    <div class="form-group col-md-4">
                                             <label for="Nombre">Nombre (s)</label>
                                             <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="Nombre" value="{{$paciente->Nombre}}" placeholder="Nombres" required>
                                             @error('Nombre')
@@ -138,8 +123,28 @@
                                                 </div>
                                             @enderror
                                         </div>
+                                        <div class="form-group col-md-12">
+                                            <a href="{{ route('paciente.list') }}" class="btn btn-danger" >Cancelar</a>
+                                            <button type="submit" class="btn btn-primary" >Actualizar paciente</button>
+                                        </div>
+                                </div> <!-- end card-body-->
+                            </div> <!-- end card-->
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="card-body pb-0">
+                                <div class="text-center mt-3" style="padding-bottom:4%" >
+                                @if(is_null($paciente->Foto))
+                                        <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" alt="Foto de perfil"
+                                            class="avatar-xl rounded-circle" />
+                                @else
+                                        <img src="{{asset('../uploads/'.$paciente->Foto)}}" alt="Foto de perfil"
+                                                    class="avatar-xl rounded-circle" />
+                                @endif
+                                        <h5 class="mt-2 mb-0">Asi se ve tu perfil</h5>
+                                        <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu foto de perfil
+                                        </h6>
                                         <div class="form-group col-md-4">
-                                            <label for="example-date">Imagen</label>
                                             <input name="Foto" type="file" accept="image/*"/>
                                             @error('Foto')
                                                 <div class="invalid-feedback">
@@ -147,26 +152,15 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                        <div class="form-group col-md-12">
-                                            <a href="{{ route('paciente.list') }}" class="btn btn-danger" >Cancelar</a>
-                                            <button type="submit" class="btn btn-primary" >Guardar paciente</button>
-                                        </div>
-                                    </form>
-
+                                    </div>
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
-                        </div> <!-- end col-->
+                        </div>
+                        </form>
+                        <!-- end col-->
                     </div>
                     <!-- end row -->
-                    <!-- stats + charts -->
-
                 </div>
             </div> <!-- content -->
-
-            
-
-            
-
 </div>
-
 @endsection

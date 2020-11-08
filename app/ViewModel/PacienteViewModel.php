@@ -3,6 +3,8 @@
 namespace App\ViewModel;
 use App\Models\Paciente;
 use App\Models\Sexo;
+use App\Models\Cita;
+use App\Models\CitaHorario;
 use Carbon\Carbon;
 class PacienteViewModel
 {
@@ -26,6 +28,21 @@ class PacienteViewModel
       return Sexo::All();
     }
 
+    public static function delete($id)
+    {
+      $citas = Cita::where('IdPaciente', $id)->get();
+      
+      if(count($citas)>0){
+        foreach($citas as $cita)
+        {
+          $citasHorarios = CitaHorario::where('IdCita',$cita->id)->delete();
+          $cita->delete();
+        }
+       
+      }
+      $paciente = Paciente::find($id);
+      $paciente->delete();
+    }
 
     public function create($pacienteData): Paciente
     {
@@ -41,10 +58,15 @@ class PacienteViewModel
 
     public function update($pacienteData, $id)
     {
-        
         $paciente = Paciente::find($id);
         if($archivo = $pacienteData->file('Foto'))
         {
+          if(!is_null($paciente->Foto)){
+             $rutaImagen = public_path().'/uploads/'.$paciente->Foto;
+            if (@getimagesize($rutaImagen)){
+              unlink($rutaImagen);
+            }
+          }
           $nombre = time().'.'.$archivo->getClientOriginalExtension();
           $archivo->move('uploads', $nombre);
           $paciente->Foto = $nombre;

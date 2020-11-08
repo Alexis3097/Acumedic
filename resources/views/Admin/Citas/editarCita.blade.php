@@ -11,7 +11,6 @@
                     </div>
                     <!-- content -->
                     <!-- row -->
-            
                     <!-- products -->
                     <div class="row">
                         <div class="col-lg-12">
@@ -121,23 +120,7 @@
                     </div>
                     <!-- end row -->
                     <!-- stats + charts -->
-
                 </div>
             </div> <!-- content -->
-
-            
-
-            <!-- Footer Start -->
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!-- end Footer -->
-
         </div>
 @endsection

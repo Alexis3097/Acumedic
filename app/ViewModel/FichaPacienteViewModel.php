@@ -18,7 +18,7 @@ class FichaPacienteViewModel
     }
     public static function getFichaXPaciente($IdFicha)
     {
-        $fichas = FichaPaciente::where('IdPaciente','=',$IdFicha)->first();
+        $fichas = FichaPaciente::where('id',$IdFicha)->first();
         return $fichas;
         
     }
@@ -38,5 +38,12 @@ class FichaPacienteViewModel
         $ficha->save(); 
 
         return $ficha;
+    }
+
+    public static function delete($id){
+        $ficha = FichaPaciente::find($id);
+        $IdPaciente = $ficha->IdPaciente;
+        $ficha->delete();
+        return $IdPaciente;
     }
 }

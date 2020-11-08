@@ -172,14 +172,7 @@
                             <li>
                                 <a href="{{ route('paciente.list') }}">
                                     <i data-feather="user"></i>
-                                    <span> Pacientes </span> 
-                                    <span class="menu-arrow"></span>                                   
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i data-feather="file-text"></i>
-                                    <span> Ficha clínica </span>
+                                    <span> Pacientes </span>                                  
                                 </a>
                             </li>
                             <li>

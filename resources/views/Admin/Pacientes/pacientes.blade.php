@@ -20,7 +20,7 @@
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista de pacientes</h5>
 
                                     <div class="table-responsive mt-12">
-                                        <table class="table table-hover table-nowrap mb-0">
+                                        <table class="table table-hover table-nowrap mb-0" data-form="deleteForm">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Nombre</th>
@@ -33,14 +33,17 @@
                                                 <div class="container">
                                                     @foreach($pacientes as $paciente)
                                                         <tr>
+                                                            <input type="hidden"id="IdPaciente" value="{{ $paciente->id}}">
                                                             <td>{{$paciente->NombreCompleto}}</td>
                                                             <td>{{$paciente->Edad}}</td>
                                                             <td>{{$paciente->Telefono}}</td>
                                                             <td>
                                                                 <a href="{{ route('paciente.edit', ['id' => $paciente->id]) }}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
                                                                 <a href="{{ route('ficha.list',['id' => $paciente->id])}}"class="btn btn-outline-info"><i class="fa fa-file-medical"></i></a>
-                                                                <button type="button" class="btn btn-outline-danger btn-modal" data="eliminar-paciente"><i class="fa fa-trash"></i></button>
-                                                              
+                                                                
+                                                                <button type="button" name="delete_modal" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarPaciente">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </button>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -57,18 +60,30 @@
                 </div>
             </div> <!-- content -->
         </div>
-<!-- modal ¿are you sure? -->
-<div class="container-body" name="eliminar-paciente">
-            <div class="col-md-5 container-quest">
-                <div class="title"><p>¿Estar seguro de elimnar <span>este paciente</span>?</p></div>
-                <div class="close close-modal"><i class="fa fa-times"></i></div>
-                <div class="button">
-                <button class="btn btn-primary">Eliminar</button>
-                <button class="btn close-modal btn-outline-danger">Cancelar</button>
+<div class="modal fade" id="eliminarPaciente" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Eliminar paciente</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body">
+                <form action="{{ route('paciente.delete')}}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="hidden" name="IdModal" id="IdModal">
+                    <p>¿Esta seguro que desea eliminar el paciente?</p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
-<!-- modal ¿are you sure? -->
 @endsection
 @section('scriptPacientes')
     <script src="{{asset('js/Admin/modales.js')}}"></script>
