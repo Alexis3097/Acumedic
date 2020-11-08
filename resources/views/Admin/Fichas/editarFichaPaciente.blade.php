@@ -109,7 +109,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <a href="{{route('ficha.list',['id'=>$ficha->IdPaciente])}}" class="btn btn-danger" type="submit">Cancelar</a>
-                                            <button type="submit" class="btn btn-primary" type="submit">Guardar</button>
+                                            <button type="submit" class="btn btn-primary" type="submit">Actualizar ficha</button>
                                         </div>
                                     </form>
 
@@ -122,20 +122,5 @@
 
                 </div>
             </div> <!-- content -->
-
-            
-
-            <!-- Footer Start -->
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            2019 &copy; Shreyu. All Rights Reserved. Crafted with <i class='uil uil-heart text-danger font-size-12'></i> by <a href="https://coderthemes.com" target="_blank">Coderthemes</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!-- end Footer -->
-
         </div>
 @endsection

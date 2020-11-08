@@ -15,7 +15,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <a href="{{ route('ficha.new',['id' => $id])}}" style="margin-right:10px;" class="btn btn-primary btn-sm float-right">
-                                        <i class='uil uil-export ml-2'></i> Nuevo paciente
+                                        <i class='uil uil-export ml-2'></i> Nueva ficha
                                     </a>
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista fichas por paciente</h5>
 
@@ -37,6 +37,7 @@
                                                 <div class="container">
                                                     @foreach($fichas as $ficha)
                                                         <tr>
+                                                            <input type="hidden"id="IdCita" value="{{ $ficha->id}}">
                                                             <td>{{$ficha->Peso}}</td>
                                                             <td>{{$ficha->Talla}}</td>
                                                             <td>{{$ficha->SPO2}}</td>
@@ -45,8 +46,10 @@
                                                             <td>{{$ficha->TA}}</td>
                                                             <td>{{$ficha->Dextrosis}}</td>
                                                             <td>
-                                                                <a href="{{route('ficha.edit',['IdFicha'=>$id])}}"  class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
-                                                                <button type="button" class="btn btn-outline-danger btn-modal" data="eliminar-paciente"><i class="fa fa-trash"></i></button>
+                                                                <a href="{{route('ficha.edit',['IdFicha'=>$ficha->id])}}"  class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
+                                                                <button type="button" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarFicha">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </button>
                                                               
                                                             </td>
                                                         </tr>
@@ -65,17 +68,30 @@
             </div> <!-- content -->
         </div>
 <!-- modal ¿are you sure? -->
-<div class="container-body" name="eliminar-paciente">
-            <div class="col-md-5 container-quest">
-                <div class="title"><p>¿Estar seguro de elimnar <span>este paciente</span>?</p></div>
-                <div class="close close-modal"><i class="fa fa-times"></i></div>
-                <div class="button">
-                <button class="btn btn-primary">Eliminar</button>
-                <button class="btn close-modal btn-outline-danger">Cancelar</button>
+<div class="modal fade" id="eliminarFicha" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Eliminar ficha</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body">
+                <form action="{{ route('ficha.delete')}}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="hidden" name="IdModal" id="IdModal">
+                    <input type="hidden" name="IdPaciente" id="IdPaciente">
+                    <p>¿Esta seguro que desea eliminar esta ficha?</p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
-<!-- modal ¿are you sure? -->
 @endsection
 @section('scriptPacientes')
     <script src="{{asset('js/Admin/modales.js')}}"></script>

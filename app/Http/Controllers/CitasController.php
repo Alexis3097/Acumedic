@@ -102,10 +102,9 @@ class CitasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $cita = CitaViewModel::delete($id);
-      //  dd($cita);
+        $cita = CitaViewModel::delete($request->IdModal);
         return redirect()->route('citas.list');
     }
 

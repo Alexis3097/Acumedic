@@ -5,8 +5,13 @@ namespace App\Http\Controllers;
 use App\ViewModel\PacienteViewModel;
 use App\ViewModel\FichaPacienteViewModel;
 use App\Http\Requests\StoreFichaPaciente;
+use Illuminate\Http\Request;
 class FichaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *El parametro de id es del paciente
@@ -35,6 +40,7 @@ class FichaController extends Controller
     public function store(StoreFichaPaciente $request)
     {
         $fichaPaciente = FichaPacienteViewModel::create($request);
+        return redirect()->route('ficha.list',$fichaPaciente->IdPaciente);
     }
 
     /**
@@ -79,8 +85,9 @@ class FichaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $IdPaciente = FichaPacienteViewModel::delete($request->IdModal);
+        return redirect()->route('ficha.list',$IdPaciente);
     }
 }

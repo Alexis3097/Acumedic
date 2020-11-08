@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\ViewModel\PacienteViewModel;
 use App\Http\Requests\StorePaciente;
+use Illuminate\Http\Request;
 class PacienteController extends Controller
 {
     public function __construct()
@@ -88,9 +89,9 @@ class PacienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $paciente = PacienteViewModel::delete($id);
+        $paciente = PacienteViewModel::delete($request->IdModal);
         return redirect()->route('paciente.list');
     }
 }

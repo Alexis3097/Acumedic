@@ -48,6 +48,7 @@
                                             <tbody>
                                             @foreach($Citas as $cita)
                                                 <tr>
+                                                    <input type="hidden"id="IdCita" value="{{ $cita->id}}">
                                                     <td>{{$cita->paciente->NombreCompleto}}</td>
                                                     <td>{{$cita->Fecha}}</td>
                                                     <td>
@@ -71,7 +72,9 @@
                                                     <td>
                                                         <a href="{{ route('citas.edit', ['id' => $cita->id]) }}"  class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
                                                         <a  href="{{ route('ficha.new',['id' => $cita->paciente->id])}}" class="btn btn-outline-info"><i class="fa fa-file-medical"></i></a>
-                                                        <a href="{{route('citas.delete', ['id' => $cita->id])}}" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a>
+                                                        <button type="button" name="delete_modal" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarCita">
+                                                            <i class="fa fa-trash"></i>
+                                                        </button>
                                                     </td>
                                                 </tr>
                                             @endforeach    
@@ -88,4 +91,31 @@
                 </div>
             </div> <!-- content -->
         </div>
+<div class="modal fade" id="eliminarCita" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Eliminar cita</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('citas.delete')}}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="hidden" name="IdModal" id="IdModal">
+                    <p>¿Esta seguro que desea eliminar esta cita?</p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+@section('scriptPacientes')
+    <script src="{{asset('js/Admin/modales.js')}}"></script>
 @endsection
