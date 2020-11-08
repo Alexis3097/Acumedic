@@ -9,21 +9,9 @@
                             <h4 class="mb-1 mt-0">Crear paciente</h4>
                            
                         </div>
-                        <div class="col-sm-8 col-xl-6">
-                            <form class="form-inline float-sm-right mt-3 mt-sm-0">
-                                <div class="btn-group mb-sm-0 mr-2">
-
-                                    <a href="{{ route('paciente.list') }}" class="btn btn-outline-danger">
-                                        <i class='fas fa-times'></i> Cancelar
-                                    </a>
-                                </div>
-                            </form>
-                        </div>
                     </div>
-
                     <!-- content -->
                     <!-- row -->
-            
                     <!-- products -->
                     <div class="row">
                         <div class="col-lg-9">

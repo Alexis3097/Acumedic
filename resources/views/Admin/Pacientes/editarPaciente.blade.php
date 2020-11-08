@@ -7,17 +7,7 @@
                     <div class="row page-title align-items-center">
                         <div class="col-sm-4 col-xl-6">
                             <h4 class="mb-1 mt-0">Editar paciente</h4>
-                        </div>
-                        <div class="col-sm-8 col-xl-6">
-                            <form class="form-inline float-sm-right mt-3 mt-sm-0">
-                                <div class="btn-group mb-sm-0 mr-2">
-
-                                    <a href="{{ route('paciente.list') }}" class="btn btn-outline-danger">
-                                        <i class='fas fa-times'></i> Cancelar
-                                    </a>
-                                </div>
-                            </form>
-                        </div>
+                        </div>>
                     </div>
                     <!-- content -->
                     <!-- row -->
@@ -25,9 +15,6 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
-                                <div class="card-header">
-                                    Editar paciente
-                                </div>
                                 <div class="card-body">
                                     <form class="needs-validation row" novalidate method="POST"  action="{{ route('paciente.update', ['id'=>$paciente->id]) }}" enctype="multipart/form-data">
                                     @csrf
