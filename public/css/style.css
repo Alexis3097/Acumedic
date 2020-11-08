@@ -48,9 +48,12 @@ body{
 }
 .nav-wrapper {
   width: 100%;
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
+  /* position: -webkit-sticky; */
+  position: fixed;
+  left: -11px;
+  z-index: 10000;
+  min-height: 100vh;
+  top: 0%;
   background-color: #fff;
 }
 
