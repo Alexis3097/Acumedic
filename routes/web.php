@@ -67,6 +67,7 @@ Route::get('/pacientes/nuevo', 'PacienteController@create')->name('paciente.new'
 Route::post('/pacientes/crear', 'PacienteController@store')->name('paciente.create');
 Route::get('/pacientes/edit/{id}', 'PacienteController@edit')->name('paciente.edit');
 Route::put('/pacientes/update/{id}', 'PacienteController@update')->name('paciente.update');
+Route::get('/datospaciente', 'testController@index')->name('datosPaciente');
 
 //FICHA
 Route::get('/ficha-paciente-{id}', 'FichaController@index')->name('ficha.list');
