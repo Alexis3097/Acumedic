@@ -465,7 +465,7 @@ input {
   display:block;
   margin:0;
   width: 85%;
-  position: absolute;
+  /* position: absolute; */
   left:0;right:0;top:0;bottom:0;
 }
 .about-section .descAbout{
@@ -1031,28 +1031,25 @@ footer .colFooter .sublinks ul li a:hover{
 
   /* FIN DE ANIMACIONES */
   /* DISEÑO RESPONSIVO */
-  @media only screen and (max-width: 720px) { 
+    /* pantallas más grandes  */
+    @media only screen and (max-width: 2840px) and (min-width: 1900px) {}
+  /* pantallas más grandes  */
+  @media only screen and (max-width: 500px) and (min-width: 300px) { 
     .features {
       flex-direction: column;
       padding: 50px;
-    }
-    
-    /* MOBILE HEADINGS */
-    
+    }    
+    /* MOBILE HEADINGS */    
     h1 {
       font-size: 1.9rem;
-    }
-    
+    }    
     h2 {
       font-size: 1rem;
-    }
-    
+    }    
     p {
       font-size: 0.8rem;
-    }
-    
-    /* MOBILE NAVIGATION */
-       
+    }    
+    /* MOBILE NAVIGATION */       
     .navbar ul {
       display: flex;
       flex-direction: column;
@@ -1065,56 +1062,84 @@ footer .colFooter .sublinks ul li a:hover{
       transform: translate(-101%);
       text-align: center;
       overflow: hidden;
-    }
-    
+    }    
     .navbar li {
       padding: 15px;
-    }
-    
+    }    
     .navbar li:first-child {
       margin-top: 50px;
-    }
-    
+    }    
     .navbar li a {
       font-size: 1rem;
-    }
-     
+    }     
     .menu-toggle, .bar {
       display: block;
       cursor: pointer;
-    }
-    
+    }  
     .mobile-nav {
     transform: translate(0%)!important;
-  }
-    
-    /* SECTIONS */
-    
+  }    
+    /* SECTIONS */    
     .headline {
       height: 20vh;
-    }
-      
+    }      
     .feature-container p {
       margin-bottom: 25px;
-    }
-    
+    }    
     .feature-container {
       margin-top: 20px;
-    }
-    
+    }    
     .feature-container:nth-child(2) {
       order: -1;
-    }
-    
-    /* SEARCH DISABLED ON MOBILE */
-    
+    }    
+    /* SEARCH DISABLED ON MOBILE */    
     #search-icon {
       display: none;
-    }
-    
+    }    
     .search-input {
     display: none;
    }
-    
+     /* infoacumedic */
+  /* .sub-banner .infoAcumedic{} */
+  .sub-banner .infoAcumedic .contacto{
+    border-right: 0px!important;
+    border-bottom:2px solid rgba(255,255,255,.3)!important;
   }
+  .sub-banner .infoAcumedic .contacto .desc .titulo{
+    /* font-size: var(--font-s); */
+  }
+  .sub-banner .infoAcumedic .contacto .desc .numero{
+    font-size: var(--font-ms);
+  }
+  .sub-banner .infoAcumedic .contactoH .desc .numero{
+    font-size: var(--font-ms);
+  }
+  .sub-banner .infoAcumedic .contacto{
+    width: 100%!important;
+  }
+  .sub-banner .infoAcumedic .contactoH{
+      width: 100%!important;
+  }
+  .sub-banner .infoAcumedic .contacto .numeroIcono{
+    box-sizing: border-box;
+    display: block!important;
+    margin-right: 11%!important;
+    margin-left:0%!important;
+  }
+  .contacto-formulario .bg-form{
+    height: 20vh;
+  }
+  .contacto-formulario .formulario{
+    padding: 4%;
+    box-sizing: border-box;
+  }
+  .contacto-formulario .formulario .titulo-form p{
+    font-size: var(--font-ms);
+  }
+  .servicios .servicio-content .desc p{
+    font-size: var(--font-ms);
+  }
+  }
+  /* infoacumedic */
+  @media only screen and (max-width: 340px) and (min-width: 300px) {}
   /* FIN DE DISEÑO RESPONSIVO */
