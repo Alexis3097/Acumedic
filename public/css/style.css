@@ -47,13 +47,11 @@ body{
     width: 100%;
 }
 .nav-wrapper {
+  /*  */
   width: 100%;
-  /* position: -webkit-sticky; */
-  position: fixed;
-  left: -11px;
-  z-index: 10000;
-  min-height: 100vh;
-  top: 0%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   background-color: #fff;
 }
 
@@ -1037,7 +1035,48 @@ footer .colFooter .sublinks ul li a:hover{
     /* pantallas más grandes  */
     @media only screen and (max-width: 2840px) and (min-width: 1900px) {}
   /* pantallas más grandes  */
-  @media only screen and (max-width: 500px) and (min-width: 300px) { 
+  @media only screen and (max-width: 800px) and (min-width: 300px) { 
+    .info-numeros .info-contador .counter{
+      font-size: var(--font-gtitle);
+    }
+    .banner-section2 .title{
+      padding: 3% 0%;
+      min-height: 22vh;
+    }
+    .banner-section2 .redirect{
+      padding: 0% 0%;
+    min-height: 0vh;
+    display: inline;
+    margin:0;
+    }
+    .banner-section2 .redirect h3{
+      width: 30%;
+      text-align: left;
+      top: 11px;
+    }
+    .banner-section2 .title h2{
+      top: 90px;
+      font-size: var(--font-gtitle);
+    }
+    .banner-section .banner-acumedic .titulo-sitio h1{
+      font-size: var(--font-gtitle);
+    }
+    .banner-section{
+      min-height:70vh;
+    }
+    .form-contact .container-formulario{
+      top: 0!important;
+    }
+    /* .banner-section .banner-acumedic .titulo-sitio{
+      padding-top: 40px;
+    } */
+    .nav-wrapper{
+      width: 100%;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      background-color: #fff;
+    }
     .features {
       flex-direction: column;
       padding: 50px;
@@ -1058,7 +1097,8 @@ footer .colFooter .sublinks ul li a:hover{
       flex-direction: column;
       position: fixed;
       justify-content: start;
-      top: 55px;
+      top: 87px;
+      left: -1px;
       background-color: #fff;
       width: 100%;
       height: calc(100vh - 55px);

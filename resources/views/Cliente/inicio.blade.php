@@ -150,23 +150,23 @@
           <form>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="tuncorreo@dominio.com">
+                <label for="inputEmail4">Nombre Completo</label>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Coloca aquí tú nombre">
               </div>
               <div class="form-group col-md-6">
-                <label for="inputPassword4">Password</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Tu contraseña">
+                <label for="inputPassword4">Ciudad</label>
+                <input type="password" class="form-control" id="inputPassword4" placeholder="Ej: Monterrey, N.L.">
               </div>
             </div>
             <div class="form-group">
-              <label for="inputAddress">Address</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="#123 Tú dirección">
+              <label for="inputAddress">Teléfono</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="Coloca aquí tú número teléfonico">
             </div>
             <div class="form-group" >
-              <label for="inputAddress2">Address 2</label>
-              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+              <label for="inputAddress2">Padecimiento</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="¿Cuál es el padecimiento que deseas tratar?">
             </div>
-            <button type="submit" class="btn-2 btn-primary">Sign in</button>
+            <button type="submit" class="btn-2 btn-primary">Quiero una cita</button>
           </form>
         </div>
       <!-- </div> -->
