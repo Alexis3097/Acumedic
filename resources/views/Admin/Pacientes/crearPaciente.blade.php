@@ -120,21 +120,10 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                        <!-- <div class="form-group col-md-4">
-                                            <label for="example-date">Imagen</label>
-                                            <input name="Foto" type="file" accept="image/*"/>
-                                            @error('Foto')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div> -->
                                         <div class="form-group col-md-12">
                                             <a href="{{ route('paciente.list') }}" class="btn btn-danger" >Cancelar</a>
                                             <button type="submit" class="btn btn-primary" >Guardar paciente</button>
                                         </div>
-                                    
-
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
                         </div>
@@ -155,17 +144,14 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                        <!-- <div class="mt-4 pt-3 border-top text-left">
-                                        </div> -->
                                     </div>
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
-                            </form>
                         </div>
+                        </form>
                         <!-- end col-->
                     </div>
                     <!-- end row -->
-
                 </div>
             </div> <!-- content -->
 </div>
