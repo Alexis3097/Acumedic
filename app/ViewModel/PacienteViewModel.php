@@ -58,10 +58,15 @@ class PacienteViewModel
 
     public function update($pacienteData, $id)
     {
-        
         $paciente = Paciente::find($id);
         if($archivo = $pacienteData->file('Foto'))
         {
+          if(!is_null($paciente->Foto)){
+             $rutaImagen = public_path().'/uploads/'.$paciente->Foto;
+            if (@getimagesize($rutaImagen)){
+              unlink($rutaImagen);
+            }
+          }
           $nombre = time().'.'.$archivo->getClientOriginalExtension();
           $archivo->move('uploads', $nombre);
           $paciente->Foto = $nombre;
