@@ -60,8 +60,10 @@ Route::get('/pacientes/nuevo', 'PacienteController@create')->name('paciente.new'
 Route::post('/pacientes/crear', 'PacienteController@store')->name('paciente.create');
 Route::get('/pacientes/edit/{id}', 'PacienteController@edit')->name('paciente.edit');
 Route::put('/pacientes/update/{id}', 'PacienteController@update')->name('paciente.update');
-Route::get('/datospaciente', 'testController@index')->name('datosPaciente');
 Route::delete('/pacientes/delete', 'PacienteController@destroy')->name('paciente.delete');
+// felipe's test
+Route::get('/test', 'testController@index')->name('consultaMedicaSintomasSubjetivos');
+// felipe's test
 
 //FICHA
 Route::get('/ficha-paciente-{id}', 'FichaController@index')->name('ficha.list');

@@ -2777,5 +2777,24 @@ body.authentication-bg {
   bottom: 10%;
   position: absolute;
 }
+/* reloj js */
+#timedate {
+
+  font-size: 3em;
+  text-align: right;
+  color: #232323;
+  position: absolute;
+  display: block;
+  right: 0;
+  bottom: 0px;
+
 }
+.reloj{
+  position:relative;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 90vh;
+}
+/* reloj js */
 /* new contents */

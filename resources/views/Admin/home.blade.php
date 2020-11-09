@@ -1,115 +1,23 @@
 @extends('Shared.masterAdmin')
 
 @section('content')
-<div class="content-page">
+<div class="content-page" style="background:url('{{asset('../img/bg-7.jpg')}}'); background-size:cover; background-repeat:no-repeat;">
             <div class="content">
-                <div class="container-fluid">
-                    <div class="row page-title align-items-center">
-                        <div class="col-sm-4 col-xl-6">
-                            <h4 class="mb-1 mt-0">Crear nueva cita</h4>
-                           
-                        </div>
-                        <div class="col-sm-8 col-xl-6">
-                            <form class="form-inline float-sm-right mt-3 mt-sm-0">
-                                <div class="btn-group mb-sm-0 mr-2">
+                <!-- Start Content-->
+                <div class="container-fluid" style="position: relative;">
+                    <div class="reloj">
+                        <body onLoad="initClock()">
 
-                                    <button type="button" class="btn btn-outline-danger">
-                                        <i class='fas fa-times'></i> Cancelar
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+                            <div id="timedate">
+                              <a id="mon">January</a>
+                              <a id="d">1</a>,
+                              <a id="y">0</a><br />
+                              <a id="h">12</a> :
+                              <a id="m">00</a>:
+                              <a id="s">00</a>
+                            </div>
                     </div>
-
-                    <!-- content -->
-                    <!-- row -->
-            
-                    <!-- products -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <form class="needs-validation row" novalidate>
-                                    @csrf
-                                        <div class="form-group col-md-12">
-                                            <label for="validationCustom01">Buscar</label>
-                                            <input type="text" class="form-control" placeholder="Buscar">
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="validationCustom01">Nombre (s)</label>
-                                            <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
-                                            <div class="valid-feedback">
-                                                Guardado
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="validationCustom02">Apellido paterno</label>
-                                            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
-                                            <div class="valid-feedback">
-                                                Guardado
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="validationCustom02">Apellido materno</label>
-                                            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
-                                            <div class="valid-feedback">
-                                                Guardado
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="validationCustom01">Fecha de nacimiento</label>
-                                            <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
-                                            <div class="valid-feedback">
-                                                Guardado
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="validationCustom02">Teléfono</label>
-                                            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
-                                            <div class="valid-feedback">
-                                                Guardado
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="validationCustom02">Tipo de consulta</label>
-                                            <select data-plugin="customselect" class="form-control">
-                                                <option value="0">Consulta 1</option>
-                                                <option value="1">Consulta 2</option>
-                                                <option value="2">Consulta 3</option>
-                                                <option value="3" disabled>Consulta disabled</option>
-                                                <option value="4">Consulta 4</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label class="col-lg-2 col-form-label"
-                                            for="example-date">Fecha</label>
-                                            <input class="form-control" id="example-date" type="date"
-                                            name="date">
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label class="col-lg-2 col-form-label"
-                                            for="example-date">Hora</label>
-                                            <input class="form-control" id="example-time" type="time"
-                                            name="time">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <button class="btn btn-danger" type="submit">Cancelar</button>
-                                            <button class="btn btn-primary" type="submit">Crear cita</button>
-                                        </div>
-                                    </form>
-
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-                    </div>
-                    <!-- end row -->
-                    <!-- stats + charts -->
-
                 </div>
             </div> <!-- content -->
-
-            
-
-
         </div>
 @endsection
