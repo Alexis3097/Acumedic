@@ -1,5 +1,10 @@
 @extends('Shared.masterAdmin')
-
+@section('estilosCitasIndex')
+<link rel="stylesheet" href="{{asset('js/Admin/libs/bootstrap-tagsinput/bootstrap-tagsinput.css')}}" type="text/css">
+<link rel="stylesheet" href="{{asset('js/Admin/libs/multiselect/multi-select.css')}}" type="text/css">
+<link rel="stylesheet" href="{{asset('js/Admin/libs/select2/select2.min.css')}}" type="text/css">
+<link rel="stylesheet" href="{{asset('js/Admin/libs/flatpickr/flatpickr.min.css')}}" type="text/css">
+@endsection
 @section('content')
 <div class="content-page">
             <div class="content">
@@ -11,14 +16,22 @@
                                 <input type="text" class="form-control col-lg-12" placeholder="Buscar">
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-xl-6">
+                            <!-- <div class="col-sm-3 col-xl-6">
                                 <form class="form-inline float-sm-right mt-4 mt-sm-0">
                                 <div class="input-group">
                                 <label class="col-md-3 col-form-label" for="example-date">Fecha Inicio:</label>
                                 <input class="form-control " id="fechaInicio-date" placeholder="Buscar fecha" type="date" name="fechaInicio" value="{{ $fecha->format('Y-m-d')}}">
                                 <label class="col-md-3 col-form-label" for="example-date">Fecha fin:</label>
                                 <input class="form-control" id="fechaFin-date" placeholder="Buscar fecha" type="date" name="fechaFin" value="{{ $fecha->format('Y-m-d')}}">
-                                </div>
+                            </div> -->
+                            <div class="form-group mb-3">
+                                            <h4>Buscar por fechas</h4>
+                                            <input type="text" id="range-datepicker" class="form-control col-lg-12" placeholder="2018-10-03 a 2018-10-10">
+                            </div>
+                            <div class="form-group mb-3">
+                            <h4></h4>
+                                <button type="button" style="margin: 30px 18px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
+                            </div>
                                 <!-- <div class="form-group mb-sm-0 mr-2">
                                         <input type="text" class="form-control" id="dash-daterange" style="min-width: 190px;" />
                                 </div> -->
@@ -118,5 +131,10 @@
 </div>
 @endsection
 @section('scriptPacientes')
+    <script src="{{asset('js/Admin/libs/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>
+    <script src="{{asset('js/Admin/libs/select2/select2.min.js')}}"></script>
+    <script src="{{asset('js/Admin/libs/multiselect/jquery.multi-select.js')}}"></script>
+    <script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
+    <script src="{{asset('js/Admin/pages/form-advanced.init.js')}}"></script>
     <script src="{{asset('js/Admin/modales.js')}}"></script>
 @endsection

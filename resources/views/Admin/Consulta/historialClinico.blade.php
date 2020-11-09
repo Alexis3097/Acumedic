@@ -43,6 +43,4 @@
 
                 </div>
             </div> <!-- content -->
-
-        </div>
 @endsection
