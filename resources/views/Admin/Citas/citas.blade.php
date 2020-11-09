@@ -31,7 +31,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <a href="{{ route('citas.new') }}" style="margin-right:10px;" class="btn btn-primary btn-sm float-right">
-                                        <i class='uil uil-export ml-2'></i> Crear cita
+                                        <i class='fa fa-plus'></i> Crear cita
                                     </a>
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista de citas</h5>
                                     <div class="table-responsive mt-12">
@@ -70,11 +70,12 @@
                                                     @endif
                                                     </td>
                                                     <td>
-                                                        <a href="{{ route('citas.edit', ['id' => $cita->id]) }}"  class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
-                                                        <a  href="{{ route('ficha.new',['id' => $cita->paciente->id])}}" class="btn btn-outline-info"><i class="fa fa-file-medical"></i></a>
-                                                        <button type="button" name="delete_modal" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarCita">
+                                                        <span title="Editar cita"><a href="{{ route('citas.edit', ['id' => $cita->id]) }}"  class="btn btn-outline-warning"><i class="fa fa-edit"></i></a></span>
+                                                        <span title="Nueva ficha"><a  href="{{ route('ficha.new',['id' => $cita->paciente->id])}}" class="btn btn-outline-info"><i class="fa fa-file-medical"></i></a></span>
+                                                        <span title="Eliminar cita"><button type="button" name="delete_modal" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarCita">
                                                             <i class="fa fa-trash"></i>
-                                                        </button>
+                                                        </button></span>
+                                                        <span title="Consulta"><a href="{{route('consulta.paciente',['IdPaciente' =>$cita->paciente->id])}}" class="btn btn-outline-primary"> <i class="fas fa-notes-medical"></i> </a></span>
                                                     </td>
                                                 </tr>
                                             @endforeach    

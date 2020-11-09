@@ -38,12 +38,13 @@
                                                             <td>{{$paciente->Edad}}</td>
                                                             <td>{{$paciente->Telefono}}</td>
                                                             <td>
-                                                                <a href="{{ route('paciente.edit', ['id' => $paciente->id]) }}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
-                                                                <a href="{{ route('ficha.list',['id' => $paciente->id])}}"class="btn btn-outline-info"><i class="fa fa-file-medical"></i></a>
+                                                                <span title="Editar paciente"><a href="{{ route('paciente.edit', ['id' => $paciente->id]) }}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a></span>
+                                                                <span title="Historial de fichas"><a href="{{ route('ficha.list',['id' => $paciente->id])}}"class="btn btn-outline-info"><i class="fa fa-file-medical"></i></a></span>
                                                                 
-                                                                <button type="button" name="delete_modal" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarPaciente">
+                                                                <span title="Eliminar paciente"><button type="button" name="delete_modal" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarPaciente">
                                                                     <i class="fa fa-trash"></i>
-                                                                </button>
+                                                                </button></span>
+                                                                <span title="Consulta"><a href="{{route('consulta.paciente',['IdPaciente' =>$paciente->id])}}" class="btn btn-outline-primary"> <i class="fas fa-notes-medical"></i> </a></span>
                                                             </td>
                                                         </tr>
                                                     @endforeach

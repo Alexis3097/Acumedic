@@ -15,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
-Route::get('/test/nuevoPaciente', 'testController@nuevo')->name('paciente');
+Route::get('/test', function () {
+    return view('Admin.Consulta.datosPaciente');
+});
+
+
 //Rutas de cliente
 Route::get('/', function () {
     return view('Cliente.inicio');
@@ -70,3 +74,8 @@ Route::post('/ficha-paciente/create', 'FichaController@store')->name('ficha.crea
 Route::get('/ficha-paciente/edit/{IdFicha}', 'FichaController@edit')->name('ficha.edit');
 Route::put('/ficha-paciente/update/{id}', 'FichaController@update')->name('ficha.update');
 Route::delete('/ficha-paciente/delete', 'FichaController@destroy')->name('ficha.delete');
+
+//CONSULTA
+Route::get('/consulta-paciente/{IdPaciente}', 'ConsultaController@index')->name('consulta.paciente');
+//HISTORIAL CLINICO
+Route::get('/consulta-paciente/historial/{IdPaciente}', 'ConsultaController@historial')->name('consulta.historial');

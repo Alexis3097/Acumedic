@@ -15,7 +15,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <a href="{{ route('ficha.new',['id' => $id])}}" style="margin-right:10px;" class="btn btn-primary btn-sm float-right">
-                                        <i class='uil uil-export ml-2'></i> Nueva ficha
+                                        <i class='fa fa-plus'></i> Nueva ficha
                                     </a>
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista fichas por paciente</h5>
 
