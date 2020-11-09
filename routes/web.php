@@ -77,7 +77,10 @@ Route::get('/ficha-paciente/edit/{IdFicha}', 'FichaController@edit')->name('fich
 Route::put('/ficha-paciente/update/{id}', 'FichaController@update')->name('ficha.update');
 Route::delete('/ficha-paciente/delete', 'FichaController@destroy')->name('ficha.delete');
 
-//CONSULTA
+//DATOS DE CONSULTA
 Route::get('/consulta-paciente/{IdPaciente}', 'ConsultaController@index')->name('consulta.paciente');
-//HISTORIAL CLINICO
+//HISTORIAL
 Route::get('/consulta-paciente/historial/{IdPaciente}', 'ConsultaController@historial')->name('consulta.historial');
+//CONSULTA
+Route::get('/consulta-paciente/consulta/AparatosSistemas', 'ConsultaController@consultaAparatosSistemas')->name('consulta.AparatosSistemas');
+Route::get('/consulta-paciente/consulta/SintomasSubjetivos', 'ConsultaController@consultaSintomasSubjetivos')->name('consulta.SintomasSubjetivos');

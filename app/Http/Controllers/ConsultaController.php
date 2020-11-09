@@ -14,12 +14,21 @@ class ConsultaController extends Controller
     public function index(PacienteViewModel $PacienteViewModel,$IdPaciente)
     {
         $paciente = $PacienteViewModel->getPaciente($IdPaciente);
-        return view('Admin.Consulta.datospaciente', compact('paciente'));
+        return view('Admin.datosDeConsulta.datospaciente', compact('paciente'));
     }
     public function historial($IdPaciente)
     {
-        //$paciente = $PacienteViewModel->getPaciente($IdPaciente);
-        return view('Admin.Consulta.historialClinico');
+        return view('Admin.datosDeConsulta.historialClinico');
+    }
+
+    public function consultaAparatosSistemas()
+    {
+        return view('Admin.datosDeConsulta.Consulta.consultaMedicaAparatosSistemas');
+    }
+
+    public function consultaSintomasSubjetivos()
+    {
+        return view('Admin.datosDeConsulta.Consulta.consultaMedicaSintomasSubjetivos');
     }
 
     /**

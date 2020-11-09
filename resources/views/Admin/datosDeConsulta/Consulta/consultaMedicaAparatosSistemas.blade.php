@@ -32,7 +32,7 @@
                                     </div>
                                     <div class="media col-md-9 button-list" style="display: inline-flex; top:-35px;">
                                             <button class="btn btn-outline-info" data-toggle="modal" data-target="#modal-error" style="width: 100%;" type="submit">Aparatos y sistemas</button>
-                                            <button class="btn btn-info" style="width: 100%;" type="submit">Síntomas subjetivos</button>
+                                            <a href="{{ route('consulta.SintomasSubjetivos') }}" class="btn btn-info" style="width: 100%;" type="submit">Síntomas subjetivos</a>
                                     </div>
                                 </div>
                             </div>

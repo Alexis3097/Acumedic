@@ -89,7 +89,7 @@
 
                                         <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-file-prescription"></i> Consulta médica</h6>
                                         <p style="margin:0;">Inicia la consulta y solicita los campos para ello</p>
-                                        <button type="button" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</button>
+                                        <a href="{{route('consulta.AparatosSistemas')}}" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</a>
 
                                         <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-diagnoses"></i> Antecedentes</h6>
                                         <p style="margin:0;">Permite crear y editar los antecedentes del paciente</p>

@@ -215,8 +215,6 @@
         <script src="{{asset('js/Admin/libs/apexcharts/apexcharts.min.js')}}"></script>
         <script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
         <script src="{{asset('js/Admin/app.min.js')}}"></script>
-        <!-- scripts de crearCita.blade  -->
-<!-- scripts de crearCita.blade  -->
     @livewireScripts
     @yield('scriptPacientes','scriptCrearCitas')    
     </body>
