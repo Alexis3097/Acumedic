@@ -28,8 +28,10 @@
                                                 <tr>
                                                     <td>Pues sucedio wey xd</td>
                                                     <td>22/10/2020</td>
-                                                    <td><button type="button" class="btn btn-outline-success"><i class="fa fa-trash"></i></button>
-                                                        <button type="button" class="btn btn-outline-danger"><i class="fa fa-eye"></i></button></td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-outline-primary"><i class="fa fa-eye"></i></button>
+                                                        <button type="button" class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
+                                                        </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -43,4 +45,5 @@
 
                 </div>
             </div> <!-- content -->
+</div>
 @endsection
