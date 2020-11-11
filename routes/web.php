@@ -66,7 +66,7 @@ Route::get('/pacientes/edit/{id}', 'PacienteController@edit')->name('paciente.ed
 Route::put('/pacientes/update/{id}', 'PacienteController@update')->name('paciente.update');
 Route::delete('/pacientes/delete', 'PacienteController@destroy')->name('paciente.delete');
 // felipe's test
-Route::get('/test', 'testController@index')->name('consultaMedicaSintomasSubjetivos');
+Route::get('/test', 'testController@index')->name('antecedentes');
 // felipe's test
 
 //FICHA
