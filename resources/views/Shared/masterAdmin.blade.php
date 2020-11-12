@@ -20,6 +20,7 @@
         @livewireStyles
         @yield('estilosCitas')
         @yield('estilosCitasIndex')
+        @yield('estilosAntecedentes')
     </head>
 
     <body>
@@ -216,6 +217,6 @@
         <script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
         <script src="{{asset('js/Admin/app.min.js')}}"></script>
     @livewireScripts
-    @yield('scriptPacientes','scriptCrearCitas')    
+    @yield('scriptAntecedentes','scriptPacientes','scriptCrearCitas')    
     </body>
 </html>

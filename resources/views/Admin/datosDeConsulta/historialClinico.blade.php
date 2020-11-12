@@ -29,8 +29,11 @@
                                                 <tr>
                                                     <td>{{$consulta->Motivo}}</td>
                                                     <td>{{$consulta->created_at->format('Y-m-d')}}</td>
-                                                    <td><button type="button" class="btn btn-outline-success"><i class="fa fa-trash"></i></button>
-                                                        <button type="button" class="btn btn-outline-danger"><i class="fa fa-eye"></i></button></td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-outline-primary"><i class="fa fa-eye"></i></button>
+                                                        <button type="button" class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
+                                                    </td>
+
                                                 </tr>
                                             @endforeach
                                             </tbody>
@@ -45,4 +48,5 @@
 
                 </div>
             </div> <!-- content -->
+</div>
 @endsection
