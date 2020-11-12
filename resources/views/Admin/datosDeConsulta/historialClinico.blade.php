@@ -6,7 +6,7 @@
                 <div class="container-fluid">
                     <div class="row page-title align-items-center">
                         <div class="col-sm-4 col-xl-6">
-                            <h4 class="mb-1 mt-0">Datos del paciente en turno: <span>Juanito Alcachofa</span></h4>
+                            <h4 class="mb-1 mt-0">Datos del paciente en turno: <span>{{$paciente->NombreCompleto}}</span></h4>
                            
                         </div>
                     </div>
@@ -25,12 +25,14 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            @foreach($consultas as $consulta)
                                                 <tr>
-                                                    <td>Pues sucedio wey xd</td>
-                                                    <td>22/10/2020</td>
+                                                    <td>{{$consulta->Motivo}}</td>
+                                                    <td>{{$consulta->created_at->format('Y-m-d')}}</td>
                                                     <td><button type="button" class="btn btn-outline-success"><i class="fa fa-trash"></i></button>
                                                         <button type="button" class="btn btn-outline-danger"><i class="fa fa-eye"></i></button></td>
                                                 </tr>
+                                            @endforeach
                                             </tbody>
                                         </table>
                                     </div> <!-- end table-responsive-->

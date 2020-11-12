@@ -4,96 +4,97 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ViewModel\PacienteViewModel;
+use App\ViewModel\ConsultaViewModel;
+use App\Http\Requests\StoreMotivoCita;
 class ConsultaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(PacienteViewModel $PacienteViewModel,$IdPaciente)
     {
+        session()->forget('IdConsulta');
         $paciente = $PacienteViewModel->getPaciente($IdPaciente);
         return view('Admin.datosDeConsulta.datospaciente', compact('paciente'));
     }
-    public function historial($IdPaciente)
+
+    //iniciar la consultaa, crea el registro de la consulta
+    public function iniciarConsulta(StoreMotivoCita $request, ConsultaViewModel $ConsultaViewModel)
     {
-        return view('Admin.datosDeConsulta.historialClinico');
+        $consulta = $ConsultaViewModel->crearConsulta($request);
+        $IdConsulta = $consulta->id;
+        $IdPaciente = $consulta->IdPaciente;
+        $paciente = $ConsultaViewModel->getPaciente($IdPaciente);
+        return view('Admin.datosDeConsulta.Consulta.consultaMedicaAparatosSistemas', compact('IdConsulta','paciente'));
     }
 
-    public function consultaAparatosSistemas()
+    public function guardarConsultaAparatosSistemas(Request $request, ConsultaViewModel $ConsultaViewModel)
     {
-        return view('Admin.datosDeConsulta.Consulta.consultaMedicaAparatosSistemas');
+        $aparatosSistemas = $ConsultaViewModel->guardarConsultaAparatosSistemas($request);
+        $IdConsulta = $aparatosSistemas->IdConsulta;
+        $sintomasSubjetivos = $ConsultaViewModel->getSintomasSubjetivosXId($IdConsulta);
+        $paciente = $ConsultaViewModel->getPacienteXConsulta($IdConsulta);
+        return view('Admin.datosDeConsulta.Consulta.consultaMedicaSintomasSubjetivos',compact('IdConsulta','sintomasSubjetivos','paciente'));
     }
 
-    public function consultaSintomasSubjetivos()
+    public function updateConsultaAparatosSistemas(Request $request, ConsultaViewModel $ConsultaViewModel)
     {
-        return view('Admin.datosDeConsulta.Consulta.consultaMedicaSintomasSubjetivos');
+        $aparatosSistemas = $ConsultaViewModel->updateAparatosSistemas($request);
+        $IdConsulta = $aparatosSistemas->IdConsulta;
+        $sintomasSubjetivos = $ConsultaViewModel->getSintomasSubjetivosXId($IdConsulta);
+        $paciente = $ConsultaViewModel->getPacienteXConsulta($IdConsulta);
+        return view('Admin.datosDeConsulta.Consulta.consultaMedicaSintomasSubjetivos',compact('IdConsulta','sintomasSubjetivos','paciente'));
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function verAparatosSistemas(ConsultaViewModel $ConsultaViewModel, $IdConsulta)
     {
-        //
+        $aparatosSistemas = $ConsultaViewModel->getAparatosSistemasXId($IdConsulta);
+        $paciente = $ConsultaViewModel->getPacienteXConsulta($IdConsulta);
+        if(is_null($aparatosSistemas))
+        {
+            return view('Admin.datosDeConsulta.Consulta.consultaMedicaAparatosSistemas', compact('IdConsulta','paciente'));
+            
+        }else{
+            return view('Admin.datosDeConsulta.Consulta.verAparatosSistemas', compact('IdConsulta','aparatosSistemas','paciente'));
+        }
+        
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function consultaSintomasSubjetivos(ConsultaViewModel $ConsultaViewModel)
     {
-        //
+        $IdConsulta = session('IdConsulta');
+        $sintomasSubjetivos = $ConsultaViewModel->getSintomasSubjetivosXId($IdConsulta);
+        $paciente = $ConsultaViewModel->getPacienteXConsulta($IdConsulta);
+        return view('Admin.datosDeConsulta.Consulta.consultaMedicaSintomasSubjetivos', compact('IdConsulta','sintomasSubjetivos','paciente'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function guardarConsultaSintomasSubjetivos(Request $request, ConsultaViewModel $ConsultaViewModel)
     {
-        //
+        $sintomaSubjetivo = $ConsultaViewModel->guardarSintomasSubjetivos($request);
+        return redirect()->route('consulta.SintomasSubjetivos');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function updateConsultaSintomasSubjetivos(Request $request, ConsultaViewModel $ConsultaViewModel)
     {
-        //
+        $sintomaSubjetivo = $ConsultaViewModel->updateSintomasSubjetivos($request);
+        return redirect()->route('consulta.SintomasSubjetivos');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function deleteConsultaSintomasSubjetivos(Request $request, ConsultaViewModel $ConsultaViewModel)
     {
-        //
+        $sintomaSubjetivo = $ConsultaViewModel->deleteSintomasSubjetivos($request->IdModal);
+        return redirect()->route('consulta.SintomasSubjetivos');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    
+    public function finalizarConsulta(Request $request, ConsultaViewModel $ConsultaViewModel)
     {
-        //
+        $IdConsulta = session('IdConsulta');
+        $IdPaciente = $ConsultaViewModel->getIdpaciente($IdConsulta);
+        session()->forget('IdConsulta');
+        return redirect()->route('consulta.paciente', $IdPaciente);
     }
+    
 }
