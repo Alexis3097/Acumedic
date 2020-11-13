@@ -2797,4 +2797,16 @@ body.authentication-bg {
   height: 90vh;
 }
 /* reloj js */
+/* buscador dinamico */
+.buscador-dinamico{
+  background-color: #f3f4f7!important;
+  border-radius: 2px;
+  position: relative;
+  display: inline-block;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  width: 100%;
+  padding: 1%;
+}
+/* buscador dinamico */
 /* new contents */
