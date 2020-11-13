@@ -16,16 +16,16 @@ class CreateAparatosSistemas extends Migration
         Schema::create('AparatosSistemas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('IdConsulta');
-            $table->string('Cabeza');
-            $table->string('Cuello');
-            $table->string('Tronco');
-            $table->string('Pelvis');
-            $table->string('MiembroInferior');
-            $table->string('MiembroSuperior');
-            $table->string('Cabello');
-            $table->string('Dientes');
-            $table->string('Lengua');
-            $table->string('Pulso');
+            $table->text('Cabeza')->nullable();
+            $table->text('Cuello')->nullable();
+            $table->text('Tronco')->nullable();
+            $table->text('Pelvis')->nullable();
+            $table->text('MiembroInferior')->nullable();
+            $table->text('MiembroSuperior')->nullable();
+            $table->text('Cabello')->nullable();
+            $table->text('Dientes')->nullable();
+            $table->text('Lengua')->nullable();
+            $table->text('Pulso')->nullable();
             $table->timestamps();
 
             $table->foreign('IdConsulta')->references('id')->on('Consulta');

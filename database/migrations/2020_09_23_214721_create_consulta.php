@@ -16,7 +16,7 @@ class CreateConsulta extends Migration
         Schema::create('Consulta', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('IdPaciente');
-            $table->string('Motivo');
+            $table->text('Motivo');
             $table->softDeletes();
             $table->timestamps();
 

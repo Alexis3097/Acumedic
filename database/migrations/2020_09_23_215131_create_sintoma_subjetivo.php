@@ -17,7 +17,7 @@ class CreateSintomaSubjetivo extends Migration
             $table->id();
             $table->unsignedBigInteger('IdConsulta');
             $table->string('Nombre');
-            $table->string('Descripcion');
+            $table->text('Descripcion');
             $table->timestamps();
 
             $table->foreign('IdConsulta')->references('id')->on('Consulta');

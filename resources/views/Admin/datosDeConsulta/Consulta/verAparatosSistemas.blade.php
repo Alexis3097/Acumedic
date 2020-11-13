@@ -22,7 +22,7 @@
                         <div class="col-md-12 col-xl-12 col-xs-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="media col-xl-2" style="display: inline-flex">
+                                <div class="media col-xl-2" style="display: inline-flex">
                                         @if(is_null($paciente->Foto))
                                         <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}"
                                             class="avatar-lg rounded-circle mr-2" alt="shreyu">
@@ -47,12 +47,13 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="mb-1 mt-0">Aparatos y sistemas</h4>
-                                    <form action="{{ route('consulta.GuardarAparatosSistemas')}}" method="POST" class="row" novalidate>
+                                    <form action="{{ route('consulta.updateAparatosSistemas')}}" method="POST" class="row" novalidate>
                                     @csrf
-                                        <input type="hidden" name="IdConsulta" value="{{ $IdConsulta }}">
-                                        <div class="form-group col-md-6">
+                                    @method('put')
+                                    <input type="hidden" name="id" value="{{$aparatosSistemas->id}}">
+                                       <div class="form-group col-md-6">
                                             <label for="Cabeza">Cabeza</label>
-                                            <textarea  class="form-control @error('Cabeza') is-invalid @enderror" id="Cabeza" name="Cabeza" placeholder="Cabeza"></textarea>
+                                            <input type="text" class="form-control @error('Cabeza') is-invalid @enderror" id="Cabeza" name="Cabeza" placeholder="Cabeza" required value="{{$aparatosSistemas['Cabeza']}}">
                                             @error('Cabeza')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -61,7 +62,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="Cuello">Cuello</label>
-                                            <textarea  class="form-control @error('Cuello') is-invalid @enderror" id="Cuello" name="Cuello" placeholder="Cuello"></textarea>
+                                            <input type="text" class="form-control @error('Cuello') is-invalid @enderror" id="Cuello" name="Cuello" placeholder="Cuello" required value="{{$aparatosSistemas->Cuello}}">
                                             @error('Cuello')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -70,7 +71,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="Tronco">Tronco</label>
-                                            <textarea  class="form-control @error('Tronco') is-invalid @enderror" id="Tronco" name="Tronco" placeholder="Tronco"></textarea>
+                                            <input type="text" class="form-control @error('Tronco') is-invalid @enderror" id="Tronco" name="Tronco" placeholder="Tronco" required value="{{$aparatosSistemas->Tronco}}">
                                             @error('Tronco')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -79,7 +80,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="Pelvis">Pelvis</label>
-                                            <textarea  class="form-control @error('Pelvis') is-invalid @enderror" id="Pelvis" name="Pelvis" placeholder="Pelvis"></textarea>
+                                            <input type="text" class="form-control @error('Pelvis') is-invalid @enderror" id="Pelvis" name="Pelvis" placeholder="Pelvis" required value="{{$aparatosSistemas->Pelvis}}">
                                             @error('Pelvis')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -88,7 +89,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="MiembroInferior">Miembro inferior</label>
-                                            <textarea  class="form-control @error('MiembroInferior') is-invalid @enderror" id="MiembroInferior" name="MiembroInferior" placeholder="Miembro inferior"></textarea>
+                                            <input type="text" class="form-control @error('MiembroInferior') is-invalid @enderror" id="MiembroInferior" name="MiembroInferior" placeholder="Miembro inferior"required value="{{$aparatosSistemas->MiembroInferior}}">
                                             @error('MiembroInferior')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -97,7 +98,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="MiembroSuperior">Miembro superior</label>
-                                            <textarea  class="form-control @error('MiembroSuperior') is-invalid @enderror" id="MiembroSuperior" name="MiembroSuperior" placeholder="Miembro superior"></textarea>
+                                            <input type="text" class="form-control @error('MiembroSuperior') is-invalid @enderror" id="MiembroSuperior" name="MiembroSuperior" placeholder="Miembro superior"required value="{{$aparatosSistemas->MiembroSuperior}}">
                                             @error('MiembroSuperior')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -106,7 +107,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="Cabello">Cabello</label>
-                                            <textarea  class="form-control @error('Cabello') is-invalid @enderror" id="Cabello" name="Cabello" placeholder="Cabello" ></textarea>
+                                            <input type="text" class="form-control @error('Cabello') is-invalid @enderror" id="Cabello" name="Cabello" placeholder="Cabello" required value="{{$aparatosSistemas->Cabello}}">
                                             @error('Cabello')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -115,7 +116,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="Dientes">Dientes</label>
-                                            <textarea  class="form-control @error('Dientes') is-invalid @enderror" id="Dientes" name="Dientes" placeholder="Dientes" ></textarea>
+                                            <input type="text" class="form-control @error('Dientes') is-invalid @enderror" id="Dientes" name="Dientes" placeholder="Dientes" required value="{{$aparatosSistemas->Dientes}}">
                                             @error('Dientes')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -124,7 +125,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="Lengua">Lengua</label>
-                                            <textarea  class="form-control @error('Lengua') is-invalid @enderror" id="Lengua" name="Lengua" placeholder="Lengua"></textarea>
+                                            <input type="text" class="form-control @error('Lengua') is-invalid @enderror" id="Lengua" name="Lengua" placeholder="Lengua"required value="{{$aparatosSistemas->Lengua}}">
                                             @error('Lengua')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -133,13 +134,14 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="validationCustom02">Pulso</label>
-                                            <textarea  class="form-control @error('Pulso') is-invalid @enderror" id="Pulso" name="Pulso" placeholder="Pulso"></textarea>
+                                            <input type="Pulso" class="form-control @error('Pulso') is-invalid @enderror" id="Pulso" name="Pulso" placeholder="Pulso"required value="{{$aparatosSistemas->Pulso}}">
                                             @error('Pulso')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
                                             @enderror
                                         </div>
+                                       
                                         <div class="form-group col-md-12">
                                                 <button class="btn btn-danger" type="button">Cancelar</button>
                                                 <button class="btn btn-primary" type="submit">Guardar</button>

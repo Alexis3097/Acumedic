@@ -12,9 +12,9 @@
                             <form class="form-inline float-sm-right mt-3 mt-sm-0">
                                 <div class="btn-group mb-sm-0 mr-2">
 
-                                    <button type="button" class="btn btn-outline-primary">
+                                    <!-- <a href="{{ URL::previous() }}" class="btn btn-outline-primary">
                                         <i class='fas fa-arrow-left'></i> Regresar
-                                    </button>
+                                    </a> -->
                                 </div>
                             </form>
                         </div>
@@ -89,7 +89,7 @@
 
                                         <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-file-prescription"></i> Consulta médica</h6>
                                         <p style="margin:0;">Inicia la consulta y solicita los campos para ello</p>
-                                        <a href="{{route('consulta.AparatosSistemas')}}" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</a>
+                                        <button data-toggle="modal" data-target="#iniciarConsulta" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</button>
 
                                         <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-diagnoses"></i> Antecedentes</h6>
                                         <p style="margin:0;">Permite crear y editar los antecedentes del paciente</p>
@@ -109,4 +109,34 @@
                 </div>
             </div> <!-- content -->
         </div>
+<div class="modal fade" id="iniciarConsulta" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Iniciar la consulta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('consulta.iniciar')}}" method="post" class="needs-validation" novalidate>
+                    @csrf
+                    <input type="hidden" name="IdPaciente" value="{{ $paciente->id}}">
+                    <h6>Para iniciar la consulta debe agregar el motivo y aceptar</h6>
+                    <label for="IdModal">Motivo</label>
+                    <textarea  class="form-control @error('Motivo') is-invalid @enderror" name="Motivo" id="Motivo"></textarea>
+                    @error('Motivo')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Aceptar e iniciar consulta</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
