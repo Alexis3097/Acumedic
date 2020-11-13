@@ -9,7 +9,7 @@ use App\ViewModel\PacienteViewModel;
 class testController extends Controller
 {
     public function index(){
-        return view('Admin.Ventas.ventas');
+        return view('Admin.Permisos.permisos');
     }
 
     public function nuevo()

@@ -22,7 +22,7 @@
                         <h3 class="mt-3">Página en construcción</h3>
                         <p class="text-muted mb-5">Seguimos trabajando en esta sección. :)</p>
 
-                        <a href="index.html" class="btn btn-lg btn-primary mt-4">Quiero regresar</a>
+                        <a href="{{ route('home')}}" class="btn btn-lg btn-primary mt-4">Quiero regresar</a>
                     </div>
                 </div>
             </div>
