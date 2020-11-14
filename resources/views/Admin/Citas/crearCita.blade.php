@@ -12,9 +12,7 @@
                 <div class="container-fluid">
                     <div class="form-group mb-3 row page-title align-items-center">
                         @livewire('contact-search-bar')
-                        <div class="form-group mb-3">
-                                <button type="button" style="margin: 30px 18px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
-                        </div>
+                       
                     </div>
                     <!-- content -->
                     <!-- row -->

@@ -10,8 +10,12 @@
     <div class="buscador-dinamico absolute z-10 list-group bg-white w-full rounded-t-none shadow-lg">
         @if(!empty($pacientes))
                 @foreach($pacientes as $id => $paciente)
-                    <a href="{{ route('citas.paciente', ['id' => $paciente['id']]) }}"
-                    >{{ $paciente['id']}} {{ $paciente['Nombre']}}  {{$paciente['ApellidoPaterno']}} {{$paciente['ApellidoMaterno']}}</a>
+                <ul> 
+                    <li>
+                        <a href="{{ route('citas.paciente', ['id' => $paciente['id']]) }}"
+                        > {{ $paciente['Nombre']}}  {{$paciente['ApellidoPaterno']}} {{$paciente['ApellidoMaterno']}}</a>
+                    </li>
+                </ul>
                 @endforeach
             @else
                 <div class="list-item"> No hay resultado
