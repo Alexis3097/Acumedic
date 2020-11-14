@@ -25,17 +25,21 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            <div class="container">
                                             @foreach($consultas as $consulta)
                                                 <tr>
+                                                    <input type="hidden"id="IdPaciente" value="{{ $consulta->id}}">
                                                     <td>{{$consulta->Motivo}}</td>
                                                     <td>{{$consulta->created_at->format('Y-m-d')}}</td>
                                                     <td>
-                                                        <button type="button" class="btn btn-outline-primary"><i class="fa fa-eye"></i></button>
-                                                        <button type="button" class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
+                                                        <a href="{{route('historial.verAparatosSintomas',['IdConsulta'=>$consulta->id])}}" class="btn btn-outline-primary"><i class="fa fa-eye"></i></a>
+                                                        <button type="button" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarConsulta"><i class="fa fa-trash"></i></button>
                                                     </td>
 
                                                 </tr>
                                             @endforeach
+                                            </div>
+                                            {{ $consultas->links() }}
                                             </tbody>
                                         </table>
                                     </div> <!-- end table-responsive-->
@@ -49,4 +53,31 @@
                 </div>
             </div> <!-- content -->
 </div>
+<div class="modal fade" id="eliminarConsulta" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Eliminar consulta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('consulta.delete')}}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="hidden" name="IdModal" id="IdModal">
+                    <p>¿Esta seguro que desea eliminar el historial de esta consulta?</p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+@section('scriptPacientes')
+    <script src="{{asset('js/Admin/modales.js')}}"></script>
 @endsection

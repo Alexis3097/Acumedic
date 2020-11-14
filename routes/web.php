@@ -81,6 +81,9 @@ Route::delete('/ficha-paciente/delete', 'FichaController@destroy')->name('ficha.
 Route::get('/consulta-paciente/{IdPaciente}', 'ConsultaController@index')->name('consulta.paciente');
 //HISTORIAL
 Route::get('/consulta-paciente/historial/{IdPaciente}', 'HistorialClinicoController@index')->name('consulta.historial');
+Route::delete('/consulta-paciente/consulta/delete', 'HistorialClinicoController@deleteConsulta')->name('consulta.delete');
+Route::get('/consulta-paciente/verAparatosSintomas/{IdConsulta}', 'HistorialClinicoController@verAparatosSintomas')->name('historial.verAparatosSintomas');
+Route::get('/consulta-paciente/verSintomasSubjetivos/{IdConsulta}', 'HistorialClinicoController@verSintomasSubjetivos')->name('historial.verSintomasSubjetivos');
 //CONSULTA
 Route::post('/consulta-paciente/consulta/iniciarConsulta', 'ConsultaController@iniciarConsulta')->name('consulta.iniciar');
 Route::post('/consulta-paciente/consulta/AparatosSistemas/guardar', 'ConsultaController@guardarConsultaAparatosSistemas')->name('consulta.GuardarAparatosSistemas');

@@ -8,11 +8,11 @@ use App\ViewModel\ConsultaViewModel;
 
 class HistorialClinicoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(HistorialClinicoViewModel $HistorialClinicoViewModel,ConsultaViewModel $ConsultaViewModel,$IdPaciente)
     {
         $consultas = $HistorialClinicoViewModel->getConsultas($IdPaciente);
@@ -20,25 +20,29 @@ class HistorialClinicoController extends Controller
         return view('Admin.datosDeConsulta.historialClinico', compact('consultas','paciente'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    
+    public function verAparatosSintomas(ConsultaViewModel $ConsultaViewModel,$IdConsulta)
     {
-        //
+        $aparatosSistemas = $ConsultaViewModel->getAparatosSistemasXId($IdConsulta);
+        $paciente = $ConsultaViewModel->getPacienteXConsulta($IdConsulta);
+        if(is_null($aparatosSistemas)){
+            return view('Admin.datosDeConsulta.verConsulta.historialVacioAparatosSistemas', compact('paciente','IdConsulta'));
+        }else
+            return view('Admin.datosDeConsulta.verConsulta.historialAparatosSistemas', compact('aparatosSistemas','paciente'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function verSintomasSubjetivos(ConsultaViewModel $ConsultaViewModel,$IdConsulta)
     {
-        //
+        $sintomasSubjetivos = $ConsultaViewModel->getSintomasSubjetivosXId($IdConsulta);
+        $paciente = $ConsultaViewModel->getPacienteXConsulta($IdConsulta);
+        return view('Admin.datosDeConsulta.verConsulta.verSintomasSubjetivos', compact('sintomasSubjetivos','paciente','IdConsulta'));
+    }
+
+    public function deleteConsulta(HistorialClinicoViewModel $HistorialClinicoViewModel,Request $request)
+    {
+        $IdPaciente = $HistorialClinicoViewModel->deleteConsulta($request->IdModal);
+        return redirect()->route('consulta.historial',$IdPaciente);
+
     }
 
     /**

@@ -217,6 +217,7 @@
         <script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
         <script src="{{asset('js/Admin/app.min.js')}}"></script>
     @livewireScripts
-    @yield('scriptAntecedentes','scriptPacientes','scriptCrearCitas')    
+    @yield('scriptPacientes')
+    @yield('scriptAntecedentes','scriptCrearCitas')    
     </body>
 </html>

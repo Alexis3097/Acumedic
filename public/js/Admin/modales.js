@@ -10,7 +10,6 @@ $('.editarSintomaSub').on('click', function(){
     var datos = $tr.children("td").map(function(){
         return $(this).text();
     });
-
     $('#IdSintoma').val(id);
     $('#NombreUpdate').val(datos[0]);
     $('#DescripcionUpdate').val(datos[1]);
