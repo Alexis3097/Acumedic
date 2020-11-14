@@ -57,6 +57,7 @@ Route::get('/horarios', 'CitasController@horarios')->name('citas.horarios');
 Route::get('/horariosEdit', 'CitasController@horariosEdit')->name('citas.horariosEdit');
 Route::get('/citas/paciente/{id}', 'CitasController@paciente')->name('citas.paciente');
 Route::delete('/citas/delete', 'CitasController@destroy')->name('citas.delete');
+Route::post('/citas/buscar/fecha', 'CitasController@buscarFecha')->name('citas.buscarFecha');
 
 //PACIENTES
 Route::get('/pacientes', 'PacienteController@index')->name('paciente.list');
