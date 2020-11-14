@@ -178,19 +178,19 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript: void(0);">
+                                <a href="{{ route('ventas')}}">
                                     <i data-feather="shopping-cart"></i>
                                     <span> Ventas </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript: void(0);">
+                                <a href="{{ route('usuarios')}}">
                                     <i data-feather="users"></i>
                                     <span> Usuarios </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript: void(0);">
+                                <a href="{{ route('permisos')}}">
                                     <i data-feather="octagon"></i>
                                     <span> Permisos </span>
                                 </a>
@@ -217,7 +217,8 @@
         <script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
         <script src="{{asset('js/Admin/app.min.js')}}"></script>
     @livewireScripts
+    @yield('scriptAntecedentes')
     @yield('scriptPacientes')
-    @yield('scriptAntecedentes','scriptCrearCitas')    
+    @yield('scriptCrearCitas')
     </body>
 </html>

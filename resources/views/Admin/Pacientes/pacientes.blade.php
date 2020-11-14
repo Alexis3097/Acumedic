@@ -5,8 +5,11 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row page-title align-items-center">
-                        <div class="col-sm-4 col-xl-6">
-                            <h4 class="mb-1 mt-0">Pacientes</h4>
+                        <div class="col-sm-6 col-md-6 col-xl-6">
+                            @livewire('contact-search-bar')
+                        </div>
+                        <div class="form-group mb-3" style="display:inline-block;">
+                                <button type="button" style="margin: 30px 18px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
                         </div>
                     </div>
                     <!-- products -->
@@ -18,7 +21,6 @@
                                         <i class='fa fa-plus'></i> Nuevo paciente
                                     </a>
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista de pacientes</h5>
-
                                     <div class="table-responsive mt-12">
                                         <table class="table table-hover table-nowrap mb-0" data-form="deleteForm">
                                             <thead>

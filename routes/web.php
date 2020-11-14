@@ -66,7 +66,7 @@ Route::get('/pacientes/edit/{id}', 'PacienteController@edit')->name('paciente.ed
 Route::put('/pacientes/update/{id}', 'PacienteController@update')->name('paciente.update');
 Route::delete('/pacientes/delete', 'PacienteController@destroy')->name('paciente.delete');
 // felipe's test
-Route::get('/test', 'testController@index')->name('antecedentes');
+Route::get('/test', 'testController@index')->name('permisos');
 // felipe's test
 
 //FICHA
@@ -77,6 +77,10 @@ Route::get('/ficha-paciente/edit/{IdFicha}', 'FichaController@edit')->name('fich
 Route::put('/ficha-paciente/update/{id}', 'FichaController@update')->name('ficha.update');
 Route::delete('/ficha-paciente/delete', 'FichaController@destroy')->name('ficha.delete');
 
+//USUARIOS
+Route::get('/usuarios', 'usuariosController@index')->name('usuarios');
+//VENTAS
+Route::get('/ventas', 'ventasController@index')->name('ventas');
 //DATOS DE CONSULTA
 Route::get('/consulta-paciente/{IdPaciente}', 'ConsultaController@index')->name('consulta.paciente');
 //HISTORIAL

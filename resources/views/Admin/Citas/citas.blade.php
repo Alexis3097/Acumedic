@@ -10,11 +10,14 @@
             <div class="content">
                 <div class="container-fluid">
                 <div class="row page-title align-items-center">
-                            <div class="col-sm-4 col-xl-6">
+                            <div class="col-sm-4 col-md-4 col-xl-4">
                                 <h4 class="mb-1 mt-0">Citas</h4>
                                 <div class="input-group">
                                 <input type="text" class="form-control col-lg-12" placeholder="Buscar">
                                 </div>
+                            </div>
+                            <div class="col-md-2">
+                            <button type="button" style="margin: 24px -8px 0px;" class="form-control btn width-xs btn-primary">Buscar</button>
                             </div>
                             <!-- <div class="col-sm-3 col-xl-6">
                                 <form class="form-inline float-sm-right mt-4 mt-sm-0">
@@ -29,8 +32,7 @@
                                             <input type="text" id="range-datepicker" class="form-control col-lg-12" placeholder="2018-10-03 a 2018-10-10">
                             </div>
                             <div class="form-group mb-3">
-                            <h4></h4>
-                                <button type="button" style="margin: 30px 18px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
+                                <button type="button" style="margin: 35px 18px 0px;" class="form-control btn width-xs btn-primary">Buscar</button>
                             </div>
                                 <!-- <div class="form-group mb-sm-0 mr-2">
                                         <input type="text" class="form-control" id="dash-daterange" style="min-width: 190px;" />
