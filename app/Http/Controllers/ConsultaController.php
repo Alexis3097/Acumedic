@@ -15,7 +15,10 @@ class ConsultaController extends Controller
     
     public function index(PacienteViewModel $PacienteViewModel,$IdPaciente)
     {
-        session()->forget('IdConsulta');
+        if(session()->has('IdConsulta'))
+        {
+            session()->forget('IdConsulta');
+        }
         $paciente = $PacienteViewModel->getPaciente($IdPaciente);
         return view('Admin.datosDeConsulta.datospaciente', compact('paciente'));
     }
