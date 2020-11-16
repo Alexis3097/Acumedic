@@ -86,6 +86,22 @@
                 <input type="file" class="form-control" id="example-fileinput">
               </div>
             </div>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label" for="example-fileinput">Nombre de tu foto</label>
+              <div class="col-lg-10">
+              <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre de foto" value="" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label" for="example-fileinput">Descripción</label>
+                <div class="col-md-10">
+                  <textarea required class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+              <a href="#" class="btn btn-danger"  data-dismiss="modal" >Cancelar</a>
+              <button class="btn btn-primary" type="submit">Subir foto</button>
+            </div>
           </div>
       </div>
       </form>

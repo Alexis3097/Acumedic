@@ -19,14 +19,14 @@
                             <div class="col-md-2">
                             <button type="button" style="margin: 24px -8px 0px;" class="form-control btn width-xs btn-primary">Buscar</button>
                             </div>
-                            <form action="{{route('citas.buscarFecha')}}" method="POST">
+                            <form class="row"action="{{route('citas.buscarFecha')}}" method="POST">
                             @csrf
                                 <div class="form-group mb-3">
                                                 <h4>Buscar por fechas</h4>
                                                 <input type="text" id="range-datepicker" name="Fechas" class="form-control col-lg-12" required placeholder="2018-10-03 a 2018-10-10">
                                 </div>
                                 <div class="form-group mb-3">
-                                    <button type="submit" style="margin: 35px 18px 0px;" class="form-control btn width-xs btn-primary">Buscar</button>
+                                    <button type="submit" style="margin: 39px 18px 0px;" class="form-control btn width-xs btn-primary">Buscar</button>
                                 </div>
                             </form>
                             </div>
