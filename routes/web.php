@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
-Route::get('/test', function () {
-    return view('Admin.Consulta.datosPaciente');
+Route::get('/test1', function () {
+    return view('Admin.datosDeConsulta.antecedentes');
 });
 
 
@@ -100,3 +100,8 @@ Route::post('/consulta-paciente/consulta/SintomasSubjetivos/guardar', 'ConsultaC
 Route::put('/consulta-paciente/consulta/SintomasSubjetivos/update', 'ConsultaController@updateConsultaSintomasSubjetivos')->name('consulta.updateSintomasSubjetivos');
 Route::delete('/consulta-paciente/consulta/SintomasSubjetivos/delete', 'ConsultaController@deleteConsultaSintomasSubjetivos')->name('consulta.deleteSintomasSubjetivos');
 Route::post('/consulta-paciente/consulta/finalizar', 'ConsultaController@finalizarConsulta')->name('consulta.finalizar');
+
+//ANTECEDENTES
+Route::get('/consulta-paciente/antecedentes/{IdPaciente}','AntecedentesController@index')->name('consulta.antecedentes');
+//ESTUDIOS DE GABINETE
+Route::get('/consulta-paciente/estidioGabinete/{IdPaciente}','EstudiosGabineteController@index')->name('consulta.estidioGabinete');
