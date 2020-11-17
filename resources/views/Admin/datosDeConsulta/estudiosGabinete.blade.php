@@ -37,8 +37,8 @@
                                             <div class="modal-content">
                                               <!--Body-->
                                               <div class="modal-body mb-0 p-0">
-                                                  <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-                                                    <img class="embed-responsive-item" src="{{asset('../uploads/'.$estudioGabinete->Url)}}" allowfullscreen>
+                                                  <div class="background-estudios embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                                    <img class="background-estudios-img embed-responsive-item" src="{{asset('../uploads/'.$estudioGabinete->Url)}}" allowfullscreen>
                                                   </div>
                                               </div>
                                              <!--Footer-->
@@ -50,7 +50,7 @@
                                           </div>
                                         </div>
                                         <!--Modal: Name-->
-                                        <a><img class="img-fluid z-depth-1" src="{{asset('../uploads/'.$estudioGabinete->Url)}}" alt="video" data-toggle="modal" data-target="#modal{{$estudioGabinete->id}}"></a>
+                                        <a><img class="img-fluid img-estudios z-depth-1" src="{{asset('../uploads/'.$estudioGabinete->Url)}}" alt="video" data-toggle="modal" data-target="#modal{{$estudioGabinete->id}}"></a>
                                       </div>
                                   <!-- Esta es la imagen de galeria con su modal -->
                                   @endforeach
