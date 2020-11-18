@@ -101,4 +101,5 @@ class PacienteController extends Controller
         $pacientes = PacienteViewModel::buscarPaciente($request->Nombre);
         return view('Admin.Pacientes.busquedaPacientes', compact('pacientes'));
     }
+
 }

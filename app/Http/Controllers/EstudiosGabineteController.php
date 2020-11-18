@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ViewModel\EstudioGabineteViewModel;
+use App\Http\Requests\StoreEstudioGabinete;
 
 class EstudiosGabineteController extends Controller
 {
@@ -18,14 +19,14 @@ class EstudiosGabineteController extends Controller
        return view('Admin.datosDeConsulta.estudiosGabinete',compact('IdPaciente','estudiosGabinete'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+ 
+
+    public function guardarFoto(StoreEstudioGabinete $request, EstudioGabineteViewModel $EstudioGabineteViewModel)
     {
-        //
+        $datos = $EstudioGabineteViewModel->create($request);
+        $estudiosGabinete = $EstudioGabineteViewModel->getFotos($datos->IdPaciente);
+        $IdPaciente = $datos->IdPaciente;
+        return redirect()->route('consulta.estudioGabinete', $IdPaciente);
     }
 
     /**

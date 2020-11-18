@@ -103,4 +103,5 @@ Route::post('/consulta-paciente/consulta/finalizar', 'ConsultaController@finaliz
 //ANTECEDENTES
 Route::get('/consulta-paciente/antecedentes/{IdPaciente}','AntecedentesController@index')->name('consulta.antecedentes');
 //ESTUDIOS DE GABINETE
-Route::get('/consulta-paciente/estidioGabinete/{IdPaciente}','EstudiosGabineteController@index')->name('consulta.estidioGabinete');
+Route::get('/consulta-paciente/estudioGabinete/{IdPaciente}','EstudiosGabineteController@index')->name('consulta.estudioGabinete');
+Route::post('/consulta-paciente/estidioGabinete','EstudiosGabineteController@guardarFoto')->name('consulta.guardarFoto');

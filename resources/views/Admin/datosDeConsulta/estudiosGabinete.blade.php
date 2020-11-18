@@ -9,9 +9,9 @@
                             <h2 class="mb-1 mt-0"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-file-prescription"></i> Estudios de gabinete</span></h2>
                         </div>
                         <div class="col-sm-6 col-xl-6 col-md-6">
-                                    <button type="button" class="btn btn-outline-primary">
+                                    <a href="{{route('consulta.paciente',['IdPaciente' => $IdPaciente])}}" class="btn btn-outline-primary">
                                         <i class='fas fa-arrow-left'></i> Regresar
-                                    </button>
+                                    </a>
                                     <button type="button" data-toggle="modal" data-target="#bs-example-modal-lg" class="btn btn-outline-primary">
                                         <i class='fas fa-plus'></i> Nueva foto
                                     </button>
@@ -77,33 +77,50 @@
               <span aria-hidden="true">&times;</span>
           </button>
       </div>
-      <form>
-      <div class="modal-body">
-          <div class="col">
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label" for="example-fileinput">Sube tu archivo</label>
-              <div class="col-lg-10">
-                <input type="file" class="form-control" id="example-fileinput">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label" for="example-fileinput">Nombre de tu foto</label>
-              <div class="col-lg-10">
-              <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre de foto" value="" required>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label" for="example-fileinput">Descripción</label>
-                <div class="col-md-10">
-                  <textarea required class="form-control"></textarea>
+      <form action="{{route('consulta.guardarFoto')}}" method="post" enctype="multipart/form-data">
+      @csrf
+      <input type="hidden" name="IdPaciente" value="{{$IdPaciente}}">
+        <div class="modal-body">
+            <div class="col">
+              <div class="form-group row">
+                <label class="col-lg-2 col-form-label" for="Url">Sube tu archivo</label>
+                <div class="col-lg-10">
+                  <input type="file" class="form-control @error('Url') is-invalid @enderror" accept="image/*" name="Url" id="Url">
+                  @error('Url')
+                      <div class="invalid-feedback">
+                          {{ $message }}
+                      </div>
+                  @enderror
                 </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-2 col-form-label" for="Nombre">Nombre de tu foto</label>
+                <div class="col-lg-10">
+                <input type="text" class="form-control @error('Nombre') is-invalid @enderror" id="Nombre" name="Nombre" placeholder="Nombre de foto"  required>
+                @error('Nombre')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-2 col-form-label" for="Descripcion">Descripción</label>
+                  <div class="col-md-10">
+                    <textarea required class="form-control @error('Descripcion') is-invalid @enderror" name="Descripcion"></textarea>
+                    @error('Descripcion')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                  </div>
+              </div>
+              <div class="form-group col-md-12">
+                <a href="#" class="btn btn-danger"  data-dismiss="modal" >Cancelar</a>
+                <button class="btn btn-primary" type="submit">Subir foto</button>
+              </div>
             </div>
-            <div class="form-group col-md-12">
-              <a href="#" class="btn btn-danger"  data-dismiss="modal" >Cancelar</a>
-              <button class="btn btn-primary" type="submit">Subir foto</button>
-            </div>
-          </div>
-      </div>
+        </div>
       </form>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
