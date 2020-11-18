@@ -8,6 +8,7 @@ use App\ViewModel\CitaViewModel;
 use App\ViewModel\PacienteViewModel;
 use App\Http\Requests\StoreCita;
 use App\Http\Requests\BuscarRangoFecha;
+use App\Http\Requests\BuscarPacienteXCita;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 class CitasController extends Controller
@@ -58,6 +59,11 @@ class CitasController extends Controller
     public function buscarFecha(BuscarRangoFecha $request, CitaViewModel $CitaViewModel)
     {
         $Citas = $CitaViewModel->BuscarCitaXRangoFecha($request);
+        return view('Admin.Citas.citas', compact('Citas'));
+    }
+    public function buscarPaciente(BuscarPacienteXCita $request, CitaViewModel $CitaViewModel)
+    {
+        $Citas = $CitaViewModel->buscarCitaXPaciente($request->Nombre);
         return view('Admin.Citas.citas', compact('Citas'));
     }
 

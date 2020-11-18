@@ -177,12 +177,21 @@ class CitaViewModel
 
     public function buscarCitaXPaciente($nombrePaciente)
     {
-      $data = DB::table('Paciente')
-                  ->join('Cita', 'Paciente.id', '=', 'Cita.IdPaciente')
-                  ->select('Cita.*', 'Paciente.*')
-                  ->where('Nombre', 'like','%' . $nombrePaciente. '%')
-                  ->get();
-      dd($data);
+      $pacientes = Paciente::where('Nombre', 'like','%' . $nombrePaciente. '%')
+                ->orWhere('ApellidoPaterno', 'like','%' . $nombrePaciente. '%')
+                ->orWhere('ApellidoMaterno', 'like','%' . $nombrePaciente. '%')
+                ->get();
+        foreach ($pacientes as $paciente){
+          $citasXPaciente[] = Cita::where('IdPaciente',$paciente->id)->get();
+        }
+        foreach ($citasXPaciente as $citaXPaciente)
+        {
+          foreach ($citaXPaciente as $cita)
+          {
+            $citasTotales[] = $cita; 
+          }
+        }
+        return $citasTotales;
     }
 
 }

@@ -10,15 +10,19 @@
             <div class="content">
                 <div class="container-fluid">
                 <div class="row page-title align-items-center">
+
+                        <form action="{{route('citas.buscarPaciente')}}" method="post">
+                        @csrf
                             <div class="col-sm-4 col-md-4 col-xl-4">
                                 <h4 class="mb-1 mt-0">Citas</h4>
                                 <div class="input-group">
-                                <input type="text" class="form-control col-lg-12" placeholder="Buscar paciente">
+                                <input type="text" name="Nombre" class="form-control col-lg-12" placeholder="Buscar paciente">
                                 </div>
                             </div>
                             <div class="col-md-2">
-                            <button type="button" style="margin: 24px -8px 0px;" class="form-control btn width-xs btn-primary">Buscar</button>
+                            <button type="submit" style="margin: 24px -8px 0px;" class="form-control btn width-xs btn-primary">Buscar</button>
                             </div>
+                        </form>
                             <form class="row"action="{{route('citas.buscarFecha')}}" method="POST">
                             @csrf
                                 <div class="form-group mb-3">
