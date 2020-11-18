@@ -18,27 +18,7 @@ class ContactSearchBar extends Component
     {
         $this->query='';
         $this->pacientes=[];
-        //$this->highlightIndex = 0;
     }
-    // public function incrementHighlight()
-    // {
-    //    if($this->highlightIndex== count($this->pacientes)-1)
-    //    {
-    //        $this->highlightIndex = 0;
-    //        return;
-    //    }
-    //    $this->highlightIndex++;
-    // }
-
-    // public function decrementHighlight()
-    // {
-    //     if($this->highlightIndex== 0)
-    //     {
-    //         $this->highlightIndex = count($this->pacientes)-1;
-    //         return;
-    //     }
-    //     $this->highlightIndex--;
-    // }
 
     function updatedQuery()
     {

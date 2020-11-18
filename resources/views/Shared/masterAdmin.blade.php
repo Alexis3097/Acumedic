@@ -50,7 +50,7 @@
                     </ul>
 
                     <ul class="navbar-nav flex-row ml-auto d-flex list-unstyled topnav-menu float-right mb-0">
-                        <li class="d-none d-sm-block">
+                        <!-- <li class="d-none d-sm-block">
                             <div class="app-search">
                                 <form>
                                     <div class="input-group">
@@ -59,9 +59,9 @@
                                     </div>
                                 </form>
                             </div>
-                        </li>
+                        </li> -->
 
-                        <li class="dropdown notification-list" data-toggle="tooltip" data-placement="left" title="Settings">
+                        <li class="dropdown notification-list" data-toggle="tooltip" data-placement="left" title="Configuración">
                             <a href="javascript:void(0);" class="nav-link right-bar-toggle">
                                 <i data-feather="settings"></i>
                             </a>

@@ -13,7 +13,7 @@
                             <div class="col-sm-4 col-md-4 col-xl-4">
                                 <h4 class="mb-1 mt-0">Citas</h4>
                                 <div class="input-group">
-                                <input type="text" class="form-control col-lg-12" placeholder="Buscar">
+                                <input type="text" class="form-control col-lg-12" placeholder="Buscar paciente">
                                 </div>
                             </div>
                             <div class="col-md-2">
@@ -23,7 +23,12 @@
                             @csrf
                                 <div class="form-group mb-3">
                                                 <h4>Buscar por fechas</h4>
-                                                <input type="text" id="range-datepicker" name="Fechas" class="form-control col-lg-12" required placeholder="2018-10-03 a 2018-10-10">
+                                                <input type="text" id="range-datepicker" name="Fechas" class="form-control col-lg-12 @error('Fechas') is-invalid @enderror" required placeholder="2018-10-03 a 2018-10-10">
+                                                @error('Fechas')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                 </div>
                                 <div class="form-group mb-3">
                                     <button type="submit" style="margin: 35px 18px 0px;" class="form-control btn width-xs btn-primary">Buscar</button>

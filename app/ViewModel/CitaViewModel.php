@@ -9,6 +9,7 @@ use App\Models\EstatusConsulta;
 use App\Models\CitaHorario;
 use App\Models\Horario;
 use Carbon\Carbon;
+use DB;
 class CitaViewModel
 {
     public static function getFecha()
@@ -161,6 +162,27 @@ class CitaViewModel
          return $todosLosHorarios;
       }
       
+    }
+
+    public function BuscarCitaXRangoFecha($FechaData)
+    {
+      $fecha= str_replace('to','-',$FechaData->Fechas);
+      $solofecha= str_replace(' ','',$fecha);
+      $Fechas = explode("-", $solofecha);
+      $fechaInicial = $Fechas[0].'-'.$Fechas[1].'-'.$Fechas[2];
+      $fechaFinal = $Fechas[3].'-'.$Fechas[4].'-'.$Fechas[5];
+      $citas = Cita::whereBetween('Fecha', [$fechaInicial, $fechaFinal])->get();
+      return $citas;
+    }
+
+    public function buscarCitaXPaciente($nombrePaciente)
+    {
+      $data = DB::table('Paciente')
+                  ->join('Cita', 'Paciente.id', '=', 'Cita.IdPaciente')
+                  ->select('Cita.*', 'Paciente.*')
+                  ->where('Nombre', 'like','%' . $nombrePaciente. '%')
+                  ->get();
+      dd($data);
     }
 
 }

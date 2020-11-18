@@ -7,6 +7,7 @@ use App\Models\Paciente;
 use App\ViewModel\CitaViewModel;
 use App\ViewModel\PacienteViewModel;
 use App\Http\Requests\StoreCita;
+use App\Http\Requests\BuscarRangoFecha;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 class CitasController extends Controller
@@ -23,8 +24,7 @@ class CitasController extends Controller
     public function index()
     {  
         $Citas = CitaViewModel::getCitas();
-        $fecha = CitaViewModel::getFecha();
-        return view('Admin.Citas.citas', compact('Citas','fecha'));
+        return view('Admin.Citas.citas', compact('Citas'));
 
     }
 
@@ -55,15 +55,10 @@ class CitasController extends Controller
         
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function buscarFecha(Request $request)
+    public function buscarFecha(BuscarRangoFecha $request, CitaViewModel $CitaViewModel)
     {
-        dd($request->toArray());
+        $Citas = $CitaViewModel->BuscarCitaXRangoFecha($request);
+        return view('Admin.Citas.citas', compact('Citas'));
     }
 
     /**
