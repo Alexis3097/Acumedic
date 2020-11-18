@@ -15,9 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
-Route::get('/test1', function () {
-    return view('Admin.datosDeConsulta.antecedentes');
-});
 
 
 //Rutas de cliente
@@ -67,6 +64,7 @@ Route::post('/pacientes/crear', 'PacienteController@store')->name('paciente.crea
 Route::get('/pacientes/edit/{id}', 'PacienteController@edit')->name('paciente.edit');
 Route::put('/pacientes/update/{id}', 'PacienteController@update')->name('paciente.update');
 Route::delete('/pacientes/delete', 'PacienteController@destroy')->name('paciente.delete');
+Route::post('/pacientes/buscar', 'PacienteController@buscarPaciente')->name('paciente.buscar');
 // felipe's test
 Route::get('/test', 'testController@index')->name('permisos');
 // felipe's test

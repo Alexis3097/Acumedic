@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\ViewModel\PacienteViewModel;
 use App\Http\Requests\StorePaciente;
+use App\Http\Requests\BuscarPacienteXCita;
 use Illuminate\Http\Request;
 class PacienteController extends Controller
 {
@@ -93,5 +94,11 @@ class PacienteController extends Controller
     {
         $paciente = PacienteViewModel::delete($request->IdModal);
         return redirect()->route('paciente.list');
+    }
+
+    public function buscarPaciente(BuscarPacienteXCita $request)
+    {
+        $pacientes = PacienteViewModel::buscarPaciente($request->Nombre);
+        return view('Admin.Pacientes.busquedaPacientes', compact('pacientes'));
     }
 }

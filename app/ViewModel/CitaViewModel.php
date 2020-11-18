@@ -166,13 +166,21 @@ class CitaViewModel
 
     public function BuscarCitaXRangoFecha($FechaData)
     {
-      $fecha= str_replace('to','-',$FechaData->Fechas);
-      $solofecha= str_replace(' ','',$fecha);
-      $Fechas = explode("-", $solofecha);
-      $fechaInicial = $Fechas[0].'-'.$Fechas[1].'-'.$Fechas[2];
-      $fechaFinal = $Fechas[3].'-'.$Fechas[4].'-'.$Fechas[5];
-      $citas = Cita::whereBetween('Fecha', [$fechaInicial, $fechaFinal])->get();
-      return $citas;
+      if(strlen($FechaData->Fechas) > 10)
+      {
+        $fecha= str_replace('to','-',$FechaData->Fechas);
+        $solofecha= str_replace(' ','',$fecha);
+        $Fechas = explode("-", $solofecha);
+        $fechaInicial = $Fechas[0].'-'.$Fechas[1].'-'.$Fechas[2];
+        $fechaFinal = $Fechas[3].'-'.$Fechas[4].'-'.$Fechas[5];
+        $citas = Cita::whereBetween('Fecha', [$fechaInicial, $fechaFinal])->get();
+        return $citas;
+      }
+      else{
+        $citas = Cita::where('Fecha', $FechaData->Fechas)->get();
+        return $citas;
+      }
+     
     }
 
     public function buscarCitaXPaciente($nombrePaciente)
@@ -192,6 +200,17 @@ class CitaViewModel
           }
         }
         return $citasTotales;
+    }
+
+    public static function tipoDeConsultaxPaciente($IdPaciente){
+      $conuslta = Cita::where('IdPaciente',$IdPaciente)->get();
+      if($conuslta->count()>0)
+      {
+        return $primeraCita = false;
+      }
+      else{
+        return $primeraCita = true;
+      }
     }
 
 }

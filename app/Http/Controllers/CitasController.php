@@ -23,10 +23,10 @@ class CitasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {  
+    { 
+        $fecha = date_create()->format('Y-m-d').' to '.date_create()->format('Y-m-d');
         $Citas = CitaViewModel::getCitas();
-        return view('Admin.Citas.citas', compact('Citas'));
-
+        return view('Admin.Citas.citas', compact('Citas','fecha'));
     }
 
     /**
@@ -58,13 +58,15 @@ class CitasController extends Controller
 
     public function buscarFecha(BuscarRangoFecha $request, CitaViewModel $CitaViewModel)
     {
+        $fecha = date_create()->format('Y-m-d').' to '.date_create()->format('Y-m-d');
         $Citas = $CitaViewModel->BuscarCitaXRangoFecha($request);
-        return view('Admin.Citas.citas', compact('Citas'));
+        return view('Admin.Citas.citas', compact('Citas','fecha'));
     }
-    public function buscarPaciente(BuscarPacienteXCita $request, CitaViewModel $CitaViewModel)
+    public function buscarPaciente(Request $request, CitaViewModel $CitaViewModel)
     {
+        $fecha = date_create()->format('Y-m-d').' to '.date_create()->format('Y-m-d');
         $Citas = $CitaViewModel->buscarCitaXPaciente($request->Nombre);
-        return view('Admin.Citas.citas', compact('Citas'));
+        return view('Admin.Citas.citas', compact('Citas','fecha'));
     }
 
     /**
@@ -130,11 +132,12 @@ class CitasController extends Controller
     public function paciente(PacienteViewModel $PacienteViewModel, $id)
     {
         $paciente = $PacienteViewModel->getPaciente($id);
+        $primeraCita = CitaViewModel::tipoDeConsultaxPaciente($id);
         $fecha = CitaViewModel::getFecha();
         $estatus = CitaViewModel::getEstatusConsulta();
         $tipoConsultas = CitaViewModel::getTipoConsulta();
         $horarios = CitaViewModel::getHorariosDisponibles(date_create()->format('Y-m-d'));
-        return view('Admin.Citas.crearCitaConPaciente', compact('fecha','tipoConsultas','horarios','paciente','estatus'));
+        return view('Admin.Citas.crearCitaConPaciente', compact('fecha','tipoConsultas','horarios','paciente','estatus','primeraCita'));
     }
     
 

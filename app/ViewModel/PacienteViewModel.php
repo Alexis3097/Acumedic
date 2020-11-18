@@ -83,4 +83,13 @@ class PacienteViewModel
         $paciente->save();
         return  $paciente;
     }
+
+    public static function buscarPaciente($Nombre) 
+    {
+      $pacientes = Paciente::where('Nombre', 'like','%' . $Nombre. '%')
+                  ->orWhere('ApellidoPaterno', 'like','%' . $Nombre. '%')
+                  ->orWhere('ApellidoMaterno', 'like','%' . $Nombre. '%')
+                  ->get();
+      return $pacientes;
+    }
 }

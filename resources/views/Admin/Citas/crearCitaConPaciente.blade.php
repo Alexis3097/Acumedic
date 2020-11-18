@@ -71,10 +71,17 @@
                                         <div class="form-group col-md-4">
                                             <label for="TipoConsulta">Tipo de consulta</label>
                                             <select data-plugin="customselect" class="form-control @error('TipoConsulta') is-invalid @enderror" name="TipoConsulta" id="TipoConsulta">
-                                                <option value="0">Seleccione</option>
-                                            @foreach($tipoConsultas as $tipoConsulta)
-                                                <option value="{{$tipoConsulta->id}}">{{$tipoConsulta->Nombre}}</option>
-                                            @endforeach
+                                            @if($primeraCita == true)
+                                                @foreach($tipoConsultas as $tipoConsulta)
+                                                    <option value="{{$tipoConsulta->id}}"
+                                                    @if( (int) $tipoConsulta->id === 1) selected='selected' @endif>{{$tipoConsulta->Nombre}}</option>
+                                                @endforeach
+                                            @else
+                                                @foreach($tipoConsultas as $tipoConsulta)
+                                                    <option value="{{$tipoConsulta->id}}"
+                                                    @if( (int) $tipoConsulta->id === 2) selected='selected' @endif>{{$tipoConsulta->Nombre}}</option>
+                                                @endforeach
+                                            @endif
                                             </select>
                                             @error('TipoConsulta')
                                                 <div class="invalid-feedback">
