@@ -2814,4 +2814,22 @@ body.authentication-bg {
   padding: 1%;
 }
 /* buscador dinamico */
+/* estudios de gabinete */
+.background-estudios{
+  background-color:#232323!important;
+}
+.background-estudios .background-estudios-img{
+  width: auto;
+  display: block;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+.img-estudios{
+  max-width: 100%;
+  display: block;
+  margin: auto;
+  height: 300px;
+}
+/* estudios de gabinete */
 /* new contents */

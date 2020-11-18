@@ -37,8 +37,8 @@
                                             <div class="modal-content">
                                               <!--Body-->
                                               <div class="modal-body mb-0 p-0">
-                                                  <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-                                                    <img class="embed-responsive-item" src="{{asset('../uploads/'.$estudioGabinete->Url)}}" allowfullscreen>
+                                                  <div class="background-estudios embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                                    <img class="background-estudios-img embed-responsive-item" src="{{asset('../uploads/'.$estudioGabinete->Url)}}" allowfullscreen>
                                                   </div>
                                               </div>
                                              <!--Footer-->
@@ -50,7 +50,7 @@
                                           </div>
                                         </div>
                                         <!--Modal: Name-->
-                                        <a><img class="img-fluid z-depth-1" src="{{asset('../uploads/'.$estudioGabinete->Url)}}" alt="video" data-toggle="modal" data-target="#modal{{$estudioGabinete->id}}"></a>
+                                        <a><img class="img-fluid img-estudios z-depth-1" src="{{asset('../uploads/'.$estudioGabinete->Url)}}" alt="video" data-toggle="modal" data-target="#modal{{$estudioGabinete->id}}"></a>
                                       </div>
                                   <!-- Esta es la imagen de galeria con su modal -->
                                   @endforeach
@@ -85,6 +85,22 @@
               <div class="col-lg-10">
                 <input type="file" class="form-control" id="example-fileinput">
               </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label" for="example-fileinput">Nombre de tu foto</label>
+              <div class="col-lg-10">
+              <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre de foto" value="" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label" for="example-fileinput">Descripción</label>
+                <div class="col-md-10">
+                  <textarea required class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+              <a href="#" class="btn btn-danger"  data-dismiss="modal" >Cancelar</a>
+              <button class="btn btn-primary" type="submit">Subir foto</button>
             </div>
           </div>
       </div>
