@@ -9,10 +9,9 @@
 <div class="content-page">
             <div class="content">
                 <div class="container-fluid">
+                <form action="{{route('citas.buscarPaciente')}}" method="post">
+                @csrf
                 <div class="row page-title align-items-center">
-
-                        <form action="{{route('citas.buscarPaciente')}}" method="post">
-                            @csrf
                             <div class="col-sm-4 col-md-4 col-xl-4">
                                 <h4 class="mb-1 mt-0">Citas</h4>
                                 <div class="input-group">
@@ -27,7 +26,7 @@
                             @csrf
                                 <div class="form-group mb-3">
                                                 <h4>Buscar por fechas</h4>
-                                                <input type="text" id="range-datepicker" name="Fechas" value="{{$fecha}}" class="form-control col-lg-12 @error('Fechas') is-invalid @enderror" required>
+                                                <input type="text" id="range-datepicker" name="Fechas" value="{{$fecha}}" class="form-control @error('Fechas') is-invalid @enderror" required>
                                                 @error('Fechas')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}

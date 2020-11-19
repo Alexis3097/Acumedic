@@ -4,9 +4,9 @@
 <div class="content-page">
             <div class="content">
                 <div class="container-fluid">
-                    <div class="row page-title align-items-center">
-                        <form action="{{route('paciente.buscar')}}" method="post">
+                <form action="{{route('paciente.buscar')}}" method="post">
                         @csrf
+                    <div class="row page-title align-items-center">
                             <div class="col-sm-6 col-md-6 col-xl-6">
                                 <div class="input-group">
                                     <input type="text" name="Nombre" class="form-control col-lg-12 @error('Nombre') is-invalid @enderror" placeholder="Buscar paciente" required>
@@ -18,7 +18,7 @@
                                 </div>
                             </div>
                             <div class="form-group mb-3" style="display:inline-block;">
-                                    <button type="submit" style="margin: 30px 18px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
+                                    <button type="submit" style="margin:17px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
                             </div>
                         </form>
                     </div>
