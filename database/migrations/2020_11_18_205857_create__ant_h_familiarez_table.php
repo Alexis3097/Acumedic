@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFichaPacienteTable extends Migration
+class CreateAntHFamiliarezTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,13 @@ class CreateFichaPacienteTable extends Migration
      */
     public function up()
     {
-        Schema::create('FichaPaciente', function (Blueprint $table) {
+        Schema::create('AntHFamiliarez', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('IdPaciente');
-            $table->string('LugarResidencia');
-            $table->string('Direccion');
-            $table->Integer('Peso');
-            $table->Integer('Talla');
-            $table->Integer('SPO2');
-            $table->Integer('FC');
-            $table->Integer('FR');
-            $table->Integer('TA');
-            $table->Integer('Dextrosis');
-            $table->softDeletes();
+            $table->mediumText('Diabetes')->nullable();
+            $table->mediumText('Hipertension')->nullable();
+            $table->mediumText('EnfToriodeas')->nullable();
+            $table->mediumText('Otros')->nullable();
             $table->timestamps();
 
             $table->foreign('IdPaciente')->references('id')->on('Paciente');
@@ -39,6 +33,6 @@ class CreateFichaPacienteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('FichaPaciente');
+        Schema::dropIfExists('AntHFamiliarez');
     }
 }

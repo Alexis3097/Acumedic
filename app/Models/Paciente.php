@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Sexo;
 use App\Models\CitaHorario;
 use App\Models\Cita;
+use App\Models\AntGinecologico;
+use App\Models\AntHFamiliarez;
+use App\Models\AntNoPatologico;
+use App\Models\AntPatologico;
 use Carbon\Carbon;
 class Paciente extends Model
 {
@@ -20,6 +24,26 @@ class Paciente extends Model
     public function sexo()
     {
         return $this->hasOne(Sexo::class);
+    }
+
+    public function antGinecologico()
+    {
+        return $this->hasOne(AntGinecologico::class);
+    }
+
+    public function antHFamiliarez()
+    {
+        return $this->hasOne(AntHFamiliarez::class);
+    }
+
+    public function antNoPatologico()
+    {
+        return $this->hasOne(AntNoPatologico::class);
+    }
+
+    public function antPatologico()
+    {
+        return $this->hasOne(AntPatologico::class);
     }
 
     public function citas()
