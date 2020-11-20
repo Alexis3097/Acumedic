@@ -72,7 +72,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="FC">FC</label>
-                                            <input type="text" class="form-control @error('FC') is-invalid @enderror" id="FC" name="FC" required placeholder="Frecuencia cardíaca">
+                                            <input type="text" class="form-control @error('FC') is-invalid @enderror" id="FC" name="FC" required placeholder="Frecuencia respiratoria">
                                             @error('FC')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
