@@ -9,24 +9,22 @@
 <div class="content-page">
             <div class="content">
                 <div class="container-fluid">
-                <form action="{{route('citas.buscarPaciente')}}" method="post">
-                @csrf
+                <form action="{{route('citas.buscarPaciente')}}" method="get">
                 <div class="row page-title align-items-center">
                             <div class="col-sm-4 col-md-4 col-xl-4">
                                 <h4 class="mb-1 mt-0">Citas</h4>
                                 <div class="input-group">
-                                <input type="text" class="form-control col-lg-12" placeholder="Buscar paciente" required>
+                                <input type="text" name="Nombre" class="form-control col-lg-12" placeholder="Buscar paciente" required>
                                 </div>
                             </div>
                             <div class="col-md-2">
                             <button type="submit" style="margin: 24px -8px 0px;" class="form-control btn width-xs btn-primary">Buscar</button>
                             </div>
                         </form>
-                        <form action="{{route('citas.buscarFecha')}}" method="post" class="row">
-                            @csrf
+                        <form action="{{route('citas.buscarFecha')}}" method="get" class="row">
                                 <div class="form-group mb-3">
                                                 <h4>Buscar por fechas</h4>
-                                                <input type="text" id="range-datepicker" name="Fechas" value="{{$fecha}}" class="form-control @error('Fechas') is-invalid @enderror" required>
+                                                <input type="text" id="range-datepicker" name="Fechas"  class="form-control @error('Fechas') is-invalid @enderror" placeholder="2020-12-12 to 2020-12-13" required>
                                                 @error('Fechas')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}

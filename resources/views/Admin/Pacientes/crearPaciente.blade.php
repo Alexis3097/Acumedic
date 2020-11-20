@@ -125,7 +125,7 @@
                                         <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu foto de perfil
                                         </h6>
                                         <div class="form-group col-md-4">
-                                            <input id="cat_image" name="cat_image" type="file" accept="image/*"/>
+                                            <input id="cat_image" name="Foto" type="file" accept="image/*"/>
                                             @error('Foto')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}

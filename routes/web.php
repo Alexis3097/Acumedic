@@ -54,8 +54,8 @@ Route::get('/horarios', 'CitasController@horarios')->name('citas.horarios');
 Route::get('/horariosEdit', 'CitasController@horariosEdit')->name('citas.horariosEdit');
 Route::get('/citas/paciente/{id}', 'CitasController@paciente')->name('citas.paciente');
 Route::delete('/citas/delete', 'CitasController@destroy')->name('citas.delete');
-Route::post('/citas/buscarFecha', 'CitasController@buscarFecha')->name('citas.buscarFecha');
-Route::post('/citas/buscarPaciente', 'CitasController@buscarPaciente')->name('citas.buscarPaciente');
+Route::get('/citas/buscarFecha', 'CitasController@buscarFecha')->name('citas.buscarFecha');
+Route::get('/citas/buscarPaciente', 'CitasController@buscarPaciente')->name('citas.buscarPaciente');
 
 //PACIENTES
 Route::get('/pacientes', 'PacienteController@index')->name('paciente.list');
@@ -64,7 +64,7 @@ Route::post('/pacientes/crear', 'PacienteController@store')->name('paciente.crea
 Route::get('/pacientes/edit/{id}', 'PacienteController@edit')->name('paciente.edit');
 Route::put('/pacientes/update/{id}', 'PacienteController@update')->name('paciente.update');
 Route::delete('/pacientes/delete', 'PacienteController@destroy')->name('paciente.delete');
-Route::post('/pacientes/buscar', 'PacienteController@buscarPaciente')->name('paciente.buscar');
+Route::get('/pacientes/buscar', 'PacienteController@buscarPaciente')->name('paciente.buscar');
 // felipe's test
 Route::get('/test', 'testController@index')->name('permisos');
 // felipe's test

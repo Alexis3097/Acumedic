@@ -4,8 +4,7 @@
 <div class="content-page">
             <div class="content">
                 <div class="container-fluid">
-                <form action="{{route('paciente.buscar')}}" method="post">
-                        @csrf
+                <form action="{{route('paciente.buscar')}}" method="get">
                     <div class="row page-title align-items-center">
                             <div class="col-sm-6 col-md-6 col-xl-6">
                             <h4 class="mb-1 mt-0">Buscar paciente</h4>

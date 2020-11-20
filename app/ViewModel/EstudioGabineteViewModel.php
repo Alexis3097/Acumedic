@@ -5,7 +5,7 @@ use App\Models\FotoAntecedente;
 class EstudioGabineteViewModel
 {
     public function getFotos($IdPaciente){
-        $fotos = FotoAntecedente::where('IdPaciente',$IdPaciente)->get();
+        $fotos = FotoAntecedente::where('IdPaciente',$IdPaciente)->orderBy('id','desc')->get();
         return $fotos;
     }
 

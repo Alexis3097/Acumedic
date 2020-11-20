@@ -45,10 +45,10 @@
                                              <!--Footer-->
                                               <div style="padding:2%" class="justify-content-center row">
                                               <div class="col-md-12 col-lg-12 col-xs-12">
-                                                <h4>Nombre de la foto</h4>
+                                                <h4>{{$estudioGabinete->Nombre}}</h4>
                                               </div>
                                               <div class="col-md-12 col-lg-12 col-xs-12">
-                                                <p class="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, est sint quibusdam aperiam veniam molestiae nisi odio, illum at dolorum nostrum vero sequi, rerum cumque eum optio consequuntur aut. Alias?</p>
+                                                <p class="desc">{{$estudioGabinete->Descripcion}}</p>
                                               </div>
                                                 <!-- <div class="col-md-12 col-lg-12 col-xs-12">
                                                 <button type="button" class="btn btn-outline-primary btn-md ml-4" data-dismiss="modal">Cerrar</button>

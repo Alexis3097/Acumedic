@@ -120,9 +120,8 @@
             <div class="left-side-menu">
                 <div class="media user-profile mt-2 mb-2">
                     <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" class="avatar-sm rounded-circle mr-2" alt="Shreyu" />
-                    <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" class="avatar-xs rounded-circle mr-2" alt="Shreyu" />
                     <div class="media-body">
-                        <h6 class="pro-user-name mt-0 mb-0">Alexis Montoya</h6>
+                        <h6 class="pro-user-name mt-0 mb-0">{{Auth::user()->name}}</h6>
                         <span class="pro-user-desc">Administrador</span>
                     </div>
                     <div class="dropdown align-self-center profile-dropdown-menu">

@@ -17,23 +17,14 @@ class CitasController extends Controller
     {
         $this->middleware('auth');
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     { 
-        $fecha = date_create()->format('Y-m-d').' to '.date_create()->format('Y-m-d');
         $Citas = CitaViewModel::getCitas();
-        return view('Admin.Citas.citas', compact('Citas','fecha'));
+        return view('Admin.Citas.citas', compact('Citas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
         $fecha = CitaViewModel::getFecha();
@@ -43,12 +34,7 @@ class CitasController extends Controller
         return view('Admin.Citas.crearCita', compact('fecha','tipoConsultas','horarios','estatus'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(StoreCita $request, CitaViewModel $CitaViewModel)
     {
         $cita = $CitaViewModel->create($request);
@@ -58,23 +44,16 @@ class CitasController extends Controller
 
     public function buscarFecha(BuscarRangoFecha $request, CitaViewModel $CitaViewModel)
     {
-        $fecha = date_create()->format('Y-m-d').' to '.date_create()->format('Y-m-d');
         $Citas = $CitaViewModel->BuscarCitaXRangoFecha($request);
-        return view('Admin.Citas.citas', compact('Citas','fecha'));
+        return view('Admin.Citas.citas', compact('Citas'));
     }
     public function buscarPaciente(Request $request, CitaViewModel $CitaViewModel)
     {
-        $fecha = date_create()->format('Y-m-d').' to '.date_create()->format('Y-m-d');
         $Citas = $CitaViewModel->buscarCitaXPaciente($request->Nombre);
-        return view('Admin.Citas.citas', compact('Citas','fecha'));
+        return view('Admin.Citas.citas', compact('Citas'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit(CitaViewModel $CitaViewModel,$id)
     {
         $cita = $CitaViewModel->getCita($id);
@@ -86,25 +65,14 @@ class CitasController extends Controller
         return view('Admin.Citas.editarCita', compact('fecha','tipoConsultas','horarios', 'cita','horariosXCita','estatus'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function update(StoreCita $request, CitaViewModel $CitaViewModel, $id)
     {
         $cita = $CitaViewModel->update($request, $id);
         return redirect()->route('citas.list');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy(Request $request)
     {
         $cita = CitaViewModel::delete($request->IdModal);

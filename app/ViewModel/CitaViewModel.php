@@ -29,7 +29,7 @@ class CitaViewModel
 
     public static function getCitas()
     {
-      $cita = Cita::where('Fecha','=', date_create()->format('Y-m-d'))->paginate(15);
+      $cita = Cita::where('Fecha','=', date_create()->format('Y-m-d'))->get();
       return $cita;
     }
     
@@ -185,10 +185,19 @@ class CitaViewModel
 
     public function buscarCitaXPaciente($nombrePaciente)
     {
+      //buscamos pacientes que coincidan con ese nombre dato
       $pacientes = Paciente::where('Nombre', 'like','%' . $nombrePaciente. '%')
                 ->orWhere('ApellidoPaterno', 'like','%' . $nombrePaciente. '%')
                 ->orWhere('ApellidoMaterno', 'like','%' . $nombrePaciente. '%')
                 ->get();
+      //si no se encuentra nada o sea el arreglo es 0 entonces retornamos un arreglos vacio
+      if(count($pacientes)==0)
+      {
+        return $citasTotales =[];
+      }
+      //si hay pacientes existenetes, busco esos pacientes en la tabla de citas y creo un arreglo apartir de los arreglos que obtengo para asi
+      //tener solo un arreglo bidimensional
+      else{
         foreach ($pacientes as $paciente){
           $citasXPaciente[] = Cita::where('IdPaciente',$paciente->id)->get();
         }
@@ -200,6 +209,7 @@ class CitaViewModel
           }
         }
         return $citasTotales;
+      }
     }
 
     public static function tipoDeConsultaxPaciente($IdPaciente){
