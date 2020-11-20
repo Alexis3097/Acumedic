@@ -49,10 +49,11 @@
                                         <p class="sub-header">Example of Dots wizard</p>
                                         <div id="smartwizard-dots">
                                             <ul>
-                                                <li><a href="#sw-dots-step-1">Patologicos <small class="d-block">Step description</small></a></li>
-                                                <li><a href="#sw-dots-step-2">No Patologicos<small class="d-block">Step description</small></a></li>
-                                                <li><a href="#sw-dots-step-3">Ginecológicos<small class="d-block">Step description</small></a></li>
-                                                <li><a href="#sw-dots-step-4">Completado<small class="d-block">Step description</small></a></li>
+                                                <li><a href="#sw-dots-step-1">Patologicos <small class="d-block">Antecedente</small></a></li>
+                                                <li><a href="#sw-dots-step-2">No Patologicos<small class="d-block">Antecedente</small></a></li>
+                                                <li><a href="#sw-dots-step-3">Ginecológicos<small class="d-block">Antecedente</small></a></li>
+                                                <li><a href="#sw-dots-step-4">H. Familiares<small class="d-block">Antecedente</small></a></li>
+                                                <li><a href="#sw-dots-step-5">Completado<small class="d-block">Antecedente</small></a></li>
                                             </ul>
                                             
                                             <div class="p-3">
@@ -61,12 +62,12 @@
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                             <label for="sw-dots-confirm">Hospitalarios</label>
-                                                                <input type="password" id="sw-dots-confirm" class="form-control" placeholder="Antecedentes hospitalarios">
+                                                                <input type="text" class="form-control" placeholder="Antecedentes hospitalarios">
 
                                                             </div>
                                                             <div class="form-group">
                                                             <label for="sw-dots-confirm">Cirugias</label>
-                                                                <input type="password" id="sw-dots-confirm" class="form-control" placeholder="Ingrese cirugias">
+                                                                <input type="text" class="form-control" placeholder="Ingrese cirugias">
 
                                                             </div>
                                                             <div class="form-group mt-3 mt-xl-0">
@@ -80,19 +81,19 @@
                                                             </div>                                                            
                                                             <div class="form-group mb-0">
                                                             <label for="sw-dots-confirm">Enfermedades cardiacas</label>
-                                                                <input type="password" id="sw-dots-confirm" class="form-control" placeholder="Ingrese enfermedades cardiacas">
+                                                                <input type="text" class="form-control" placeholder="Ingrese enfermedades cardiacas">
                                                             </div>
                                                             <div class="form-group mb-0">
                                                                 <label for="sw-dots-confirm">Transfusiones</label>
-                                                                <input type="password" id="sw-dots-confirm" class="form-control" placeholder="Ingrese si tuvo transfusiones">
+                                                                <input type="text" class="form-control" placeholder="Ingrese si tuvo transfusiones">
                                                             </div>
                                                             <div class="form-group mb-0">
                                                                 <label for="sw-dots-confirm">Cáncer</label>
-                                                                <input type="password" id="sw-dots-confirm" class="form-control" placeholder="Ingrese si el paciente tiene cáncer">
+                                                                <input type="text" class="form-control" placeholder="Ingrese si el paciente tiene cáncer">
                                                             </div>
                                                             <div class="form-group mb-0">
                                                                 <label for="sw-dots-confirm">Traumatismo</label>
-                                                                <input type="password" id="sw-dots-confirm" class="form-control" placeholder="Ingrese si el paciente de traumatismo">
+                                                                <input type="text" class="form-control" placeholder="Ingrese si el paciente de traumatismo">
                                                             </div>
                                                         </div> <!-- end col -->
                                                     </div> <!-- end row -->
@@ -110,15 +111,15 @@
                                                             </div> 
                                                             <div class="form-group">
                                                                 <label for="sw-dots-confirm">Actividades Físicas</label>
-                                                                <input type="password" id="sw-dots-confirm" class="form-control" placeholder="Ingrese si el paciente hace alguna actividad física">
+                                                                <input type="text" class="form-control" placeholder="Ingrese si el paciente hace alguna actividad física">
                                                             </div>                            
                                                             <div class="form-group mb-0">
                                                                 <label for="sw-dots-confirm">Vacunas</label>
-                                                                <input type="password" id="sw-dots-confirm" class="form-control" placeholder="Ingrese vacunas recientes">
+                                                                <input type="text" class="form-control" placeholder="Ingrese vacunas recientes">
                                                             </div>
                                                             <div class="form-group mb-0">
                                                                 <label for="sw-dots-confirm">Otros padecimientos</label>
-                                                                <input type="password" id="sw-dots-confirm" class="form-control" placeholder="">
+                                                                <input type="text" class="form-control" placeholder="">
                                                             </div>
                                                         </div> <!-- end col -->
                                                     </div> <!-- end row -->
@@ -151,6 +152,24 @@
                                                     </div> <!-- end row -->
                                                 </div>
                                                 <div id="sw-dots-step-4">
+                                                <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="TipoConsulta">Tipo de consulta</label>
+                                                                    <select data-plugin="customselect" class="form-control @error('TipoConsulta') is-invalid @enderror" name="TipoConsulta">
+                                                                        <option value="0">Diabetes</option>
+                                                                        <option value="1">Hipertención</option>
+                                                                        <option value="2">Enfermedades tiroides</option>
+                                                                    </select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="sw-dots-last-name">Otros antecedentes</label>
+                                                                <input type="text" class="form-control" placeholder="">
+                                                            </div>
+                                                        </div> <!-- end col -->
+                                                    </div> <!-- end row -->
+                                                </div>
+                                                <div id="sw-dots-step-5">
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <div class="text-center">

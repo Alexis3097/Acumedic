@@ -2800,7 +2800,7 @@ body.authentication-bg {
 /* buscador dinamico */
 .buscador-dinamico{
   background-color: #f3f4f7!important;
-  border-radius: 2px;
+  border-radius: 5px;
   /* position: relative; */
   /* agregado */
   z-index: 10;
@@ -2812,6 +2812,13 @@ body.authentication-bg {
   border: 1px solid #ccc;
   width: 100%;
   padding: 1%;
+}
+.buscador-dinamico ul{
+  padding: 1%;
+  margin-bottom: 0!important;
+}
+.buscador-dinamico li{
+  list-style-type: none!important;
 }
 /* buscador dinamico */
 /* estudios de gabinete */

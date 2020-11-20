@@ -1,12 +1,17 @@
 @extends('Shared.masterAdmin')
-
+@section('estilosCitas')
+<link rel="stylesheet" href="{{asset('js/Admin/libs/bootstrap-tagsinput/bootstrap-tagsinput.css')}}" type="text/css">
+<link rel="stylesheet" href="{{asset('js/Admin/libs/multiselect/multi-select.css')}}" type="text/css">
+<link rel="stylesheet" href="{{asset('js/Admin/libs/select2/select2.min.css')}}" type="text/css">
+<link rel="stylesheet" href="{{asset('js/Admin/libs/flatpickr/flatpickr.min.css')}}" type="text/css">
+@endsection
 @section('content')
 <div class="content-page">
             <div class="content">
                 <div class="container-fluid">
                     <div class="row page-title align-items-center">
                         <div class="col-sm-4 col-xl-6">
-                            <h4 class="mb-1 mt-0">Crear nueva cita</h4>
+                            <h3 class="mb-1 mt-0">Crear nueva cita</h3>
                         </div>
                         <div class="col-sm-8 col-xl-6">
                             <form class="form-inline float-sm-right mt-3 mt-sm-0">
@@ -18,8 +23,8 @@
                                 </div>
                             </form>
                         </div>
+                        @livewire('contact-search-bar')
                     </div>
-                    @livewire('contact-search-bar')
 
                     <!-- content -->
                     <!-- row -->
@@ -70,7 +75,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="TipoConsulta">Tipo de consulta</label>
-                                            <select data-plugin="customselect" class="form-control @error('TipoConsulta') is-invalid @enderror" name="TipoConsulta" id="TipoConsulta">
+                                            <select class="form-control @error('TipoConsulta') is-invalid @enderror" name="TipoConsulta" id="TipoConsulta">
                                             @if($primeraCita == true)
                                                 @foreach($tipoConsultas as $tipoConsulta)
                                                     <option value="{{$tipoConsulta->id}}"
@@ -158,4 +163,11 @@
         </div>
 
 @endsection
-
+@section('scriptCrearCitas')
+<script src="{{asset('js/Admin/libs/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>
+<script src="{{asset('js/Admin/libs/select2/select2.min.js')}}"></script>
+<script src="{{asset('js/Admin/libs/multiselect/jquery.multi-select.js')}}"></script>
+<script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
+<script src="{{asset('js/Admin/pages/form-advanced.init.js')}}"></script>
+<script src="{{asset('js/Admin/modales.js')}}"></script>
+@endsection

@@ -1,5 +1,10 @@
 @extends('Shared.masterAdmin')
-
+@section('estilosCitas')
+<link rel="stylesheet" href="{{asset('js/Admin/libs/bootstrap-tagsinput/bootstrap-tagsinput.css')}}" type="text/css">
+<link rel="stylesheet" href="{{asset('js/Admin/libs/multiselect/multi-select.css')}}" type="text/css">
+<link rel="stylesheet" href="{{asset('js/Admin/libs/select2/select2.min.css')}}" type="text/css">
+<link rel="stylesheet" href="{{asset('js/Admin/libs/flatpickr/flatpickr.min.css')}}" type="text/css">
+@endsection
 @section('content')
 <div class="content-page">
             <div class="content">
@@ -123,4 +128,12 @@
                 </div>
             </div> <!-- content -->
         </div>
+@endsection
+@section('scriptCrearCitas')
+<script src="{{asset('js/Admin/libs/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>
+<script src="{{asset('js/Admin/libs/select2/select2.min.js')}}"></script>
+<script src="{{asset('js/Admin/libs/multiselect/jquery.multi-select.js')}}"></script>
+<script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
+<script src="{{asset('js/Admin/pages/form-advanced.init.js')}}"></script>
+<script src="{{asset('js/Admin/modales.js')}}"></script>
 @endsection

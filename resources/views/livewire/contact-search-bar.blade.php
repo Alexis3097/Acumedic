@@ -1,5 +1,6 @@
-<div class="col-md-6">
-<h4 class="mb-1 mt-0">Busrcar paciente</h4>
+<div class="col-md-6" >
+<!-- style="padding: 0% 0% 1% 0%;" -->
+<h5 class="mb-0 mt-0">Buscar paciente</h5>
 <div class="relative input-group">
 <input type="text" class="form-input form-control mdb-select md-form" placeholder="Buscar paciente" wire:model="query" wire:keydown.escape="resetear" wire:keydown.tab="resetear"/>
 <div wire:loading class="buscador-dinamico absolute z-10 list-group bg-white rounded-t-none shadow-lg">

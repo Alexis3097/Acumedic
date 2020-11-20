@@ -10,9 +10,11 @@
 <div class="content-page">
             <div class="content">
                 <div class="container-fluid">
-                    <div class="form-group mb-3 row page-title align-items-center">
+                    <div class="row page-title align-items-center">
+                        <div class="col-sm-12 col-xl-12 col-md-12">
+                            <h3 class="mb-1 mt-0">Crear nueva cita</h3>
+                        </div>
                         @livewire('contact-search-bar')
-                       
                     </div>
                     <!-- content -->
                     <!-- row -->

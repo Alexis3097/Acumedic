@@ -31,19 +31,28 @@
                                           <!-- Esta es la imagen de galeria con su modal -->
                                       <div class="col-lg-4 col-md-12 mb-4">
                                         <!--Modal: Name-->
-                                        <div class="modal fade" id="modal{{$estudioGabinete->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                          <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal fade" id="modal{{$estudioGabinete->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+                                        <div class="modal-dialog modal-lg" role="document">
                                             <!--Content-->
                                             <div class="modal-content">
                                               <!--Body-->
                                               <div class="modal-body mb-0 p-0">
+                                              <i class="fa fa-times" data-dismiss="modal" style="font-size:1em; position: absolute; z-index: 1; color: #fff; top: 10px; right: 15px;"></i> 
                                                   <div class="background-estudios embed-responsive embed-responsive-16by9 z-depth-1-half">
                                                     <img class="background-estudios-img embed-responsive-item" src="{{asset('../uploads/'.$estudioGabinete->Url)}}" allowfullscreen>
                                                   </div>
                                               </div>
                                              <!--Footer-->
-                                              <div class="modal-footer justify-content-center">
-                                                <button type="button" class="btn btn-outline-primary btn-md ml-4" data-dismiss="modal">Close</button>
+                                              <div style="padding:2%" class="justify-content-center row">
+                                              <div class="col-md-12 col-lg-12 col-xs-12">
+                                                <h4>Nombre de la foto</h4>
+                                              </div>
+                                              <div class="col-md-12 col-lg-12 col-xs-12">
+                                                <p class="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, est sint quibusdam aperiam veniam molestiae nisi odio, illum at dolorum nostrum vero sequi, rerum cumque eum optio consequuntur aut. Alias?</p>
+                                              </div>
+                                                <!-- <div class="col-md-12 col-lg-12 col-xs-12">
+                                                <button type="button" class="btn btn-outline-primary btn-md ml-4" data-dismiss="modal">Cerrar</button>
+                                                </div> -->
                                               </div>
                                             </div>
                                             <!--/.Content-->

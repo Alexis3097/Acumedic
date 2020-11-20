@@ -220,5 +220,6 @@
     @yield('scriptAntecedentes')
     @yield('scriptPacientes')
     @yield('scriptCrearCitas')
+    @yield('scriptPacientesEdit')
     </body>
 </html>

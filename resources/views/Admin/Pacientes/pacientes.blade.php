@@ -8,6 +8,7 @@
                         @csrf
                     <div class="row page-title align-items-center">
                             <div class="col-sm-6 col-md-6 col-xl-6">
+                            <h4 class="mb-1 mt-0">Buscar paciente</h4>
                                 <div class="input-group">
                                     <input type="text" name="Nombre" class="form-control col-lg-12 @error('Nombre') is-invalid @enderror" placeholder="Buscar paciente" required>
                                     @error('Nombre')
@@ -18,7 +19,7 @@
                                 </div>
                             </div>
                             <div class="form-group mb-3" style="display:inline-block;">
-                                    <button type="submit" style="margin:17px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
+                                    <button type="submit" style="margin:38px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
                             </div>
                         </form>
                     </div>

@@ -119,13 +119,13 @@
                             <div class="card">
                                 <div class="card-body pb-0">
                                 <div class="text-center mt-3" style="padding-bottom:4%" >
-                                        <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" alt=""
+                                        <img id="category-img-tag" src="{{asset('../img/Admin/users/avatar-4.jpg')}}" alt=""
                                             class="avatar-xl rounded-circle" />
                                         <h5 class="mt-2 mb-0">Asi se ve tu perfil</h5>
                                         <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu foto de perfil
                                         </h6>
                                         <div class="form-group col-md-4">
-                                            <input name="Foto" type="file" accept="image/*"/>
+                                            <input id="cat_image" name="cat_image" type="file" accept="image/*"/>
                                             @error('Foto')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -143,4 +143,24 @@
                 </div>
             </div> <!-- content -->
 </div>
+@endsection
+@section('scriptPacientesEdit')
+<script src="{{asset('js/jquery.js')}}"></script>
+<script>
+        function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#category-img-tag').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#cat_image").change(function(){
+        readURL(this);
+    });
+</script>
 @endsection
