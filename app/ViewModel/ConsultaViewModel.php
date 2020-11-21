@@ -98,7 +98,7 @@ class ConsultaViewModel
 
     public function getPaciente($Idpaciente)
     {
-        $paciente = paciente::find($Idpaciente);
+        $paciente = Paciente::find($Idpaciente);
         return $paciente;
     }
 
