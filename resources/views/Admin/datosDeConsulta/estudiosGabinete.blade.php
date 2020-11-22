@@ -49,10 +49,8 @@
                                               </div>
                                               <div class="col-md-12 col-lg-12 col-xs-12">
                                                 <p class="desc">{{$estudioGabinete->Descripcion}}</p>
+                                                <i style="margin-right:2px; color:#ff5c75" name="delete_modal" data-toggle="modal" data-target="#eliminarFoto" class="fas fa-trash"></i> <i class="far fa-clock"></i>:<p style="display:inline-block" class="desc">00:00:00</p>
                                               </div>
-                                                <!-- <div class="col-md-12 col-lg-12 col-xs-12">
-                                                <button type="button" class="btn btn-outline-primary btn-md ml-4" data-dismiss="modal">Cerrar</button>
-                                                </div> -->
                                               </div>
                                             </div>
                                             <!--/.Content-->
@@ -135,4 +133,28 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <!-- modal nueva foto -->
+<!-- modal eliminar -->
+<div class="modal fade" id="eliminarFoto" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Eliminar imagen</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post">
+                    <input type="hidden" name="IdModal" id="IdModal">
+                    <p>¿Esta seguro que desea eliminar la foto?</p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal eliminar -->
 @endsection
