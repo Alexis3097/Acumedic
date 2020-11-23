@@ -31,7 +31,7 @@
                                         <i class='fa fa-plus'></i> Nuevo paciente
                                     </a>
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista de pacientes</h5>
-                                    <div class="table-responsive mt-12">
+                                    <div style="padding:1%;" class="table-responsive mt-12">
                                         <table class="table table-hover table-nowrap mb-0" data-form="deleteForm">
                                             <thead>
                                                 <tr>

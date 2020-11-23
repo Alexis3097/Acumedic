@@ -35,17 +35,20 @@
                                     <button type="submit" style="margin: 39px 18px 0px;" class="form-control btn width-xs btn-primary">Buscar</button>
                                 </div>
                         </form>
+                            <div class="form-group mb-4">
+                                <button type="submit" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Fecha actual</button>
+                            </div>
                             </div>
                         </div>
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <a href="{{ route('citas.new') }}" style="margin-right:10px;" class="btn btn-primary btn-sm float-right">
+                                    <a href="{{ route('citas.new') }}" style="margin-right:10px; " class="btn btn-primary btn-sm float-right">
                                         <i class='fa fa-plus'></i> Crear cita
                                     </a>
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista de citas</h5>
-                                    <div class="table-responsive mt-12">
+                                    <div style="padding:1%;" class="table-responsive mt-12">
                                         <table class="table table-hover table-nowrap mb-0">
                                             <thead>
                                                 <tr>
