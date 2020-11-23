@@ -36,7 +36,7 @@
                                 </div>
                         </form>
                             <div class="form-group mb-4">
-                                <button type="submit" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Fecha actual</button>
+                                <a href="{{route('citas.list')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Citas del dia</a>
                             </div>
                             </div>
                         </div>

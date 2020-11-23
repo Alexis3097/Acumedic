@@ -8,7 +8,7 @@ class AntPatologico extends Model
 {
     protected $table = 'AntPatologico';
     protected $fillable = [
-        'IdPaciente','Hospitalarios','Cirugias','Diabetes','EnfermedadesCardiacas','Transfusiones','Cancer',
+        'IdPaciente','Hospitalarios','Cirugias','EnfermedadesCardiacas','Transfusiones','Cancer',
         'Traumatismo','Otros',
     ];
 

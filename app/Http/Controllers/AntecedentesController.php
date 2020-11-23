@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ViewModel\PacienteViewModel;
+use App\ViewModel\AntecedenteViewModel;
 
 class AntecedentesController extends Controller
 {
@@ -11,9 +13,21 @@ class AntecedentesController extends Controller
         $this->middleware('auth');
     }
 
-    public function index($IdPaciente)
+    public function index(PacienteViewModel $PacienteViewModel,AntecedenteViewModel $AntecedenteViewModel, $IdPaciente)
     {
-       return view('Admin.datosDeConsulta.antecedentes',compact('IdPaciente'));
+        $paciente = $PacienteViewModel->getPaciente($IdPaciente);
+        $fecha = date_create()->format('Y-m-d');
+        $antePatologico = $AntecedenteViewModel->getAntPatologico($IdPaciente);
+        if(is_null($antePatologico))
+        {
+            return view('Admin.datosDeConsulta.Antecedentes.antecedentes',compact('paciente','fecha'));
+        }
+        else{
+            $anteNoPatologico = $AntecedenteViewModel->getAntNoPatologico($IdPaciente);
+            $anteGinecologico = $AntecedenteViewModel->getAntGinecologico($IdPaciente);
+            $anteHFamiliarez = $AntecedenteViewModel->getAntHFamiliarez($IdPaciente);
+            return view('Admin.datosDeConsulta.Antecedentes.editarAntecedentes',compact('paciente','fecha','antePatologico','anteNoPatologico','anteGinecologico','anteHFamiliarez'));
+        }
     }
 
     /**
@@ -21,9 +35,10 @@ class AntecedentesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, AntecedenteViewModel $AntecedenteViewModel)
     {
-        //
+        $antecedente = $AntecedenteViewModel->create($request);
+        return redirect()->route('consulta.paciente',$request->IdPaciente);
     }
 
     /**

@@ -18,7 +18,7 @@ class CreateAntHFamiliarezTable extends Migration
             $table->unsignedBigInteger('IdPaciente');
             $table->mediumText('Diabetes')->nullable();
             $table->mediumText('Hipertension')->nullable();
-            $table->mediumText('EnfToriodeas')->nullable();
+            $table->mediumText('EnfTiroideas')->nullable();
             $table->mediumText('Otros')->nullable();
             $table->timestamps();
 

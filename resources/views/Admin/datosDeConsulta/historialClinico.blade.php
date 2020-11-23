@@ -9,6 +9,11 @@
                             <h4 class="mb-1 mt-0">Datos del paciente en turno: <span>{{$paciente->NombreCompleto}}</span></h4>
                            
                         </div>
+                        <div class="col-sm-1 col-xl-1">
+                                    <a href="{{route('consulta.paciente',['IdPaciente' => $paciente->id])}}" class="btn btn-outline-primary">
+                                        <i class='fas fa-arrow-left'></i> Regresar
+                                    </a>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-xl-12">

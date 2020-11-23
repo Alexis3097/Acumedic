@@ -18,7 +18,6 @@ class CreateAntPatologicoTable extends Migration
             $table->unsignedBigInteger('IdPaciente');
             $table->mediumText('Hospitalarios')->nullable();
             $table->mediumText('Cirugias')->nullable();
-            $table->mediumText('Diabetes')->nullable();
             $table->mediumText('EnfermedadesCardiacas')->nullable();
             $table->mediumText('Transfusiones')->nullable();
             $table->mediumText('Cancer')->nullable();

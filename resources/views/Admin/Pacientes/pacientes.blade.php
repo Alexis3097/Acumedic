@@ -21,6 +21,9 @@
                                     <button type="submit" style="margin:38px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
                             </div>
                         </form>
+                        <div class="form-group mb-4">
+                                <a href="{{route('paciente.list')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Todos los pacientes</a>
+                            </div>
                     </div>
                     <!-- products -->
                     <div class="row">
