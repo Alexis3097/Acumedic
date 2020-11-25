@@ -5,12 +5,12 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row page-title align-items-center">
-                        <div class="col-sm-12 col-xl-11">
+                        <div class="col-sm-10 col-xl-10">
                             <h2 class="mb-1 mt-0"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-file-prescription"></i> Consulta médica</span></h2>
                         </div>
-                        <div class="col-sm-1 col-xl-1">
-                            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#finalizarConsulta">
-                                <i class='fas fa-arrow-left'></i> FINALIZAR CONSULTA
+                        <div class="col-sm-2 col-xl-2">
+                            <button type="button" class="btn width-lg btn-outline-primary" data-toggle="modal" data-target="#finalizarConsulta">
+                                <i class='fas fa-arrow-left'></i> Finalizar consulta
                             </button>
                         </div>
                     </div>
@@ -178,7 +178,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">FINALIZAR CONSULTA</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Finalizar consulta</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
