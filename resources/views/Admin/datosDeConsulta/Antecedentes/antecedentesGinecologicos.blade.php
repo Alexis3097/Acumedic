@@ -18,9 +18,9 @@
                                 class="icon-dual fas fa-file-prescription"></i> Antecedentes</span></h2>
                     </div>
                     <div class="col-sm-1 col-xl-1">
-                        <button type="button" class="btn btn-outline-primary">
+                        <a href="{{route('consulta.paciente',['IdPaciente' =>$paciente->id])}}" class="btn btn-outline-primary">
                             <i class='fas fa-arrow-left'></i> Regresar
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <!-- content -->
@@ -32,21 +32,26 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="media col-xl-2" style="display: inline-flex">
-                                    <img src="assets/images/users/avatar-7.jpg" class="avatar-lg rounded-circle mr-2"
-                                        alt="shreyu">
+                                    @if(is_null($paciente->Foto))
+                                    <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" class="avatar-lg rounded-circle mr-2"
+                                        alt="foto">
+                                    @else
+                                    <img src="{{asset('../uploads/'.$paciente->Foto)}}" class="avatar-lg rounded-circle mr-2"
+                                        alt="foto">
+                                    @endif
                                     <div class="media-body">
-                                        <h5 class="mt-2 mb-0">Caralampio Martínez</h5>
-                                        <h6 class="text-muted font-weight-normal mt-1 mb-4">New York, USA</h6>
+                                        <h5 class="mt-2 mb-0">{{$paciente->NombreCompleto}}</h5>
+                                        <h6 class="text-muted font-weight-normal mt-1 mb-4">{{$paciente->LugarOrigen}}</h6>
                                     </div>
                                 </div>
                                 <div class="media col-md-9 button-list" style="display: inline-flex; top:-35px;">
-                                    <button class="btn btn-info" style="width: 100%;" type="submit">Patologicos</button>
-                                    <button class="btn btn-info" style="width: 100%;" type="submit">No
-                                        Patologicos</button>
+                                    <a href="{{route('antecedente.patologico',['IdPaciente'=>$paciente->id])}}"  class="btn btn-info" style="width: 100%;" type="submit">Patologicos</a>
+                                    <a href="{{route('antecedente.NoPatologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">No
+                                        Patologicos</a>
                                     <button class="btn btn-outline-info" style="width: 100%;" data-toggle="modal"
                                         data-target="#modal-error" type="submit">Ginecológicos</button>
-                                    <button class="btn btn-info" style="width: 100%;" type="submit">H.
-                                        Familiares</button>
+                                    <a href="{{route('antecedente.familiares',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">H.
+                                        Familiares</a>
                                 </div>
                             </div>
                         </div>
@@ -56,45 +61,49 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="mb-1 mt-0">Ginecológicos</h4>
-                            <div class="form-group">
-                                <label for="FechaPrimeraMenstruacion">Fecha de primer menstruación </label>
-                                <input class="form-control" type="date" value="{{$fecha}}"
-                                    name="FechaPrimeraMenstruacion" id="FechaPrimeraMenstruacion">
-                            </div>
-                            <div class="form-group">
-                                <label for="FechaUltimaMenstruacion">Fecha de ultima menstruación</label>
-                                <input class="form-control" type="date" value="{{$fecha}}"
-                                    name="FechaUltimaMenstruacion" id="FechaUltimaMenstruacion">
-                            </div>
-                            <div class="form-group mb-0">
-                                <label for="CaractMenstruacion">Caracteristicas de menstruación</label>
-                                <input type="text" name="CaractMenstruacion" id="CaractMenstruacion"
-                                    class="form-control" placeholder="Caracteristica de menstruación">
-                            </div>
-                            <div class="form-group mt-3 mt-xl-0">
-                                <label for="Embarazos">Embarazos</label>
-                                <input type="text" name="Embarazos" id="Embarazos" class="form-control"
-                                    placeholder="Datos sobre embarazos">
-                            </div>
-                            <div class="form-group mt-3 mt-xl-0">
-                                <label for="CancerCervico">Cancer cervico</label>
-                                <input type="text" name="CancerCervico" id="CancerCervico" class="form-control"
-                                    placeholder="Datos sobre cancer cervico">
-                            </div>
-                            <div class="form-group mt-3 mt-xl-0">
-                                <label for="CancerUterino">Cancer uterino</label>
-                                <input type="text" id="CancerUterino" name="CancerUterino" class="form-control"
-                                    placeholder="Datos sobre cancer uterino">
-                            </div>
-                            <div class="form-group mt-3 mt-xl-0">
-                                <label for="OtrosGine">Otros</label>
-                                <input type="text" name="OtrosGine" id="OtrosGine" class="form-control"
-                                    placeholder="Otro antecedente ginecologico">
-                            </div>
-                            <div class="form-group col-md-12" style="padding-top:2%;">
-                                <button class="btn btn-danger" type="submit">Cancelar</button>
-                                <button class="btn btn-primary" type="submit">Guardar</button>
-                            </div>
+                            <form action="{{ route('antecedente.ginecologico.guardar') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="IdPaciente" value="{{$paciente->id}}">
+                                <div class="form-group">
+                                    <label for="FechaPrimeraMenstruacion">Fecha de primer menstruación </label>
+                                    <input class="form-control" type="date" value="{{$fecha}}"
+                                        name="FechaPrimeraMenstruacion" id="FechaPrimeraMenstruacion">
+                                </div>
+                                <div class="form-group">
+                                    <label for="FechaUltimaMenstruacion">Fecha de ultima menstruación</label>
+                                    <input class="form-control" type="date" value=""
+                                        name="FechaUltimaMenstruacion" id="FechaUltimaMenstruacion">
+                                </div>
+                                <div class="form-group mb-0">
+                                    <label for="CaractMenstruacion">Caracteristicas de menstruación</label>
+                                    <input type="text" name="CaractMenstruacion" id="CaractMenstruacion"
+                                        class="form-control" placeholder="Caracteristica de menstruación">
+                                </div>
+                                <div class="form-group mt-3 mt-xl-0">
+                                    <label for="Embarazos">Embarazos</label>
+                                    <input type="text" name="Embarazos" id="Embarazos" class="form-control"
+                                        placeholder="Datos sobre embarazos">
+                                </div>
+                                <div class="form-group mt-3 mt-xl-0">
+                                    <label for="CancerCervico">Cancer cervico</label>
+                                    <input type="text" name="CancerCervico" id="CancerCervico" class="form-control"
+                                        placeholder="Datos sobre cancer cervico">
+                                </div>
+                                <div class="form-group mt-3 mt-xl-0">
+                                    <label for="CancerUterino">Cancer uterino</label>
+                                    <input type="text" id="CancerUterino" name="CancerUterino" class="form-control"
+                                        placeholder="Datos sobre cancer uterino">
+                                </div>
+                                <div class="form-group mt-3 mt-xl-0">
+                                    <label for="Otros">Otros</label>
+                                    <input type="text" name="Otros" id="Otros" class="form-control"
+                                        placeholder="Otro antecedente ginecologico">
+                                </div>
+                                <div class="form-group col-md-12" style="padding-top:2%;">
+                                    <a href="{{route('consulta.paciente',['IdPaciente' =>$paciente->id])}}" class="btn btn-danger" >Cancelar</a>
+                                    <button class="btn btn-primary" type="submit">Guardar</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -61,42 +61,37 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="mb-1 mt-0">No Patologicos</h4>
-                            <form action="{{ route('antecedente.NoPatologico.guardar') }}" method="post">
+                            <form action="{{ route('antecedente.NoPatologico.actualizar') }}" method="post">
                             @csrf
-                            <input type="hidden" name="IdPaciente" value="{{$paciente->id}}">
+                            @method('PUT')
+                            <input type="hidden" name="Id" value="{{$anteNoPatologico->id}}">
                                 <div class="form-group mt-3 mt-xl-0">
                                     <label for="ActividadFisica">Actividades Físicas</label>
-                                    <input type="text" class="form-control" name="ActividadFisica" id="ActividadFisica"
-                                        placeholder="Ingrese si el paciente hace alguna actividad física">
-                                </div>
+                                    <input type="text" class="form-control" name="ActividadFisica" id="ActividadFisica" placeholder="Ingrese si el paciente hace alguna actividad física" value="{{$anteNoPatologico->ActividadFisica}}">
+                                </div> 
                                 <div class="form-group">
                                     <label for="Tabaquismo">Tabaquismo</label>
-                                    <input type="text" class="form-control" name="Tabaquismo" id="Tabaquismo"
-                                        placeholder="Ingrese si el paciente consume tabaco">
-                                </div>
+                                    <input type="text" class="form-control" name="Tabaquismo" id="Tabaquismo" placeholder="Ingrese si el paciente consume tabaco" value="{{$anteNoPatologico->Tabaquismo}}">
+                                </div>                            
                                 <div class="form-group mb-0">
                                     <label for="Alcoholismo">Alcoholismo</label>
-                                    <input type="text" class="form-control" name="Alcoholismo" id="Alcoholismo"
-                                        placeholder="Ingrese si el paciente consume alcohol">
+                                    <input type="text" class="form-control" name="Alcoholismo" id="Alcoholismo"placeholder="Ingrese si el paciente consume alcohol" value="{{$anteNoPatologico->Alcoholismo}}">
                                 </div>
                                 <div class="form-group mb-0">
                                     <label for="SustanciasODrogas">Uso de sustancias o drogas</label>
-                                    <input type="text" class="form-control" name="SustanciasODrogas" id="SustanciasODrogas"
-                                        placeholder="Ingrese si el paciente usa sustancias o drogas">
+                                    <input type="text" class="form-control" name="SustanciasODrogas" id="SustanciasODrogas"placeholder="Ingrese si el paciente usa sustancias o drogas" value="{{$anteNoPatologico->SustanciasODrogas}}">
                                 </div>
                                 <div class="form-group mb-0">
                                     <label for="VacunasRecientes">Vacunas recientes</label>
-                                    <input type="text" class="form-control" name="VacunasRecientes" id="VacunasRecientes"
-                                        placeholder="Ingrese si el paciente usa sustancias o drogas">
+                                    <input type="text" class="form-control" name="VacunasRecientes" id="VacunasRecientes"placeholder="Ingrese si el paciente usa sustancias o drogas" value="{{$anteNoPatologico->VacunasRecientes}}">
                                 </div>
                                 <div class="form-group mb-0">
                                     <label for="Otros">Otros</label>
-                                    <input type="text" class="form-control" name="Otros" id="Otros"
-                                        placeholder="Otro antecedente no patologico">
+                                    <input type="text" class="form-control" name="Otros" id="Otros"placeholder="Otro antecedente no patologico" value="{{$anteNoPatologico->Otros}}">
                                 </div>
                                 <div class="form-group col-md-12" style="padding-top:2%;">
                                     <a href="{{route('consulta.paciente',['IdPaciente' =>$paciente->id])}}" class="btn btn-danger" >Cancelar</a>
-                                    <button class="btn btn-primary" type="submit">Guardar</button>
+                                    <button class="btn btn-primary" type="submit">Atualizar</button>
                                 </div>
                             </form>
                         </div>

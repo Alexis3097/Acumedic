@@ -93,7 +93,7 @@
 
                                         <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-diagnoses"></i> Antecedentes</h6>
                                         <p style="margin:0;">Permite crear y editar los antecedentes del paciente</p>
-                                        <a href="{{route('consulta.antecedentes',['IdPaciente'=>$paciente->id])}}" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</a>
+                                        <a href="{{route('antecedente.patologico',['IdPaciente'=>$paciente->id])}}" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</a>
 
                                         <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-clinic-medical"></i> Estudios de gabinete</h6>
                                         <p style="margin:0;">Permite ver y agregar las fotos de los estudios</p>

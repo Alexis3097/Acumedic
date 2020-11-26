@@ -13,87 +13,100 @@ class AntecedentesController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(PacienteViewModel $PacienteViewModel,AntecedenteViewModel $AntecedenteViewModel, $IdPaciente)
-    {
+
+    public function patologico(PacienteViewModel $PacienteViewModel,AntecedenteViewModel $AntecedenteViewModel, $IdPaciente) {
         $paciente = $PacienteViewModel->getPaciente($IdPaciente);
-        $fecha = date_create()->format('Y-m-d');
         $antePatologico = $AntecedenteViewModel->getAntPatologico($IdPaciente);
         if(is_null($antePatologico))
         {
-            return view('Admin.datosDeConsulta.Antecedentes.antecedentes',compact('paciente','fecha'));
+            return view('Admin.datosDeConsulta.Antecedentes.antecedentesPatologicos',compact('paciente'));
         }
         else{
-            $anteNoPatologico = $AntecedenteViewModel->getAntNoPatologico($IdPaciente);
-            $anteGinecologico = $AntecedenteViewModel->getAntGinecologico($IdPaciente);
-            $anteHFamiliarez = $AntecedenteViewModel->getAntHFamiliarez($IdPaciente);
-            return view('Admin.datosDeConsulta.Antecedentes.editarAntecedentes',compact('paciente','fecha','antePatologico','anteNoPatologico','anteGinecologico','anteHFamiliarez'));
+            return view('Admin.datosDeConsulta.Antecedentes.editarAntecedentesPatologicos',compact('paciente','antePatologico'));
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request, AntecedenteViewModel $AntecedenteViewModel)
+    public function guardarPatologico(Request $request, AntecedenteViewModel $AntecedenteViewModel)
     {
-        $antecedente = $AntecedenteViewModel->create($request);
-        return redirect()->route('consulta.paciente',$request->IdPaciente);
+        $patologicos = $AntecedenteViewModel->guardarPatologico($request);
+        return redirect()->route('antecedente.patologico',$request->IdPaciente);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function actualizarPatologico(Request $request, AntecedenteViewModel $AntecedenteViewModel)
     {
-        //
+        $patologicos = $AntecedenteViewModel->actualizarPatologico($request);
+        return redirect()->route('antecedente.patologico',$patologicos->IdPaciente);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function noPatologico(PacienteViewModel $PacienteViewModel,AntecedenteViewModel $AntecedenteViewModel, $IdPaciente) {
+        $paciente = $PacienteViewModel->getPaciente($IdPaciente);
+        $anteNoPatologico = $AntecedenteViewModel->getAntNoPatologico($IdPaciente);
+        if(is_null($anteNoPatologico))
+        {
+            return view('Admin.datosDeConsulta.Antecedentes.antecedentesNoPatologicos',compact('paciente'));
+        }
+        else{
+            return view('Admin.datosDeConsulta.Antecedentes.editarAntecedentesNoPatologicos',compact('paciente','anteNoPatologico'));
+        }
+    }
+    public function guardarNoPatologico(Request $request, AntecedenteViewModel $AntecedenteViewModel)
     {
-        //
+        $noPatologico = $AntecedenteViewModel->guardarNoPatologico($request);
+        return redirect()->route('antecedente.NoPatologico',$request->IdPaciente);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function actualizarNoPatologico(Request $request, AntecedenteViewModel $AntecedenteViewModel)
     {
-        //
+        $NoPatologicos = $AntecedenteViewModel->actualizarNoPatologico($request);
+        return redirect()->route('antecedente.NoPatologico',$NoPatologicos->IdPaciente);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+    public function ginecologico(PacienteViewModel $PacienteViewModel,AntecedenteViewModel $AntecedenteViewModel, $IdPaciente) {
+        $paciente = $PacienteViewModel->getPaciente($IdPaciente);
+        $fecha = date_create()->format('Y-m-d');
+        $anteGinecologico = $AntecedenteViewModel->getAntGinecologico($IdPaciente);
+        if(is_null($anteGinecologico))
+        {
+            return view('Admin.datosDeConsulta.Antecedentes.antecedentesGinecologicos',compact('paciente','fecha'));
+        }
+        else{
+            return view('Admin.datosDeConsulta.Antecedentes.editarAntecedentesGinecologicos',compact('paciente','anteGinecologico','fecha'));
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function guardarGinecologico(Request $request, AntecedenteViewModel $AntecedenteViewModel){
+        $ginecologico = $AntecedenteViewModel->guardarGinecologico($request);
+        return redirect()->route('antecedente.ginecologico',$request->IdPaciente);
     }
+
+    public function actualizarGinecologico(Request $request, AntecedenteViewModel $AntecedenteViewModel)
+    {
+        $ginecologico = $AntecedenteViewModel->actualizarGinecologico($request);
+        return redirect()->route('antecedente.ginecologico',$ginecologico->IdPaciente);
+    }
+
+    public function familiares(PacienteViewModel $PacienteViewModel,AntecedenteViewModel $AntecedenteViewModel, $IdPaciente) {
+        $paciente = $PacienteViewModel->getPaciente($IdPaciente);
+        $anteHFamiliarez = $AntecedenteViewModel->getAntHFamiliarez($IdPaciente);
+        if(is_null($anteHFamiliarez))
+        {
+            return view('Admin.datosDeConsulta.Antecedentes.antecedentesHFamiliares',compact('paciente'));
+        }
+        else{
+            return view('Admin.datosDeConsulta.Antecedentes.editarAntecedentesHFamiliares',compact('paciente','anteHFamiliarez'));
+        }
+    }
+
+    public function guardarFamiliares(Request $request, AntecedenteViewModel $AntecedenteViewModel){
+        $familiares = $AntecedenteViewModel->guardarFamiliares($request);
+        return redirect()->route('antecedente.familiares',$request->IdPaciente);
+    }
+
+    
+    public function actualizarHFamiliares(Request $request, AntecedenteViewModel $AntecedenteViewModel)
+    {
+        $familiares = $AntecedenteViewModel->actualizarFamiliares($request);
+        return redirect()->route('antecedente.familiares',$familiares->IdPaciente);
+    }
+    
 }

@@ -44,7 +44,7 @@
                                         </div>
                                     </div>
                                     <div class="media col-md-9 button-list" style="display: inline-flex; top:-35px;">
-                                            <button class="btn btn-outline-info" data-toggle="modal" data-target="#modal-error" style="width: 100%;" type="submit">Patologicos</button>
+                                        <button class="btn btn-outline-info" data-toggle="modal" data-target="#modal-error" style="width: 100%;" type="submit">Patologicos</button>
                                             <a href="{{route('antecedente.NoPatologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">No Patologicos</a>
                                             <a href="{{route('antecedente.ginecologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">Ginecológicos</a>
                                             <a href="{{route('antecedente.familiares',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">H. Familiares</a>
@@ -57,40 +57,42 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="mb-1 mt-0">Patologicos</h4>
-                                    <form action="{{ route('antecedente.patologico.guardar') }}" method="post">
+                                    <form action="{{ route('antecedente.patologico.actualizar') }}" method="post">
                                     @csrf
-                                    <input type="hidden" name="IdPaciente" value="{{$paciente->id}}">
-                                        <div   div class="form-group">
+                                    @method('PUT')
+                                        <input type="hidden" name="Id" value="{{$antePatologico->id}}">
+                                        <div class="form-group">
                                             <label for="Hospitalarios">Hospitalarios</label>
-                                                <input type="text" class="form-control" name="Hospitalarios" id="Hospitalarios" placeholder="Antecedentes hospitalarios">
-                                            </div>
-                                            <div class="form-group">
+                                            <input type="text" class="form-control" name="Hospitalarios" id="Hospitalarios" placeholder="Antecedentes hospitalarios" value="{{$antePatologico->Hospitalarios}}">
+                                        </div>
+                                        <div class="form-group">
                                             <label for="Cirugias">Cirugias</label>
-                                                <input type="text" class="form-control" name="Cirugias" id="Cirugias"placeholder="Ingrese si el paciente a tenido alguna cirugia">
-                                            </div>                                                            
-                                            <div class="form-group mb-0">
+                                            <input type="text" class="form-control" name="Cirugias" id="Cirugias"placeholder="Ingrese si el paciente a tenido alguna cirugia" value="{{$antePatologico->Cirugias}}">
+                                        </div>                                                            
+                                        <div class="form-group mb-0">
                                             <label for="EnfermedadesCardiacas">Enfermedades cardiacas</label>
-                                                <input type="text" class="form-control" name="EnfermedadesCardiacas" id="EnfermedadesCardiacas" placeholder="Ingrese si el paciente tiene enfermedades cardiacas">
-                                            </div>
-                                            <div class="form-group mb-0">
-                                                <label for="Transfusiones">Transfusiones</label>
-                                                <input type="text" class="form-control" name="Transfusiones" id="Transfusiones" placeholder="Ingrese si el paciente tuvo transfusiones">
-                                            </div>
-                                            <div class="form-group mb-0">
-                                                <label for="Cancer">Cáncer</label>
-                                                <input type="text" class="form-control" name="Cancer" id="Cancer"placeholder="Ingrese si el paciente tiene cáncer">
-                                            </div>
-                                            <div class="form-group mb-0">
-                                                <label for="Traumatismo">Traumatismo</label>
-                                                <input type="text" class="form-control" name="Traumatismo" id="Traumatismo" placeholder="Ingrese si el paciente tiene algun traumatismo">
-                                            </div>
-                                            <div class="form-group mb-0">
-                                                <label for="Otros">Otros</label>
-                                                <input type="text" class="form-control" name="Otros" id="Otros" placeholder="Otro antecedente patologico">
-                                            </div>
+                                            <input type="text" class="form-control" name="EnfermedadesCardiacas" id="EnfermedadesCardiacas" placeholder="Ingrese si el paciente tiene enfermedades cardiacas" value="{{$antePatologico->EnfermedadesCardiacas}}">
+                                        </div>
+                                        <div class="form-group mb-0">
+                                            <label for="Transfusiones">Transfusiones</label>
+                                            <input type="text" class="form-control" name="Transfusiones" id="Transfusiones" placeholder="Ingrese si el paciente tuvo transfusiones" value="{{$antePatologico->Transfusiones}}">
+                                        </div>
+                                        <div class="form-group mb-0">
+                                            <label for="Cancer">Cáncer</label>
+                                            <input type="text" class="form-control" name="Cancer" id="Cancer"placeholder="Ingrese si el paciente tiene cáncer" value="{{$antePatologico->Cancer}}">
+                                        </div>
+                                        <div class="form-group mb-0">
+                                            <label for="Traumatismo">Traumatismo</label>
+                                            <input type="text" class="form-control" name="Traumatismo" id="Traumatismo" placeholder="Ingrese si el paciente tiene algun traumatismo" value="{{$antePatologico->Traumatismo}}">
+                                        </div>
+                                        <div class="form-group mb-0">
+                                            <label for="Otros">Otros</label>
+                                            <input type="text" class="form-control" name="Otros" id="Otros" placeholder="Otro antecedente patologico" value="{{$antePatologico->Otros}}">
+                                        </div>
+
                                         <div class="form-group col-md-12" style="padding-top:2%;">
-                                            <a href="{{route('consulta.paciente',['IdPaciente' =>$paciente->id])}}" class="btn btn-danger" >Cancelar</a>
-                                            <button href="{{ route('antecedente.patologico.guardar') }}" class="btn btn-primary" type="submit">Guardar</button>
+                                                <a href="{{route('consulta.paciente',['IdPaciente' =>$paciente->id])}}" class="btn btn-danger" >Cancelar</a>
+                                                <button class="btn btn-primary" type="submit">Actualizar</button>
                                         </div>
                                     </form>
                                 </div>

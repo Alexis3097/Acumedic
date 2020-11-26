@@ -8,7 +8,7 @@ class AntHFamiliarez extends Model
 {
     protected $table = 'AntHFamiliarez';
     protected $fillable = [
-        'IdPaciente','Diabetes','Hipertension','EnfToriodeas','Otros',
+        'IdPaciente','Diabetes','Hipertension','EnfTiroideas','Otros',
     ];
 
     public function paciente()

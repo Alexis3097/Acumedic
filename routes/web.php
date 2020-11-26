@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
-
+// Route::pattern('IdPaciente', '[0-9]+');
 
 //Rutas de cliente
 Route::get('/', function () {
@@ -100,9 +100,24 @@ Route::put('/consulta-paciente/consulta/SintomasSubjetivos/update', 'ConsultaCon
 Route::delete('/consulta-paciente/consulta/SintomasSubjetivos/delete', 'ConsultaController@deleteConsultaSintomasSubjetivos')->name('consulta.deleteSintomasSubjetivos');
 Route::post('/consulta-paciente/consulta/finalizar', 'ConsultaController@finalizarConsulta')->name('consulta.finalizar');
 
-//ANTECEDENTES
-Route::get('/consulta-paciente/antecedentes/{IdPaciente}','AntecedentesController@index')->name('consulta.antecedentes');
-Route::post('/consulta-paciente/antecedentes/guardar','AntecedentesController@create')->name('consulta.guardarAntecedente');
+//-----------------------ANTECEDENTES-------------------
+//ANTECEDENTES PATOLOGICOS
+Route::get('/consulta-paciente/antecedentes-patologicos/{IdPaciente}','AntecedentesController@patologico')->name('antecedente.patologico');
+Route::post('/consulta-paciente/antecedentes-patologicos/guardar','AntecedentesController@guardarPatologico')->name('antecedente.patologico.guardar');
+Route::put('/consulta-paciente/antecedentes-patologicos/actualizar','AntecedentesController@actualizarPatologico')->name('antecedente.patologico.actualizar');
+//ANTECEDENTES NO PATOLOGICOS
+Route::get('/consulta-paciente/antecedentes-NoPatologicos/{IdPaciente}','AntecedentesController@noPatologico')->name('antecedente.NoPatologico');
+Route::post('/consulta-paciente/antecedentes-NoPatologicos/guardar','AntecedentesController@guardarNoPatologico')->name('antecedente.NoPatologico.guardar');
+Route::put('/consulta-paciente/antecedentes-NoPatologicos/actualizar','AntecedentesController@actualizarNoPatologico')->name('antecedente.NoPatologico.actualizar');
+//ANTECEDENTES GINECOLOGICO
+Route::get('/consulta-paciente/antecedentes-ginecologicos/{IdPaciente}','AntecedentesController@ginecologico')->name('antecedente.ginecologico');
+Route::post('/consulta-paciente/antecedentes-ginecologicos/guardar','AntecedentesController@guardarGinecologico')->name('antecedente.ginecologico.guardar');
+Route::put('/consulta-paciente/antecedentes-ginecologicos/actualizar','AntecedentesController@actualizarGinecologico')->name('antecedente.ginecologico.actualizar');
+
+Route::get('/consulta-paciente/antecedentes-HFamiliarez/{IdPaciente}','AntecedentesController@familiares')->name('antecedente.familiares');
+Route::post('/consulta-paciente/antecedentes-HFamiliarez/guardar','AntecedentesController@guardarFamiliares')->name('antecedente.familiares.guardar');
+Route::put('/consulta-paciente/antecedentes-HFamiliarez/actualizar','AntecedentesController@actualizarHFamiliares')->name('antecedente.familiares.actualizar');
+
 //ESTUDIOS DE GABINETE
 Route::get('/consulta-paciente/estudioGabinete/{IdPaciente}','EstudiosGabineteController@index')->name('consulta.estudioGabinete');
 Route::post('/consulta-paciente/estidioGabinete','EstudiosGabineteController@guardarFoto')->name('consulta.guardarFoto');

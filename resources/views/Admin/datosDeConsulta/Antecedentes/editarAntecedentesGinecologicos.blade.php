@@ -45,11 +45,11 @@
                                     </div>
                                 </div>
                                 <div class="media col-md-9 button-list" style="display: inline-flex; top:-35px;">
-                                    <a href="{{route('antecedente.patologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">Patologicos</a>
-                                    <button class="btn btn-outline-info" data-toggle="modal" data-target="#modal-error"
-                                        style="width: 100%;" type="submit">No Patologicos</button>
-                                    <a href="{{route('antecedente.ginecologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;"
-                                        type="submit">Ginecológicos</a>
+                                    <a href="{{route('antecedente.patologico',['IdPaciente'=>$paciente->id])}}"  class="btn btn-info" style="width: 100%;" type="submit">Patologicos</a>
+                                    <a href="{{route('antecedente.NoPatologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">No
+                                        Patologicos</a>
+                                    <button class="btn btn-outline-info" style="width: 100%;" data-toggle="modal"
+                                        data-target="#modal-error" type="submit">Ginecológicos</button>
                                     <a href="{{route('antecedente.familiares',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">H.
                                         Familiares</a>
                                 </div>
@@ -60,43 +60,42 @@
                 <div class="col-xl-12 col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="mb-1 mt-0">No Patologicos</h4>
-                            <form action="{{ route('antecedente.NoPatologico.guardar') }}" method="post">
+                            <h4 class="mb-1 mt-0">Ginecológicos</h4>
+                            <form action="{{ route('antecedente.ginecologico.actualizar') }}" method="post">
                             @csrf
-                            <input type="hidden" name="IdPaciente" value="{{$paciente->id}}">
-                                <div class="form-group mt-3 mt-xl-0">
-                                    <label for="ActividadFisica">Actividades Físicas</label>
-                                    <input type="text" class="form-control" name="ActividadFisica" id="ActividadFisica"
-                                        placeholder="Ingrese si el paciente hace alguna actividad física">
+                            @method('PUT')
+                            <input type="hidden" name="Id" value="{{$anteGinecologico->id}}">
+                                <div class="form-group">
+                                    <label for="FechaPrimeraMenstruacion">Fecha de primer menstruación </label>
+                                    <input class="form-control" type="date" value="{{$anteGinecologico->FechaPrimeraMenstruacion}}" name="FechaPrimeraMenstruacion" id="FechaPrimeraMenstruacion">
                                 </div>
                                 <div class="form-group">
-                                    <label for="Tabaquismo">Tabaquismo</label>
-                                    <input type="text" class="form-control" name="Tabaquismo" id="Tabaquismo"
-                                        placeholder="Ingrese si el paciente consume tabaco">
+                                    <label for="FechaUltimaMenstruacion">Fecha de ultima menstruación</label>
+                                    <input class="form-control" type="date" value="{{$anteGinecologico->FechaUltimaMenstruacion}}" name="FechaUltimaMenstruacion" id="FechaUltimaMenstruacion">
                                 </div>
                                 <div class="form-group mb-0">
-                                    <label for="Alcoholismo">Alcoholismo</label>
-                                    <input type="text" class="form-control" name="Alcoholismo" id="Alcoholismo"
-                                        placeholder="Ingrese si el paciente consume alcohol">
+                                    <label for="CaractMenstruacion">Caracteristicas de menstruación</label>
+                                    <input type="text" name="CaractMenstruacion" id="CaractMenstruacion" class="form-control" placeholder="Caracteristica de menstruación" value="{{$anteGinecologico->CaractMenstruacion}}" >
                                 </div>
-                                <div class="form-group mb-0">
-                                    <label for="SustanciasODrogas">Uso de sustancias o drogas</label>
-                                    <input type="text" class="form-control" name="SustanciasODrogas" id="SustanciasODrogas"
-                                        placeholder="Ingrese si el paciente usa sustancias o drogas">
-                                </div>
-                                <div class="form-group mb-0">
-                                    <label for="VacunasRecientes">Vacunas recientes</label>
-                                    <input type="text" class="form-control" name="VacunasRecientes" id="VacunasRecientes"
-                                        placeholder="Ingrese si el paciente usa sustancias o drogas">
-                                </div>
-                                <div class="form-group mb-0">
+                                <div class="form-group mt-3 mt-xl-0">
+                                    <label for="Embarazos">Embarazos</label>
+                                    <input type="text"  name="Embarazos"id="Embarazos" class="form-control" placeholder="Datos sobre embarazos" value="{{$anteGinecologico->Embarazos}}">
+                                </div> 
+                                <div class="form-group mt-3 mt-xl-0">
+                                    <label for="CancerCervico">Cancer cervico</label>
+                                    <input type="text" name="CancerCervico" id="CancerCervico" class="form-control" placeholder="Datos sobre cancer cervico" value="{{$anteGinecologico->CancerCervico}}">
+                                </div> 
+                                <div class="form-group mt-3 mt-xl-0">
+                                    <label for="CancerUterino">Cancer uterino</label>
+                                    <input type="text" id="CancerUterino" name="CancerUterino" class="form-control" placeholder="Datos sobre cancer uterino" value="{{$anteGinecologico->CancerUterino}}">
+                                </div> 
+                                <div class="form-group mt-3 mt-xl-0">
                                     <label for="Otros">Otros</label>
-                                    <input type="text" class="form-control" name="Otros" id="Otros"
-                                        placeholder="Otro antecedente no patologico">
-                                </div>
+                                    <input type="text" name="Otros" id="Otros" class="form-control" placeholder="Otro antecedente ginecologico"  value="{{$anteGinecologico->Otros}}">
+                                </div> 
                                 <div class="form-group col-md-12" style="padding-top:2%;">
                                     <a href="{{route('consulta.paciente',['IdPaciente' =>$paciente->id])}}" class="btn btn-danger" >Cancelar</a>
-                                    <button class="btn btn-primary" type="submit">Guardar</button>
+                                    <button class="btn btn-primary" type="submit">Atualizar</button>
                                 </div>
                             </form>
                         </div>

@@ -45,13 +45,12 @@
                                     </div>
                                 </div>
                                 <div class="media col-md-9 button-list" style="display: inline-flex; top:-35px;">
-                                    <a href="{{route('antecedente.patologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">Patologicos</a>
-                                    <button class="btn btn-outline-info" data-toggle="modal" data-target="#modal-error"
-                                        style="width: 100%;" type="submit">No Patologicos</button>
-                                    <a href="{{route('antecedente.ginecologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;"
-                                        type="submit">Ginecológicos</a>
-                                    <a href="{{route('antecedente.familiares',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">H.
-                                        Familiares</a>
+                                    <a  href="{{route('antecedente.patologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">Patologicos</a>
+                                    <a  href="{{route('antecedente.NoPatologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">No
+                                        Patologicos</a>
+                                    <a href="{{route('antecedente.ginecologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">Ginecológicos</a>
+                                    <button class="btn btn-outline-info" data-toggle="modal" data-target="#modal-error"  style="width: 100%;" type="submit">H.
+                                        Familiares</button>
                                 </div>
                             </div>
                         </div>
@@ -60,43 +59,30 @@
                 <div class="col-xl-12 col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="mb-1 mt-0">No Patologicos</h4>
-                            <form action="{{ route('antecedente.NoPatologico.guardar') }}" method="post">
+                            <h4 class="mb-1 mt-0">H. Familiares</h4>
+                            <form action="{{ route('antecedente.familiares.actualizar')}}" method="post">
                             @csrf
-                            <input type="hidden" name="IdPaciente" value="{{$paciente->id}}">
-                                <div class="form-group mt-3 mt-xl-0">
-                                    <label for="ActividadFisica">Actividades Físicas</label>
-                                    <input type="text" class="form-control" name="ActividadFisica" id="ActividadFisica"
-                                        placeholder="Ingrese si el paciente hace alguna actividad física">
+                            @method('PUT')
+                                <input type="hidden" name="Id" value="{{$anteHFamiliarez->id}}">
+                                <div class="form-group">
+                                    <label for="Diabetes">Diabetes</label>
+                                    <input type="text" name="Diabetes" id="Diabetes" class="form-control" placeholder="Datos sobre diabetes" value="{{$anteHFamiliarez->Diabetes}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="Tabaquismo">Tabaquismo</label>
-                                    <input type="text" class="form-control" name="Tabaquismo" id="Tabaquismo"
-                                        placeholder="Ingrese si el paciente consume tabaco">
+                                    <label for="Hipertension">Hipertension</label>
+                                    <input type="text" name="Hipertension" id="Hipertension" class="form-control" placeholder="Datos sobre hipertension" value="{{$anteHFamiliarez->Hipertension}}">
                                 </div>
-                                <div class="form-group mb-0">
-                                    <label for="Alcoholismo">Alcoholismo</label>
-                                    <input type="text" class="form-control" name="Alcoholismo" id="Alcoholismo"
-                                        placeholder="Ingrese si el paciente consume alcohol">
+                                <div class="form-group">
+                                    <label for="EnfTiroideas">Enermedades tiroideas</label>
+                                    <input type="text" name="EnfTiroideas" id="EnfTiroideas" class="form-control" placeholder="Datos sobre enfermedades tireoideas" value="{{$anteHFamiliarez->EnfTiroideas}}">
                                 </div>
-                                <div class="form-group mb-0">
-                                    <label for="SustanciasODrogas">Uso de sustancias o drogas</label>
-                                    <input type="text" class="form-control" name="SustanciasODrogas" id="SustanciasODrogas"
-                                        placeholder="Ingrese si el paciente usa sustancias o drogas">
-                                </div>
-                                <div class="form-group mb-0">
-                                    <label for="VacunasRecientes">Vacunas recientes</label>
-                                    <input type="text" class="form-control" name="VacunasRecientes" id="VacunasRecientes"
-                                        placeholder="Ingrese si el paciente usa sustancias o drogas">
-                                </div>
-                                <div class="form-group mb-0">
-                                    <label for="Otros">Otros</label>
-                                    <input type="text" class="form-control" name="Otros" id="Otros"
-                                        placeholder="Otro antecedente no patologico">
+                                <div class="form-group">
+                                    <label for="Otros">Otros antecedentes</label>
+                                    <input type="text"  name="Otros" id="Otros"class="form-control" placeholder="Otros antecedentes" value="{{$anteHFamiliarez->Otros}}">
                                 </div>
                                 <div class="form-group col-md-12" style="padding-top:2%;">
                                     <a href="{{route('consulta.paciente',['IdPaciente' =>$paciente->id])}}" class="btn btn-danger" >Cancelar</a>
-                                    <button class="btn btn-primary" type="submit">Guardar</button>
+                                    <button class="btn btn-primary" type="submit">Atualizar</button>
                                 </div>
                             </form>
                         </div>
