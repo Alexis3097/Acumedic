@@ -47,9 +47,11 @@
                                               <div class="col-md-12 col-lg-12 col-xs-12">
                                                 <h4>{{$estudioGabinete->Nombre}}</h4>
                                               </div>
-                                              <div class="col-md-12 col-lg-12 col-xs-12">
+                                              <div class="col-md-12 col-lg-12 col-xs-12 IdEstudios">
+                                                <input type="hidden" value="{{$estudioGabinete->id}}">
                                                 <p class="desc">{{$estudioGabinete->Descripcion}}</p>
-                                                <i style="margin-right:2px; color:#ff5c75" name="delete_modal" data-toggle="modal" data-target="#eliminarFoto" class="fas fa-trash"></i> <i class="far fa-clock"></i>:<p style="display:inline-block" class="desc">00:00:00</p>
+                                                <button class="btn delete"> <i style="margin-right:2px; color:#ff5c75" name="delete_modal" data-toggle="modal" data-target="#eliminarFoto" class="fas fa-trash"></i></button>
+                                                <i class="far fa-clock"></i>:<p style="display:inline-block" class="desc">{{$estudioGabinete->created_at}}</p>
                                               </div>
                                               </div>
                                             </div>
@@ -144,8 +146,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" method="post">
+                <form action="{{ route('consulta.eliminarFoto') }}" method="post">
+                @csrf
                     <input type="hidden" name="IdModal" id="IdModal">
+                    <input type="hidden" name="IdPaciente" value="{{$IdPaciente}}">
                     <p>¿Esta seguro que desea eliminar la foto?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -157,4 +161,7 @@
     </div>
 </div>
 <!-- modal eliminar -->
+@endsection
+@section('scriptEliminarEstudiosGabinete')
+    <script src="{{asset('js/Admin/deleteEstudiosGabinete.js')}}"></script>
 @endsection

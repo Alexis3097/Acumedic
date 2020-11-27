@@ -120,4 +120,5 @@ Route::put('/consulta-paciente/antecedentes-HFamiliarez/actualizar','Antecedente
 
 //ESTUDIOS DE GABINETE
 Route::get('/consulta-paciente/estudioGabinete/{IdPaciente}','EstudiosGabineteController@index')->name('consulta.estudioGabinete');
-Route::post('/consulta-paciente/estidioGabinete','EstudiosGabineteController@guardarFoto')->name('consulta.guardarFoto');
+Route::post('/consulta-paciente/estudioGabinete','EstudiosGabineteController@guardarFoto')->name('consulta.guardarFoto');
+Route::post('/consulta-paciente/estudioGabinete/eliminar','EstudiosGabineteController@eliminarFoto')->name('consulta.eliminarFoto');

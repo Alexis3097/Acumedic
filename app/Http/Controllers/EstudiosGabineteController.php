@@ -29,6 +29,12 @@ class EstudiosGabineteController extends Controller
         return redirect()->route('consulta.estudioGabinete', $IdPaciente);
     }
 
+    public function eliminarFoto(Request $request, EstudioGabineteViewModel $EstudioGabineteViewModel)
+    {
+       $foto = $EstudioGabineteViewModel->delete($request->IdModal);
+       return redirect()->route('consulta.estudioGabinete',$request->IdPaciente);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

@@ -220,5 +220,6 @@
     @yield('scriptPacientes')
     @yield('scriptCrearCitas')
     @yield('scriptPacientesEdit')
+    @yield('scriptEliminarEstudiosGabinete')
     </body>
 </html>

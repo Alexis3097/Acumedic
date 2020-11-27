@@ -19,4 +19,14 @@ class EstudioGabineteViewModel
         }
         return FotoAntecedente::create($antecedenteGabinete);
     }
+
+    public function delete($IdEstudio){
+        $foto = FotoAntecedente::find($IdEstudio);
+        $rutaImagen = public_path().'/uploads/'.$foto->Url;
+        if (@getimagesize($rutaImagen)){
+              unlink($rutaImagen);
+        }
+        $foto->delete();
+        return $foto;
+    }
 }
