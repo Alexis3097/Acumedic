@@ -61,7 +61,7 @@
 
                                             <div class="form-group mb-4">
                                                 <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="checkbox-signin remember" checked {{ old('remember') ? 'checked' : '' }}>
+                                                    <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                                     <label class="custom-control-label" for="remember">{{ __('Remember Me') }}</label>
                                                 </div>
                                             </div>
