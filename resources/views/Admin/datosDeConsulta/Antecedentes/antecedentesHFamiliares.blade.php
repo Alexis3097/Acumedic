@@ -32,13 +32,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="media col-xl-2" style="display: inline-flex">
-                                    @if(is_null($paciente->Foto))
                                     <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" class="avatar-lg rounded-circle mr-2"
                                         alt="foto">
-                                    @else
-                                    <img src="{{asset('../uploads/'.$paciente->Foto)}}" class="avatar-lg rounded-circle mr-2"
-                                        alt="foto">
-                                    @endif
                                     <div class="media-body">
                                         <h5 class="mt-2 mb-0">{{$paciente->NombreCompleto}}</h5>
                                         <h6 class="text-muted font-weight-normal mt-1 mb-4">{{$paciente->LugarOrigen}}</h6>
