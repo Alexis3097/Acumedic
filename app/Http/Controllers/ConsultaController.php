@@ -20,7 +20,7 @@ class ConsultaController extends Controller
             session()->forget('IdConsulta');
         }
         $paciente = $PacienteViewModel->getPaciente($IdPaciente);
-        return view('Admin.datosDeConsulta.datospaciente', compact('paciente'));
+        return view('Admin.datosDeConsulta.datosPaciente', compact('paciente'));
     }
 
     //iniciar la consultaa, crea el registro de la consulta
