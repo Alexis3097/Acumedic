@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 195.96 249.63">
+    <defs>
+        <style>
+        .cls-1{fill:none;
+        stroke:#0a0a0a;
+        stroke-miterlimit:10;
+        }
+        .tijuana{
+        transform:scale(.95);
+        transform-origin: 50% 50%;
+        stroke-width:2px;
+        stroke-linecap:round;
+        stroke: #232323;
+        fill: none;
+        stroke-dasharray: 80px 10px;
+        stroke-dashoffset: 100px;
+        animation: drawLine linear 20s infinite;
+        }
+        @keyframes drawLine{
+            0%,100%{
+                stroke-dashoffset: 0px;
+            }
+            50%{
+                stroke-dashoffset: 600px;
+            }
+        }
+        </style>
+    </defs>
+    <title>tijuana</title>
+        <g id="Capa_2" data-name="Capa 2">
+            <g id="Capa_1-2" data-name="Capa 1">
+        <path class="tijuana cls-1" d="M72.32,22.79c-3.52,4.69-8,8.64-10.41,14.18C51.7,51.76,45.22,68.33,39.54,85.19c-12.31,36.56-19.36,74.29-24.43,112.44-2.13,16-4.1,32.05-5.19,48.16-.35,5.18-3.75,2.71-6.08,3s-3.57-.48-3.3-3.36c3.57-38.15,8.4-76.11,16.75-113.54,6.65-29.76,14.89-59,28.89-86.34C52.9,32.41,60.79,20.13,72.32,10.59c16.08-13.32,34.75-13.47,51-.34,13.58,11,22.14,25.61,29.45,41,13.62,28.74,21.7,59.27,28.09,90.27,7,33.78,11.36,67.94,14.5,102.27.36,4-.76,4.82-4.55,5.22-4.2.44-4.41-1.3-4.71-4.6-4.51-50.13-11.42-99.86-26-148.21-6.69-22.19-14.87-43.78-28.18-63-5-7.15-10.58-13.7-18-18.44C101.92,7.12,90.14,8,79,17.26a41.73,41.73,0,0,0-6.71,5.53"/>
+        </g>
+</g>
+</svg>

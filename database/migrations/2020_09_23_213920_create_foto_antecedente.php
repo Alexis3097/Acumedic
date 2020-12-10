@@ -16,10 +16,9 @@ class CreateFotoAntecedente extends Migration
         Schema::create('FotoAntecedente', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('IdPaciente');
-            $table->Integer('Tipo');
             $table->String('Url');
             $table->String('Nombre');
-            $table->String('Descripcion');
+            $table->text('Descripcion');
             $table->timestamps();
 
             $table->foreign('IdPaciente')->references('id')->on('Paciente');

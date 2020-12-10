@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Horario extends Model
 {
+    protected $table = 'Horario';
     protected $fillable = [
         'Horario',
     ];

@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
-
+use Carbon\Carbon;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'IdSexo','name', 'ApellidoPaterno', 'ApellidoMaterno','FechaNacimiento','Telefono', 'email','Foto', 'password',
     ];
 
     /**
@@ -37,4 +37,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function getNombreCompletoAttribute()
+    {
+        return "{$this->name} {$this->ApellidoPaterno} {$this->ApellidoMaterno}";
+    }
+
+    public function getEdadAttribute()
+    {
+        if(is_null($this->FechaNacimiento))
+        {
+            return 0;
+        }
+        $fechaSplit = explode("-", $this->FechaNacimiento);
+        return Carbon::createFromDate($fechaSplit[0], $fechaSplit[1], $fechaSplit[2])->age;
+    }
 }

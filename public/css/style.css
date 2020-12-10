@@ -1,0 +1,1188 @@
+/* PAGINA ELABORADA EN RESIDENCIA PROFESIONAL AGOSTO-DICIEMBRE 2020 
+ALUMNOS: 
+CRISTIAN ALEXIS MONTOYA ARGUELLO - 16270805
+LUIS FELIPE MARTÍNEZ ORTEGA - 16270797
+
+ING. SISTEMAS COMPUTACIONALES
+TECNOLOGICO NACIONAL DE MÉXICO, CAMPUS TUXTLA GUTIERREZ, CHIAPAS.
+#ORGULLOTECNM
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root{
+  --font-xxgtitle:4.5rem;
+  --font-xgtitle:4rem;
+  --font-gtitle:3rem;
+  --font-mtitle:2.5rem;
+  --font-ms:2rem;
+  --font-s:1.5rem;
+  --font-xs:1rem;
+  --font-uno: 'Raleway', sans-serif;
+  --font-dos: 'Poppins', sans-serif;
+  /* --font-dos: 'Lexend Deca', sans-serif;
+  --font-tres: 'PT Sans', sans-serif;
+  --font-cuatro:'Red Hat Display', sans-serif; */
+  --blue:#499eb9;
+  --blue2:#88bacb;
+  --blue3:#b3d2dd;
+  --blue4:#459cb7;
+  --orange:#F6C3B7;
+  --orange2:#f4efee;
+  --orange3:#f8c5b8;
+
+  /* preloader img */
+  --origenX: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-dos);
+}
+body{
+    
+    height: 100%;
+    width: 100%;
+}
+.nav-wrapper {
+  /*  */
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+
+.grad-bar {
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(-45deg, #499eb9, #ffd992, #88bacb, #F6C3B7);
+  background-size: 400% 400%;
+  	-webkit-animation: gradbar 7s ease infinite;
+	-moz-animation: gradbar 7s ease infinite;
+	animation: gradbar 7s ease infinite;
+}
+
+/* botones */
+.btn-1{
+  color:#fff;
+  font-size: var(--font-ms);
+  font-weight:bold;
+  background-color: var(--blue2);
+  padding: 1% 4%;
+  width: auto;
+  border:none;
+  border-radius: 20px;
+  transition: ease all .2s
+}
+.btn-1:hover{
+  transform:scale(1.05);
+  background-color:var(--orange3);
+}
+.btn-2{
+  color:#fff;
+  font-size: var(--font-ms);
+  font-weight:bold;
+  background-color: var(--blue2)!important;
+  padding: 1% 4%;
+  width: 90%;
+  display: block;
+  margin: auto;
+  border:none;
+  border-radius: 20px;
+  transition: ease all .2s
+}
+.btn-2{
+  transform:scale(1.05);
+}
+.btn-3{
+  color:#fff;
+  font-size: var(--font-mtitle);
+  font-weight:bold;
+  background-color: var(--blue2);
+  padding: 1% 4%;
+  width: auto;
+  border:none;
+  border-radius: 20px;
+  transition: ease all .2s
+}
+.btn-3:hover{
+  background-color:var(--orange)!important;
+  color:#fff!important;
+}
+/* botones */
+/* Navegación */
+
+.navbar {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+  height: auto;
+  margin-bottom: 10px!important;
+  overflow: hidden;
+}
+
+.navbar img {
+  /* height: 16px; */
+  width: 200px;
+  justify-self: start;
+  margin-left: 20px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  justify-self: end;
+  
+}
+
+.nav-item a {
+  color: #000;
+  font-size: var(--font-s);
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s ease all;
+}
+
+.nav-item a:hover {
+  color: var(--blue2);
+  background-color:#fff!important;
+
+}
+.nav-item a:focus{
+  background-color:#fff!important;
+}
+.nav-item .btn-nav{
+  color: #fff;
+  font-size: var(--font-s);
+  font-weight: bold;
+  background-color: var(--orange3);
+  padding: 10px 28px!important;
+  width: auto;
+  border: none;
+  border-radius: 20px;
+  transition: ease all .2s;
+}
+.nav-item .btn-nav:hover{
+  background-color:var(--blue3)!important;
+  color:#fff!important;
+}
+
+
+/* Secciones */
+
+.headline {
+  width: 100%;
+  height: 50vh;
+  min-height: 350px;
+  background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/jPLiQ-9/mountains-background-for-titles-intro-projects-and-etc_ew22rur3l__F0000.png');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.features {
+  width: 100%;
+  height: auto;
+  background-color: #f1f1f1;
+  display: flex;
+  padding: 50px 20px;
+  justify-content: space-around;
+}
+
+.feature-container {
+  flex-basis: 30%;
+  margin-top: 10px;
+}
+
+.feature-container p {
+  color: #000;
+  text-align: center;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.feature-container img {
+  width: 100%;
+  margin-bottom: 15px;
+}
+.no-search {
+  transform: translate(0);
+  transition: transform 0.7s ease-in-out;
+}
+
+.search-input {
+  position: absolute;
+  top: -4px;
+  right: -125px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.6s ease;
+}
+
+.search-active {
+  opacity: 1;
+  z-index: 0;
+}
+
+input {
+  border: 0;
+  border-left: 1px solid #ccc;
+  border-radius: 0; /* FOR SAFARI */
+  outline: 0;
+  padding: 5px;
+}
+
+/* Animaciones moviles */
+
+.menu-toggle .bar{
+  width: 25px;
+  height: 3px;
+  background-color: #3f3f3f;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-toggle {
+  justify-self: end;
+  margin-right: 25px;
+  display: none;
+}
+
+.menu-toggle:hover{
+  cursor: pointer;
+}
+
+#mobile-menu.is-active .bar:nth-child(2){
+  opacity: 0;
+}
+
+#mobile-menu.is-active .bar:nth-child(1){
+  -webkit-transform: translateY(8px) rotate(45deg);
+  -ms-transform: translateY(8px) rotate(45deg);
+  -o-transform: translateY(8px) rotate(45deg);
+  transform: translateY(8px) rotate(45deg);
+}
+
+#mobile-menu.is-active .bar:nth-child(3){
+  -webkit-transform: translateY(-8px) rotate(-45deg);
+  -ms-transform: translateY(-8px) rotate(-45deg);
+  -o-transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-8px) rotate(-45deg);
+}
+  
+/* banner */
+.banner-section{
+  width: 100%;
+  min-height: 110vh;
+  background: url(../img/bg-1.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.banner-section .banner-acumedic{
+  padding:5% 8%;
+  margin: auto;
+  min-height: 50vh;
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+}
+.banner-section .banner-acumedic .titulo-sitio{
+  display: block;
+  padding-top: 90px;
+  height: 100%;
+}
+.banner-section .banner-acumedic .titulo-sitio h1{
+  font-weight: bold;
+  font-size: var(--font-xgtitle);
+  color:#fff;
+  text-align: left;
+}
+.banner-section .banner-acumedic .titulo-sitio h2{
+  font-size: var(--font-ms);
+  font-weight:lighter;
+  text-align: left;
+  color:#fff;
+}
+/* banner 2 */
+.banner-section2{
+  width: 100%;
+  min-height: 30vh;
+  background: url(../img/bg-3.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.banner-section2::after{
+  content: '';
+  position:absolute;
+  width: 100%;
+  min-height: 30vh;
+  top: 0;
+  opacity: .7;
+  z-index:0!important;
+  background: linear-gradient(to right,#f8c5b8, #459cb7);
+}
+.banner-section2 .title{
+  padding: 6% 0%;
+  min-height: 30vh;
+  display: block;
+  margin: auto;
+}
+.banner-section2 .title h2{
+  color: #fff;
+  position: absolute;
+  top: 0;
+  height: 5vh;
+  margin: auto;
+  display: block;
+  bottom: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: var(--font-xgtitle);
+  text-align: left;
+  z-index: 3!important;
+}
+.banner-section2 .redirect{
+  /* padding: 6% 0%; */
+  min-height: 30vh;
+  display: block;
+  margin: auto;
+}
+.banner-section2 .redirect i, .banner-section2 .redirect a{
+  padding:0% 3%;
+}
+.banner-section2 .redirect h3{
+  color: #fff;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  height: 5vh;
+  margin: auto;
+  display: block;
+  bottom: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: var(--font-s);
+  text-align: right;
+  z-index: 3!important;
+}
+/* banner */
+
+/* subbanner */
+.sub-banner{
+  position: relative;
+  width: 100%;
+}
+.sub-banner .infoAcumedic{
+  background: url('../img/bg-prueba.jpg');
+  min-height: auto;
+  padding: 2% 4%;
+  width: 90%;
+  background-size:cover;
+  background-repeat: no-repeat;
+  display: block;
+  margin: auto;
+  margin-top: -15vh;
+}
+.sub-banner .infoAcumedic .contacto{
+  width: 32%;
+  display: inline-flex;
+  height: 95%;
+  border-right: 2px solid rgba(255,255,255,.3);
+}
+.sub-banner .infoAcumedic .contacto .numeroIcono{
+  display: block;
+  margin: auto;
+  top:0;right:0;bottom:0;left: 0;
+}
+.sub-banner .infoAcumedic .contacto .desc{
+  position: relative;
+  left: -40px;
+}
+.sub-banner .infoAcumedic .contacto .numeroIcono .icono{
+ color:#fff;
+ font-size: var(--font-xxgtitle);
+ margin-right: 30px;
+}
+.sub-banner .infoAcumedic .contacto .desc .titulo{
+  color:#fff;
+  font-weight: 100!important;
+  font-size: var(--font-ms);
+  font-weight: bold;
+}
+.sub-banner .infoAcumedic .contacto .desc .numero{
+  color:#fff;
+  font-weight: bold;
+  font-size: var(--font-gtitle);
+}
+.sub-banner .infoAcumedic .contactoH{
+  width: calc(65%);
+  display: inline-flex;
+  height: 95%;
+}
+.sub-banner .infoAcumedic .contactoH .numeroIcono{
+  display: block;
+  margin: auto;
+  top:0;right:0;bottom:0;left: 0;
+}
+.sub-banner .infoAcumedic .contactoH .numeroIcono .icono{
+ color:#fff;
+ font-size: var(--font-xxgtitle);
+ margin-right: 30px;
+}
+.sub-banner .infoAcumedic .contactoH .desc .titulo{
+  color:#fff;
+  font-weight: 100!important;
+  font-size: var(--font-ms);
+  font-weight: bold;
+}
+.sub-banner .infoAcumedic .contactoH .desc .numero{
+  color:#fff;
+  font-weight: bold;
+  font-size: var(--font-gtitle);
+}
+/* sub-banner */
+/*  */
+/* about */
+.about-section{
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 2% 5%;
+}
+.about-section .imageAbout{
+  position: relative;
+}
+.about-section .imageAbout img{
+  display:block;
+  margin:0;
+  width: 85%;
+  /* position: absolute; */
+  left:0;right:0;top:0;bottom:0;
+}
+.about-section .descAbout{
+  height: 100%;
+  position: relative;
+  color:#232323;
+}
+.about-section .descAbout .titulo{
+  font-size: var(--font-gtitle);
+  font-weight: bold;
+  text-align: left;
+  text-transform: uppercase;
+}
+.about-section .descAbout .subtitulo{
+  font-size: var(--font-ms);
+  text-align: left;
+  font-weight: bold;
+}
+.about-section .descAbout .desc-italic{
+  font-size: var(--font-s);
+  font-style: italic;
+  text-align: justify;
+  line-height: 30px;
+}
+.about-section .descAbout .desc{
+  font-size: var(--font-s);
+  text-align: justify;
+  line-height: 30px;
+}
+/* about */
+/* servicios */
+.serviciosCont{
+  padding: 2%;
+  box-sizing: border-box;
+}
+.serviciosCont .cont{
+  padding:2%;
+  box-sizing: border-box;
+}
+.servicio-col{
+  padding: 2%;
+  box-sizing: border-box;
+  transition:ease all .3s;
+}
+.servicio-col:hover{
+  box-shadow:0px 0px 10px rgba(0,0,0,.05);
+  transform:scale(1.01);
+}
+.serviciosCont .servicio-col .container-servicio .img{
+  position: relative;
+}
+.serviciosCont .servicio-col .container-servicio .img img{
+  width: 100%;
+  overflow: hidden;
+  background-position: center;
+}
+.serviciosCont .servicio-col .container-servicio .desc h2{  
+ font-size: var(--font-ms);
+ font-weight: bold;
+ transition:ease all .2s;
+ text-align: center;
+}
+.serviciosCont .servicio-col .container-servicio .desc h2:hover{
+  color:var(--blue4);
+}
+.serviciosCont .servicio-col .container-servicio .desc .descripcion{
+  text-align: justify;
+  font-size: var(--font-s);
+}
+.serviciosCont .servicio-col .container-servicio .desc{
+  padding:1%;
+  box-sizing: border-box;
+}
+.serviciosCont .servicio-col .container-servicio .goToServicio{
+  color:var(--blue4)!important;
+  transition:ease all .3s;
+  position: relative;
+  text-align: left!important;
+  font-weight: bold;
+  font-size: var(--font-s)!important;
+}
+.serviciosCont .servicio-col .container-servicio .goToServicio:hover{
+  text-decoration:none;
+
+}
+.serviciosCont .servicio-col .container-servicio .goToServicio::after{
+  content:'';
+  position:absolute;
+  width: 20%;
+  height: 3px;
+  background-color:var(--blue4);
+  transform-origin:left;
+  left:0;bottom:0px;
+  transition: ease all .2s;
+}
+.serviciosCont .servicio-col .container-servicio .goToServicio:hover::after{
+  width: 60%;
+}
+/* end servicios */
+/* más info */
+.informacion{
+  position: relative;
+  min-height: 15vh;
+  background-color:var(--blue2);
+  width: 100%;
+  padding: 3% 2%;
+  box-sizing: border-box;
+}
+.informacion .icon{
+  display: inline-block;
+  /* height: auto; */
+  height: 86%;
+  padding: 3%;
+  box-sizing: border-box;
+  /* width: 12%; */
+  position: relative!important;
+}
+.informacion .icon .icono{
+  color:#fff;
+  /* position:absolute; */
+  bottom:10; top:0;
+  height: 100%;
+  font-size: var(--font-xgtitle);
+}
+.informacion .desc{
+  display: inline-block;
+  height: 100%;
+  /* width: 80%; */
+  position: relative;
+}
+.informacion .desc .titulo{
+  color:#fff;
+  font-size: var(--font-s);
+  font-weight: bold;
+}
+.informacion .desc .subtitulo{
+  color:#fff;
+  font-size: var(--font-s);
+}
+/* más info */
+/* contacto formulario 1 */
+.contacto-formulario{
+  background-color:#e6ede9;
+  position: relative;
+  min-height: 70vh;
+  width: 100%;
+}
+.contacto-formulario .bg-form{
+  background:url('../img/bg-3.jpg');
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 70vh;
+}
+.contacto-formulario .formulario{
+  padding: 2%;
+}
+.contacto-formulario .formulario .titulo-form{
+  text-align: center;
+  font-size: var(--font-gtitle);
+  color:#232323;
+  font-weight: bold;
+  padding: 2% 1%;
+}
+.contacto-formulario .formulario form label{
+  font-size: var(--font-ms);
+}
+.contacto-formulario .formulario form input{
+  color:#f4efee;
+  font-size: var(--font-s);
+  border:1px solid #ccc;
+  border-radius:0px!important;
+}
+/* contacto formulario 1 */
+/* info numeros */
+.servicios{
+  position: relative;
+  width: 100%;
+  padding: 2%;
+  box-sizing: border-box;
+  min-height: 90vh;
+}
+.servicios .titulo .title-section h3{
+  font-size:var(--font-gtitle);
+  font-weight: bold;
+  text-align: center;
+}
+.servicios .titulo .desc-section{
+  font-size: var(--font-s);
+  text-align: center;
+  font-style: italic;
+  font-weight: lighter;
+  line-height: 30px;
+}
+.servicios .servicio-content{
+  /* white-space:nowrap; */
+  position:relative;
+  height: auto;
+  padding: 1%;
+}
+.servicios .servicio-content .img{
+  position:relative;
+}
+.servicios .servicio-content .img img{
+  display: block;
+  margin:auto;
+  left:0;right:0;top:0;bottom:0;
+  width: 100px;
+}
+.servicios .servicio-content .titulo-servicio{
+  font-size:var(--font-ms);
+  font-weight: bold;
+  text-align: center;
+}
+.servicios .servicio-content .desc{
+  font-size:var(--font-s);
+  line-height: 30px;
+  color:#696969;
+  text-align:center;
+}
+/* info numeros */
+.info-numeros{
+  position: relative;
+  min-height: 25vh;
+  width: 100%;
+  /* background:url('../img/bg-prueba.jpg'); */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#info-numeros1{
+  background:url('../img/bg-prueba.jpg');
+  background-size: cover;
+}
+#info-numeros2{
+  background:url('../img/bg-info2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.info-numeros .info-contador{
+  padding: 2% 1%;
+}
+.info-numeros .info-contador .counter{
+  color:#fff;
+  font-size: var(--font-xgtitle);
+  display: inline-block;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+.info-numeros .info-contador .desc{
+  text-align: center;
+  font-size: var(--font-ms);
+  color:#fff;
+}
+/* info numeros */
+/* lista servicios */
+.container-mas-servicios{
+  background-color:#f1f1f1;
+  height: auto;
+  padding:4% 7%;
+  box-sizing: border-box;
+}
+.container-mas-servicios .titulo{
+  text-align: left;
+  text-transform: uppercase;
+  color:var(--blue4);
+  font-size: var(--font-ms);
+  font-weight: bold;
+}
+.container-mas-servicios ul li{
+  font-size: var(--font-s);
+  list-style-type: none;;
+  text-align: left;
+  line-height: 40px;
+  color:#232323;
+  transition:ease all .2s;
+}
+.container-mas-servicios ul li:hover{
+  transform:translateX(4px);
+  color:var(--blue4);
+}
+/* lista servicios */
+/* contacto frame */
+.frame-map{
+  padding:0% 0%;
+  border-top:2px solid var(--blue2);
+  box-sizing: border-box;
+}
+.frame-map iframe{
+  width: 100%;
+  min-height: 50vh;
+}
+/* contacto frame */
+/* contacto formulario */
+.form-contact{
+  position:relative;
+  width: 100%;
+  min-height: 80vh;
+}
+.form-contact .info-direccion{
+  padding:1%;
+  box-sizing: border-box;
+}
+
+.form-contact h3{
+  text-align: left;
+  font-size:var(--font-gtitle);
+  color:var(--blue2);
+  font-weight: bold;
+}
+.form-contact .info-direccion .desc p{
+  font-style: italic;
+  text-align: left;
+  font-weight: lighter;
+  font-size: var(--font-ms);
+  margin-bottom: 10px;
+  box-sizing: border-box;
+
+}
+.form-contact .info-direccion .numero .numerolist , .form-contact .info-direccion .numero .icon{
+  font-size: var(--font-ms);
+  font-weight: bold;
+  margin-left: 10px;
+  display: inline-block;
+  text-align: left;
+}
+.form-contact .container-formulario{
+  padding:3%;
+  top:-110px;
+}
+.form-contact .container-formulario .container-formbg{
+  background: url(../img/bg-2.jpg);
+  background-size: cover;
+  padding: 8% 4%;
+  position: relative;
+  box-sizing: border-box;
+  z-index: 1!important;
+  box-shadow: 1px 9px 10px rgba(0,0,0,.1);
+  background-position: center;
+  border: 15px solid #fff;
+}
+.form-contact .container-formulario .container-formbg::after{
+  background-color:rgba(136,186,203,.7);
+  position: absolute;
+  content:'';
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.form-contact .container-formulario .container-formbg form{
+  z-index: 10!important;
+  position: relative;
+}
+.form-contact .container-formulario form label {
+  font-size: var(--font-ms);
+  text-align: left;
+  color:#fff;
+  font-family: var(--font-dos)!important;
+}
+.form-contact .container-formulario form input{
+  border:1px solid #fff;
+  border-radius:0px!important;
+  background-color:transparent;
+  color:#fff;
+}
+.form-contact .container-formulario form input::placeholder{
+  color:#fff;
+}
+.form-contact .container-formulario form input:focus{
+  border:2px solid var(--blue2);
+  transform: scale(1.01);
+  transition: ease all .2s;
+}
+.form-contact .container-formulario form textarea{
+  border:1px solid #fff;
+  resize: none;
+  border-radius: 0px!important;
+  background-color:transparent;
+  transition: ease all .2s;;
+}
+.form-contact .container-formulario form textarea:focus{
+  border:2px solid var(--blue2);
+  transform: scale(1.01);
+}
+.form-contact .container-formulario form button{
+  width:80%;
+  padding:1%;
+  display: block;
+  margin:auto;
+  border:1px solid #fff;
+  background-color:rgba(136,186,203,.3);
+  border-radius:0px!important;
+  color:#fff;
+  transition: ease all .2s;
+  transition:ease all .2s;
+}
+.form-contact .container-formulario form button:hover{
+  box-shadow: 2px 3px 10px rgba(0,0,0,.2);
+  background-color: rgba(248,197,184,.8);
+  width: 85%;
+}
+.form-contact .contaiener-formulario form button:hover{
+  background-color:#232323!important;
+  transform:scale(1.05)!important;
+}
+/* contacto formulario */
+/* bg-servicio detallado */
+.banner-servicio-detallado{
+  position: relative;
+  min-height: 70vh;
+  padding:3%;
+  box-sizing: border-box;
+  width: 100%;
+}
+.banner-servicio-detallado .bg-servicio{
+  width: 100%;
+  position: relative;
+}
+.banner-servicio-detallado .bg-servicio img{
+  width: 85%;
+  left:0;
+
+}
+.banner-servicio-detallado .titulo-servicio{
+  text-align: left;
+  font-size: var(--font-gtitle);
+  font-weight: bold;
+  color:#232323;
+  text-transform: uppercase;
+}
+.banner-servicio-detallado .descripcion-detail{
+  font-size: var(--font-s);
+  line-height: 30px;
+  color:#232323;
+  text-align: left;
+
+}
+/* bg-servicio detallado */
+/* footer */
+footer{
+  position: relative;
+  width: 100%;
+  padding: 2% 1%;
+  min-height: 50vh;
+  background-color:#232323;
+}
+footer .footer-logo .figure-footer img{
+  display: block;
+  margin: auto;
+  width: 300px;
+  left:0;top:0;right:0;bottom:0;
+}
+footer .footer-logo .desc .descripcion{
+  color:#fff;
+  font-size:var(--font-s);
+  margin-bottom: 30px;
+  box-sizing: border-box;
+}
+
+footer .footer-logo .desc ul li .icono{
+  color:var(--blue2);
+  font-size:var(--font-s);
+  display: inline-block;
+  margin-right: 5px;
+}
+footer .footer-logo .desc ul li p{
+  color: #fff;
+  font-weight: lighter;
+  font-size: var(--font-s);
+  display: inline-block;
+  width: 93%;
+}
+footer .colFooter{
+  padding: 1% 4%;
+}
+footer .colFooter .tituloFooter p{
+  color: #fff;
+  font-size: var(--font-mtitle);
+  font-weight: bold;
+  margin-bottom:40px;
+  background-origin: border-box;
+  position: relative;
+}
+footer .colFooter .tituloFooter p:before{
+  position: absolute;
+  content:'';
+  height: 2px;
+  background-color:var(--blue2);
+  width: 15%;
+  bottom:0;
+}
+footer .colFooter .sublinks ul li a{
+  color:#fff;
+  line-height: 40px;
+  font-size: var(--font-s);
+  text-align: left;
+  transition:ease all .2s;
+}
+footer .colFooter .sublinks ul li a:hover{
+  color:var(--blue2);
+}
+.toe{
+  padding: 1% 0%;
+  background-color:#000;
+  min-height: 1vh;
+  width: 100%!important;
+}
+.toe .social-media a{
+  color:#fff!important;
+  margin: 5px;
+  box-sizing: border-box;
+  display: inline-block;
+  transition:ease all .2s;
+  font-size: var(--font-s);
+  cursor: pointer;
+}
+.toe .social-media a:hover{
+  color:var(--blue2)!important;
+}
+.toe .copyright p{
+  color:#fff;
+  font-size: var(--font-s);
+}
+
+/* footer */
+  /* ANIMACIONES */
+  @-webkit-keyframes gradbar {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes gradbar {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes gradbar {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+  /* FIN DE ANIMACIONES */
+  /* DISEÑO RESPONSIVO */
+    /* pantallas más grandes  */
+    @media only screen and (max-width: 2840px) and (min-width: 1900px) {}
+  /* pantallas más grandes  */
+  @media only screen and (max-width: 800px) and (min-width: 300px) { 
+    .info-numeros .info-contador .counter{
+      font-size: var(--font-gtitle);
+    }
+    .banner-section2 .title{
+      padding: 3% 0%;
+      min-height: 22vh;
+    }
+    .banner-section2 .redirect{
+      padding: 0% 0%;
+    min-height: 0vh;
+    display: inline;
+    margin:0;
+    }
+    .banner-section2 .redirect h3{
+      width: 30%;
+      text-align: left;
+      top: 11px;
+    }
+    .banner-section2 .title h2{
+      top: 90px;
+      font-size: var(--font-gtitle);
+    }
+    .banner-section .banner-acumedic .titulo-sitio h1{
+      font-size: var(--font-gtitle);
+    }
+    .banner-section{
+      min-height:70vh;
+    }
+    .form-contact .container-formulario{
+      top: 0!important;
+    }
+    /* .banner-section .banner-acumedic .titulo-sitio{
+      padding-top: 40px;
+    } */
+    .nav-wrapper{
+      width: 100%;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      background-color: #fff;
+    }
+    .features {
+      flex-direction: column;
+      padding: 50px;
+    }    
+    /* MOBILE HEADINGS */    
+    h1 {
+      font-size: 1.9rem;
+    }    
+    h2 {
+      font-size: 1rem;
+    }    
+    p {
+      font-size: 0.8rem;
+    }    
+    /* MOBILE NAVIGATION */       
+    .navbar ul {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      justify-content: start;
+      top: 87px;
+      left: -1px;
+      background-color: #fff;
+      width: 100%;
+      height: calc(100vh - 55px);
+      transform: translate(-101%);
+      text-align: center;
+      overflow: hidden;
+    }    
+    .navbar li {
+      padding: 15px;
+    }    
+    .navbar li:first-child {
+      margin-top: 50px;
+    }    
+    .navbar li a {
+      font-size: 1rem;
+    }     
+    .menu-toggle, .bar {
+      display: block;
+      cursor: pointer;
+    }  
+    .mobile-nav {
+    transform: translate(0%)!important;
+  }    
+    /* SECTIONS */    
+    .headline {
+      height: 20vh;
+    }      
+    .feature-container p {
+      margin-bottom: 25px;
+    }    
+    .feature-container {
+      margin-top: 20px;
+    }    
+    .feature-container:nth-child(2) {
+      order: -1;
+    }    
+    /* SEARCH DISABLED ON MOBILE */    
+    #search-icon {
+      display: none;
+    }    
+    .search-input {
+    display: none;
+   }
+     /* infoacumedic */
+  /* .sub-banner .infoAcumedic{} */
+  .sub-banner .infoAcumedic .contacto{
+    border-right: 0px!important;
+    border-bottom:2px solid rgba(255,255,255,.3)!important;
+  }
+  .sub-banner .infoAcumedic .contacto .desc .titulo{
+    /* font-size: var(--font-s); */
+  }
+  .sub-banner .infoAcumedic .contacto .desc .numero{
+    font-size: var(--font-ms);
+  }
+  .sub-banner .infoAcumedic .contactoH .desc .numero{
+    font-size: var(--font-ms);
+  }
+  .sub-banner .infoAcumedic .contacto{
+    width: 100%!important;
+  }
+  .sub-banner .infoAcumedic .contactoH{
+      width: 100%!important;
+  }
+  .sub-banner .infoAcumedic .contacto .numeroIcono{
+    box-sizing: border-box;
+    display: block!important;
+    margin-right: 11%!important;
+    margin-left:0%!important;
+  }
+  .contacto-formulario .bg-form{
+    height: 20vh;
+  }
+  .contacto-formulario .formulario{
+    padding: 4%;
+    box-sizing: border-box;
+  }
+  .contacto-formulario .formulario .titulo-form p{
+    font-size: var(--font-ms);
+  }
+  .servicios .servicio-content .desc p{
+    font-size: var(--font-ms);
+  }
+  }
+  /* infoacumedic */
+  @media only screen and (max-width: 340px) and (min-width: 300px) {}
+  /* FIN DE DISEÑO RESPONSIVO */
