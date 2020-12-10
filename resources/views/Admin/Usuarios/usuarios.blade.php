@@ -7,9 +7,9 @@
                 <form action="" method="get">
                     <div class="row page-title align-items-center">
                             <div class="col-sm-6 col-md-6 col-xl-6">
-                            <h4 class="mb-1 mt-0">Buscar paciente</h4>
+                            <h4 class="mb-1 mt-0">Buscar usuario</h4>
                                 <div class="input-group">
-                                    <input type="text" name="Nombre" class="form-control col-lg-12 @error('Nombre') is-invalid @enderror" placeholder="Buscar paciente" required>
+                                    <input type="text" name="Nombre" class="form-control col-lg-12 @error('Nombre') is-invalid @enderror" placeholder="Buscar usuario" required>
                                     @error('Nombre')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -22,7 +22,7 @@
                             </div>
                         </form>
                         <div class="form-group mb-4">
-                                <a href="" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Todos los pacientes</a>
+                                <a href="" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Todos los usuarios</a>
                             </div>
                     </div>
                     <!-- products -->
@@ -53,8 +53,8 @@
                                                             <td>{{$usuario->Edad}}</td>
                                                             <td>{{$usuario->Telefono}}</td>
                                                             <td>
-                                                                <span title="Editar paciente"><a href="{{route('usuarios.edit',['IdUsuario'=>$usuario->id])}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a></span>
-                                                                <span title="Eliminar paciente"><button type="button" name="delete_modal" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarPaciente">
+                                                                <span title="Editar usuario"><a href="{{route('usuarios.edit',['IdUsuario'=>$usuario->id])}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a></span>
+                                                                <span title="Eliminar usuario"><button type="button" name="delete_modal" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarPaciente">
                                                                     <i class="fa fa-trash"></i>
                                                                 </button></span>
                                                             </td>
