@@ -9,10 +9,10 @@
         
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link rel="shortcut icon" href="{{asset('img/Admin/favicon.ico')}}" type="text/css">
-        <link rel="stylesheet" href="{{asset('libs/flatpickr/flatpickr.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('js/Admin/libs/flatpickr/flatpickr.min.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/bootstrap.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/bootstrap.min.css')}}" type="text/css">
-        <link rel="stylesheet" href="{{asset('css/Admin/icon.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/Admin/icons.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/icons.min.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/app.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/app.min.css')}}" type="text/css">
@@ -179,8 +179,20 @@
                             <li>
                                 <a href="{{ route('ventas')}}">
                                     <i data-feather="shopping-cart"></i>
-                                    <span> Ventas </span>
+                                    <span > Ventas </span>
+                                    <span class="fas fa-chevron-right menu-arrow"></span>
                                 </a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li>
+                                        <a href="email-inbox.html">Inbox</a>
+                                    </li>
+                                    <li>
+                                        <a href="email-read.html">Read</a>
+                                    </li>
+                                    <li>
+                                        <a href="email-compose.html">Compose</a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="{{ route('usuarios')}}">
