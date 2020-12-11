@@ -908,6 +908,7 @@ input {
 
 }
 /* bg-servicio detallado */
+/* productos style */
 .productos-page .single-product{
   padding:2%;
   background-color:#e6ede9;
@@ -938,7 +939,52 @@ input {
 }
 /* productos style */
 /* producto detallado */
-
+.producto-single{
+  padding:3%;
+  background-color:#f8f8f8;
+}
+.producto-single .gallery{
+  width: 90px;
+  position: relative;
+}
+.producto-single .gallery img{
+  width: 100%;
+  padding: 2px;
+  margin-bottom: 2px;
+  border: 1px solid #232323;
+  display: inline-block;
+  transition:ease all .2s;
+}
+.producto-single .gallery img:hover{
+  transform: scale(1.1);
+  border:1px solid var(--blue);
+}
+.producto-single .producto img{
+  width: 450px;
+  display: block;
+  margin: auto;
+}
+.producto-single .descripcion .nombreProducto{
+  font-weight: bold;
+  font-size: var(--font-xgtitle);
+}
+.producto-single .descripcion .precioUnitario{
+  font-size: var(--font-mtitle);
+}
+.producto-single .descripcion .precioComparado{
+  font-size: var(--font-ms);
+  text-decoration:line-through;
+}
+.producto-single .descripcion .stock{
+  font-size: var(--font-ms);
+}
+.producto-single .descripcion .stockC{
+  font-size: var(--font-ms);
+  font-weight: bold;
+}
+.producto-single .descripcion .descripcion-text{
+  font-size: var(--font-s);
+}
 /* producto detallado */
 /* footer */
 footer{
@@ -1218,5 +1264,10 @@ footer .colFooter .sublinks ul li a:hover{
   }
   }
   /* infoacumedic */
+  /* producto detallado */
+  .producto-single .producto img{
+    width: 210px;
+  }
+  /* producto detallado */
   @media only screen and (max-width: 340px) and (min-width: 300px) {}
   /* FIN DE DISEÑO RESPONSIVO */
