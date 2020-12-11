@@ -107,7 +107,7 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <button class="btn btn-danger" type="submit">Cancelar</button>
+                                        <a href="{{route('ficha.list',['id'=>$paciente->id])}}" class="btn btn-danger">Cancelar</a>
                                             <button class="btn btn-primary" type="submit">Guardar</button>
                                         </div>
                                     </form>

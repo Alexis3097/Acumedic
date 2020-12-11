@@ -42,6 +42,7 @@ class PacienteViewModel
       }
       $paciente = Paciente::find($id);
       $paciente->delete();
+      return $paciente;
     }
 
     public function create($pacienteData): Paciente

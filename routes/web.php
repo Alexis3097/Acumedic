@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 // Route::pattern('IdPaciente', '[0-9]+');
 
+
 //Rutas de cliente
 Route::get('/', function () {
     return view('Cliente.inicio');
@@ -77,8 +78,7 @@ Route::get('/ficha-paciente/edit/{IdFicha}', 'FichaController@edit')->name('fich
 Route::put('/ficha-paciente/update/{id}', 'FichaController@update')->name('ficha.update');
 Route::delete('/ficha-paciente/delete', 'FichaController@destroy')->name('ficha.delete');
 
-//USUARIOS
-Route::get('/usuarios', 'usuariosController@index')->name('usuarios');
+
 //VENTAS
 Route::get('/ventas', 'ventasController@index')->name('ventas');
 //DATOS DE CONSULTA
@@ -122,3 +122,11 @@ Route::put('/consulta-paciente/antecedentes-HFamiliarez/actualizar','Antecedente
 Route::get('/consulta-paciente/estudioGabinete/{IdPaciente}','EstudiosGabineteController@index')->name('consulta.estudioGabinete');
 Route::post('/consulta-paciente/estudioGabinete','EstudiosGabineteController@guardarFoto')->name('consulta.guardarFoto');
 Route::post('/consulta-paciente/estudioGabinete/eliminar','EstudiosGabineteController@eliminarFoto')->name('consulta.eliminarFoto');
+
+// USUARIOS
+Route::get('/usuarios','usuariosController@index')->name('usuarios.list');
+Route::get('/usuarios/nuevo','usuariosController@create')->name('usuarios.new');
+Route::post('/usuarios/guardar','usuariosController@store')->name('usuarios.create');
+Route::get('/usuarios/editar/{IdUsuario}','usuariosController@edit')->name('usuarios.edit');
+Route::put('/usuarios/actualizar/{IdUsuario}','usuariosController@update')->name('usuarios.update');
+Route::delete('/usuarios/eliminar','usuariosController@delete')->name('usuarios.delete');

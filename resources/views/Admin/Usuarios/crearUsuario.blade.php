@@ -17,46 +17,110 @@
                         <div class="col-lg-9">
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="needs-validation row" novalidate method="POST" action="" enctype="multipart/form-data">
+                                    <form class="needs-validation row" novalidate action="{{route('usuarios.create')}}" method="POST" enctype="multipart/form-data">
+                                    @csrf
                                         <div class="form-group col-md-4">
-                                            <label for="Nombre">Nombre (s)</label>
-                                            <input type="text" name="Nombre" class="form-control " id="Nombre" placeholder="Nombres" required>
+                                            <label for="name">Nombre (s)</label>
+                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="Nombre" placeholder="Nombres" required>
+                                            @error('name')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoPaterno">Apellido paterno</label>
-                                            <input type="text" name="ApellidoPaterno" class="form-control " id="ApellidoPaterno" placeholder="Apellido paterno" required>
+                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" id="ApellidoPaterno" placeholder="Apellido paterno" required>
+                                            @error('ApellidoPaterno')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoMaterno">Apellido materno</label>
-                                            <input type="text" name="ApellidoMaterno" class="form-control " id="ApellidoMaterno" placeholder="Apellido materno" required>
+                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" id="ApellidoMaterno" placeholder="Apellido materno" required>
+                                            @error('ApellidoMaterno')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="FechaNacimiento">Fecha de nacimiento</label>
-                                            <input type="date" name="FechaNacimiento" class="form-control " id="FechaNacimiento" value="">
+                                            <input type="date" name="FechaNacimiento" class="form-control @error('FechaNacimiento') is-invalid @enderror" id="FechaNacimiento" value="{{date_create()->format('Y-m-d')}}">
+                                            @error('FechaNacimiento')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Telefono">Teléfono</label>
-                                            <input type="text" name="Telefono" class="form-control" id="Telefono" placeholder="Telefono" required>
+                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" id="Telefono" placeholder="Telefono" required>
+                                            @error('Telefono')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="IdSexo">Sexo</label>
-                                            <select data-plugin="customselect" class="form-control" name="IdSexo">
+                                            <select data-plugin="customselect" class="form-control @error('IdSexo') is-invalid @enderror" name="IdSexo">
                                             <option value="0" selected>Seleccione</option>
+                                            @foreach($sexos as $sexo)
+                                            <option value="{{$sexo->id}}">{{$sexo->Sexo}}</option>
+                                            @endforeach
                                             </select>
+                                            @error('IdSexo')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label
-                                            for="Correo">E-mail</label>
-                                            <input type="text" name ="Correo" class="form-control " id="Correo" placeholder="E-mail" required>
+                                            for="email">E-mail</label>
+                                            <input type="email" name ="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="E-mail" required>
+                                            @error('email')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label
-                                            for="rol">Rol de usuario</label>
-                                            <input type="text" class="form-control" id="rol" placeholder="Es un select, luego lo cambio" required name="rol">
+                                            for="password">Contraseña</label>
+                                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Escriba la contraseña" required name="password">
+                                            @error('password')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label
+                                            for="password2">Repita la contraseña</label>
+                                            <input id="password-confirm" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" placeholder="Repita la contraseña" required autocomplete="new-password">
+                                            @error('password_confirmation')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label
+                                            for="IdRol">Rol de usuario</label>
+                                            <input type="text" class="form-control @error('IdRol') is-invalid @enderror" id="IdRol" placeholder="Es un select, luego lo cambio" required name="IdRol">
+                                            @error('IdRol')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <a href="" class="btn btn-danger" >Cancelar</a>
-                                            <button type="submit" class="btn btn-primary" >Guardar paciente</button>
+                                            <a href="{{ route('usuarios.list') }}" class="btn btn-danger" >Cancelar</a>
+                                            <button type="submit" class="btn btn-primary" >Guardar usuario</button>
                                         </div>
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->

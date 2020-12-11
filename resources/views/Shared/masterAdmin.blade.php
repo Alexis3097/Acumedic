@@ -119,7 +119,11 @@
             <!-- ========== Left Sidebar Start ========== -->
             <div class="left-side-menu">
                 <div class="media user-profile mt-2 mb-2">
-                    <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" class="avatar-sm rounded-circle mr-2" alt="Shreyu" />
+                    @if(is_null(Auth::user()->Foto))
+                        <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" class="avatar-sm rounded-circle mr-2" alt="Foto de perfil" />
+                    @else
+                        <img src="{{asset('../uploads/'.Auth::user()->Foto)}}" class="avatar-sm rounded-circle mr-2" alt="Foto de perfil" />
+                    @endif
                     <div class="media-body">
                         <h6 class="pro-user-name mt-0 mb-0">{{Auth::user()->name}}</h6>
                         <span class="pro-user-desc">Administrador</span>
@@ -130,7 +134,7 @@
                             <span data-feather="chevron-down"></span>
                         </a>
                         <div class="dropdown-menu profile-dropdown">
-                            <a href="pages-profile.html" class="dropdown-item notify-item">
+                            <a href="{{route('usuarios.edit',['IdUsuario'=>Auth::user()->id])}}" class="dropdown-item notify-item">
                                 <i data-feather="user" class="icon-dual icon-xs mr-2"></i>
                                 <span>Mi cuenta</span>
                             </a>
@@ -177,7 +181,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('ventas')}}">
+                                <a href="">
                                     <i data-feather="shopping-cart"></i>
                                     <span > Ventas </span>
                                     <span class="fas fa-chevron-right menu-arrow"></span>
@@ -195,7 +199,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="{{ route('usuarios')}}">
+                                <a href="{{ route('usuarios.list')}}">
                                     <i data-feather="users"></i>
                                     <span> Usuarios </span>
                                 </a>
