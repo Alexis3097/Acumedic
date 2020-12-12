@@ -66,9 +66,7 @@ Route::get('/pacientes/edit/{id}', 'PacienteController@edit')->name('paciente.ed
 Route::put('/pacientes/update/{id}', 'PacienteController@update')->name('paciente.update');
 Route::delete('/pacientes/delete', 'PacienteController@destroy')->name('paciente.delete');
 Route::get('/pacientes/buscar', 'PacienteController@buscarPaciente')->name('paciente.buscar');
-// felipe's test
-Route::get('/test', 'testController@index')->name('permisos');
-// felipe's test
+
 
 //FICHA
 Route::get('/ficha-paciente-{id}', 'FichaController@index')->name('ficha.list');
@@ -130,3 +128,11 @@ Route::post('/usuarios/guardar','usuariosController@store')->name('usuarios.crea
 Route::get('/usuarios/editar/{IdUsuario}','usuariosController@edit')->name('usuarios.edit');
 Route::put('/usuarios/actualizar/{IdUsuario}','usuariosController@update')->name('usuarios.update');
 Route::delete('/usuarios/eliminar','usuariosController@delete')->name('usuarios.delete');
+
+//=============================PERMISOS================================================================
+Route::get('/permisos','PermisosController@index')->name('permisos.list');
+Route::get('/permisos/roles','PermisosController@rol')->name('permisos.rol');
+Route::get('/permisos/roles/crear','PermisosController@crearRol')->name('permisos.rol.create');
+Route::post('/permisos/roles/guardar','PermisosController@guardarRol')->name('permisos.rol.store');
+Route::get('/permisos/roles/editar/{id}','PermisosController@editarRol')->name('permisos.rol.edit');
+Route::put('/permisos/roles/actualizar/{id}','PermisosController@actualziarRol')->name('permisos.rol.update');

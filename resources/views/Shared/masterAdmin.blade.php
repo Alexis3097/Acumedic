@@ -193,9 +193,15 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('permisos')}}">
+                                <a href="{{ route('permisos.list')}}">
                                     <i data-feather="octagon"></i>
                                     <span> Permisos </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('permisos.rol')}}">
+                                    <i data-feather="octagon"></i>
+                                    <span> Roles </span>
                                 </a>
                             </li>
                         </ul>

@@ -18,7 +18,7 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <a href="" style="margin:10px;" class="btn btn-primary btn-sm float-right">
+                                    <a href="{{ route('permisos.rol.create') }}" style="margin:10px;" class="btn btn-primary btn-sm float-right">
                                         <i class='uil fas fa-plus'></i> Añadir rol
                                     </a>
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista de roles</h5>
@@ -32,15 +32,17 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach($roles as $rol)
                                                 <tr>
-                                                    <td>Rollbackazo</td>
+                                                    <td>{{$rol->name}}</td>
                                                     <td>
                                                         <button type="button" class="btn btn-outline-success"><i class="fa fa-eye"></i></button>
-                                                        <button type="button" class="btn btn-outline-warning"><i class="fa fa-edit"></i></button>
+                                                        <a href="{{route('permisos.rol.edit',['id'=>$rol->id])}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
                                                         <button type="button" class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
                                                        
                                                     </td>
                                                 </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div> <!-- end table-responsive-->
@@ -53,20 +55,5 @@
 
                 </div>
             </div> <!-- content -->
-
-            
-
-            <!-- Footer Start -->
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            2019 &copy; Shreyu. All Rights Reserved. Crafted with <i class='uil uil-heart text-danger font-size-12'></i> by <a href="https://coderthemes.com" target="_blank">Coderthemes</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!-- end Footer -->
-
 </div>
 @endsection

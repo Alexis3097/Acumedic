@@ -15,5 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call(HorarioSeeder::class);
         $this->call(SexoSeeder::class);
         $this->call(TipoConsultaSeeder::class);
+        $this->call(UsuarioSeeder::class);
+        $this->call(PermisosSeeder::class);
+        
     }
 }
