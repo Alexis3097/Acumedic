@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="{{asset('css/Admin/icons.min.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/app.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/app.min.css')}}" type="text/css">
+        
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
         @livewireStyles
         @yield('estilosCitas')
@@ -180,24 +181,29 @@
                                     <span> Pacientes </span>                                  
                                 </a>
                             </li>
-                            <li>
-                                <a href="">
+                            <li class="dropdown">
+                                <a href="{{ route('ventas')}}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                     <i data-feather="shopping-cart"></i>
                                     <span > Ventas </span>
-                                    <span class="fas fa-chevron-right menu-arrow"></span>
+                                    <span data-feather="chevron-down" class="ml-2 align-self-center"></span>
                                 </a>
-                                <ul class="nav-second-level" aria-expanded="false">
-                                    <li>
-                                        <a href="email-inbox.html">Inbox</a>
-                                    </li>
-                                    <li>
-                                        <a href="email-read.html">Read</a>
-                                    </li>
-                                    <li>
-                                        <a href="email-compose.html">Compose</a>
-                                    </li>
-                                </ul>
+                                <div class="dropdown-menu profile-dropdown-items dropdown-menu-right">
+                                    <a href="pages-profile.html" class="dropdown-item notify-item">
+                                        <i data-feather="package" class="icon-dual icon-xs mr-2"></i>
+                                        <span>Productos</span>
+                                    </a>
+
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i data-feather="archive" class="icon-dual icon-xs mr-2"></i>
+                                        <span>Servicios</span>
+                                    </a>
+
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i data-feather="users" class="icon-dual icon-xs mr-2"></i>
+                                        <span>Sobre acumedic</span>
+                                    </a>
                             </li>
+                            
                             <li>
                                 <a href="{{ route('usuarios.list')}}">
                                     <i data-feather="users"></i>
@@ -222,15 +228,17 @@
         <!-- fin wrapper -->
     @yield('content')
         <!-- Vendor js -->
+        <script src="{{asset('js/jquery.js')}}"></script>
         <script src="{{asset('js/Admin/vendor.min.js')}}"></script>
         <script src="{{asset('js/Admin/libs/moment/moment.min.js')}}"></script>
         <script src="{{asset('js/Admin/app.js')}}"></script>
-        <script src="{{asset('js/jquery.js')}}"></script>
         <script src="{{asset('js/acumedic.js')}}"></script>
         <script src="{{asset('js/all.js')}}"></script>
         <script src="{{asset('js/Admin/libs/apexcharts/apexcharts.min.js')}}"></script>
         <script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
+        <!-- <script src="{{asset('js/dashboard.init.js')}}"></script> -->
         <script src="{{asset('js/Admin/app.min.js')}}"></script>
+       
     @livewireScripts
     @yield('scriptAntecedentes')
     @yield('scriptPacientes')
