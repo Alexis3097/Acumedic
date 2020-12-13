@@ -11,6 +11,7 @@ class HistorialClinicoController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('permission:Historial');
     }
     
     public function index(HistorialClinicoViewModel $HistorialClinicoViewModel,ConsultaViewModel $ConsultaViewModel,$IdPaciente)

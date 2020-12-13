@@ -11,6 +11,7 @@ class EstudiosGabineteController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('permission:EstudiosGabinete');
     }
 
     public function index(EstudioGabineteViewModel $EstudioGabineteViewModel, $IdPaciente)

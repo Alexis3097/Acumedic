@@ -87,10 +87,15 @@
                                         </div>
                              
                                         <div class="form-group col-md-4">
-                                            <label
-                                            for="IdRol">Rol de usuario</label>
-                                            <input type="text" class="form-control @error('IdRol') is-invalid @enderror" id="IdRol" placeholder="Es un select, luego lo cambio" required name="IdRol">
-                                            @error('IdRol')
+                                            <label for="Rol">Rol</label>
+                                            <select data-plugin="customselect" class="form-control @error('Rol') is-invalid @enderror" name="Rol">
+                                            <option value="Seleccione">Seleccione</option>
+                                                @foreach($roles as $rol)
+                                                    <option value="{{$rol->name}}"
+                                                    @if( (String) $rol->name === (String) $rolQueTengo) selected='selected' @endif>{{$rol->name}}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('Rol')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>

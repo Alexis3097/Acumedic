@@ -31,11 +31,12 @@
                                             <tbody>
                                                 @foreach($permisos as $permiso)
                                                 <tr>
+                                                     <input type="hidden" value="{{ $permiso->id}}">
                                                     <td>{{$permiso->name}}</td>
                                                     <td>
                                                         <button type="button" class="btn btn-outline-success"><i class="fa fa-eye"></i></button>
                                                         <button type="button" class="btn btn-outline-warning"><i class="fa fa-edit"></i></button>
-                                                        <button type="button" class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
+                                                        <button type="button" class="btn btn-outline-danger delete"><i class="fa fa-trash" data-toggle="modal" data-target="#eliminarPaciente"></i></button>
                                                        
                                                     </td>
                                                 </tr>
@@ -53,4 +54,31 @@
                 </div>
             </div> <!-- content -->
 </div>
+<div class="modal fade" id="eliminarPaciente" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Eliminar rol</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('permisos.rol.delete')}}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="hidden" name="IdModal" id="IdModal">
+                    <p>¿Esta seguro que desea eliminar el rol?</p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+@section('scriptPacientes')
+    <script src="{{asset('js/Admin/modales.js')}}"></script>
 @endsection

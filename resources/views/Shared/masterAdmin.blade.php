@@ -50,17 +50,6 @@
                     </ul>
 
                     <ul class="navbar-nav flex-row ml-auto d-flex list-unstyled topnav-menu float-right mb-0">
-                        <!-- <li class="d-none d-sm-block">
-                            <div class="app-search">
-                                <form>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search...">
-                                        <span data-feather="search"></span>
-                                    </div>
-                                </form>
-                            </div>
-                        </li> -->
-
                         <li class="dropdown notification-list" data-toggle="tooltip" data-placement="left" title="Configuración">
                             <a href="javascript:void(0);" class="nav-link right-bar-toggle">
                                 <i data-feather="settings"></i>
@@ -74,7 +63,7 @@
                                     <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" alt="user-image" class="rounded-circle align-self-center" />
                                     <div class="media-body text-left">
                                         <h6 class="pro-user-name ml-2 my-0">
-                                            <span>Shreyu N</span>
+                                            <span>Acumedic</span>
                                             <span class="pro-user-desc text-muted d-block mt-1">Administrator </span>
                                         </h6>
                                     </div>
@@ -126,7 +115,7 @@
                     @endif
                     <div class="media-body">
                         <h6 class="pro-user-name mt-0 mb-0">{{Auth::user()->name}}</h6>
-                        <span class="pro-user-desc">Administrador</span>
+                        <span class="pro-user-desc">{{implode(" ",Auth::user()->getRoleNames()->toArray())}}</span>
                     </div>
                     <div class="dropdown align-self-center profile-dropdown-menu">
                         <a class="dropdown-toggle mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
@@ -168,42 +157,44 @@
                                 </a>
                             </li>
                             <li class="menu-title">Funciones</li>
+                            @canany(['ListadoCitas','CrearCita','EditarCita','EliminarCita','CrearFicha','Consulta'])
                             <li>
                                 <a href="{{ route('citas.list') }}">
                                      <i data-feather="calendar"></i>
                                     <span> Citas </span>
                                 </a>
                             </li>
+                            @endcan
+                            @canany(['ListadoPacientes','CrearPaciente','EditarPaciente','EliminarPaciente','ListadoFicha','Consulta'])
                             <li>
                                 <a href="{{ route('paciente.list') }}">
                                     <i data-feather="user"></i>
                                     <span> Pacientes </span>                                  
                                 </a>
                             </li>
+                            @endcan
                             <li>
-                                <a href="">
+                                <a href="{{route('ventas')}}">
                                     <i data-feather="shopping-cart"></i>
                                     <span> Ventas </span>
                                 </a>
                             </li>
+                            @canany(['ListadoUsuarios','CrearUsuario','EditarUsuario','EliminarUsuario'])
                             <li>
                                 <a href="{{ route('usuarios.list')}}">
                                     <i data-feather="users"></i>
                                     <span> Usuarios </span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="{{ route('permisos.list')}}">
-                                    <i data-feather="octagon"></i>
-                                    <span> Permisos </span>
-                                </a>
-                            </li>
+                            @endcan
+                            @canany(['ListarRoles','CrearRol','EditarRol','EliminarRol'])
                             <li>
                                 <a href="{{ route('permisos.rol')}}">
                                     <i data-feather="octagon"></i>
                                     <span> Roles </span>
                                 </a>
                             </li>
+                            @endcan
                         </ul>
                     </div>
                     <!-- End Sidebar -->

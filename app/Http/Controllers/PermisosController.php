@@ -10,6 +10,7 @@ class PermisosController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('permission:ListarRoles|CrearRol|EditarRol|EliminarRol');
     }
 
     public function index(PermisosViewModel $PermisosViewModel)
@@ -47,6 +48,12 @@ class PermisosController extends Controller
     public function actualziarRol(Request $request, $id, PermisosViewModel $PermisosViewModel)
     {
         $rol = $PermisosViewModel->update($request,$id);
+        return redirect()->route('permisos.rol');
+    }
+
+    public function eliminarRol(Request $request, PermisosViewModel $PermisosViewModel)
+    {
+        $rol = $PermisosViewModel->eliminarRol($request->IdModal);
         return redirect()->route('permisos.rol');
     }
 }

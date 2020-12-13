@@ -85,4 +85,11 @@ class PermisosViewModel
         $rol->syncPermissions($permisos);
         return $rol;
     }
+
+    public function eliminarRol($idRol){
+        $rol = $this->getRolXid($idRol);
+        $rol->permissions()->detach();
+        $rol->delete();
+        return $rol;
+    }
 }
