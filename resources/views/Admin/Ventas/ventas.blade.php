@@ -6,8 +6,8 @@
                 <div class="container-fluid">
                     <div class="row page-title align-items-center">
                         <div class="col-sm-4 col-xl-6">
-                            <h4 class="mb-1 mt-0">Servicios</h4>
-                           
+                            <h4 class="mb-1 mt-0 col-md-6">Productos</h4>
+                            <input type="text" class="form-control col-md-6" placeholder="Buscar">
                         </div>
                     </div>
 
@@ -16,25 +16,36 @@
             
                     <!-- products -->
                     <div class="row">
-                        <div class="col-xl-6 col-md-6">
+                        <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="icon-item">
-                                        <i style="padding:2%;font-size:25em; color:#232323; text-align: center; width: 100%;"class="fas fa-list"></i>
-                                        <h1 style="display: inline-block; text-align: center; width: 100%;">Lista de servicios</h1>
-                                        <a class="btn btn-block btn--md btn-primary" style="color:#fff;">Ver servicios</a>
-                                    </div>
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-                        <div class="col-xl-6 col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="icon-item">
-                                        <i style="padding:2%;font-size:25em; color:#232323; text-align: center; width: 100%;"class="fas fa-paperclip"></i>
-                                        <h1 style="display: inline-block; text-align: center; width: 100%;">Crear servicio</h1>
-                                        <a class="btn btn-block btn--md btn-primary" style="color:#fff;">Crear servicios</a>
-                                    </div>
+                                    <a href="" style="margin-right:10px; margin-bottom:10px;" class="btn btn-primary btn-sm float-right">
+                                        <i class='uil uil-export ml-2'></i> Añadir Producto
+                                    </a>
+                                    <h5 class="card-title mt-0 mb-0 header-title">Lista de productos</h5>
+
+                                    <div class="table-responsive mt-12">
+                                        <table class="table table-hover table-nowrap mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Nombre de producto</th>
+                                                    <th scope="col">Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Luis Felipe Martínezz Ortega</td>
+                                                    
+                                                    <td>
+                                                        <button type="button" class="btn btn-outline-success"><i class="fa fa-eye"></i></button>
+                                                        <button type="button" class="btn btn-outline-warning"><i class="fa fa-edit"></i></button>
+                                                        <button type="button" class="btn btn-outline-danger delete" name="delete_modal" data-toggle="modal" data-target="#eliminarProducto"><i class="fa fa-trash"></i></button>
+
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div> <!-- end table-responsive-->
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
                         </div> <!-- end col-->
@@ -44,6 +55,26 @@
 
                 </div>
             </div> <!-- content -->
-
         </div>
+    </div> <!-- content -->
+    <div class="modal fade" id="eliminarProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Eliminar Producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                        <input type="hidden" name="IdModal" id="IdModal">
+                        <p>¿Esta seguro que desea eliminar este Producto?</p>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

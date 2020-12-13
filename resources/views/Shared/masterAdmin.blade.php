@@ -22,6 +22,7 @@
         @yield('estilosCitas')
         @yield('estilosCitasIndex')
         @yield('estilosAntecedentes')
+        @yield('estilosVentas')
     </head>
 
     <body>
@@ -248,5 +249,6 @@
     @yield('scriptUsuariosEdit')
     @yield('scriptUsuarios')
     @yield('scriptServicios')
+    @yield('scriptVentas')
     </body>
 </html>
