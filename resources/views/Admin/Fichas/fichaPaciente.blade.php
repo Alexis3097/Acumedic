@@ -1,6 +1,7 @@
 @extends('Shared.masterAdmin')
 
 @section('content')
+@can('ListadoFicha')
 <div class="content-page">
             <div class="content">
                 <div class="container-fluid">
@@ -46,10 +47,14 @@
                                                             <td>{{$ficha->TA}}</td>
                                                             <td>{{$ficha->Dextrosis}}</td>
                                                             <td>
+                                                                @can('EditarFicha')
                                                                 <a href="{{route('ficha.edit',['IdFicha'=>$ficha->id])}}"  class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
+                                                                @endcan
+                                                                @can('EliminarFicha')
                                                                 <button type="button" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarFicha">
                                                                     <i class="fa fa-trash"></i>
                                                                 </button>
+                                                                @endcan
                                                               
                                                             </td>
                                                         </tr>
@@ -67,6 +72,7 @@
                 </div>
             </div> <!-- content -->
         </div>
+@endcan
 <!-- modal ¿are you sure? -->
 <div class="modal fade" id="eliminarFicha" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">

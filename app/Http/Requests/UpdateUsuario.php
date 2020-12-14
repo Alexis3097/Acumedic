@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
+use App\Rules\SelectRole;
 use App\Rules\OptionSelect;
 use App\Rules\FechaMenorAHoy;
 use Illuminate\Foundation\Http\FormRequest;
@@ -31,7 +32,7 @@ class UpdateUsuario extends FormRequest
             'FechaNacimiento' => ['required',new FechaMenorAHoy],
             'Telefono' => 'required|numeric',
             'IdSexo' => ['required',new OptionSelect],
-            'IdRol' => ['required',new OptionSelect],
+            'Rol' => ['required',new  SelectRole],
             'email' => ['required','email'],
             'Foto' => 'image|max:2048',
         ];

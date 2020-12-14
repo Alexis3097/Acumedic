@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\ViewModel\PacienteViewModel;
 use App\ViewModel\ConsultaViewModel;
 use App\Http\Requests\StoreMotivoCita;
 class ConsultaController extends Controller
@@ -11,16 +10,7 @@ class ConsultaController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-    }
-    
-    public function index(PacienteViewModel $PacienteViewModel,$IdPaciente)
-    {
-        if(session()->has('IdConsulta'))
-        {
-            session()->forget('IdConsulta');
-        }
-        $paciente = $PacienteViewModel->getPaciente($IdPaciente);
-        return view('Admin.datosDeConsulta.datosPaciente', compact('paciente'));
+        $this->middleware('permission:InicarConsulta');
     }
 
     //iniciar la consultaa, crea el registro de la consulta

@@ -10,6 +10,7 @@
             <div class="content">
                 <div class="container-fluid">
                 <form action="{{route('citas.buscarPaciente')}}" method="get">
+                @can('ListadoCitas')
                 <div class="row page-title align-items-center">
                             <div class="col-sm-4 col-md-4 col-xl-4">
                                 <h4 class="mb-1 mt-0">Citas</h4>
@@ -44,11 +45,14 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
+                                @can('CrearCita')
                                     <a href="{{ route('citas.new') }}" style="margin-right:10px; " class="btn btn-primary btn-sm float-right">
                                         <i class='fa fa-plus'></i> Crear cita
                                     </a>
+                                @endcan
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista de citas</h5>
                                     <div style="padding:1%;" class="table-responsive mt-12">
+                                    
                                         <table class="table table-hover table-nowrap mb-0">
                                             <thead>
                                                 <tr>
@@ -84,17 +88,28 @@
                                                     @endif
                                                     </td>
                                                     <td>
+                                                    @can('EditarCita')
                                                         <span title="Editar cita"><a href="{{ route('citas.edit', ['id' => $cita->id]) }}"  class="btn btn-outline-warning"><i class="fa fa-edit"></i></a></span>
+                                                    @endcan
+                                                    @can('CrearFicha')
                                                         <span title="Nueva ficha"><a  href="{{ route('ficha.new',['id' => $cita->paciente->id])}}" class="btn btn-outline-info"><i class="fa fa-file-medical"></i></a></span>
+                                                    @endcan
+                                                    @can('EliminarCita')
                                                         <span title="Eliminar cita"><button type="button" name="delete_modal" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarCita">
                                                             <i class="fa fa-trash"></i>
                                                         </button></span>
+                                                    @endcan
+                                                    @can('Consulta')
+                                                        @canany(['Historial','InicarConsulta','Antecedentes','EstudiosGabinete'])
                                                         <span title="Consulta"><a href="{{route('consulta.paciente',['IdPaciente' =>$cita->paciente->id])}}" class="btn btn-outline-primary"> <i class="fas fa-notes-medical"></i> </a></span>
+                                                        @endcan
+                                                    @endcan
                                                     </td>
                                                 </tr>
                                             @endforeach    
                                             </tbody>
                                         </table>
+                                    
                                     </div> <!-- end table-responsive-->
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
@@ -104,6 +119,7 @@
                     <!-- stats + charts -->
 
                 </div>
+                @endcan
             </div> <!-- content -->
         </div>
 <div class="modal fade" id="eliminarCita" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

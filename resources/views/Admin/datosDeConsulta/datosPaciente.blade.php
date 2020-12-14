@@ -1,6 +1,7 @@
 @extends('Shared.masterAdmin')
 
 @section('content')
+@can('Consulta')
 <div class="content-page">
             <div class="content">
                 <div class="container-fluid">
@@ -83,21 +84,26 @@
                                         <i data-feather=" settings" class="align-self-center icon-dual icon-lg"></i>
                                     </div>
                                     <div class="button-list">
+                                    @can('Historial')
                                         <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-prescription"></i> Historial Clínico</h6>
                                         <p style="margin:0;">Permite ver el historial de las consultas previamente hechas</p>
                                         <a href="{{route('consulta.historial',['IdPaciente'=>$paciente->id])}}" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</a>
-
+                                    @endcan
+                                    @can('InicarConsulta')
                                         <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-file-prescription"></i> Consulta médica</h6>
                                         <p style="margin:0;">Inicia la consulta y solicita los campos para ello</p>
                                         <button data-toggle="modal" data-target="#iniciarConsulta" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</button>
-
+                                    @endcan
+                                    @can('Antecedentes')
                                         <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-diagnoses"></i> Antecedentes</h6>
                                         <p style="margin:0;">Permite crear y editar los antecedentes del paciente</p>
                                         <a href="{{route('antecedente.patologico',['IdPaciente'=>$paciente->id])}}" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</a>
-
+                                    @endcan
+                                    @can('EstudiosGabinete')
                                         <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-clinic-medical"></i> Estudios de gabinete</h6>
                                         <p style="margin:0;">Permite ver y agregar las fotos de los estudios</p>
                                         <a href="{{route('consulta.estudioGabinete',['IdPaciente' => $paciente->id])}}" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</a>
+                                    @endcan
                                     </div>
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
@@ -109,6 +115,7 @@
                 </div>
             </div> <!-- content -->
         </div>
+@endcan
 <div class="modal fade" id="iniciarConsulta" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">

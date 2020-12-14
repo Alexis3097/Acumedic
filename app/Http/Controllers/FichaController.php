@@ -11,6 +11,7 @@ class FichaController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware(['permission:ListadoFicha|CrearFicha|EditarFicha|EliminarFicha']);
     }
     /**
      * Display a listing of the resource.

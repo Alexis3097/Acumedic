@@ -6,7 +6,6 @@ use App\User;
 class UsuarioViewModel
 {
     public function create($userData){
-        
         $modelUsuario = $userData->except('_token','password_confirmation');
         $modelUsuario['password'] = Hash::make($modelUsuario['password']);
         if($archivo = $userData->file('Foto'))
@@ -15,11 +14,15 @@ class UsuarioViewModel
           $archivo->move('uploads', $nombre);
           $modelUsuario['Foto']  = $nombre;
         }
-        return User::create($modelUsuario);
+        $usuario =  User::create($modelUsuario);
+        $usuario->assignRole($userData->Rol);
+        return $usuario;
     }
 
     public function update($userData,$id){
       $usuario = User::find($id);
+      $usuario->roles()->detach();
+      $usuario->assignRole($userData->Rol);
       if($archivo = $userData->file('Foto'))
       {
         if(!is_null($usuario->Foto)){
@@ -46,16 +49,25 @@ class UsuarioViewModel
 
     public function delete($id){
       $usuario = User::find($id);
+      $usuario->roles()->detach();
       $usuario->delete();
       return $usuario;
     }
     public function getUsuarios(){
-      $usuarios =  User::where('id', '!=', auth()->id())->get();
+      $usuarios =  User::where('id', '!=', auth()->id())->paginate(15);
       return $usuarios;
     }
 
     public function getUsuarioXId($IdUsuario){
       $usuario = User::find($IdUsuario);
+      return $usuario;
+    }
+
+    public function buscarUsuario($Nombre){
+      $usuario = User::where('name', 'like','%' . $Nombre. '%')
+                  ->orWhere('ApellidoPaterno', 'like','%' . $Nombre. '%')
+                  ->orWhere('ApellidoMaterno', 'like','%' . $Nombre. '%')
+                  ->get();
       return $usuario;
     }
 }

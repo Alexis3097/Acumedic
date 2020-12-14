@@ -88,11 +88,7 @@
                         </div>
                         <!-- end card -->
 
-                        <div class="row mt-3">
-                            <div class="col-12 text-center">
-                                <p class="text-muted">¿Usuario nuevo? <a href="{{route('register')}}" class="text-primary font-weight-bold ml-1">Crea una cuenta</a></p>
-                            </div> <!-- end col -->
-                        </div>
+                       
                         <!-- end row -->
 
                     </div> <!-- end col -->

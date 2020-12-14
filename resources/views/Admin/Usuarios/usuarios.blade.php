@@ -2,9 +2,10 @@
 
 @section('content')
 <div class="content-page">
+            @can('ListadoUsuarios')
             <div class="content">
                 <div class="container-fluid">
-                <form action="" method="get">
+                <form action="{{route('usuarios.buscar')}}" method="get">
                     <div class="row page-title align-items-center">
                             <div class="col-sm-6 col-md-6 col-xl-6">
                             <h4 class="mb-1 mt-0">Buscar usuario</h4>
@@ -22,7 +23,7 @@
                             </div>
                         </form>
                         <div class="form-group mb-4">
-                                <a href="" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Todos los usuarios</a>
+                                <a href="{{route('usuarios.list')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Todos los usuarios</a>
                             </div>
                     </div>
                     <!-- products -->
@@ -30,17 +31,19 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
+                                @can('CrearUsuario')
                                     <a href="{{ route('usuarios.new') }}" style="margin-right:10px;" class="btn btn-primary btn-sm float-right">
                                         <i class='fa fa-plus'></i> Nuevo usuario
                                     </a>
+                                @endcan
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista de usuarios</h5>
                                     <div style="padding:1%;" class="table-responsive mt-12">
                                         <table class="table table-hover table-nowrap mb-0" data-form="deleteForm">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Nombre</th>
-                                                    <th scope="col">Edad</th>
                                                     <th scope="col">Telefono</th>
+                                                    <th scope="col">Rol</th>
                                                     <th scope="col">Acciones</th>
                                                 </tr>
                                             </thead>
@@ -50,17 +53,22 @@
                                                         <tr>
                                                             <input type="hidden" value="{{ $usuario->id}}">
                                                             <td>{{$usuario->NombreCompleto}}</td>
-                                                            <td>{{$usuario->Edad}}</td>
                                                             <td>{{$usuario->Telefono}}</td>
+                                                            <td>{{implode(" ",$usuario->getRoleNames()->toArray())}}</td>
                                                             <td>
+                                                            @can('EditarUsuario')
                                                                 <span title="Editar usuario"><a href="{{route('usuarios.edit',['IdUsuario'=>$usuario->id])}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a></span>
+                                                            @endcan
+                                                            @can('EliminarUsuario')
                                                                 <span title="Eliminar usuario"><button type="button" name="delete_modal" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarPaciente">
                                                                     <i class="fa fa-trash"></i>
                                                                 </button></span>
+                                                            @endcan
                                                             </td>
                                                         </tr>
                                                    @endforeach
                                                 </div>
+                                                {{ $usuarios->links() }}
                                               <!-- -->
                                             </tbody>
                                         </table>
@@ -72,6 +80,7 @@
                     <!-- end row -->
                 </div>
             </div> <!-- content -->
+            @endcan
         </div>
 <div class="modal fade" id="eliminarPaciente" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
