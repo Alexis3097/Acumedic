@@ -87,22 +87,22 @@
                                     @can('Historial')
                                         <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-prescription"></i> Historial Clínico</h6>
                                         <p style="margin:0;">Permite ver el historial de las consultas previamente hechas</p>
-                                        <a href="{{route('consulta.historial',['IdPaciente'=>$paciente->id])}}" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</a>
+                                        <a href="{{route('consulta.historial',['IdPaciente'=>$paciente->id])}}" style="margin:0;" class="btn btn-small btn--md btn-primary" data-toggle="tooltip" data-placement="left" title="Ver historial clinico">Realizar</a>
                                     @endcan
                                     @can('InicarConsulta')
                                         <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-file-prescription"></i> Consulta médica</h6>
                                         <p style="margin:0;">Inicia la consulta y solicita los campos para ello</p>
-                                        <button data-toggle="modal" data-target="#iniciarConsulta" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</button>
+                                        <span data-toggle="tooltip" data-placement="left" title="Iniciar consulta"><button data-toggle="modal" data-target="#iniciarConsulta" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</button></span> 
                                     @endcan
                                     @can('Antecedentes')
                                         <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-diagnoses"></i> Antecedentes</h6>
                                         <p style="margin:0;">Permite crear y editar los antecedentes del paciente</p>
-                                        <a href="{{route('antecedente.patologico',['IdPaciente'=>$paciente->id])}}" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</a>
+                                        <a href="{{route('antecedente.patologico',['IdPaciente'=>$paciente->id])}}" style="margin:0;" class="btn btn-small btn--md btn-primary" data-toggle="tooltip" data-placement="left" title="Ver/Modificar antecedentes">Realizar</a>
                                     @endcan
                                     @can('EstudiosGabinete')
                                         <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-clinic-medical"></i> Estudios de gabinete</h6>
                                         <p style="margin:0;">Permite ver y agregar las fotos de los estudios</p>
-                                        <a href="{{route('consulta.estudioGabinete',['IdPaciente' => $paciente->id])}}" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</a>
+                                        <a href="{{route('consulta.estudioGabinete',['IdPaciente' => $paciente->id])}}" style="margin:0;" class="btn btn-small btn--md btn-primary" data-toggle="tooltip" data-placement="left" title="Ver/Modificar estudios de gabinete">Realizar</a>
                                     @endcan
                                     </div>
                                 </div> <!-- end card-body-->

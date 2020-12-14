@@ -57,10 +57,10 @@
                                                             <td>{{implode(" ",$usuario->getRoleNames()->toArray())}}</td>
                                                             <td>
                                                             @can('EditarUsuario')
-                                                                <span title="Editar usuario"><a href="{{route('usuarios.edit',['IdUsuario'=>$usuario->id])}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a></span>
+                                                                <a href="{{route('usuarios.edit',['IdUsuario'=>$usuario->id])}}" class="btn btn-outline-warning"  data-toggle="tooltip" data-placement="left" title="Editar usuario"><i class="fa fa-edit"></i></a>
                                                             @endcan
                                                             @can('EliminarUsuario')
-                                                                <span title="Eliminar usuario"><button type="button" name="delete_modal" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarPaciente">
+                                                                <span  data-toggle="tooltip" data-placement="left" title="Eliminar usuario"><button type="button" name="delete_modal" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarPaciente">
                                                                     <i class="fa fa-trash"></i>
                                                                 </button></span>
                                                             @endcan
