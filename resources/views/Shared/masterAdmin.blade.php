@@ -9,18 +9,18 @@
         
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link rel="shortcut icon" href="{{asset('img/Admin/favicon.ico')}}" type="text/css">
-        <link rel="stylesheet" href="{{asset('libs/flatpickr/flatpickr.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('js/Admin/libs/flatpickr/flatpickr.min.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/bootstrap.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/bootstrap.min.css')}}" type="text/css">
-        <link rel="stylesheet" href="{{asset('css/Admin/icon.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/Admin/icons.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/icons.min.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/app.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/app.min.css')}}" type="text/css">
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
         @livewireStyles
         @yield('estilosCitas')
         @yield('estilosCitasIndex')
         @yield('estilosAntecedentes')
+        @yield('estilosVentas')
     </head>
 
     <body>
@@ -173,11 +173,27 @@
                                 </a>
                             </li>
                             @endcan
-                            <li>
-                                <a href="{{route('ventas')}}">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                     <i data-feather="shopping-cart"></i>
-                                    <span> Ventas </span>
+                                    <span > Ventas </span>
+                                    <span data-feather="chevron-down" class="ml-2 align-self-center"></span>
                                 </a>
+                                <div class="dropdown-menu profile-dropdown-items dropdown-menu-right">
+                                    <a href="{{ route('ventas')}}" class="dropdown-item notify-item">
+                                        <i data-feather="package" class="icon-dual icon-xs mr-2"></i>
+                                        <span>Productos</span>
+                                    </a>
+
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i data-feather="archive" class="icon-dual icon-xs mr-2"></i>
+                                        <span>Servicios</span>
+                                    </a>
+
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i data-feather="users" class="icon-dual icon-xs mr-2"></i>
+                                        <span>Sobre acumedic</span>
+                                    </a>
                             </li>
                             @canany(['ListadoUsuarios','CrearUsuario','EditarUsuario','EliminarUsuario'])
                             <li>
@@ -207,15 +223,17 @@
         <!-- fin wrapper -->
     @yield('content')
         <!-- Vendor js -->
+        <script src="{{asset('js/jquery.js')}}"></script>
         <script src="{{asset('js/Admin/vendor.min.js')}}"></script>
         <script src="{{asset('js/Admin/libs/moment/moment.min.js')}}"></script>
         <script src="{{asset('js/Admin/app.js')}}"></script>
-        <script src="{{asset('js/jquery.js')}}"></script>
         <script src="{{asset('js/acumedic.js')}}"></script>
         <script src="{{asset('js/all.js')}}"></script>
         <script src="{{asset('js/Admin/libs/apexcharts/apexcharts.min.js')}}"></script>
         <script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
+        <!-- <script src="{{asset('js/dashboard.init.js')}}"></script> -->
         <script src="{{asset('js/Admin/app.min.js')}}"></script>
+       
     @livewireScripts
     @yield('scriptAntecedentes')
     @yield('scriptPacientes')
@@ -225,5 +243,7 @@
     @yield('scriptUsuariosEdit')
     @yield('scriptUsuarios')
     @yield('checksPermisos')
+    @yield('scriptServicios')
+    @yield('scriptVentas')
     </body>
 </html>
