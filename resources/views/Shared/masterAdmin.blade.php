@@ -16,8 +16,6 @@
         <link rel="stylesheet" href="{{asset('css/Admin/icons.min.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/app.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/app.min.css')}}" type="text/css">
-        
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
         @livewireStyles
         @yield('estilosCitas')
         @yield('estilosCitasIndex')
@@ -175,8 +173,8 @@
                                 </a>
                             </li>
                             @endcan
-                            <li>
-                                <a href="{{route('ventas')}}">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                     <i data-feather="shopping-cart"></i>
                                     <span > Ventas </span>
                                     <span data-feather="chevron-down" class="ml-2 align-self-center"></span>
