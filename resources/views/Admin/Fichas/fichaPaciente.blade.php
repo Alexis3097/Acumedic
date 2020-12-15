@@ -48,12 +48,12 @@
                                                             <td>{{$ficha->Dextrosis}}</td>
                                                             <td>
                                                                 @can('EditarFicha')
-                                                                <a href="{{route('ficha.edit',['IdFicha'=>$ficha->id])}}"  class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
+                                                                <a href="{{route('ficha.edit',['IdFicha'=>$ficha->id])}}"  class="btn btn-outline-warning" data-toggle="tooltip" data-placement="left" title="Editar ficha"><i class="fa fa-edit"></i></a>
                                                                 @endcan
                                                                 @can('EliminarFicha')
-                                                                <button type="button" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarFicha">
+                                                                <span data-toggle="tooltip" data-placement="left" title="Eliminar ficha"><button type="button" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarFicha">
                                                                     <i class="fa fa-trash"></i>
-                                                                </button>
+                                                                </button></span> 
                                                                 @endcan
                                                               
                                                             </td>

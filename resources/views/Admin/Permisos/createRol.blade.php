@@ -35,102 +35,99 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <!-- aqui va el forechazo -->
                                                             <tr>
                                                                 <td>
-                                                                    <input type="checkbox" class="custom-control-input">
-                                                                    <label class="custom-control-label">
+                                                                    <input type="checkbox" class="custom-control-input checks" id="AgendarCitas">
+                                                                    <label class="custom-control-label" for="AgendarCitas">
                                                                         Agendar citas
                                                                     </label></td>
-                                                                <td><input type="checkbox" name="ListadoCitas" value="ListadoCitas"></td>
-                                                                <td><input type="checkbox" name="CrearCita" value="CrearCita"></td>
-                                                                <td><input type="checkbox" name="EditarCita" value="EditarCita"></td>
-                                                                <td><input type="checkbox" name="EliminarCita" value="EliminarCita"></td>
+                                                                <td><input type="checkbox" class="check" name="ListadoCitas" value="ListadoCitas"></td>
+                                                                <td><input type="checkbox" class="check" name="CrearCita" value="CrearCita"></td>
+                                                                <td><input type="checkbox" class="check" name="EditarCita" value="EditarCita"></td>
+                                                                <td><input type="checkbox" class="check" name="EliminarCita" value="EliminarCita"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    <input type="checkbox" class="custom-control-input">
-                                                                    <label class="custom-control-label">
+                                                                    <input type="checkbox" class="custom-control-input checks" id="Pacientes">
+                                                                    <label class="custom-control-label" for="Pacientes">
                                                                         Pacientes
                                                                     </label></td>
-                                                                <td><input type="checkbox" name="ListadoPacientes" value="ListadoPacientes"></td>
-                                                                <td><input type="checkbox" name="CrearPaciente" value="CrearPaciente"></td>
-                                                                <td><input type="checkbox" name="EditarPaciente" value="EditarPaciente"></td>
-                                                                <td><input type="checkbox" name="EliminarPaciente" value="EliminarPaciente"></td>
+                                                                <td><input type="checkbox" class="check" name="ListadoPacientes" value="ListadoPacientes"></td>
+                                                                <td><input type="checkbox" class="check" name="CrearPaciente" value="CrearPaciente"></td>
+                                                                <td><input type="checkbox" class="check" name="EditarPaciente" value="EditarPaciente"></td>
+                                                                <td><input type="checkbox" class="check" name="EliminarPaciente" value="EliminarPaciente"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    <input type="checkbox" class="custom-control-input">
-                                                                    <label class="custom-control-label">
+                                                                    <input type="checkbox" class="custom-control-input checks" id="Fichas">
+                                                                    <label class="custom-control-label" for="Fichas">
                                                                         Fichas
                                                                     </label></td>
-                                                                <td><input type="checkbox" name="ListadoFicha" value="ListadoFicha"></td>
-                                                                <td><input type="checkbox" name="CrearFicha" value="CrearFicha"></td>
-                                                                <td><input type="checkbox" name="EditarFicha" value="EditarFicha"></td>
-                                                                <td><input type="checkbox" name="EliminarFicha" value="EliminarFicha"></td>
+                                                                <td><input type="checkbox" class="check" name="ListadoFicha" value="ListadoFicha"></td>
+                                                                <td><input type="checkbox" class="check" name="CrearFicha" value="CrearFicha"></td>
+                                                                <td><input type="checkbox" class="check" name="EditarFicha" value="EditarFicha"></td>
+                                                                <td><input type="checkbox" class="check" name="EliminarFicha" value="EliminarFicha"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    <input type="checkbox" class="custom-control-input">
-                                                                    <label class="custom-control-label">
+                                                                    <input type="checkbox" class="custom-control-input checks" id="Usuarios">
+                                                                    <label class="custom-control-label" for="Usuarios">
                                                                         Usuarios
                                                                     </label></td>
-                                                                <td><input type="checkbox" name="ListadoUsuarios" value="ListadoUsuarios"></td>
-                                                                <td><input type="checkbox" name="CrearUsuario" value="CrearUsuario"></td>
-                                                                <td><input type="checkbox" name="EditarUsuario" value="EditarUsuario"></td>
-                                                                <td><input type="checkbox" name="EliminarUsuario" value="EliminarUsuario"></td>
+                                                                <td><input type="checkbox" class="check" name="ListadoUsuarios" value="ListadoUsuarios"></td>
+                                                                <td><input type="checkbox" class="check" name="CrearUsuario" value="CrearUsuario"></td>
+                                                                <td><input type="checkbox" class="check" name="EditarUsuario" value="EditarUsuario"></td>
+                                                                <td><input type="checkbox" class="check" name="EliminarUsuario" value="EliminarUsuario"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    <input type="checkbox" class="custom-control-input">
-                                                                    <label class="custom-control-label">
+                                                                    <input type="checkbox" class="custom-control-input checks" id="Roles">
+                                                                    <label class="custom-control-label" for="Roles">
                                                                         Roles
                                                                     </label></td>
-                                                                <td><input type="checkbox" name="ListarRoles" value="ListarRoles"></td>
-                                                                <td><input type="checkbox" name="CrearRol" value="CrearRol"></td>
-                                                                <td><input type="checkbox" name="EditarRol" value="EditarRol"></td>
-                                                                <td><input type="checkbox" name="EliminarRol" value="EliminarRol"></td>
+                                                                <td><input type="checkbox" class="check" name="ListarRoles" value="ListarRoles"></td>
+                                                                <td><input type="checkbox" class="check" name="CrearRol" value="CrearRol"></td>
+                                                                <td><input type="checkbox" class="check" name="EditarRol" value="EditarRol"></td>
+                                                                <td><input type="checkbox" class="check"name="EliminarRol" value="EliminarRol"></td>
                                                             </tr>
-                                                            
-                                                            <!-- aqui va el forechazo -->
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                            </form>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-body pt-2">
-                                            <table class="table table-hover table-nowrap mb-0">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Nombre de permisos</th>
-                                                        <th scope="col">Perfil de consulta</th>
-                                                        <th scope="col">Historial</th>
-                                                        <th scope="col">Inicar consulta</th>
-                                                        <th scope="col">Antecedentes</th>
-                                                        <th scope="col">Estudios de gabinete</th>
-                                                    </tr>
-                                                </thead>
-                                                    <tbody>
-                                                        <!-- aqui va el forechazo -->
+                                            <div class="table-responsive mt-12 custom-control custom-checkbox">
+                                                <table class="table table-hover table-nowrap mb-0">
+                                                    <thead>
                                                         <tr>
-                                                            <td>
-                                                                <input type="checkbox" class="custom-control-input">
-                                                                <label class="custom-control-label">
-                                                                    Datos de consulta
-                                                                </label></td>
-                                                            <td><input type="checkbox" name="Consulta" value="Consulta"></td>
-                                                            <td><input type="checkbox" name="Historial" value="Historial"></td>
-                                                            <td><input type="checkbox" name="InicarConsulta" value="InicarConsulta"></td>
-                                                            <td><input type="checkbox" name="Antecedentes" value="Antecedentes"></td>
-                                                            <td><input type="checkbox" name="EstudiosGabinete" value="EstudiosGabinete"></td>
+                                                            <th scope="col">Nombre de permisos</th>
+                                                            <th scope="col">Perfil de consulta</th>
+                                                            <th scope="col">Historial</th>
+                                                            <th scope="col">Inicar consulta</th>
+                                                            <th scope="col">Antecedentes</th>
+                                                            <th scope="col">Estudios de gabinete</th>
                                                         </tr>
-                                                    </tbody>
-                                            </table>
-                                            <div class="form-group col-md-12" style="padding-top: 2%;">
-                                                <a  href="{{route('permisos.rol')}}"class="btn btn-danger" >Cancelar</a>
-                                                <button class="btn btn-primary" type="submit">Guardar</button>
+                                                    </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="checkbox" class="custom-control-input checks" id="DatosConsulta">
+                                                                    <label class="custom-control-label" for="DatosConsulta">
+                                                                        Datos de consulta
+                                                                    </label></td>
+                                                                <td><input type="checkbox" class="check" name="Consulta" value="Consulta"></td>
+                                                                <td><input type="checkbox" class="check" name="Historial" value="Historial"></td>
+                                                                <td><input type="checkbox" class="check" name="InicarConsulta" value="InicarConsulta"></td>
+                                                                <td><input type="checkbox" class="check" name="Antecedentes" value="Antecedentes"></td>
+                                                                <td><input type="checkbox" class="check" name="EstudiosGabinete" value="EstudiosGabinete"></td>
+                                                            </tr>
+                                                        </tbody>
+                                                </table>
+                                                <div class="form-group col-md-12" style="padding-top: 2%;">
+                                                    <a  href="{{route('permisos.rol')}}"class="btn btn-danger" >Cancelar</a>
+                                                    <button class="btn btn-primary" type="submit">Guardar</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -142,4 +139,7 @@
                     </div>
                 </div> <!-- content -->
 </div>
+@endsection
+@section('checksPermisos')
+    <script src="{{asset('js/Admin/checksPermisos.js')}}"></script>
 @endsection

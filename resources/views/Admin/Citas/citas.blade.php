@@ -47,7 +47,7 @@
                                 <div class="card-body">
                                 @can('CrearCita')
                                     <a href="{{ route('citas.new') }}" style="margin-right:10px; " class="btn btn-primary btn-sm float-right">
-                                        <i class='fa fa-plus'></i> Crear cita
+                                        <i class='fa fa-plus'></i> Nueva cita
                                     </a>
                                 @endcan
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista de citas</h5>
@@ -89,19 +89,19 @@
                                                     </td>
                                                     <td>
                                                     @can('EditarCita')
-                                                        <span title="Editar cita"><a href="{{ route('citas.edit', ['id' => $cita->id]) }}"  class="btn btn-outline-warning"><i class="fa fa-edit"></i></a></span>
+                                                        <a href="{{ route('citas.edit', ['id' => $cita->id]) }}"  class="btn btn-outline-warning" data-toggle="tooltip" data-placement="left" title="Editar cita"><i class="fa fa-edit"></i></a>
                                                     @endcan
                                                     @can('CrearFicha')
-                                                        <span title="Nueva ficha"><a  href="{{ route('ficha.new',['id' => $cita->paciente->id])}}" class="btn btn-outline-info"><i class="fa fa-file-medical"></i></a></span>
+                                                        <a  href="{{ route('ficha.new',['id' => $cita->paciente->id])}}" class="btn btn-outline-info" data-toggle="tooltip" data-placement="left" title="Crear ficha"><i class="fa fa-file-medical"></i></a>
                                                     @endcan
                                                     @can('EliminarCita')
-                                                        <span title="Eliminar cita"><button type="button" name="delete_modal" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarCita">
+                                                        <span data-toggle="tooltip" data-placement="left" title="Eliminar cita"><button type="button" name="delete_modal" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarCita">
                                                             <i class="fa fa-trash"></i>
-                                                        </button></span>
+                                                        </button></span> 
                                                     @endcan
                                                     @can('Consulta')
                                                         @canany(['Historial','InicarConsulta','Antecedentes','EstudiosGabinete'])
-                                                        <span title="Consulta"><a href="{{route('consulta.paciente',['IdPaciente' =>$cita->paciente->id])}}" class="btn btn-outline-primary"> <i class="fas fa-notes-medical"></i> </a></span>
+                                                        <a href="{{route('consulta.paciente',['IdPaciente' =>$cita->paciente->id])}}" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="left" title="Perfil de consulta"> <i class="fas fa-notes-medical"></i> </a>
                                                         @endcan
                                                     @endcan
                                                     </td>

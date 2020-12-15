@@ -242,6 +242,7 @@
     @yield('scriptEliminarEstudiosGabinete')
     @yield('scriptUsuariosEdit')
     @yield('scriptUsuarios')
+    @yield('checksPermisos')
     @yield('scriptServicios')
     @yield('scriptVentas')
     </body>

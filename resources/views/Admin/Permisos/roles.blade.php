@@ -21,7 +21,7 @@
                                 <div class="card-body">
                                 @can('CrearRol')
                                     <a href="{{ route('permisos.rol.create') }}" style="margin:10px;" class="btn btn-primary btn-sm float-right">
-                                        <i class='uil fas fa-plus'></i> Añadir rol
+                                        <i class='uil fas fa-plus'></i> Nuevo rol
                                     </a>
                                 @endcan
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista de roles</h5>
@@ -41,10 +41,10 @@
                                                     <td>{{$rol->name}}</td>
                                                     <td>
                                                     @can('EditarRol')
-                                                        <a href="{{route('permisos.rol.edit',['id'=>$rol->id])}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
+                                                        <a href="{{route('permisos.rol.edit',['id'=>$rol->id])}}" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="left" title="Editar rol"><i class="fa fa-edit"></i></a>
                                                     @endcan
                                                     @can('EliminarRol')
-                                                        <button type="button" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarPaciente"><i class="fa fa-trash"></i></button>
+                                                       <span data-toggle="tooltip" data-placement="left" title="Eliminar rol"><button type="button" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarPaciente"><i class="fa fa-trash"></i></button></span> 
                                                     @endcan
                                                     </td>
                                                 </tr>

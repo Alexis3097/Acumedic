@@ -22,9 +22,6 @@
                                     <button type="submit" style="margin:38px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
                             </div>
                         </form>
-                        <div class="form-group mb-4">
-                                <a href="{{route('paciente.list')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Todos los pacientes</a>
-                            </div>
                     </div>
                     <!-- products -->
                     <div class="row">
@@ -57,21 +54,21 @@
                                                             <td>{{$paciente->Telefono}}</td>
                                                             <td>
                                                             @can('EditarPaciente')
-                                                                <span title="Editar paciente"><a href="{{ route('paciente.edit', ['id' => $paciente->id]) }}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a></span>
+                                                                <a href="{{ route('paciente.edit', ['id' => $paciente->id]) }}" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="left" title="Editar paciente"><i class="fa fa-edit"></i></a>
                                                             @endcan
                                                             @can('ListadoFicha')
                                                                 @canany(['ListadoFicha','CrearFicha','EditarFicha','EliminarFicha'])
-                                                                <span title="Historial de fichas"><a href="{{ route('ficha.list',['id' => $paciente->id])}}"class="btn btn-outline-info"><i class="fa fa-file-medical"></i></a></span>
+                                                                <a href="{{ route('ficha.list',['id' => $paciente->id])}}"class="btn btn-outline-info" data-toggle="tooltip" data-placement="left" title="Listado de fichas"><i class="fa fa-file-medical"></i></a>
                                                                 @endcan
                                                             @endcan
                                                             @can('EliminarPaciente')
-                                                                <span title="Eliminar paciente"><button type="button" name="delete_modal" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarPaciente">
+                                                                <span data-toggle="tooltip" data-placement="left" title="Eliminar paciente"><button type="button" name="delete_modal" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarPaciente">
                                                                     <i class="fa fa-trash"></i>
                                                                 </button></span>
                                                             @endcan
                                                             @can('Consulta')
                                                                 @canany(['Consulta','Historial','InicarConsulta','Antecedentes','EstudiosGabinete'])
-                                                                <span title="Consulta"><a href="{{route('consulta.paciente',['IdPaciente' =>$paciente->id])}}" class="btn btn-outline-primary"> <i class="fas fa-notes-medical"></i> </a></span>
+                                                                <a href="{{route('consulta.paciente',['IdPaciente' =>$paciente->id])}}" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="left" title="Perfil de consulta"> <i class="fas fa-notes-medical"></i> </a>
                                                                 @endcan
                                                             @endcan
                                                             </td>
