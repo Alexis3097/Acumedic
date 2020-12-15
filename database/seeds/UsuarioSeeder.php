@@ -12,6 +12,7 @@ class UsuarioSeeder extends Seeder
      *
      * @return void
      */
+
     public function run()
     {
         //creando un rol
@@ -65,4 +66,3 @@ class UsuarioSeeder extends Seeder
         
     }
 }
-
