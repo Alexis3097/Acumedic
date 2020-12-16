@@ -180,7 +180,7 @@
                                     <span data-feather="chevron-down" class="ml-2 align-self-center"></span>
                                 </a>
                                 <div class="dropdown-menu profile-dropdown-items dropdown-menu-right">
-                                    <a href="{{ route('ventas')}}" class="dropdown-item notify-item">
+                                    <a href="{{ route('productos.list')}}" class="dropdown-item notify-item">
                                         <i data-feather="package" class="icon-dual icon-xs mr-2"></i>
                                         <span>Productos</span>
                                     </a>

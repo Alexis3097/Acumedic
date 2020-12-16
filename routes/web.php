@@ -148,6 +148,9 @@ Route::group(['middleware' => ['permission:ListadoUsuarios|CrearUsuario|EditarUs
     Route::delete('/usuarios/eliminar','usuariosController@delete')->name('usuarios.delete');
     Route::get('/usuarios/buscar', 'usuariosController@buscarUsuario')->name('usuarios.buscar');
 });
+// PRODUCTOS
+Route::get('/productos', 'ProductosController@index')->name('productos.list');
+Route::get('/productos/nuevo', 'ProductosController@create')->name('productos.create');
 
 //=============================PERMISOS================================================================
 Route::group(['middleware' => ['permission:ListarRoles|CrearRol|EditarRol|EliminarRol']], function () {
@@ -158,3 +161,4 @@ Route::group(['middleware' => ['permission:ListarRoles|CrearRol|EditarRol|Elimin
     Route::put('/roles/actualizar/{id}','PermisosController@actualziarRol')->name('permisos.rol.update');
     Route::delete('/roles/eliminar','PermisosController@eliminarRol')->name('permisos.rol.delete');
 });
+
