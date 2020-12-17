@@ -19,8 +19,8 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <a href="" style="margin-right:10px; margin-bottom:10px;" class="btn btn-primary btn-sm float-right">
-                                        <i class='uil uil-export ml-2'></i> Añadir Producto
+                                    <a href="{{route('productos.create')}}" style="margin-right:10px; margin-bottom:10px;" class="btn btn-primary btn-sm float-right">
+                                        <i class='fa fa-plus'></i> Nuevo Producto
                                     </a>
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista de productos</h5>
 
