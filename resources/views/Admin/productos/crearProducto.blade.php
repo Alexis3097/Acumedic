@@ -42,14 +42,22 @@
                                             <input type="text" class="form-control" id="validationCustom01" placeholder="Tú nombre del producto" required>
                                         </div>
                                         <div class="form-group col-md-4 mb-3">
-                                            <label>Productos disponibles en inventario</label>
-                                            <input data-toggle="touchspin" type="text">
+                                            <label>Precio de compra</label>
+                                            <input class="form-control">
                                         </div>
                                         <div class="form-group col-md-4 mb-3">
+                                            <label>Precio publico</label>
+                                            <input class="form-control">
+                                        </div>
+                                        <div class="form-group col-md-4 mb-3">
+                                            <label>Precio decimal</label>
+                                            <input class="form-control" type="text">
+                                        </div>
+                                        <div class="form-group col-md-6 mb-3">
                                             <label>Porcentaje de descuento</label>
                                             <input data-toggle="touchspin" value="18.20" type="text" data-step="0.1" data-decimals="2" data-bts-postfix="%">
                                         </div>
-                                        <div class="form-group col-md-4 mb-3">
+                                        <div class="form-group col-md-6 mb-3">
                                             <label>Estrellas de calidad</label>
                                             <select class="custom-select mb-2">
                                                 <option selected>0</option>
@@ -61,6 +69,14 @@
                                             </select>
                                         </div>
                                         <div class="form-group col-md-12">
+                                            <label for="validationCustom01">Código de barras</label>
+                                            <div class="checkbox-1">
+                                            <label style="display:inline-block;">Generar automaticamente</label>
+                                            <input type="checkbox">
+                                            </div>
+                                            <input type="text" class="form-control" id="validationCustom01" placeholder="Escribe el código" required>
+                                        </div>
+                                        <div class="form-group col-md-12">
                                             <label for="validationCustom02">Descripción corta (Máximo 217 caracteres)</label>
                                             <input type="text" class="form-control" id="validationCustom02" maxlength="217" placeholder="Escribe tu descripción" required>
                                         </div>
@@ -70,11 +86,7 @@
                                                 <textarea required class="form-control"></textarea>
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-12">
-                                            <button class="btn btn-danger" type="submit">Cancelar</button>
-                                            <button class="btn btn-primary" type="submit">Guardar servicio</button>
-                                        </div>
-                                    </form>
+                                   
 
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
@@ -204,6 +216,7 @@
                                         </div>
                                     </div>
                                 </div> <!-- end card-body-->
+                                </form>
                             </div> <!-- end card-->
                         </div>
                     </div>
