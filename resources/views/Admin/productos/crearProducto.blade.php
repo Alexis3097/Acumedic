@@ -226,7 +226,7 @@
                 </div>
             </div> <!-- content -->
 
-        </div>
+</div>
 
 @endsection
 @section('scriptVentas')

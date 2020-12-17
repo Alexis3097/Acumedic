@@ -61,6 +61,10 @@
                                                                     <i class="fa fa-trash"></i>
                                                                 </button></span>
                                                             @endcan
+                                                                <span  data-toggle="tooltip" data-placement="left" title="Cambiar contraseña"><button type="button" name="delete_modal" class="btn btn-outline-info" data-toggle="modal" data-target="#contraseniaUsuario">
+                                                                <i class="fas fa-key"></i>
+                                                                    </button>
+                                                                </span>
                                                             </td>
                                                         </tr>
                                                    @endforeach
@@ -97,6 +101,34 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="contraseniaUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Repetir contraseña</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('usuarios.delete')}}" method="post">
+                    <div class="form-group col-md-12 mb-3">
+                        <label>Nueva contraseña</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <div class="form-group col-md-12 mb-3">
+                        <label>Repetir contraseña</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
                     </div>
                 </form>
             </div>
