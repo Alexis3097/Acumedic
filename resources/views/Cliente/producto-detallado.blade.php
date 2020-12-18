@@ -23,6 +23,8 @@
                     <p class="precioUnitario">$500.00</p>
                     <p class="precioComparado">$200.00</p>
                     <p class="stock">Cantidad disponible: <span class="stockC">2</span></p>
+                    <label for="points" class="stock" style="font-weight: lighter;">Cantidad a pedir:</label>
+                    <input min="0" style="border:1px solid #232323; width:60px;"class="descripcion-text" type="number" id="points" name="points" step="1">
                     <p class="descripcion-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, placeat? Nihil dignissimos et alias odio, velit aliquid modi. Sapiente placeat eligendi aperiam dicta excepturi molestiae fugit veritatis sed minima accusantium?</p>
                     <div class="button">
                         <button class="btn-2">COMPRAR</button>
