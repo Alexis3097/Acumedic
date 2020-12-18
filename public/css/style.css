@@ -985,6 +985,13 @@ input {
 .producto-single .descripcion .descripcion-text{
   font-size: var(--font-s);
 }
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
 /* producto detallado */
 /* footer */
 footer{
