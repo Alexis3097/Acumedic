@@ -13,9 +13,9 @@
                             <form class="form-inline float-sm-right mt-3 mt-sm-0">
                                 <div class="btn-group mb-sm-0 mr-2">
 
-                                    <button type="button" class="btn btn-outline-danger">
+                                    <a  href="{{route('servicios.list')}}" class="btn btn-outline-danger">
                                         <i class='fas fa-times'></i> Cancelar
-                                    </button>
+                                    </a>
                                 </div>
                             </form>
                         </div>
@@ -31,23 +31,23 @@
                                 <div class="card-body">
                                     <form class="needs-validation row" novalidate>
                                         <div class="form-group col-md-12">
-                                            <label for="validationCustom01">Nombre del servicio</label>
-                                            <input type="text" class="form-control" id="validationCustom01" placeholder="First name" required>
+                                            <label for="Nombre">Nombre del servicio</label>
+                                            <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Nombre del servicio" required>
                                             <div class="valid-feedback">
                                                 Guardado
                                             </div>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="validationCustom02">Descripción corta (Máximo 200 caracteres)</label>
-                                            <input type="text" class="form-control" id="validationCustom02" maxlength="200" placeholder="Last name" required>
+                                            <label for="DescripcionCorta">Descripción corta (Máximo 200 caracteres)</label>
+                                            <input type="text" class="form-control"  name="DescripcionCorta" id="DescripcionCorta" maxlength="200" placeholder="Descripcióncorta" required>
                                             <div class="valid-feedback">
                                                 Guardado
                                             </div>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="validationCustom02">Descripción larga del servicio</label>
+                                            <label for="DescripcionLarga">Descripción larga del servicio</label>
                                             <div>
-                                                <textarea required class="form-control" style="height: 55vh;"></textarea>
+                                                <textarea name="DescripcionLarga" id="DescripcionLarga" required class="form-control" style="height: 55vh;"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-12">
@@ -70,12 +70,12 @@
                                         <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu logo de servicio
                                         </h6>
                                         <div class="form-group col-md-12">
-                                            <input id="cat_image" name="Foto" type="file" accept="image/*"/>
+                                            <input id="cat_image" name="Logo" type="file" accept="image/*"/>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="validationCustom02" style="text-align: left;">Texto alternado</label>
+                                            <label for="TextoLogo" style="text-align: left;">Texto alternado</label>
                                             <div>
-                                                <input type="text" class="form-control" id="validationCustom02" placeholder="Texto alternado de tu imagen" required>
+                                                <input type="text" class="form-control" name="TextoLogo" id="TextoLogo" placeholder="Texto alternado de tu imagen" required>
                                             </div>
                                         </div>
                                         <h4>Imagen de tu servicio</h4>
@@ -85,12 +85,12 @@
                                         <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu logo de servicio
                                         </h6>
                                         <div class="form-group col-md-12">
-                                            <input id="cat_image1" name="Foto1" type="file" accept="image/*"/>
+                                            <input id="cat_image1" name="Imagen" type="file" accept="image/*"/>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="validationCustom02" style="text-align: left;">Texto alternado</label>
+                                            <label for="TextoImagen" style="text-align: left;">Texto alternado</label>
                                             <div>
-                                                <input type="text" class="form-control" id="validationCustom02" placeholder="Texto alternado de tu imagen" required>
+                                                <input type="text" class="form-control" name="TextoImagen" id="TextoImagen" placeholder="Texto alternado de tu imagen" required>
                                             </div>
                                         </div>
                                     </div>

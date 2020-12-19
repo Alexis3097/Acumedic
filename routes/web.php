@@ -152,6 +152,10 @@ Route::group(['middleware' => ['permission:ListadoUsuarios|CrearUsuario|EditarUs
 Route::get('/productos', 'ProductosController@index')->name('productos.list');
 Route::get('/productos/nuevo', 'ProductosController@create')->name('productos.create');
 
+// SERVICIOS
+Route::get('/servicios', 'ServicioController@index')->name('servicios.list');
+Route::get('/servicios/nuevo', 'ServicioController@create')->name('servicios.create');
+
 //=============================PERMISOS================================================================
 Route::group(['middleware' => ['permission:ListarRoles|CrearRol|EditarRol|EliminarRol']], function () {
     Route::get('/roles','PermisosController@rol')->name('permisos.rol');
