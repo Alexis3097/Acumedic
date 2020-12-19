@@ -41,23 +41,19 @@
                                             <label for="validationCustom01">Nombre del producto</label>
                                             <input type="text" class="form-control" id="validationCustom01" placeholder="Tú nombre del producto" required>
                                         </div>
-                                        <div class="form-group col-md-4 mb-3">
+                                        <div class="form-group col-md-3 mb-3">
                                             <label>Precio de compra</label>
                                             <input class="form-control">
                                         </div>
-                                        <div class="form-group col-md-4 mb-3">
+                                        <div class="form-group col-md-3 mb-3">
                                             <label>Precio publico</label>
                                             <input class="form-control">
                                         </div>
-                                        <div class="form-group col-md-4 mb-3">
-                                            <label>Precio decimal</label>
-                                            <input class="form-control" type="text">
-                                        </div>
-                                        <div class="form-group col-md-6 mb-3">
+                                        <div class="form-group col-md-3 mb-3">
                                             <label>Porcentaje de descuento</label>
                                             <input data-toggle="touchspin" value="18.20" type="text" data-step="0.1" data-decimals="2" data-bts-postfix="%">
                                         </div>
-                                        <div class="form-group col-md-6 mb-3">
+                                        <div class="form-group col-md-3 mb-3">
                                             <label>Estrellas de calidad</label>
                                             <select class="custom-select mb-2">
                                                 <option selected>0</option>
@@ -95,7 +91,7 @@
                             <div class="card">
                                 <div class="card-body pb-0">
                                     <div class=" mt-3" style="padding-bottom:4%;" >
-                                        <div class="imagen-producto" style="width:19%; display:inline-block;">
+                                        <div class="imagen-producto" style="width:24%; display:inline-block;">
                                         <h4>Imagen de producto</h4>
                                         <img id="category-img-tag" src="{{asset('../img/upload.jpg')}}" alt=""
                                             style="width: 150px;" />
@@ -118,7 +114,7 @@
                                             </div>
                                         </div>
                                         </div>
-                                        <div class="imagen-producto" style="width:19%; display:inline-block;">
+                                        <div class="imagen-producto" style="width:24%; display:inline-block;">
                                             <h4>Imagen de producto</h4>
                                             <img id="category-img-tag1" src="{{asset('../img/upload.jpg')}}" alt=""
                                                 style="width: 150px;" />
@@ -141,7 +137,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="imagen-producto" style="width:19%; display:inline-block;">
+                                        <div class="imagen-producto" style="width:24%; display:inline-block;">
                                                 <h4>Imagen de producto</h4>
                                                 <img id="category-img-tag2" src="{{asset('../img/upload.jpg')}}" alt=""
                                                     style="width: 150px;" />
@@ -164,7 +160,7 @@
                                                     </div>
                                                 </div>
                                         </div>
-                                        <div class="imagen-producto" style="width:19%; display:inline-block;">
+                                        <div class="imagen-producto" style="width:24%; display:inline-block;">
                                                     <h4>Imagen de producto</h4>
                                                     <img id="category-img-tag3" src="{{asset('../img/upload.jpg')}}" alt=""
                                                         style="width: 150px;" />
@@ -186,29 +182,6 @@
                                                             <input type="text" class="form-control" id="validationCustom02" placeholder="Texto alterno de imagen" required>
                                                         </div>
                                                     </div>
-                                        </div>
-                                        <div class="imagen-producto" style="width:19%; display:inline-block;">
-                                                        <h4>Imagen de producto</h4>
-                                                        <img id="category-img-tag4" src="{{asset('../img/upload.jpg')}}" alt=""
-                                                            style="width: 150px;" />
-                                                        <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
-                                                        <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto
-                                                        </h6>
-                                                        <div class="form-group col-md-12">
-                                                            <input id="cat_image4" name="Foto" type="file" accept="image/*"/>
-                                                        </div>
-                                                        <div class="form-group col-md-12">
-                                                            <label for="validationCustom02" style="text-align: left;">Titulo de la imagen</label>
-                                                            <div>
-                                                                <input type="text" class="form-control" id="validationCustom02" placeholder="Titulo" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-12">
-                                                            <label for="validationCustom02" style="text-align: left;">Texto alternado</label>
-                                                            <div>
-                                                                <input type="text" class="form-control" id="validationCustom02" placeholder="Texto alterno de imagen" required>
-                                                            </div>
-                                                        </div>
                                         </div>
                                         <div class="form-group col-md-12">
                                             <button class="btn btn-danger" type="submit">Cancelar</button>

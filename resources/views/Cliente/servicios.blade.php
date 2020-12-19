@@ -23,8 +23,7 @@
     <section class="serviciosCont">
       <div class="container cont">
         <div class="row">
-          <div class="col-md-3"></div>
-          <div class="col-md-9">
+          <div class="col-md-12">
             <div class="col-md-4 servicio-col">
               <div class="container-servicio">
                 <div class="img">
