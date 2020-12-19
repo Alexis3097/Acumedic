@@ -724,6 +724,55 @@ input {
   color:#fff;
 }
 /* info numeros */
+/* nosotrotros */
+.servicios-detail{
+  position: relative;
+  width: 100%;
+  padding: 2%;
+  box-sizing: border-box;
+  min-height: 90vh;
+}
+.servicios-detail .titulo .title-section h3{
+  font-size:var(--font-xgtitle);
+  font-weight: bold;
+  text-align: center;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+.servicios-detail .titulo .desc-section{
+  font-size: var(--font-s);
+  text-align: center;
+  font-style: italic;
+  font-weight: lighter;
+  line-height: 30px;
+}
+.servicios-detail .servicio-content{
+  /* white-space:nowrap; */
+  position:relative;
+  height: auto;
+  padding: 1%;
+}
+.servicios-detail .servicio-content .img{
+  position:relative;
+}
+.servicios-detail .servicio-content .img img{
+  display: block;
+  margin:auto;
+  left:0;right:0;top:0;bottom:0;
+  width: 100px;
+}
+.servicios-detail .servicio-content .titulo-servicio{
+  font-size:var(--font-ms);
+  font-weight: bold;
+  text-align: center;
+}
+.servicios-detail .servicio-content .desc{
+  font-size:var(--font-s);
+  line-height: 30px;
+  color:#696969;
+  text-align:center;
+}
+/* nosotrotros */
 /* lista servicios */
 .container-mas-servicios{
   background-color:#f1f1f1;
