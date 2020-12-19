@@ -185,7 +185,7 @@
                                         <span>Productos</span>
                                     </a>
 
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <a href="{{route('servicios.list')}}" class="dropdown-item notify-item">
                                         <i data-feather="archive" class="icon-dual icon-xs mr-2"></i>
                                         <span>Servicios</span>
                                     </a>
