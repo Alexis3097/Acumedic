@@ -238,5 +238,5 @@
       </div>
     </section>
     <!-- más info -->
-  </main>
+</main>
 @endsection

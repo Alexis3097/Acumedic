@@ -245,5 +245,7 @@
     @yield('checksPermisos')
     @yield('scriptServicios')
     @yield('scriptVentas')
+    @yield('scriptDesc1')
+    @yield('scriptDesc2')
     </body>
 </html>
