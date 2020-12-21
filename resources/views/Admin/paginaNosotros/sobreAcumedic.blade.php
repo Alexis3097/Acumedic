@@ -1,5 +1,12 @@
 @extends('Shared.masterAdmin')
 
+
+@section('estilosAbouts')
+<link rel="stylesheet" href="{{asset('js/Admin/libs/bootstrap-tagsinput/bootstrap-tagsinput.css')}}" type="text/css">
+<link rel="stylesheet" href="{{asset('js/Admin/libs/multiselect/multi-select.css')}}" type="text/css">
+<link rel="stylesheet" href="{{asset('js/Admin/libs/select2/select2.min.css')}}" type="text/css">
+<link rel="stylesheet" href="{{asset('js/Admin/libs/flatpickr/flatpickr.min.css')}}" type="text/css">
+@endsection
 @section('content')
 <div class="content-page">
             <div class="content">
@@ -60,8 +67,8 @@
                                                     <td>¿Cuales son tus servicios? (Solo 6) <span><i class="fa fa-eye-slash"></i></span></td>
                                                     
                                                     <td>
-                                                        <button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verServicios" ><i class="fa fa-eye"></i></button>
-                                                        <button type="button" class="btn btn-outline-warning"><i class="fa fa-edit"></i></button>
+                                                    <button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verServicios" ><i class="fa fa-eye"></i></button>
+                                                        <button type="button" class="btn btn-outline-warning" name="delete_modal" data-toggle="modal" data-target="#editServ"><i class="fa fa-edit"></i></button>
                                                         <button type="button" class="btn btn-outline-danger" name="delete_modal" data-toggle="modal" data-target="#ocultar"><i class="fa fa-eye-slash"></i></button>
 
                                                     </td>
@@ -78,6 +85,39 @@
 
                 </div>
             </div> <!-- content -->
+</div>
+<div class="modal fade" id="editServ" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="display: inline; width: 100%;" id="exampleModalLongTitle" >Añade tus seis servicios principales</h5>
+                        <br>
+                        <h6 style="display: inline; width: 100%;">Esta sección se pone disponible cuando cuentas con 6 servicios o más:</h6>
+                        <div class="modal-footer"></div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="needs-validation row" novalidate>
+                            <div class="form-group col-md-12">
+                                <label for="validationCustom01">Añade tus servicios</label>
+                                <select class="form-control wide" data-plugin="customselect" multiple>
+                                    <option value="0" selected>Shreyu</option>
+                                    <option value="1">Greeva</option>
+                                    <option value="2">Dhyanu</option>
+                                    <option value="3" disabled>Disabled</option>
+                                    <option value="4">Mannat</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <button class="btn btn-danger" type="submit">Cancelar</button>
+                                <button class="btn btn-primary" type="submit">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 </div>
 <div class="modal fade" id="editInfo" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
@@ -187,4 +227,12 @@
                 </div>
             </div>
 </div>
+@endsection
+@section('scriptAbout')
+<script src="{{asset('js/Admin/libs/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>
+<script src="{{asset('js/Admin/libs/select2/select2.min.js')}}"></script>
+<script src="{{asset('js/Admin/libs/multiselect/jquery.multi-select.js')}}"></script>
+<script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
+<script src="{{asset('js/Admin/pages/form-advanced.init.js')}}"></script>
+<script src="{{asset('js/Admin/modales.js')}}"></script>
 @endsection
