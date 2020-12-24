@@ -10,7 +10,7 @@ class Producto extends Model
 {
     protected $table = 'productos';
     protected $fillable = [
-        'Nombre','PrecioCompra','PrecioPublico','DescripcionCorta','DescripcionLarga','CodigoBarra',
+        'Nombre','PrecioCompra','PrecioPublico','Estrellas','DescripcionCorta','DescripcionLarga','CodigoBarra',
     ];
 
     public function fotoProductos()

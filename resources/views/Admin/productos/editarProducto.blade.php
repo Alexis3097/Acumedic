@@ -13,18 +13,17 @@
                 <div class="container-fluid">
                     <div class="row page-title align-items-center">
                         <div class="col-sm-4 col-xl-6">
-                            <h4 class="mb-1 mt-0">Crear producto</h4>
+                            <h4 class="mb-1 mt-0">Editar producto</h4>
                            
                         </div>
                         <div class="col-sm-8 col-xl-6">
-                            <form class="form-inline float-sm-right mt-3 mt-sm-0">
+                            <div class="form-inline float-sm-right mt-3 mt-sm-0">
                                 <div class="btn-group mb-sm-0 mr-2">
-
-                                    <button type="button" class="btn btn-outline-danger">
+                                    <a href="{{ route('productos.list')}}" class="btn btn-outline-danger">
                                         <i class='fas fa-times'></i> Cancelar
-                                    </button>
+                                    </a>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
 
@@ -36,58 +35,85 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="needs-validation row" novalidate>
+                                    <form action="{{route('productos.update',['id'=>$producto->id])}}" method="post" class="row" novalidate enctype="multipart/form-data">
+                                    @csrf
+                                    @method('put')
                                         <div class="form-group col-md-12">
-                                            <label for="validationCustom01">Nombre del producto</label>
-                                            <input type="text" class="form-control" id="validationCustom01" placeholder="Tú nombre del producto" required>
+                                            <label for="Nombre">Nombre del producto</label>
+                                            <input type="text" class="form-control @error('Nombre') is-invalid @enderror" name="Nombre" id="Nombre" placeholder="Tú nombre del producto"  value="{{old('Nombre', $producto->Nombre)}}" required>
+                                            @error('Nombre')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4 mb-3">
-                                            <label>Precio de compra</label>
-                                            <input class="form-control">
+                                            <label for="PrecioCompra">Precio de compra</label>
+                                            <input class="form-control @error('PrecioCompra') is-invalid @enderror"  name="PrecioCompra" id="PrecioCompra" value="{{old('PrecioCompra', $producto->PrecioCompra)}}" required placeholder="0.00">
+                                            @error('PrecioCompra')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4 mb-3">
-                                            <label>Precio publico</label>
-                                            <input class="form-control">
+                                            <label for="PrecioPublico">Precio publico</label>
+                                            <input class="form-control @error('PrecioPublico') is-invalid @enderror"  value="{{old('PrecioPublico', $producto->PrecioPublico)}}" name="PrecioPublico" id="PrecioPublico" required placeholder="0.00">
+                                            @error('PrecioPublico')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
-                                        <div class="form-group col-md-4 mb-3">
-                                            <label>Precio decimal</label>
-                                            <input class="form-control" type="text">
-                                        </div>
-                                        <div class="form-group col-md-6 mb-3">
+                                        <!-- <div class="form-group col-md-3 mb-3">
                                             <label>Porcentaje de descuento</label>
                                             <input data-toggle="touchspin" value="18.20" type="text" data-step="0.1" data-decimals="2" data-bts-postfix="%">
-                                        </div>
-                                        <div class="form-group col-md-6 mb-3">
+                                        </div> -->
+                                        <div class="form-group col-md-4 mb-3">
                                             <label>Estrellas de calidad</label>
-                                            <select class="custom-select mb-2">
-                                                <option selected>0</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
+                                            <select class="custom-select mb-2" name="Estrellas">
+                                                <option value="0" @if($producto->Estrellas == 0) selected='selected' @endif>0</option>
+                                                <option value="1" @if($producto->Estrellas == 1) selected='selected' @endif>1</option>
+                                                <option value="2" @if($producto->Estrellas == 2) selected='selected' @endif>2</option>
+                                                <option value="3" @if($producto->Estrellas == 3) selected='selected' @endif>3</option>
+                                                <option value="4" @if($producto->Estrellas == 4) selected='selected' @endif>4</option>
+                                                <option value="5" @if($producto->Estrellas == 5) selected='selected' @endif>5</option>
                                             </select>
+                                            
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="validationCustom01">Código de barras</label>
+                                            <label for="CodigoBarra">Código de barras</label>
                                             <div class="checkbox-1">
-                                            <label style="display:inline-block;">Generar automaticamente</label>
-                                            <input type="checkbox">
+                                                <input type="checkbox" name="check" value="1">
+                                                <label style="display:inline-block;">Generar automaticamente</label>
                                             </div>
-                                            <input type="text" class="form-control" id="validationCustom01" placeholder="Escribe el código" required>
+                                            <input type="text" class="form-control @error('CodigoBarra') is-invalid @enderror"  value="{{old('CodigoBarra', $producto->CodigoBarra)}}" name="CodigoBarra" id="CodigoBarra" placeholder="Escribe el código" required>
+                                            @error('CodigoBarra')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="validationCustom02">Descripción corta (Máximo 217 caracteres)</label>
-                                            <input type="text" class="form-control" id="validationCustom02" maxlength="217" placeholder="Escribe tu descripción" required>
+                                            <label for="DescripcionCorta">Descripción corta (Máximo 217 caracteres)</label>
+                                            <input type="text" class="form-control @error('DescripcionCorta') is-invalid @enderror"  value="{{old('DescripcionCorta', $producto->DescripcionCorta)}}" name="DescripcionCorta" id="DescripcionCorta" maxlength="217" placeholder="Escribe tu descripción" required>
+                                            @error('DescripcionCorta')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="validationCustom02">Descripción larga del producto</label>
+                                            <label for="DescripcionLarga">Descripción larga del producto</label>
                                             <div>
-                                                <textarea required class="form-control"></textarea>
+                                                <textarea required class="form-control @error('DescripcionLarga') is-invalid @enderror"  name="DescripcionLarga" id="DescripcionLarga"> {{old('DescripcionLarga', $producto->DescripcionLarga)}}</textarea>
+                                                @error('DescripcionLarga')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                         </div>
-                                   
-
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
                         </div> <!-- end col-->
@@ -95,123 +121,211 @@
                             <div class="card">
                                 <div class="card-body pb-0">
                                     <div class=" mt-3" style="padding-bottom:4%;" >
-                                        <div class="imagen-producto" style="width:19%; display:inline-block;">
-                                        <h4>Imagen de producto</h4>
-                                        <img id="category-img-tag" src="{{asset('../img/upload.jpg')}}" alt=""
-                                            style="width: 150px;" />
-                                        <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
-                                        <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu Imagen de producto
-                                        </h6>
-                                        <div class="form-group col-md-12">
-                                            <input id="cat_image" name="Foto" type="file" accept="image/*"/>
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <label for="validationCustom02" style="text-align: left;">Titulo de la imagen</label>
-                                            <div>
-                                                <input type="text" class="form-control" id="validationCustom02" placeholder="Titulo" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <label for="validationCustom02" style="text-align: left;">Texto alternado</label>
-                                            <div>
-                                                <input type="text" class="form-control" id="validationCustom02" placeholder="Texto alterno de imagen" required>
-                                            </div>
-                                        </div>
-                                        </div>
-                                        <div class="imagen-producto" style="width:19%; display:inline-block;">
+                                        <div class="imagen-producto" style="width:24%; display:inline-block;">
                                             <h4>Imagen de producto</h4>
-                                            <img id="category-img-tag1" src="{{asset('../img/upload.jpg')}}" alt=""
-                                                style="width: 150px;" />
+                                            <img id="category-img-tag" 
+                                                src="@if(isset($producto->fotoProductos[0])) {{asset('../uploads/productos/'.$producto->fotoProductos[0]->Nombre)}} @else {{asset('../img/upload.jpg')}} @endif" 
+                                                alt=""style="width: 150px;" />
+
+                                                <input type="hidden" name="idFoto1" 
+                                                    value="@if(isset($producto->fotoProductos[0])) {{$producto->fotoProductos[0]->id}}  @else{{0}}@endif"
+                                                >
+                                                @if(!isset($producto->fotoProductos[0]))
+                                                    <input type="hidden" name="hayFoto1" value="1">
+                                                @endif
                                             <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
-                                            <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto
-                                            </h6>
+                                            <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu Imagen de producto</h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image1" name="Foto" type="file" accept="image/*"/>
+                                                <input id="cat_image"  name="Foto1" type="file" class="@error('Foto1') is-invalid @enderror"accept="image/*"/>
+                                                @error('Foto1')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <label for="validationCustom02" style="text-align: left;">Titulo de la imagen</label>
+                                                <label for="Titulo1" style="text-align: left;">Titulo de la imagen</label>
                                                 <div>
-                                                    <input type="text" class="form-control" id="validationCustom02" placeholder="Titulo" required>
+                                                    <input type="text" class="form-control @error('Titulo1') is-invalid @enderror" 
+                                                    value="@if(isset($producto->fotoProductos[0])){{old('Titulo1', $producto->fotoProductos[0]->Titulo)}}@else{{old('Titulo1')}}@endif"
+                                                    name="Titulo1" id="Titulo1" placeholder="Titulo">
+                                                    @error('Titulo1')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <label for="validationCustom02" style="text-align: left;">Texto alternado</label>
+                                                <label for="TextoAlterno1" style="text-align: left;">Texto alternado</label>
                                                 <div>
-                                                    <input type="text" class="form-control" id="validationCustom02" placeholder="Texto alterno de imagen" required>
+                                                    <input type="text" class="form-control @error('TextoAlterno1') is-invalid @enderror" 
+                                                    value="@if(isset($producto->fotoProductos[0])){{old('TextoAlterno1', $producto->fotoProductos[0]->TextoAlterno)}}@else{{old('TextoAlterno1')}}@endif"
+                                                    name="TextoAlterno1" id="TextoAlterno1" placeholder="Texto alterno de imagen" >
+                                                    @error('TextoAlterno1')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="imagen-producto" style="width:19%; display:inline-block;">
-                                                <h4>Imagen de producto</h4>
-                                                <img id="category-img-tag2" src="{{asset('../img/upload.jpg')}}" alt=""
-                                                    style="width: 150px;" />
-                                                <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
-                                                <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto
-                                                </h6>
-                                                <div class="form-group col-md-12">
-                                                    <input id="cat_image2" name="Foto" type="file" accept="image/*"/>
+
+                                        <div class="imagen-producto" style="width:24%; display:inline-block;">
+                                            <h4>Imagen de producto</h4>
+                                            <img id="category-img-tag1" 
+                                                src="@if(isset($producto->fotoProductos[1])) {{asset('../uploads/productos/'.$producto->fotoProductos[1]->Nombre)}} @else {{asset('../img/upload.jpg')}} @endif" 
+                                                alt=""style="width: 150px;" />
+
+                                                <input type="hidden" name="idFoto2" 
+                                                    value="@if(isset($producto->fotoProductos[1])) {{$producto->fotoProductos[1]->id}}  @else{{0}}@endif"
+                                                >
+                                                @if(!isset($producto->fotoProductos[1]))
+                                                    <input type="hidden" name="hayFoto2" value="1">
+                                                @endif
+
+                                            <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
+                                            <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
+                                            <div class="form-group col-md-12">
+                                                <input id="cat_image1" name="Foto2" type="file" accept="image/*" class="@error('Foto2') is-invalid @enderror"/>
+                                                @error('Foto2')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="Titulo2" style="text-align: left;">Titulo de la imagen</label>
+                                                <div>
+                                                    <input type="text" 
+                                                    value="@if(isset($producto->fotoProductos[1])){{old('Titulo2', $producto->fotoProductos[1]->Titulo)}}@else{{old('Titulo2')}}@endif" 
+                                                    class="form-control @error('Titulo2') is-invalid @enderror" name="Titulo2" id="Titulo2" placeholder="Titulo" required>
+                                                    @error('Titulo2')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
                                                 </div>
-                                                <div class="form-group col-md-12">
-                                                    <label for="validationCustom02" style="text-align: left;">Titulo de la imagen</label>
-                                                    <div>
-                                                        <input type="text" class="form-control" id="validationCustom02" placeholder="Titulo" required>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="TextoAlterno2" style="text-align: left;">Texto alternado</label>
+                                                <div>
+                                                    <input type="text" 
+                                                    value="@if(isset($producto->fotoProductos[1])){{old('TextoAlterno2', $producto->fotoProductos[1]->TextoAlterno)}}@else{{old('TextoAlterno2')}}@endif" 
+                                                    class="form-control @error('TextoAlterno2') is-invalid @enderror" name="TextoAlterno2" id="TextoAlterno2" placeholder="Texto alterno de imagen" required>
+                                                    @error('TextoAlterno2')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
                                                     </div>
+                                                    @enderror
                                                 </div>
-                                                <div class="form-group col-md-12">
-                                                    <label for="validationCustom02" style="text-align: left;">Texto alternado</label>
-                                                    <div>
-                                                        <input type="text" class="form-control" id="validationCustom02" placeholder="Texto alterno de imagen" required>
-                                                    </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="imagen-producto" style="width:24%; display:inline-block;">
+                                            <h4>Imagen de producto</h4>
+                                            <img id="category-img-tag2" 
+                                                src="@if(isset($producto->fotoProductos[2])) {{asset('../uploads/productos/'.$producto->fotoProductos[2]->Nombre)}} @else {{asset('../img/upload.jpg')}} @endif" 
+                                                alt=""style="width: 150px;" />
+
+                                                <input type="hidden" name="idFoto3" 
+                                                    value="@if(isset($producto->fotoProductos[2])) {{$producto->fotoProductos[2]->id}}  @else{{0}}@endif"
+                                                >
+
+                                                @if(!isset($producto->fotoProductos[2]))
+                                                    <input type="hidden" name="hayFoto3" value="1">
+                                                @endif
+
+                                            <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
+                                            <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
+                                            <div class="form-group col-md-12">
+                                                <input id="cat_image2" name="Foto3" type="file" accept="image/*"class="@error('Foto3') is-invalid @enderror" />
+                                                @error('Foto3')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
                                                 </div>
-                                        </div>
-                                        <div class="imagen-producto" style="width:19%; display:inline-block;">
-                                                    <h4>Imagen de producto</h4>
-                                                    <img id="category-img-tag3" src="{{asset('../img/upload.jpg')}}" alt=""
-                                                        style="width: 150px;" />
-                                                    <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
-                                                    <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto
-                                                    </h6>
-                                                    <div class="form-group col-md-12">
-                                                        <input id="cat_image3" name="Foto" type="file" accept="image/*"/>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="Titulo3" style="text-align: left;">Titulo de la imagen</label>
+                                                <div>
+                                                    <input type="text" 
+                                                    value="@if(isset($producto->fotoProductos[2])){{old('Titulo3', $producto->fotoProductos[2]->Titulo)}}@else{{old('Titulo3')}}@endif"  
+                                                    class="form-control @error('Titulo3') is-invalid @enderror" name="Titulo3" id="Titulo3" placeholder="Titulo" required>
+                                                    @error('Titulo3')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
                                                     </div>
-                                                    <div class="form-group col-md-12">
-                                                        <label for="validationCustom02" style="text-align: left;">Titulo de la imagen</label>
-                                                        <div>
-                                                            <input type="text" class="form-control" id="validationCustom02" placeholder="Titulo" required>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="TextoAlterno3" style="text-align: left;">Texto alternado</label>
+                                                <div>
+                                                    <input type="text" value="@if(isset($producto->fotoProductos[2])){{old('TextoAlterno3', $producto->fotoProductos[2]->TextoAlterno)}}@else{{old('TextoAlterno3')}}@endif" 
+                                                    class="form-control @error('TextoAlterno3') is-invalid @enderror" name="TextoAlterno3" id="TextoAlterno3" placeholder="Texto alterno de imagen" required>
+                                                    @error('TextoAlterno3')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group col-md-12">
-                                                        <label for="validationCustom02" style="text-align: left;">Texto alternado</label>
-                                                        <div>
-                                                            <input type="text" class="form-control" id="validationCustom02" placeholder="Texto alterno de imagen" required>
-                                                        </div>
-                                                    </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="imagen-producto" style="width:19%; display:inline-block;">
-                                                        <h4>Imagen de producto</h4>
-                                                        <img id="category-img-tag4" src="{{asset('../img/upload.jpg')}}" alt=""
-                                                            style="width: 150px;" />
-                                                        <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
-                                                        <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto
-                                                        </h6>
-                                                        <div class="form-group col-md-12">
-                                                            <input id="cat_image4" name="Foto" type="file" accept="image/*"/>
+
+                                        <div class="imagen-producto" style="width:24%; display:inline-block;">
+                                            <h4>Imagen de producto</h4>
+                                                <img id="category-img-tag3" 
+                                                src="@if(isset($producto->fotoProductos[3])) {{asset('../uploads/productos/'.$producto->fotoProductos[3]->Nombre)}} @else {{asset('../img/upload.jpg')}} @endif" 
+                                                alt=""style="width: 150px;" />
+
+                                                <input type="hidden" name="idFoto4" 
+                                                    value="@if(isset($producto->fotoProductos[3])) {{$producto->fotoProductos[3]->id}}  @else{{0}}@endif"
+                                                >
+
+                                                @if(!isset($producto->fotoProductos[3]))
+                                                    <input type="hidden" name="hayFoto4" value="1">
+                                                @endif
+
+                                            <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
+                                            <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
+                                            <div class="form-group col-md-12">
+                                                <input id="cat_image3" name="Foto4" type="file" accept="image/*" class="@error('Foto4') is-invalid @enderror"/>
+                                                @error('Foto4')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="Titulo4" style="text-align: left;">Titulo de la imagen</label>
+                                                <div>
+                                                    <input type="text" 
+                                                    value="@if(isset($producto->fotoProductos[3])){{old('Titulo4', $producto->fotoProductos[3]->Titulo)}}@else{{old('Titulo4')}}@endif" 
+                                                    class="form-control @error('Titulo4') is-invalid @enderror" name="Titulo4" id="Titulo4" placeholder="Titulo" required>
+                                                    @error('Titulo4')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
                                                         </div>
-                                                        <div class="form-group col-md-12">
-                                                            <label for="validationCustom02" style="text-align: left;">Titulo de la imagen</label>
-                                                            <div>
-                                                                <input type="text" class="form-control" id="validationCustom02" placeholder="Titulo" required>
-                                                            </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="TextoAlterno4" style="text-align: left;">Texto alternado</label>
+                                                <div>
+                                                    <input type="text"  value="@if(isset($producto->fotoProductos[3])){{old('TextoAlterno4', $producto->fotoProductos[3]->TextoAlterno)}}@else{{old('TextoAlterno4')}}@endif" 
+                                                    class="form-control @error('TextoAlterno4') is-invalid @enderror" name="TextoAlterno4" id="TextoAlterno4" placeholder="Texto alterno de imagen" required>
+                                                    @error('TextoAlterno4')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
                                                         </div>
-                                                        <div class="form-group col-md-12">
-                                                            <label for="validationCustom02" style="text-align: left;">Texto alternado</label>
-                                                            <div>
-                                                                <input type="text" class="form-control" id="validationCustom02" placeholder="Texto alterno de imagen" required>
-                                                            </div>
-                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         </div>
+
                                         <div class="form-group col-md-12">
-                                            <button class="btn btn-danger" type="submit">Cancelar</button>
+                                            <a href="{{route('productos.list')}}" class="btn btn-danger">Cancelar</a>
                                             <button class="btn btn-primary" type="submit">Guardar</button>
                                         </div>
                                     </div>

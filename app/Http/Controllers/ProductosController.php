@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\ViewModel\ProductosViewModel;
+use App\Http\Requests\StoreProducto;
+use App\ViewModel\ProductoViewModel;
+use App\Http\Requests\UpdateProducto;
 
 class ProductosController extends Controller
 {
@@ -18,11 +20,11 @@ class ProductosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(ProductosViewModel $ProductosViewModel)
+    public function index(ProductoViewModel $ProductoViewModel)
     {
-        $productos = $ProductosViewModel->getProductos();
+        $productos = $ProductoViewModel->getProductos();
         // $productos->fotoProductos();
-        return view('Admin.Productos.productos');
+        return view('Admin.Productos.productos',compact('productos'));
     }
 
     /**
@@ -38,24 +40,15 @@ class ProductosController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\StoreProducto  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProducto $request, ProductoViewModel $ProductoViewModel)
     {
-        //
+        $producto = $ProductoViewModel->create($request);
+        return redirect()->route('productos.list');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -63,21 +56,23 @@ class ProductosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(ProductoViewModel $ProductoViewModel, $id)
     {
-        //
+        $producto = $ProductoViewModel->getProducto($id);
+        return view('Admin.Productos.editarProducto',compact('producto'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\UpdateProducto  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProducto $request, $id, ProductoViewModel $ProductoViewModel)
     {
-        //
+       $producto = $ProductoViewModel->update($request, $id);
+       return redirect()->route('productos.list');
     }
 
     /**
@@ -86,8 +81,9 @@ class ProductosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, ProductoViewModel $ProductoViewMode)
     {
-        //
+        $producto = $ProductoViewMode->delete($request->IdModal);
+        return redirect()->route('productos.list');
     }
 }

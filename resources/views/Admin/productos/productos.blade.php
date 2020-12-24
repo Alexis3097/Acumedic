@@ -29,20 +29,29 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Nombre de producto</th>
+                                                    <th scope="col">Precio publico</th>
+                                                    <th scope="col">Codigo de barra</th>
                                                     <th scope="col">Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>Luis Felipe Martínezz Ortega</td>
-                                                    
-                                                    <td>
-                                                        <button type="button" class="btn btn-outline-success"><i class="fa fa-eye"></i></button>
-                                                        <button type="button" class="btn btn-outline-warning"><i class="fa fa-edit"></i></button>
-                                                        <button type="button" class="btn btn-outline-danger delete" name="delete_modal" data-toggle="modal" data-target="#eliminarProducto"><i class="fa fa-trash"></i></button>
+                                                <div class="container">
+                                                @foreach($productos as $producto)
+                                                    <tr>
+                                                        <input type="hidden" value="{{ $producto->id}}">
+                                                        <td>{{$producto->Nombre}}</td>
+                                                        <td>{{$producto->PrecioPublico}}</td>
+                                                        <td>{{$producto->CodigoBarra}}</td>
+                                                        
+                                                        <td>
+                                                            <a href="{{route('productos.edit',['id' =>$producto->id])}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
+                                                            <button type="button" class="btn btn-outline-danger delete" name="delete_modal" data-toggle="modal" data-target="#eliminarProducto"><i class="fa fa-trash"></i></button>
 
-                                                    </td>
-                                                </tr>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                </div>
+                                                {{ $productos->links() }}
                                             </tbody>
                                         </table>
                                     </div> <!-- end table-responsive-->
@@ -57,24 +66,31 @@
             </div> <!-- content -->
         </div>
     </div> <!-- content -->
-    <div class="modal fade" id="eliminarProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Eliminar Producto</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                        <input type="hidden" name="IdModal" id="IdModal">
-                        <p>¿Esta seguro que desea eliminar este Producto?</p>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-primary">Si, Eliminar</button>
-                        </div>
-                </div>
+<div class="modal fade" id="eliminarProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Eliminar producto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('productos.destroy')}}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="hidden" name="IdModal" id="IdModal">
+                    <p>¿Esta seguro que desea eliminar el producto?</p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
+@endsection
+@section('scriptUsuarios')
+    <script src="{{asset('js/Admin/modales.js')}}"></script>
 @endsection

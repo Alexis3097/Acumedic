@@ -18,6 +18,7 @@ class CreateProductosTable extends Migration
             $table->string('Nombre');
             $table->float('PrecioCompra');
             $table->float('PrecioPublico');
+            $table->Integer('Estrellas');
             $table->string('DescripcionCorta');
             $table->text('DescripcionLarga');
             $table->string('CodigoBarra');

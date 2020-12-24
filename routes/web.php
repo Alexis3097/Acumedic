@@ -43,6 +43,10 @@ Route::get('/consulta', function () {
     return view('Cliente.consulta-integral');
 })->name('consulta');
 
+Route::get('/p', function () {
+    return view('Cliente.producto-detallado');
+})->name('producto');
+
 //-------------------------------Rutas de administrador-------------------------------
 Route::get('/home', 'HomeController@index')->name('home');
 //CITAS
@@ -151,6 +155,10 @@ Route::group(['middleware' => ['permission:ListadoUsuarios|CrearUsuario|EditarUs
 // PRODUCTOS
 Route::get('/productos', 'ProductosController@index')->name('productos.list');
 Route::get('/productos/nuevo', 'ProductosController@create')->name('productos.create');
+Route::post('/productos/crear', 'ProductosController@store')->name('productos.store');
+Route::get('/productos/editar/{id}', 'ProductosController@edit')->name('productos.edit');
+Route::put('/productos/actualizar/{id}', 'ProductosController@update')->name('productos.update');
+Route::delete('/productos/eliminar', 'ProductosController@destroy')->name('productos.destroy');
 
 // SERVICIOS
 Route::get('/servicios', 'ServicioController@index')->name('servicios.list');

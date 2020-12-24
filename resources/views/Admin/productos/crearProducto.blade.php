@@ -17,14 +17,13 @@
                            
                         </div>
                         <div class="col-sm-8 col-xl-6">
-                            <form class="form-inline float-sm-right mt-3 mt-sm-0">
+                            <div class="form-inline float-sm-right mt-3 mt-sm-0">
                                 <div class="btn-group mb-sm-0 mr-2">
-
-                                    <button type="button" class="btn btn-outline-danger">
+                                    <a href="{{ route('productos.list')}}" class="btn btn-outline-danger">
                                         <i class='fas fa-times'></i> Cancelar
-                                    </button>
+                                    </a>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
 
@@ -36,27 +35,43 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="needs-validation row" novalidate>
+                                    <form action="{{route('productos.store')}}" method="post" class="row" novalidate enctype="multipart/form-data">
+                                    @csrf
                                         <div class="form-group col-md-12">
-                                            <label for="validationCustom01">Nombre del producto</label>
-                                            <input type="text" class="form-control" id="validationCustom01" placeholder="Tú nombre del producto" required>
+                                            <label for="Nombre">Nombre del producto</label>
+                                            <input type="text" class="form-control @error('Nombre') is-invalid @enderror" name="Nombre" id="Nombre" placeholder="Tú nombre del producto"  value="{{ old('Nombre') }}" required>
+                                            @error('Nombre')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
-                                        <div class="form-group col-md-3 mb-3">
-                                            <label>Precio de compra</label>
-                                            <input class="form-control">
+                                        <div class="form-group col-md-4 mb-3">
+                                            <label for="PrecioCompra">Precio de compra</label>
+                                            <input class="form-control @error('PrecioCompra') is-invalid @enderror"  value="{{ old('PrecioCompra') }}" name="PrecioCompra" id="PrecioCompra" required placeholder="0.00">
+                                            @error('PrecioCompra')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
-                                        <div class="form-group col-md-3 mb-3">
-                                            <label>Precio publico</label>
-                                            <input class="form-control">
+                                        <div class="form-group col-md-4 mb-3">
+                                            <label for="PrecioPublico">Precio publico</label>
+                                            <input class="form-control @error('PrecioPublico') is-invalid @enderror"  value="{{ old('PrecioPublico') }}" name="PrecioPublico" id="PrecioPublico" required placeholder="0.00">
+                                            @error('PrecioPublico')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
-                                        <div class="form-group col-md-3 mb-3">
+                                        <!-- <div class="form-group col-md-3 mb-3">
                                             <label>Porcentaje de descuento</label>
                                             <input data-toggle="touchspin" value="18.20" type="text" data-step="0.1" data-decimals="2" data-bts-postfix="%">
-                                        </div>
-                                        <div class="form-group col-md-3 mb-3">
+                                        </div> -->
+                                        <div class="form-group col-md-4 mb-3">
                                             <label>Estrellas de calidad</label>
-                                            <select class="custom-select mb-2">
-                                                <option selected>0</option>
+                                            <select class="custom-select mb-2" name="Estrellas">
+                                                <option value="0">0</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -65,25 +80,38 @@
                                             </select>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="validationCustom01">Código de barras</label>
+                                            <label for="CodigoBarra">Código de barras</label>
                                             <div class="checkbox-1">
-                                            <label style="display:inline-block;">Generar automaticamente</label>
-                                            <input type="checkbox">
+                                                <input type="checkbox" name="check" value="1">
+                                                <label style="display:inline-block;">Generar automaticamente</label>
                                             </div>
-                                            <input type="text" class="form-control" id="validationCustom01" placeholder="Escribe el código" required>
+                                            <input type="text" class="form-control @error('CodigoBarra') is-invalid @enderror"  value="{{ old('CodigoBarra') }}" name="CodigoBarra" id="CodigoBarra" placeholder="Escribe el código" required>
+                                            @error('CodigoBarra')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="validationCustom02">Descripción corta (Máximo 217 caracteres)</label>
-                                            <input type="text" class="form-control" id="validationCustom02" maxlength="217" placeholder="Escribe tu descripción" required>
+                                            <label for="DescripcionCorta">Descripción corta (Máximo 217 caracteres)</label>
+                                            <input type="text" class="form-control @error('DescripcionCorta') is-invalid @enderror"  value="{{ old('DescripcionCorta') }}" name="DescripcionCorta" id="DescripcionCorta" maxlength="217" placeholder="Escribe tu descripción" required>
+                                            @error('DescripcionCorta')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="validationCustom02">Descripción larga del producto</label>
+                                            <label for="DescripcionLarga">Descripción larga del producto</label>
                                             <div>
-                                                <textarea required class="form-control"></textarea>
+                                                <textarea required class="form-control @error('DescripcionLarga') is-invalid @enderror"  name="DescripcionLarga" id="DescripcionLarga"> {{ old('DescripcionLarga') }}</textarea>
+                                                @error('DescripcionLarga')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                         </div>
-                                   
-
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
                         </div> <!-- end col-->
@@ -92,99 +120,155 @@
                                 <div class="card-body pb-0">
                                     <div class=" mt-3" style="padding-bottom:4%;" >
                                         <div class="imagen-producto" style="width:24%; display:inline-block;">
-                                        <h4>Imagen de producto</h4>
-                                        <img id="category-img-tag" src="{{asset('../img/upload.jpg')}}" alt=""
-                                            style="width: 150px;" />
-                                        <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
-                                        <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu Imagen de producto
-                                        </h6>
-                                        <div class="form-group col-md-12">
-                                            <input id="cat_image" name="Foto" type="file" accept="image/*"/>
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <label for="validationCustom02" style="text-align: left;">Titulo de la imagen</label>
-                                            <div>
-                                                <input type="text" class="form-control" id="validationCustom02" placeholder="Titulo" required>
+                                            <h4>Imagen de producto</h4>
+                                            <img id="category-img-tag" src="{{asset('../img/upload.jpg')}}" alt=""style="width: 150px;" />
+                                            <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
+                                            <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu Imagen de producto</h6>
+                                            <div class="form-group col-md-12">
+                                                <input id="cat_image" name="Foto1" type="file" class="@error('Foto1') is-invalid @enderror"accept="image/*"/>
+                                                @error('Foto1')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="Titulo1" style="text-align: left;">Titulo de la imagen</label>
+                                                <div>
+                                                    <input type="text" class="form-control @error('Titulo1') is-invalid @enderror" name="Titulo1" id="Titulo1" value="{{ old('Titulo1') }}" placeholder="Titulo">
+                                                    @error('Titulo1')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="TextoAlterno1" style="text-align: left;">Texto alternado</label>
+                                                <div>
+                                                    <input type="text" class="form-control @error('TextoAlterno1') is-invalid @enderror" value="{{ old('TextoAlterno1') }}"  name="TextoAlterno1" id="TextoAlterno1" placeholder="Texto alterno de imagen" >
+                                                    @error('TextoAlterno1')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-12">
-                                            <label for="validationCustom02" style="text-align: left;">Texto alternado</label>
-                                            <div>
-                                                <input type="text" class="form-control" id="validationCustom02" placeholder="Texto alterno de imagen" required>
-                                            </div>
-                                        </div>
-                                        </div>
+
                                         <div class="imagen-producto" style="width:24%; display:inline-block;">
                                             <h4>Imagen de producto</h4>
-                                            <img id="category-img-tag1" src="{{asset('../img/upload.jpg')}}" alt=""
-                                                style="width: 150px;" />
+                                            <img id="category-img-tag1" src="{{asset('../img/upload.jpg')}}" alt=""style="width: 150px;" />
                                             <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
-                                            <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto
-                                            </h6>
+                                            <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image1" name="Foto" type="file" accept="image/*"/>
+                                                <input id="cat_image1" name="Foto2" type="file" accept="image/*" class="@error('Foto2') is-invalid @enderror"/>
+                                                @error('Foto2')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <label for="validationCustom02" style="text-align: left;">Titulo de la imagen</label>
+                                                <label for="Titulo2" style="text-align: left;">Titulo de la imagen</label>
                                                 <div>
-                                                    <input type="text" class="form-control" id="validationCustom02" placeholder="Titulo" required>
+                                                    <input type="text" class="form-control @error('Titulo2') is-invalid @enderror" value="{{ old('Titulo2') }}" name="Titulo2" id="Titulo2" placeholder="Titulo" required>
+                                                    @error('Titulo2')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <label for="validationCustom02" style="text-align: left;">Texto alternado</label>
+                                                <label for="TextoAlterno2" style="text-align: left;">Texto alternado</label>
                                                 <div>
-                                                    <input type="text" class="form-control" id="validationCustom02" placeholder="Texto alterno de imagen" required>
+                                                    <input type="text" class="form-control @error('TextoAlterno2') is-invalid @enderror" value="{{ old('TextoAlterno2') }}" name="TextoAlterno2" id="TextoAlterno2" placeholder="Texto alterno de imagen" required>
+                                                    @error('TextoAlterno2')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="imagen-producto" style="width:24%; display:inline-block;">
-                                                <h4>Imagen de producto</h4>
-                                                <img id="category-img-tag2" src="{{asset('../img/upload.jpg')}}" alt=""
-                                                    style="width: 150px;" />
-                                                <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
-                                                <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto
-                                                </h6>
-                                                <div class="form-group col-md-12">
-                                                    <input id="cat_image2" name="Foto" type="file" accept="image/*"/>
+                                            <h4>Imagen de producto</h4>
+                                            <img id="category-img-tag2" src="{{asset('../img/upload.jpg')}}" alt=""style="width: 150px;" />
+                                            <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
+                                            <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
+                                            <div class="form-group col-md-12">
+                                                <input id="cat_image2" name="Foto3" type="file" accept="image/*"class="@error('Foto3') is-invalid @enderror" />
+                                                @error('Foto3')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
                                                 </div>
-                                                <div class="form-group col-md-12">
-                                                    <label for="validationCustom02" style="text-align: left;">Titulo de la imagen</label>
-                                                    <div>
-                                                        <input type="text" class="form-control" id="validationCustom02" placeholder="Titulo" required>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="Titulo3" style="text-align: left;">Titulo de la imagen</label>
+                                                <div>
+                                                    <input type="text" class="form-control @error('Titulo3') is-invalid @enderror" value="{{ old('Titulo3') }}" name="Titulo3" id="Titulo3" placeholder="Titulo" required>
+                                                    @error('Titulo3')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
                                                     </div>
+                                                    @enderror
                                                 </div>
-                                                <div class="form-group col-md-12">
-                                                    <label for="validationCustom02" style="text-align: left;">Texto alternado</label>
-                                                    <div>
-                                                        <input type="text" class="form-control" id="validationCustom02" placeholder="Texto alterno de imagen" required>
-                                                    </div>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="TextoAlterno3" style="text-align: left;">Texto alternado</label>
+                                                <div>
+                                                    <input type="text" class="form-control @error('TextoAlterno3') is-invalid @enderror" value="{{ old('TextoAlterno3') }}" name="TextoAlterno3" id="TextoAlterno3" placeholder="Texto alterno de imagen" required>
+                                                    @error('TextoAlterno3')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
+                                            </div>
                                         </div>
+
                                         <div class="imagen-producto" style="width:24%; display:inline-block;">
-                                                    <h4>Imagen de producto</h4>
-                                                    <img id="category-img-tag3" src="{{asset('../img/upload.jpg')}}" alt=""
-                                                        style="width: 150px;" />
-                                                    <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
-                                                    <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto
-                                                    </h6>
-                                                    <div class="form-group col-md-12">
-                                                        <input id="cat_image3" name="Foto" type="file" accept="image/*"/>
+                                            <h4>Imagen de producto</h4>
+                                            <img id="category-img-tag3" src="{{asset('../img/upload.jpg')}}" alt=""style="width: 150px;" />
+                                            <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
+                                            <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
+                                            <div class="form-group col-md-12">
+                                                <input id="cat_image3" name="Foto4" type="file" accept="image/*" class="@error('Foto4') is-invalid @enderror"/>
+                                                @error('Foto4')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
                                                     </div>
-                                                    <div class="form-group col-md-12">
-                                                        <label for="validationCustom02" style="text-align: left;">Titulo de la imagen</label>
-                                                        <div>
-                                                            <input type="text" class="form-control" id="validationCustom02" placeholder="Titulo" required>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="Titulo4" style="text-align: left;">Titulo de la imagen</label>
+                                                <div>
+                                                    <input type="text" class="form-control @error('Titulo4') is-invalid @enderror" value="{{ old('Titulo4') }}" name="Titulo4" id="Titulo4" placeholder="Titulo" required>
+                                                    @error('Titulo4')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group col-md-12">
-                                                        <label for="validationCustom02" style="text-align: left;">Texto alternado</label>
-                                                        <div>
-                                                            <input type="text" class="form-control" id="validationCustom02" placeholder="Texto alterno de imagen" required>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="TextoAlterno4" style="text-align: left;">Texto alternado</label>
+                                                <div>
+                                                    <input type="text" class="form-control @error('TextoAlterno4') is-invalid @enderror" value="{{ old('TextoAlterno4') }}" name="TextoAlterno4" id="TextoAlterno4" placeholder="Texto alterno de imagen" required>
+                                                    @error('TextoAlterno4')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
                                                         </div>
-                                                    </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         </div>
+
                                         <div class="form-group col-md-12">
-                                            <button class="btn btn-danger" type="submit">Cancelar</button>
+                                            <a href="{{route('productos.list')}}" class="btn btn-danger">Cancelar</a>
                                             <button class="btn btn-primary" type="submit">Guardar</button>
                                         </div>
                                     </div>
