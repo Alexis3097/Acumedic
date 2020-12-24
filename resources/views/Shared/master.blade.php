@@ -33,9 +33,8 @@
   </div>
   <!-- Fin de navbar -->
 </header>
-@yield('content')
 <body>
-
+@yield('content')
   <footer>
     <div class="container">
       <div class="row">
@@ -104,7 +103,6 @@
   </div>
   <!-- fin pie de página -->
   <!-- main -->
-  @yield('content')
   <script src="{{asset('js/bootstrap.min.js')}}"></script>
   <script src="{{asset('js/all.js')}}"></script>
   <script src="{{asset('js/jquery.js')}}"></script>

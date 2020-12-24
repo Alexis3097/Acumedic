@@ -12,7 +12,7 @@
           <div class="col-xs-2 col-md-3">
             <div class="redirect">
               <h3><i class="icono fas fa-home"></i><a style="color:#fff;" href="{{ route('inicio') }}">Inicio</a><i
-                  class="icono fas fa-chevron-right"></i> Contactaaa</h3>
+                  class="icono fas fa-chevron-right"></i> Contacto</h3>
             </div>
           </div>
         </div>
