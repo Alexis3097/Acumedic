@@ -25,7 +25,7 @@
       <ul class="nav no-search">
         <li class="nav-item"><a href="{{ route('inicio') }}">Inicio</a></li>
         <li class="nav-item"><a href="{{ route('nosotros') }}">Nosotros</a></li>
-        <li class="nav-item"><a href="">Servicios</a></li>
+        <li class="nav-item"><a href="{{route('servicios')}}">Servicios</a></li>
         <li class="nav-item"><a href="{{ route('contacto') }}">Contacto</a></li>
         <li class="nav-item"><a href="{{route('productos')}}"class="btn-nav">Productos</a></li>
       </ul>
@@ -39,7 +39,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4 footer-logo">
-          <figure class="figure-footer"><img src="{{asset('img/acumedic-logo.png')}}" alt=""></figure>
+          <figure class="figure-footer">
+            <!-- <a href="{{route('inicio')}}"> -->
+              <img src="{{asset('img/acumedic-logo.png')}}" alt="">
+            <!-- </a> -->
+          </figure>
           <div class="desc">
             <p class="descripcion">Centro especializado en Acupuntura-Naturopatia y geriatría. Diplomados profesionales en salud alternativa</p>
             <ul>

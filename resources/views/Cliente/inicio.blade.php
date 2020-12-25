@@ -101,38 +101,20 @@
           <p class="desc-section">Nullam quis dolor sed ante ultricies mattis. Mauris luctus felis nec nulla eleifend
             pulvinar. In imperdiet mi vitae quam placerat dapibus.</p>
         </div>
-        <div class="col-md-4">
-          <div class="servicio-content">
-            <div class="img"><img src="img/tijuana.svg" alt="">
-              <p class="titulo-servicio">Pediluvio ionico detox</p>
-            </div>
-            <div class="desc">
-              <p>45 minutos como mínimo · $300
-                Desintoxicación ionica.
-                </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="servicio-content">
-            <div class="img"><img src="img/tijuana.svg" alt="">
-              <p class="titulo-servicio">Consulta integral</p>
-            </div>
-            <div class="desc">
-              <p>L45 minutos como mínimo · $650.</p>
+        @foreach($servicios as $servicio)
+          <div class="col-md-4">
+            <div class="servicio-content">
+              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicio->Logo)}}" alt="{{$servicio->TextoLogo}}">
+                <p class="titulo-servicio">{{$servicio->Nombre}}</p>
+              </div>
+              <div class="desc">
+                <p>{{$servicio->DescripcionCorta}}</p>
+                <p>${{$servicio->Precio}}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="servicio-content">
-            <div class="img"><img src="img/tijuana.svg" alt="">
-              <p class="titulo-servicio">Acupuntura</p>
-            </div>
-            <div class="desc">
-              <p>30 minutos como mínimo · 650. Servicio profesional de acupuntura.</p>
-            </div>
-          </div>
-        </div>
+        @endforeach
+       
       </div>
     </div>
   </section>

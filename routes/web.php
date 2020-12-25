@@ -19,35 +19,33 @@ Auth::routes();
 
 
 //Rutas de cliente
-Route::get('/', function () {
-    return view('Cliente.inicio');
-})->name('inicio');
+//INDEX
+Route::get('/', 'Cliente\HomeController@index')->name('inicio');
 
 Route::get('/nosotros', function () {
     return view('Cliente.nosotros');
 })->name('nosotros');
 
-Route::get('/servicios', function () {
-    return view('Cliente.servicios');
-})->name('servicios');
-
 Route::get('/contacto', function () {
     return view('Cliente.contacto');
 })->name('contacto');
-
-Route::get('/servicio-detallado', function () {
-    return view('Cliente.servicio-detallado');
-})->name('servicio-detallado');
 
 Route::get('/consulta', function () {
     return view('Cliente.consulta-integral');
 })->name('consulta');
 
-Route::get('/p', function () {
-    return view('Cliente.producto-detallado');
-})->name('producto');
-Route::get('/productos-venta', 'Cliente\ProductoController@index')->name('productos');
-Route::get('/productos-venta/detallado/{id}', 'Cliente\ProductoController@show')->name('productos.detallado');
+// SERVICIOS
+Route::get('/servicios', 'Cliente\ServicioController@index')->name('servicios');
+Route::get('/servicios/detallado/{id}', 'Cliente\ServicioController@show')->name('servicio.detallado');
+
+Route::get('/servicio-detallado', function () {
+    return view('Cliente.servicio-detallado');
+})->name('servicio-detallado');
+
+//PRODUCTOS
+Route::get('/productos', 'Cliente\ProductoController@index')->name('productos');
+Route::get('/productos/detallado/{id}', 'Cliente\ProductoController@show')->name('productos.detallado');
+
 //-------------------------------Rutas de administrador-------------------------------
 Route::get('/home', 'HomeController@index')->name('home');
 //CITAS
@@ -155,7 +153,7 @@ Route::group(['middleware' => ['permission:ListadoUsuarios|CrearUsuario|EditarUs
     Route::post('/usuarios/password', 'usuariosController@changePassword')->name('usuarios.changePassword');
 });
 // PRODUCTOS
-Route::get('/productos', 'ProductosController@index')->name('productos.list');
+Route::get('/listado-productos', 'ProductosController@index')->name('productos.list');
 Route::get('/productos/nuevo', 'ProductosController@create')->name('productos.create');
 Route::post('/productos/crear', 'ProductosController@store')->name('productos.store');
 Route::get('/productos/editar/{id}', 'ProductosController@edit')->name('productos.edit');
@@ -164,8 +162,13 @@ Route::delete('/productos/eliminar', 'ProductosController@destroy')->name('produ
 Route::get('/productos/buscar', 'ProductosController@buscar')->name('productos.buscar');
 
 // SERVICIOS
-Route::get('/servicios', 'ServicioController@index')->name('servicios.list');
+Route::get('/listado-servicios', 'ServicioController@index')->name('servicios.list');
 Route::get('/servicios/nuevo', 'ServicioController@create')->name('servicios.create');
+Route::post('/servicios/guardar', 'ServicioController@store')->name('servicios.store');
+Route::get('/servicios/editar/{id}', 'ServicioController@edit')->name('servicios.edit');
+Route::put('/servicios/actualizar/{id}', 'ServicioController@update')->name('servicios.update');
+Route::delete('/servicios/eliminar', 'ServicioController@destroy')->name('servicios.destroy');
+Route::get('/servicios/buscar', 'ServicioController@buscar')->name('servicios.buscar');
 
 //=============================PERMISOS================================================================
 Route::group(['middleware' => ['permission:ListarRoles|CrearRol|EditarRol|EliminarRol']], function () {

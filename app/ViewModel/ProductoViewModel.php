@@ -217,8 +217,8 @@ class ProductoViewModel
   }
 
   public function buscarProducto($nombre){
-    $usuario = Producto::where('Nombre', 'like','%' . $nombre. '%')
+    $producto = Producto::where('Nombre', 'like','%' . $nombre. '%')
                   ->get();
-      return $usuario;
+      return $producto;
   }
 }

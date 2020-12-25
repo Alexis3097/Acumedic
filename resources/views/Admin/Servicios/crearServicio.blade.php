@@ -29,74 +29,114 @@
                         <div class="col-lg-8">
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="needs-validation row" novalidate>
+                                    <form action="{{route('servicios.store' )}}" method="post" class="row" enctype="multipart/form-data">
+                                        @csrf
                                         <div class="form-group col-md-12">
                                             <label for="Nombre">Nombre del servicio</label>
-                                            <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Nombre del servicio" required>
-                                            <div class="valid-feedback">
-                                                Guardado
-                                            </div>
+                                            <input type="text" class="form-control @error('Nombre') is-invalid @enderror" value="{{ old('Nombre')}}" name="Nombre" id="Nombre" placeholder="Nombre del servicio" required>
+                                            @error('Nombre')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="Precio">Precio</label>
+                                            <input type="text" class="form-control @error('Precio') is-invalid @enderror" value="{{ old('Precio')}}" name="Precio" id="Precio" placeholder="Precio del servicio" required>
+                                            @error('Precio')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="DescripcionCorta">Descripción corta (Máximo 200 caracteres)</label>
-                                            <input type="text" class="form-control"  name="DescripcionCorta" id="DescripcionCorta" maxlength="200" placeholder="Descripcióncorta" required>
-                                            <div class="valid-feedback">
-                                                Guardado
-                                            </div>
+                                            <input type="text" class="form-control @error('DescripcionCorta') is-invalid @enderror"  value="{{ old('DescripcionCorta')}}" name="DescripcionCorta" id="DescripcionCorta" maxlength="200" placeholder="Descripción corta" required>
+                                            @error('DescripcionCorta')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="DescripcionLarga">Descripción larga del servicio</label>
                                             <div>
-                                                <textarea name="DescripcionLarga" id="DescripcionLarga" required class="form-control" style="height: 55vh;"></textarea>
+                                                <textarea name="DescripcionLarga" id="DescripcionLarga" required class="form-control @error('DescripcionLarga') is-invalid @enderror" style="height: 55vh;">{{ old('DescripcionLarga')}}</textarea>
                                             </div>
+                                            @error('DescripcionLarga')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <button class="btn btn-danger" type="submit">Cancelar</button>
+                                            <a href="{{ route('servicios.list')}}" class="btn btn-danger" >Cancelar</a>
                                             <button class="btn btn-primary" type="submit">Guardar servicio</button>
                                         </div>
-                                    </form>
+                                    
 
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-                        <div class="col-lg-4">
-                            <div class="card">
-                                <div class="card-body pb-0">
-                                <div class=" mt-3" style="padding-bottom:4%" >
-                                    <h4>Logo de servicio</h4>
-                                        <img id="category-img-tag" src="{{asset('../img/upload.jpg')}}" alt=""
-                                            style="width: 150px;" />
-                                        <h5 class="mt-2 mb-0">Asi se ve tu logo de servicio</h5>
-                                        <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu logo de servicio
-                                        </h6>
-                                        <div class="form-group col-md-12">
-                                            <input id="cat_image" name="Logo" type="file" accept="image/*"/>
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <label for="TextoLogo" style="text-align: left;">Texto alternado</label>
-                                            <div>
-                                                <input type="text" class="form-control" name="TextoLogo" id="TextoLogo" placeholder="Texto alternado de tu imagen" required>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                            <div class="col-lg-4">
+                                <div class="card">
+                                    <div class="card-body pb-0">
+                                    <div class=" mt-3" style="padding-bottom:4%" >
+                                        <h4>Logo de servicio</h4>
+                                            <img id="category-img-tag" src="{{asset('../img/upload.jpg')}}" alt=""
+                                                style="width: 150px;" />
+                                            <h5 class="mt-2 mb-0">Asi se ve tu logo de servicio</h5>
+                                            <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu logo de servicio
+                                            </h6>
+                                            <div class="form-group col-md-12">
+                                                <input id="cat_image" name="Logo" type="file" accept="image/*"/>
+                                                @if ($errors->has('Logo'))
+                                                    <span class="help-block text-danger">
+                                                        <strong>{{$errors->first('Logo')}}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="TextoLogo" style="text-align: left;">Texto alternado</label>
+                                                <div>
+                                                    <input type="text" class="form-control @error('TextoLogo') is-invalid @enderror" value="{{ old('TextoLogo') }}" name="TextoLogo" id="TextoLogo" placeholder="Texto alternado de tu imagen" required>
+                                                    @error('TextoLogo')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <h4>Imagen de tu servicio</h4>
+                                            <img id="category-img-tag1" src="{{asset('../img/upload.jpg')}}" alt=""
+                                                style="width: 150px;" />
+                                            <h5 class="mt-2 mb-0">Asi se ve la imagen de tu servicio</h5>
+                                            <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu logo de servicio
+                                            </h6>
+                                            <div class="form-group col-md-12">
+                                                <input id="cat_image1" name="Imagen" type="file" accept="image/*"/>
+                                                @if ($errors->has('Imagen'))
+                                                    <span class="help-block text-danger">
+                                                        <strong>{{$errors->first('Imagen')}}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="TextoImagen" style="text-align: left;">Texto alternado</label>
+                                                <div>
+                                                    <input type="text" class="form-control @error('TextoImagen') is-invalid @enderror" value="{{ old('TextoImagen')}}" name="TextoImagen" id="TextoImagen" placeholder="Texto alternado de tu imagen" required>
+                                                    @error('TextoImagen')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
                                             </div>
                                         </div>
-                                        <h4>Imagen de tu servicio</h4>
-                                        <img id="category-img-tag1" src="{{asset('../img/upload.jpg')}}" alt=""
-                                            style="width: 150px;" />
-                                        <h5 class="mt-2 mb-0">Asi se ve la imagen de tu servicio</h5>
-                                        <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu logo de servicio
-                                        </h6>
-                                        <div class="form-group col-md-12">
-                                            <input id="cat_image1" name="Imagen" type="file" accept="image/*"/>
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <label for="TextoImagen" style="text-align: left;">Texto alternado</label>
-                                            <div>
-                                                <input type="text" class="form-control" name="TextoImagen" id="TextoImagen" placeholder="Texto alternado de tu imagen" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div>
+                        </form>
                     </div>
                     <!-- end row -->
                     <!-- stats + charts -->

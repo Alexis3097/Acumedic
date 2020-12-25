@@ -22,6 +22,9 @@
                         </div>
                     </div>
                 </form>
+                <div class="form-group mb-4">
+                    <a href="{{route('servicios.list')}}"  class="form-control btn btn-small width-xs btn-info">Todos los servicios</a>
+                </div>
 
                     <!-- content -->
                     <!-- row -->
@@ -41,7 +44,6 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Nombre de Servicio</th>
-                                                    <th scope="col">Precio del Servicio</th>
                                                     <th scope="col">Acciones</th>
                                                 </tr>
                                             </thead>
@@ -51,7 +53,6 @@
                                                         <tr>
                                                             <input type="hidden" value="{{ $servicio->id}}">
                                                             <td>{{$servicio->Nombre}}</td>
-                                                            <td>${{$servicio->Precio}}</td>
                                                             <td>
                                                                 <a href="{{route('servicios.edit',['id'=>$servicio->id])}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
                                                                 <button type="button" class="btn btn-outline-danger delete" name="delete_modal" data-toggle="modal" data-target="#eliminarServicio" ><i class="fa fa-trash"></i></button>
@@ -60,7 +61,6 @@
                                                         </tr>
                                                     @endforeach
                                                 </div>
-                                                {{$servicios->links() }}
                                             </tbody>
                                         </table>
                                     </div> <!-- end table-responsive-->

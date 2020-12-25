@@ -6,13 +6,13 @@
         <div class="row">
           <div class="col-md-9 ">
             <div class="title">
-              <h2>Nombre de tu servicio</h2>
+              <h2>{{$servicio->Nombre}}</h2>
             </div>
           </div>
           <div class="col-md-3">
             <div class="redirect">
               <h3><i class="icono fas fa-home"></i><a style="color:#fff;" href="{{ route('inicio') }}">Inicio</a><i
-                  class="icono fas fa-chevron-right"></i> nombre de tu servicio</h3>
+                  class="icono fas fa-chevron-right"></i> Servicio detallado</h3>
             </div>
           </div>
         </div>
@@ -35,16 +35,16 @@
                 </div>
                 <div class="col-md-9">
                     <div class="col-md-12 bg-servicio">
-                        <img src="img/bg-4.jpg" alt="">
+                        <img src="{{asset('../uploads/servicios/'.$servicio->Imagen)}}"  alt="{{$servicio->TextoImagen}}">
                     </div>
                     <div class="col-md-12">
                         <h1 class="titulo-servicio">
-                            Nombre de tu servicio
+                        {{$servicio->Nombre}}
                         </h1>
                     </div>
                     <div class="col-md-12">
                         <p class="descripcion-detail">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis nam omnis necessitatibus hic ut nihil voluptatem atque eos, beatae nesciunt temporibus unde ullam id debitis soluta nisi. Eius, maxime iste!
+                           {{$servicio->DescripcionLarga}}
                         </p>
                     </div>
                 </div>

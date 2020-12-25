@@ -24,48 +24,20 @@
       <div class="container cont">
         <div class="row">
           <div class="col-md-12">
-            <div class="col-md-4 servicio-col">
-              <div class="container-servicio">
-                <div class="img">
-                  <img src="img/bg-4.jpg" alt="servicio-detail">
-                </div>
-                <div class="desc">
-                  <h2 class="titulo-servicio">Homeopatía</h2>
-                  <p class="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel saepe accusantium
-                    repellendus aspernatur quisquam et ducimus rem commodi animi tempore culpa iusto odio sapiente vero
-                    quo aut, magni inventore! Repudiandae?</p>
-                  <a href="{{ route('servicio-detallado') }}" class="goToServicio">Leer más</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 servicio-col">
-              <div class="container-servicio">
-                <div class="img">
-                  <img src="img/bg-4.jpg" alt="servicio-detail">
-                </div>
-                <div class="desc">
-                  <h2 class="titulo-servicio">Homeopatía</h2>
-                  <p class="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel saepe accusantium
-                    repellendus aspernatur quisquam et ducimus rem commodi animi tempore culpa iusto odio sapiente vero
-                    quo aut, magni inventore! Repudiandae?</p>
-                  <a href="{{ route('servicio-detallado') }}" class="goToServicio">Leer más</a>
+            @foreach($servicios as $servicio)
+              <div class="col-md-4 servicio-col">
+                <div class="container-servicio">
+                  <div class="img">
+                    <img src="img/bg-4.jpg" alt="servicio-detail">
+                  </div>
+                  <div class="desc">
+                    <h2 class="titulo-servicio">{{$servicio->Nombre}}</h2>
+                    <p class="descripcion">{{$servicio->DescripcionCorta}}</p>
+                    <a href="{{ route('servicio.detallado',['id'=>$servicio->id]) }}" class="goToServicio">Leer más</a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-md-4 servicio-col">
-              <div class="container-servicio">
-                <div class="img">
-                  <img src="img/bg-4.jpg" alt="servicio-detail">
-                </div>
-                <div class="desc">
-                  <h2 class="titulo-servicio">Homeopatía</h2>
-                  <p class="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel saepe accusantium
-                    repellendus aspernatur quisquam et ducimus rem commodi animi tempore culpa iusto odio sapiente vero
-                    quo aut, magni inventore! Repudiandae?</p>
-                  <a href="{{ route('servicio-detallado') }}" class="goToServicio">Leer más</a>
-                </div>
-              </div>
-            </div>
+            @endforeach
           </div>
         </div>
       </div>
