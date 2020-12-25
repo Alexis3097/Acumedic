@@ -247,5 +247,6 @@
     @yield('scriptVentas')
     @yield('scriptDesc1')
     @yield('scriptDesc2')
+    @yield('changeUserPassword')
     </body>
 </html>

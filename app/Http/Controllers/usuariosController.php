@@ -8,6 +8,7 @@ use App\Http\Requests\StoreUsuario;
 use App\ViewModel\UsuarioViewModel;
 use App\Http\Requests\UpdateUsuario;
 use App\ViewModel\PermisosViewModel;
+use App\Http\Requests\UpdateUserPassword;
 use App\Http\Requests\BuscarPacienteXCita;
 
 class usuariosController extends Controller
@@ -57,5 +58,13 @@ class usuariosController extends Controller
     {
         $usuarios = $UsuarioViewModel->buscarUsuario($request->Nombre);
         return view('Admin.Usuarios.usuariosBusqueda',compact('usuarios'));
+    }
+
+    public function changePassword(UpdateUserPassword $request, UsuarioViewModel $UsuarioViewModel){
+
+        if($request->ajax()){
+            $usuario = $UsuarioViewModel->changePassword($request->idUsuario, $request->password);
+        }
+       
     }
 }

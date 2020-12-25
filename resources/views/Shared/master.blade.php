@@ -27,7 +27,7 @@
         <li class="nav-item"><a href="{{ route('nosotros') }}">Nosotros</a></li>
         <li class="nav-item"><a href="">Servicios</a></li>
         <li class="nav-item"><a href="{{ route('contacto') }}">Contacto</a></li>
-        <li class="nav-item"><a href="#"class="btn-nav">Productos</a></li>
+        <li class="nav-item"><a href="{{route('productos')}}"class="btn-nav">Productos</a></li>
       </ul>
     </nav>
   </div>

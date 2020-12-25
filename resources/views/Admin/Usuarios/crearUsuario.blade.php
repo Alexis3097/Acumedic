@@ -100,7 +100,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label
-                                            for="password2">Repita la contraseña</label>
+                                            for="password_confirmation">Repita la contraseña</label>
                                             <input id="password-confirm" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" placeholder="Repita la contraseña" required autocomplete="new-password">
                                             @error('password_confirmation')
                                                 <div class="invalid-feedback">

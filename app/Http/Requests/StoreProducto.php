@@ -30,12 +30,12 @@ class StoreProducto extends FormRequest
             'CodigoBarra' => 'required_without_all:check',
             'DescripcionCorta' => 'required',
             'DescripcionLarga' => 'required',
-            'Foto1' => 'image|max:2048',
+            'Foto1' => 'image|max:2048|required',
             'Foto2' => 'image|max:2048',
             'Foto3' => 'image|max:2048',
             'Foto4' => 'image|max:2048',
-            'Titulo1' => 'required_with:Foto1',
-            'TextoAlterno1' => 'required_with:Foto1',
+            'Titulo1' => 'required',
+            'TextoAlterno1' => 'required',
 
             'Titulo2' => 'required_with:Foto2',
             'TextoAlterno2' => 'required_with:Foto2',
@@ -62,6 +62,7 @@ class StoreProducto extends FormRequest
 
             'Foto1.image' => 'Debe agregar una imagen',
             'Foto1.max' => 'El tamaño en GB supera lo permitido',
+            'Foto1.required' => 'La foto es requerida',
             'Foto2.image' => 'Debe agregar una imagen',
             'Foto2.max' => 'El tamaño en GB supera lo permitido',
             'Foto3.image' => 'Debe agregar una imagen',
@@ -69,8 +70,8 @@ class StoreProducto extends FormRequest
             'Foto4.image' => 'Debe agregar una imagen',
             'Foto4.max' => 'El tamaño en GB supera lo permitido',
 
-            'Titulo1.required_with' => 'El titulo es requerido',
-            'TextoAlterno1.required_with' => 'El texto alternado es requerido',
+            'Titulo1.required' => 'El titulo es requerido',
+            'TextoAlterno1.required' => 'El texto alternado es requerido',
 
             'Titulo2.required_with' => 'El titulo es requerido',
             'TextoAlterno2.required_with' => 'El texto alternado es requerido',

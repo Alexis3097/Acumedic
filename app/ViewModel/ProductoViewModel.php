@@ -3,6 +3,7 @@
 namespace App\ViewModel;
 use App\Models\Producto;
 use App\Models\fotoProducto;
+use DB;
 class ProductoViewModel
 {
 
@@ -203,5 +204,21 @@ class ProductoViewModel
   public function getProducto($IdProducto)
   {
     return Producto::find($IdProducto);
+  }
+
+  public function ProductosParaVenta()
+  {
+    return Producto::all();
+  }
+
+  public function otrosProductosParaVenta($id)
+  {
+    return Producto::where('id', '!=',$id)->take(4)->orderBy('id','desc')->get();
+  }
+
+  public function buscarProducto($nombre){
+    $usuario = Producto::where('Nombre', 'like','%' . $nombre. '%')
+                  ->get();
+      return $usuario;
   }
 }

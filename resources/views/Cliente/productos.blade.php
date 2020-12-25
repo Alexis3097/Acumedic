@@ -20,58 +20,21 @@
       <section class="productos-page">
           <div class="container">
               <div class="row">
-                <div class="col-md-3 single-product">
-                    <div class="img-producto">
-                        <img src="img/product-1.jpg" alt="product1uwu">
+                @foreach($productos as $producto)
+                    <div class="col-md-3 single-product">
+                        <div class="img-producto">
+                            <img src="{{asset('../uploads/productos/'.$producto->fotoProductos[0]->Nombre)}}" 
+                            alt="{{$producto->fotoProductos[0]->TextoAlterno}}" title="{{$producto->fotoProductos[0]->Titulo}}">
+                        </div>
+                        <div class="desc">
+                            <h3 class="title-product">{{$producto->Nombre}}</h3>
+                            <p class="precio-text">Precio en acumedic:<span class="precio"> ${{$producto->PrecioPublico}}</span></p>
+                        </div>
+                        <div class="button">
+                            <a href="{{route('productos.detallado',['id' => $producto->id])}}" class="btn-2" style="text-align: center;">Ver</a>
+                        </div>
                     </div>
-                    <div class="desc">
-                        <h3 class="title-product">Producto</h3>
-                        <p class="precio-text">Precio en acumedic:<span class="precio">$500.00</span></p>
-                        <p class="precio-text">Precio en otros:<span class="precio-t">$500.00</span></p>
-                    </div>
-                    <div class="button">
-                        <a href="#" class="btn-2" style="text-align: center;">Ver</a>
-                    </div>
-                </div>
-                <div class="col-md-3 single-product">
-                    <div class="img-producto">
-                        <img src="img/product-1.jpg" alt="product1uwu">
-                    </div>
-                    <div class="desc">
-                        <h3 class="title-product">Producto</h3>
-                        <p class="precio-text">Precio en acumedic:<span class="precio">$500.00</span></p>
-                        <p class="precio-text">Precio en otros:<span class="precio-t">$500.00</span></p>
-                    </div>
-                    <div class="button">
-                        <a href="#" class="btn-2" style="text-align: center;">Ver</a>
-                    </div>
-                </div>
-                <div class="col-md-3 single-product">
-                    <div class="img-producto">
-                        <img src="img/product-1.jpg" alt="product1uwu">
-                    </div>
-                    <div class="desc">
-                        <h3 class="title-product">Producto</h3>
-                        <p class="precio-text">Precio en acumedic:<span class="precio">$500.00</span></p>
-                        <p class="precio-text">Precio en otros:<span class="precio-t">$500.00</span></p>
-                    </div>
-                    <div class="button">
-                        <a href="#" class="btn-2" style="text-align: center;">Ver</a>
-                    </div>
-                </div>
-                <div class="col-md-3 single-product">
-                    <div class="img-producto">
-                        <img src="img/product-1.jpg" alt="product1uwu">
-                    </div>
-                    <div class="desc">
-                        <h3 class="title-product">Producto</h3>
-                        <p class="precio-text">Precio en acumedic:<span class="precio">$500.00</span></p>
-                        <p class="precio-text">Precio en otros:<span class="precio-t">$500.00</span></p>
-                    </div>
-                    <div class="button">
-                        <a href="#" class="btn-2" style="text-align: center;">Ver</a>
-                    </div>
-                </div>
+                @endforeach
               </div>
           </div>
       </section>

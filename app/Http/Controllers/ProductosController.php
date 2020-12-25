@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProducto;
 use App\ViewModel\ProductoViewModel;
+use App\Http\Requests\buscarProducto;
 use App\Http\Requests\UpdateProducto;
 
 class ProductosController extends Controller
@@ -23,7 +24,6 @@ class ProductosController extends Controller
     public function index(ProductoViewModel $ProductoViewModel)
     {
         $productos = $ProductoViewModel->getProductos();
-        // $productos->fotoProductos();
         return view('Admin.Productos.productos',compact('productos'));
     }
 
@@ -85,5 +85,10 @@ class ProductosController extends Controller
     {
         $producto = $ProductoViewMode->delete($request->IdModal);
         return redirect()->route('productos.list');
+    }
+
+    public function buscar(buscarProducto $request, ProductoViewModel $ProductoViewModel){
+        $productos = $ProductoViewModel->buscarProducto($request->Nombre);
+        return view('Admin.Productos.buscarProductos',compact('productos'));
     }
 }

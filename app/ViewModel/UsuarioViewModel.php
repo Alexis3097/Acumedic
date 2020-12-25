@@ -70,4 +70,11 @@ class UsuarioViewModel
                   ->get();
       return $usuario;
     }
+
+    public function changePassword($IdUsuario, $password){
+      $usuario = User::find($IdUsuario);
+      $pass = Hash::make($password);
+      $usuario->password = $pass;
+      $usuario->save();
+    }
 }

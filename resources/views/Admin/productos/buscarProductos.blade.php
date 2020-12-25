@@ -4,24 +4,27 @@
 <div class="content-page">
             <div class="content">
                 <div class="container-fluid">
-                <form action="{{route('productos.buscar')}}" method="get">
-                    <div class="row page-title align-items-center">
-                        <div class="col-sm-6 col-md-6 col-xl-6">
-                            <h4 class="mb-1 mt-0">Buscar producto</h4>
-                            <div class="input-group">
-                                <input type="text" name="Nombre" class="form-control col-lg-12 @error('Nombre') is-invalid @enderror" placeholder="Buscar producto" required>
-                                @error('Nombre')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                    <form action="{{route('productos.buscar')}}" method="get">
+                        <div class="row page-title align-items-center">
+                            <div class="col-sm-6 col-md-6 col-xl-6">
+                                <h4 class="mb-1 mt-0">Buscar producto</h4>
+                                <div class="input-group">
+                                    <input type="text" name="Nombre" class="form-control col-lg-12 @error('Nombre') is-invalid @enderror" placeholder="Buscar producto" required>
+                                    @error('Nombre')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group mb-3" style="display:inline-block;">
+                                    <button type="submit" style="margin:38px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
                             </div>
                         </div>
-                        <div class="form-group mb-3" style="display:inline-block;">
-                                <button type="submit" style="margin:38px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
-                        </div>
+                    </form>
+                    <div class="form-group mb-4">
+                        <a href="{{route('productos.list')}}"  class="form-control btn btn-small width-xs btn-info">Todos los productos</a>
                     </div>
-                </form>
 
                     <!-- content -->
                     <!-- row -->
@@ -63,7 +66,7 @@
                                                     </tr>
                                                 @endforeach
                                                 </div>
-                                                {{ $productos->links() }}
+                                                
                                             </tbody>
                                         </table>
                                     </div> <!-- end table-responsive-->
