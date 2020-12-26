@@ -41,7 +41,7 @@
                                                     
                                                     <td>
                                                         <button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verDescripcion1" ><i class="fa fa-eye"></i></button>
-                                                        <button type="button" class="btn btn-outline-warning"><i class="fa fa-edit"></i></button>
+                                                        <a href="{{ route('sobreNosotros.descripcion')}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
 
                                                     </td>
                                                 </tr>
@@ -50,7 +50,7 @@
                                                     
                                                     <td>
                                                         <button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verDescripcion2" ><i class="fa fa-eye"></i></button>
-                                                        <button type="button" class="btn btn-outline-warning"  ><i class="fa fa-edit"></i></button>
+                                                        <a href="{{ route('sobreNosotros.historia')}}" class="btn btn-outline-warning"  ><i class="fa fa-edit"></i></a>
                                                     </td>
                                                 </tr>
                                                 <tr>

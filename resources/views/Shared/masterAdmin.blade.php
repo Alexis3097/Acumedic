@@ -157,60 +157,77 @@
                                 </a>
                             </li>
                             <li class="menu-title">Funciones</li>
-                            @canany(['ListadoCitas','CrearCita','EditarCita','EliminarCita','CrearFicha','Consulta'])
-                            <li>
-                                <a href="{{ route('citas.list') }}">
-                                     <i data-feather="calendar"></i>
-                                    <span> Citas </span>
-                                </a>
-                            </li>
-                            @endcan
-                            @canany(['ListadoPacientes','CrearPaciente','EditarPaciente','EliminarPaciente','ListadoFicha','Consulta'])
-                            <li>
-                                <a href="{{ route('paciente.list') }}">
-                                    <i data-feather="user"></i>
-                                    <span> Pacientes </span>                                  
-                                </a>
-                            </li>
-                            @endcan
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                                    <i data-feather="shopping-cart"></i>
-                                    <span > Ventas </span>
-                                    <span data-feather="chevron-down" class="ml-2 align-self-center"></span>
-                                </a>
-                                <div class="dropdown-menu profile-dropdown-items dropdown-menu-right">
-                                    <a href="{{ route('productos.list')}}" class="dropdown-item notify-item">
-                                        <i data-feather="package" class="icon-dual icon-xs mr-2"></i>
-                                        <span>Productos</span>
+                            @if(auth()->user()->can('ListadoCitas'))
+                                @canany(['ListadoCitas','CrearCita','EditarCita','EliminarCita','CrearFicha','Consulta'])
+                                    <li>
+                                        <a href="{{ route('citas.list') }}">
+                                            <i data-feather="calendar"></i>
+                                            <span> Citas </span>
+                                        </a>
+                                    </li>
+                                 @endcan
+                            @endif
+                            @if(auth()->user()->can('ListadoPacientes'))
+                                @canany(['ListadoPacientes','CrearPaciente','EditarPaciente','EliminarPaciente','ListadoFicha','Consulta'])
+                                <li>
+                                    <a href="{{ route('paciente.list') }}">
+                                        <i data-feather="user"></i>
+                                        <span> Pacientes </span>                                  
                                     </a>
-
-                                    <a href="{{route('servicios.list')}}" class="dropdown-item notify-item">
-                                        <i data-feather="archive" class="icon-dual icon-xs mr-2"></i>
-                                        <span>Servicios</span>
+                                </li>
+                                @endcan
+                            @endif
+                            @if(auth()->user()->can('ListadoProducto','ListadoServicio'))
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                                        <i data-feather="shopping-cart"></i>
+                                        <span > Ventas </span>
+                                        <span data-feather="chevron-down" class="ml-2 align-self-center"></span>
                                     </a>
-
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i data-feather="users" class="icon-dual icon-xs mr-2"></i>
-                                        <span>Sobre acumedic</span>
+                                    <div class="dropdown-menu profile-dropdown-items dropdown-menu-right">
+                                    @if(auth()->user()->can('ListadoProducto'))
+                                        @canany(['ListadoProducto','CrearProducto','EditarProducto','EliminarProducto'])
+                                            <a href="{{ route('productos.list')}}" class="dropdown-item notify-item">
+                                                <i data-feather="package" class="icon-dual icon-xs mr-2"></i>
+                                                <span>Productos</span>
+                                            </a>
+                                        @endcan
+                                    @endif 
+                                    @if(auth()->user()->can('ListadoServicio'))
+                                        @canany(['ListadoServicio','CrearServicio','EditarServicio','EliminarServicio'])
+                                            <a href="{{route('servicios.list')}}" class="dropdown-item notify-item">
+                                                <i data-feather="archive" class="icon-dual icon-xs mr-2"></i>
+                                                <span>Servicios</span>
+                                            </a>
+                                        @endcan
+                                    @endif
+                                
+                                        <a href="{{route('sobreNosotros')}}" class="dropdown-item notify-item">
+                                            <i data-feather="users" class="icon-dual icon-xs mr-2"></i>
+                                            <span>Sobre acumedic</span>
+                                        </a>
+                                </li>
+                            @endif
+                            @if(auth()->user()->can('ListadoUsuarios'))
+                                @canany(['ListadoUsuarios','CrearUsuario','EditarUsuario','EliminarUsuario'])
+                                <li>
+                                    <a href="{{ route('usuarios.list')}}">
+                                        <i data-feather="users"></i>
+                                        <span> Usuarios </span>
                                     </a>
-                            </li>
-                            @canany(['ListadoUsuarios','CrearUsuario','EditarUsuario','EliminarUsuario'])
-                            <li>
-                                <a href="{{ route('usuarios.list')}}">
-                                    <i data-feather="users"></i>
-                                    <span> Usuarios </span>
-                                </a>
-                            </li>
-                            @endcan
-                            @canany(['ListarRoles','CrearRol','EditarRol','EliminarRol'])
-                            <li>
-                                <a href="{{ route('permisos.rol')}}">
-                                    <i data-feather="octagon"></i>
-                                    <span> Roles </span>
-                                </a>
-                            </li>
-                            @endcan
+                                </li>
+                                @endcan
+                            @endif
+                            @if(auth()->user()->can('ListarRoles'))
+                                @canany(['ListarRoles','CrearRol','EditarRol','EliminarRol'])
+                                <li>
+                                    <a href="{{ route('permisos.rol')}}">
+                                        <i data-feather="octagon"></i>
+                                        <span> Roles </span>
+                                    </a>
+                                </li>
+                                @endcan
+                            @endif
                         </ul>
                     </div>
                     <!-- End Sidebar -->

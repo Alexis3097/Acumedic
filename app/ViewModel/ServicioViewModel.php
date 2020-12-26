@@ -90,4 +90,13 @@ class ServicioViewModel
     {
       return Servicio::take(3)->orderBy('id','desc')->get();
     }
+
+    /**
+     * @return Servicios
+     * retorna los ultimos 4 servicios exlcuyendo al del id
+     * dado, que es el que ya se esta viendo
+     */
+    public function otrosServicios($id){
+      return Servicio::where('id', '!=',$id)->take(4)->orderBy('id','desc')->get();
+    }
 }

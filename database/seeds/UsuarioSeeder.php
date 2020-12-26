@@ -50,6 +50,16 @@ class UsuarioSeeder extends Seeder
         array_push($PermissionsArray, Permission::create(['name' => 'CrearRol']));
         array_push($PermissionsArray, Permission::create(['name' => 'EditarRol']));
         array_push($PermissionsArray, Permission::create(['name' => 'EliminarRol']));
+        //PRODUCTOS
+        array_push($PermissionsArray, Permission::create(['name' => 'ListadoProducto']));
+        array_push($PermissionsArray, Permission::create(['name' => 'CrearProducto']));
+        array_push($PermissionsArray, Permission::create(['name' => 'EditarProducto']));
+        array_push($PermissionsArray, Permission::create(['name' => 'EliminarProducto']));
+        //SERVICIOS
+        array_push($PermissionsArray, Permission::create(['name' => 'ListadoServicio']));
+        array_push($PermissionsArray, Permission::create(['name' => 'CrearServicio']));
+        array_push($PermissionsArray, Permission::create(['name' => 'EditarServicio']));
+        array_push($PermissionsArray, Permission::create(['name' => 'EliminarServicio']));
         //asignando los permisos al rol
         $role->syncPermissions($PermissionsArray);
 

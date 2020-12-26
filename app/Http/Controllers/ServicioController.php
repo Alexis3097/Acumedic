@@ -13,7 +13,7 @@ class ServicioController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        // $this->middleware(['permission:ListadoUsuarios|CrearUsuario|EditarUsuario|EliminarUsuario']);
+        $this->middleware(['permission:ListadoServicio|CrearServicio|EditarServicio|EliminarServicio']);
     }
 
     public function index(ServicioViewModel $ServicioViewModel){

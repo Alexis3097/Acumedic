@@ -28,7 +28,7 @@
               <div class="col-md-4 servicio-col">
                 <div class="container-servicio">
                   <div class="img">
-                    <img src="img/bg-4.jpg" alt="servicio-detail">
+                    <img src="{{asset('../uploads/servicios/'.$servicio->Logo)}}"  alt="{{$servicio->Logo}}">
                   </div>
                   <div class="desc">
                     <h2 class="titulo-servicio">{{$servicio->Nombre}}</h2>

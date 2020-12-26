@@ -34,13 +34,11 @@ Route::get('/consulta', function () {
     return view('Cliente.consulta-integral');
 })->name('consulta');
 
+
 // SERVICIOS
 Route::get('/servicios', 'Cliente\ServicioController@index')->name('servicios');
 Route::get('/servicios/detallado/{id}', 'Cliente\ServicioController@show')->name('servicio.detallado');
 
-Route::get('/servicio-detallado', function () {
-    return view('Cliente.servicio-detallado');
-})->name('servicio-detallado');
 
 //PRODUCTOS
 Route::get('/productos', 'Cliente\ProductoController@index')->name('productos');
@@ -152,24 +150,33 @@ Route::group(['middleware' => ['permission:ListadoUsuarios|CrearUsuario|EditarUs
     Route::get('/usuarios/buscar', 'usuariosController@buscarUsuario')->name('usuarios.buscar');
     Route::post('/usuarios/password', 'usuariosController@changePassword')->name('usuarios.changePassword');
 });
+
 // PRODUCTOS
-Route::get('/listado-productos', 'ProductosController@index')->name('productos.list');
-Route::get('/productos/nuevo', 'ProductosController@create')->name('productos.create');
-Route::post('/productos/crear', 'ProductosController@store')->name('productos.store');
-Route::get('/productos/editar/{id}', 'ProductosController@edit')->name('productos.edit');
-Route::put('/productos/actualizar/{id}', 'ProductosController@update')->name('productos.update');
-Route::delete('/productos/eliminar', 'ProductosController@destroy')->name('productos.destroy');
-Route::get('/productos/buscar', 'ProductosController@buscar')->name('productos.buscar');
+Route::group(['middleware' => ['permission:ListadoProducto|CrearProducto|EditarProducto|EliminarProducto']], function () {
+    Route::get('/listado-productos', 'ProductosController@index')->name('productos.list');
+    Route::get('/productos/nuevo', 'ProductosController@create')->name('productos.create');
+    Route::post('/productos/crear', 'ProductosController@store')->name('productos.store');
+    Route::get('/productos/editar/{id}', 'ProductosController@edit')->name('productos.edit');
+    Route::put('/productos/actualizar/{id}', 'ProductosController@update')->name('productos.update');
+    Route::delete('/productos/eliminar', 'ProductosController@destroy')->name('productos.destroy');
+    Route::get('/productos/buscar', 'ProductosController@buscar')->name('productos.buscar');
+});
 
 // SERVICIOS
-Route::get('/listado-servicios', 'ServicioController@index')->name('servicios.list');
-Route::get('/servicios/nuevo', 'ServicioController@create')->name('servicios.create');
-Route::post('/servicios/guardar', 'ServicioController@store')->name('servicios.store');
-Route::get('/servicios/editar/{id}', 'ServicioController@edit')->name('servicios.edit');
-Route::put('/servicios/actualizar/{id}', 'ServicioController@update')->name('servicios.update');
-Route::delete('/servicios/eliminar', 'ServicioController@destroy')->name('servicios.destroy');
-Route::get('/servicios/buscar', 'ServicioController@buscar')->name('servicios.buscar');
+Route::group(['middleware' => ['permission:ListadoServicio|CrearServicio|EditarServicio|EliminarServicio']], function () {
+    Route::get('/listado-servicios', 'ServicioController@index')->name('servicios.list');
+    Route::get('/servicios/nuevo', 'ServicioController@create')->name('servicios.create');
+    Route::post('/servicios/guardar', 'ServicioController@store')->name('servicios.store');
+    Route::get('/servicios/editar/{id}', 'ServicioController@edit')->name('servicios.edit');
+    Route::put('/servicios/actualizar/{id}', 'ServicioController@update')->name('servicios.update');
+    Route::delete('/servicios/eliminar', 'ServicioController@destroy')->name('servicios.destroy');
+    Route::get('/servicios/buscar', 'ServicioController@buscar')->name('servicios.buscar');
+});
 
+//SOBRE NOSOTROS
+Route::get('/sobre-nosotros', 'SobreNosotrosController@index')->name('sobreNosotros');
+Route::get('/sobre-nosotros/descripcion', 'SobreNosotrosController@descripcion')->name('sobreNosotros.descripcion');
+Route::get('/sobre-nosotros/historia', 'SobreNosotrosController@historia')->name('sobreNosotros.historia');
 //=============================PERMISOS================================================================
 Route::group(['middleware' => ['permission:ListarRoles|CrearRol|EditarRol|EliminarRol']], function () {
     Route::get('/roles','PermisosController@rol')->name('permisos.rol');

@@ -2,8 +2,9 @@
 
 @section('content')
 <div class="content-page">
-            <div class="content">
-                <div class="container-fluid">
+    @can('ListadoServicio')
+        <div class="content">
+            <div class="container-fluid">
                 <form action="{{route('servicios.buscar')}}" method="get">
                     <div class="row page-title align-items-center">
                         <div class="col-sm-6 col-md-6 col-xl-6">
@@ -23,55 +24,62 @@
                     </div>
                 </form>
 
-                    <!-- content -->
-                    <!-- row -->
-            
-                    <!-- products -->
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="card">
-                                <div class="card-body">
+                <!-- content -->
+                <!-- row -->
+        
+                <!-- products -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                @can('CrearServicio')
                                     <a href="{{route('servicios.create')}}" style="margin-right:10px; margin-bottom:10px;" class="btn btn-primary btn-sm float-right">
                                         <i class='fa fa-plus'></i> Nuevo servicio
                                     </a>
-                                    <h5 class="card-title mt-0 mb-0 header-title">Lista de servicios</h5>
+                                @endcan
+                                <h5 class="card-title mt-0 mb-0 header-title">Lista de servicios</h5>
 
-                                    <div class="table-responsive mt-12">
-                                        <table class="table table-hover table-nowrap mb-0">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">Nombre de Servicio</th>
-                                                    <th scope="col">Precio del Servicio</th>
-                                                    <th scope="col">Acciones</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <div class="container">
-                                                    @foreach($servicios as $servicio)
-                                                        <tr>
-                                                            <input type="hidden" value="{{ $servicio->id}}">
-                                                            <td>{{$servicio->Nombre}}</td>
-                                                            <td>${{$servicio->Precio}}</td>
-                                                            <td>
+                                <div class="table-responsive mt-12">
+                                    <table class="table table-hover table-nowrap mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Nombre de Servicio</th>
+                                                <th scope="col">Precio del Servicio</th>
+                                                <th scope="col">Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <div class="container">
+                                                @foreach($servicios as $servicio)
+                                                    <tr>
+                                                        <input type="hidden" value="{{ $servicio->id}}">
+                                                        <td>{{$servicio->Nombre}}</td>
+                                                        <td>${{$servicio->Precio}}</td>
+                                                        <td>
+                                                            @can('EditarServicio')
                                                                 <a href="{{route('servicios.edit',['id'=>$servicio->id])}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
+                                                            @endcan
+                                                            @can('EliminarServicio')
                                                                 <button type="button" class="btn btn-outline-danger delete" name="delete_modal" data-toggle="modal" data-target="#eliminarServicio" ><i class="fa fa-trash"></i></button>
+                                                            @endcan
 
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
-                                                </div>
-                                                {{$servicios->links() }}
-                                            </tbody>
-                                        </table>
-                                    </div> <!-- end table-responsive-->
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-                    </div>
-                    <!-- end row -->
-                    <!-- stats + charts -->
-
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </div>
+                                            {{$servicios->links() }}
+                                        </tbody>
+                                    </table>
+                                </div> <!-- end table-responsive-->
+                            </div> <!-- end card-body-->
+                        </div> <!-- end card-->
+                    </div> <!-- end col-->
                 </div>
+                <!-- end row -->
+                <!-- stats + charts -->
+            </div>
+        </div>
+    @endcan
 </div> <!-- content -->
 <div class="modal fade" id="eliminarServicio" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">

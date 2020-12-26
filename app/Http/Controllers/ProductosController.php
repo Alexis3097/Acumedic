@@ -13,7 +13,7 @@ class ProductosController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        // $this->middleware(['permission:ListadoUsuarios|CrearUsuario|EditarUsuario|EliminarUsuario']);
+        $this->middleware(['permission:ListadoProducto|CrearProducto|EditarProducto|EliminarProducto']);
     }
 
     /**

@@ -13,9 +13,9 @@
                             <form class="form-inline float-sm-right mt-3 mt-sm-0">
                                 <div class="btn-group mb-sm-0 mr-2">
 
-                                    <button type="button" class="btn btn-outline-danger">
+                                    <a href="{{route('sobreNosotros')}}" class="btn btn-outline-danger">
                                         <i class='fas fa-times'></i> Cancelar
-                                    </button>
+                                    </a>
                                 </div>
                             </form>
                         </div>
@@ -44,7 +44,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <button class="btn btn-danger" type="submit">Cancelar</button>
+                                            <a href="{{route('sobreNosotros')}}" class="btn btn-danger" >Cancelar</a>
                                             <button class="btn btn-primary" type="submit">Guardar</button>
                                         </div>
                                     </form>

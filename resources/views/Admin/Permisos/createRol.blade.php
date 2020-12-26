@@ -90,6 +90,28 @@
                                                                 <td><input type="checkbox" class="check" name="EditarRol" value="EditarRol"></td>
                                                                 <td><input type="checkbox" class="check"name="EliminarRol" value="EliminarRol"></td>
                                                             </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="checkbox" class="custom-control-input checks" id="Productos">
+                                                                    <label class="custom-control-label" for="Productos">
+                                                                        Productos
+                                                                    </label></td>
+                                                                <td><input type="checkbox" class="check" name="ListadoProducto" value="ListadoProducto"></td>
+                                                                <td><input type="checkbox" class="check" name="CrearProducto" value="CrearProducto"></td>
+                                                                <td><input type="checkbox" class="check" name="EditarProducto" value="EditarProducto"></td>
+                                                                <td><input type="checkbox" class="check"name="EliminarProducto" value="EliminarProducto"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="checkbox" class="custom-control-input checks" id="Servicios">
+                                                                    <label class="custom-control-label" for="Servicios">
+                                                                        Servicios
+                                                                    </label></td>
+                                                                <td><input type="checkbox" class="check" name="ListadoServicio" value="ListadoServicio"></td>
+                                                                <td><input type="checkbox" class="check" name="CrearServicio" value="CrearServicio"></td>
+                                                                <td><input type="checkbox" class="check" name="EditarServicio" value="EditarServicio"></td>
+                                                                <td><input type="checkbox" class="check"name="EliminarServicio" value="EliminarServicio"></td>
+                                                            </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>

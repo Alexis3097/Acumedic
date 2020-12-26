@@ -26,10 +26,11 @@
                     <div class="container-mas-servicios">
                         <p class="titulo">Más servicios</p>
                         <ul>
-                            <li class="list-servicios">Tu servicio</li>
-                            <li class="list-servicios">Tu servicio</li>
-                            <li class="list-servicios">Tu servicio</li>
-                            <li class="list-servicios">Tu servicio</li>
+                          @foreach($otrosServicios as $otroServicio)
+                          <a href="{{ route('servicio.detallado',['id'=>$otroServicio->id]) }}">
+                            <li class="list-servicios">{{ $otroServicio->Nombre}}</li>
+                          </a>
+                          @endforeach
                         </ul>
                     </div>
                 </div>

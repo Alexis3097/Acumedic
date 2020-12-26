@@ -2,8 +2,9 @@
 
 @section('content')
 <div class="content-page">
-            <div class="content">
-                <div class="container-fluid">
+    @can('ListadoProducto')
+        <div class="content">
+            <div class="container-fluid">
                 <form action="{{route('productos.buscar')}}" method="get">
                     <div class="row page-title align-items-center">
                         <div class="col-sm-6 col-md-6 col-xl-6">
@@ -22,62 +23,66 @@
                         </div>
                     </div>
                 </form>
-
-                    <!-- content -->
-                    <!-- row -->
-            
-                    <!-- products -->
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="card">
-                                <div class="card-body">
+                <!-- content -->
+                <!-- row -->
+                <!-- products -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                @can('CrearProducto')
                                     <a href="{{route('productos.create')}}" style="margin-right:10px; margin-bottom:10px;" class="btn btn-primary btn-sm float-right">
                                         <i class='fa fa-plus'></i> Nuevo Producto
                                     </a>
-                                    <h5 class="card-title mt-0 mb-0 header-title">Lista de productos</h5>
+                                @endcan
+                                <h5 class="card-title mt-0 mb-0 header-title">Lista de productos</h5>
 
-                                    <div class="table-responsive mt-12">
-                                        <table class="table table-hover table-nowrap mb-0">
-                                            <thead>
+                                <div class="table-responsive mt-12">
+                                    <table class="table table-hover table-nowrap mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Nombre de producto</th>
+                                                <th scope="col">Precio publico</th>
+                                                <th scope="col">Codigo de barra</th>
+                                                <th scope="col">Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <div class="container">
+                                            @foreach($productos as $producto)
                                                 <tr>
-                                                    <th scope="col">Nombre de producto</th>
-                                                    <th scope="col">Precio publico</th>
-                                                    <th scope="col">Codigo de barra</th>
-                                                    <th scope="col">Acciones</th>
+                                                    <input type="hidden" value="{{ $producto->id}}">
+                                                    <td>{{$producto->Nombre}}</td>
+                                                    <td>{{$producto->PrecioPublico}}</td>
+                                                    <td>{{$producto->CodigoBarra}}</td>
+                                                    
+                                                    <td>
+                                                    @can('EditarProducto')
+                                                        <a href="{{route('productos.edit',['id' =>$producto->id])}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
+                                                    @endcan
+                                                    @can('EliminarProducto')
+                                                        <button type="button" class="btn btn-outline-danger delete" name="delete_modal" data-toggle="modal" data-target="#eliminarProducto"><i class="fa fa-trash"></i></button>
+                                                    @endcan
+
+                                                    </td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                                <div class="container">
-                                                @foreach($productos as $producto)
-                                                    <tr>
-                                                        <input type="hidden" value="{{ $producto->id}}">
-                                                        <td>{{$producto->Nombre}}</td>
-                                                        <td>{{$producto->PrecioPublico}}</td>
-                                                        <td>{{$producto->CodigoBarra}}</td>
-                                                        
-                                                        <td>
-                                                            <a href="{{route('productos.edit',['id' =>$producto->id])}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
-                                                            <button type="button" class="btn btn-outline-danger delete" name="delete_modal" data-toggle="modal" data-target="#eliminarProducto"><i class="fa fa-trash"></i></button>
-
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                                </div>
-                                                {{ $productos->links() }}
-                                            </tbody>
-                                        </table>
-                                    </div> <!-- end table-responsive-->
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-                    </div>
-                    <!-- end row -->
-                    <!-- stats + charts -->
-
+                                            @endforeach
+                                            </div>
+                                            {{ $productos->links() }}
+                                        </tbody>
+                                    </table>
+                                </div> <!-- end table-responsive-->
+                            </div> <!-- end card-body-->
+                        </div> <!-- end card-->
+                    </div> <!-- end col-->
                 </div>
-            </div> <!-- content -->
-        </div>
-    </div> <!-- content -->
+                <!-- end row -->
+                <!-- stats + charts -->
+            </div>
+        </div> <!-- content -->
+    @endcan
+</div> <!-- content -->
+
 <div class="modal fade" id="eliminarProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
