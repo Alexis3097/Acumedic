@@ -201,11 +201,15 @@
                                             </a>
                                         @endcan
                                     @endif
-                                
+                                    <a href="#" class="dropdown-item notify-item">
+                                            <i data-feather="book" class="icon-dual icon-xs mr-2"></i>
+                                            <span>Inventario</span>
+                                    </a>
                                         <a href="{{route('sobreNosotros')}}" class="dropdown-item notify-item">
                                             <i data-feather="users" class="icon-dual icon-xs mr-2"></i>
                                             <span>Sobre acumedic</span>
                                         </a>
+
                                 </li>
                             @endif
                             @if(auth()->user()->can('ListadoUsuarios'))

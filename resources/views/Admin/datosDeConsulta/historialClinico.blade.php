@@ -5,11 +5,11 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row page-title align-items-center">
-                        <div class="col-sm-4 col-xl-6">
+                        <div class="col-sm-4 col-xl-10 col-md-10">
                             <h4 class="mb-1 mt-0">Datos del paciente en turno: <span>{{$paciente->NombreCompleto}}</span></h4>
                            
                         </div>
-                        <div class="col-sm-1 col-xl-1">
+                        <div class="col-sm-2 col-xl-2">
                                     <a href="{{route('consulta.paciente',['IdPaciente' => $paciente->id])}}" class="btn btn-outline-primary">
                                         <i class='fas fa-arrow-left'></i> Regresar
                                     </a>
