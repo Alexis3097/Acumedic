@@ -157,7 +157,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <img src="assets/images/desc-1.png" style="width: 100%;" alt="">
+                        <img src="{{asset('../img/Admin/desc-1.png')}}" style="width: 100%;" alt="">
                     </div>
                 </div>
             </div>
@@ -172,7 +172,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <img src="assets/images/desc-2.png" style="width: 100%;" alt="">
+                        <img src="{{asset('../img/Admin/desc-2.png')}}" style="width: 100%;" alt="">
                     </div>
                 </div>
             </div>
@@ -187,7 +187,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <img src="assets/images/desc-3.png" style="width: 100%;" alt="">
+                        <img src="{{asset('../img/Admin/desc-3.png')}}" style="width: 100%;" alt="">
                     </div>
                 </div>
             </div>
@@ -202,7 +202,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <img src="assets/images/desc-4.png" style="width: 100%;" alt="">
+                        <img src="{{asset('../img/Admin/desc-4.png')}}" style="width: 100%;" alt="">
                     </div>
                 </div>
             </div>
