@@ -162,6 +162,9 @@ Route::group(['middleware' => ['permission:ListadoProducto|CrearProducto|EditarP
     Route::get('/productos/buscar', 'ProductosController@buscar')->name('productos.buscar');
 });
 
+//ALMÁCEN
+Route::get('/almacen', 'AlmacenController@index')->name('almacen.list');
+
 // SERVICIOS
 Route::group(['middleware' => ['permission:ListadoServicio|CrearServicio|EditarServicio|EliminarServicio']], function () {
     Route::get('/listado-servicios', 'ServicioController@index')->name('servicios.list');

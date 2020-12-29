@@ -140,7 +140,7 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-12">
-                                                <button class="btn btn-danger" type="button">Cancelar</button>
+                                                <a href="{{route('consulta.historial',['IdPaciente'=>$paciente->id] )}}" class="btn btn-danger" >Cancelar</a>
                                         </div>
                                     </form>
                                 </div>

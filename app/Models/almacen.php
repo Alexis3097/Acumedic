@@ -9,11 +9,11 @@ class almacen extends Model
 {
     protected $table = 'almacen';
     protected $fillable = [
-        'productos_id','Cantidad','StockMinimo',
+        'producto_id','Cantidad','StockMinimo',
     ];
 
-    public function paciente()
+    public function producto()
     {
-        return $this->belongsTo(almacen::class);
+        return $this->belongsTo(Producto::class);
     }
 }

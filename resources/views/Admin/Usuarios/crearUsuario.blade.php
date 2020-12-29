@@ -17,11 +17,11 @@
                         <div class="col-lg-9">
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="needs-validation row" novalidate action="{{route('usuarios.create')}}" method="POST" enctype="multipart/form-data">
+                                    <form class="needs-validation row" action="{{route('usuarios.create')}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                         <div class="form-group col-md-4">
                                             <label for="name">Nombre (s)</label>
-                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="Nombre" placeholder="Nombres" required>
+                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" id="Nombre" placeholder="Nombres" required>
                                             @error('name')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -30,7 +30,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoPaterno">Apellido paterno</label>
-                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" id="ApellidoPaterno" placeholder="Apellido paterno" required>
+                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" value="{{ old('ApellidoPaterno') }}"  id="ApellidoPaterno" placeholder="Apellido paterno" required>
                                             @error('ApellidoPaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -39,7 +39,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoMaterno">Apellido materno</label>
-                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" id="ApellidoMaterno" placeholder="Apellido materno" required>
+                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" value="{{ old('ApellidoMaterno') }}" id="ApellidoMaterno" placeholder="Apellido materno" required>
                                             @error('ApellidoMaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -48,7 +48,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="FechaNacimiento">Fecha de nacimiento</label>
-                                            <input type="date" name="FechaNacimiento" class="form-control @error('FechaNacimiento') is-invalid @enderror" id="FechaNacimiento" value="{{date_create()->format('Y-m-d')}}">
+                                            <input type="date" name="FechaNacimiento" class="form-control @error('FechaNacimiento') is-invalid @enderror"  id="FechaNacimiento" value="{{old('FechaNacimiento',date_create()->format('Y-m-d'))}}">
                                             @error('FechaNacimiento')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -57,7 +57,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Telefono">Teléfono</label>
-                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" id="Telefono" placeholder="Telefono" required>
+                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" value="{{ old('Telefono') }}" id="Telefono" placeholder="Telefono" required>
                                             @error('Telefono')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -81,7 +81,7 @@
                                         <div class="form-group col-md-4">
                                             <label
                                             for="email">E-mail</label>
-                                            <input type="email" name ="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="E-mail" required>
+                                            <input type="email" name ="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" id="email" placeholder="E-mail" required>
                                             @error('email')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}

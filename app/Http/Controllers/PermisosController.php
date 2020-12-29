@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ViewModel\PermisosViewModel;
+use App\Http\Requests\StoreRol;
 
 class PermisosController extends Controller
 {
@@ -32,7 +33,7 @@ class PermisosController extends Controller
         return view('Admin.Permisos.createRol');
     }
 
-    public function guardarRol(Request $request, PermisosViewModel $PermisosViewModel)
+    public function guardarRol(StoreRol $request, PermisosViewModel $PermisosViewModel)
     {
         $rol = $PermisosViewModel->crearRol($request);
         return redirect()->route('permisos.rol');
@@ -45,7 +46,7 @@ class PermisosController extends Controller
         return view('Admin.Permisos.editRol', compact('permisos','rol'));
     }
 
-    public function actualziarRol(Request $request, $id, PermisosViewModel $PermisosViewModel)
+    public function actualziarRol(StoreRol $request, $id, PermisosViewModel $PermisosViewModel)
     {
         $rol = $PermisosViewModel->update($request,$id);
         return redirect()->route('permisos.rol');

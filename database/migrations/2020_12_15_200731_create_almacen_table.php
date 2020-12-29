@@ -15,12 +15,12 @@ class CreateAlmacenTable extends Migration
     {
         Schema::create('almacen', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('productos_id');
+            $table->unsignedBigInteger('producto_id');
             $table->Integer('Cantidad');
             $table->Integer('StockMinimo');
             $table->timestamps();
 
-            $table->foreign('productos_id')->references('id')->on('productos');
+            $table->foreign('producto_id')->references('id')->on('productos');
         });
     }
 

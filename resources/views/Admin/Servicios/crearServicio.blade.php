@@ -29,7 +29,7 @@
                         <div class="col-lg-8">
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="{{route('servicios.store' )}}" method="post" class="row" enctype="multipart/form-data">
+                                    <form action="{{route('servicios.store' )}}" method="post" class="needs-validation row" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group col-md-12">
                                             <label for="Nombre">Nombre del servicio</label>

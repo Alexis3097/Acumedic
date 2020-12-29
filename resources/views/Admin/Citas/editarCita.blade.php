@@ -21,7 +21,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="{{ route('citas.update', ['id' => $cita->id]) }}" class="needs-validation row" novalidate method="POST">
+                                    <form action="{{ route('citas.update', ['id' => $cita->id]) }}" class="needs-validation row" method="POST">
                                     @csrf
                                     @method('PUT')
                                         <input type="hidden" id="IdCita" value="{{$cita->id}}">
@@ -79,7 +79,7 @@
                                         <div class="form-group col-md-4">
                                             <label 
                                             for="Fecha">Fecha</label>
-                                            <input class="form-control @error('Fecha') is-invalid @enderror" name="Fecha" id="FechaEdit" type="date" value="{{$cita->Fecha}}">
+                                            <input class="form-control @error('Fecha') is-invalid @enderror" name="Fecha" id="FechaEdit" type="date" value="{{old('Fecha',$cita->Fecha)}}">
                                             @error('Fecha')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -102,7 +102,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Hora">Horario</label>
-                                            <select data-plugin="customselect" class="form-control @error('Horario') is-invalid @enderror" name="Horario[]" id="Hora" multiple>
+                                            <select data-plugin="customselect" class="form-control @error('Horario') is-invalid @enderror" name="Horario[]" required id="Hora" multiple>
                                             @foreach($horarios as $clave =>$valor)
                                                 <option value="{{$clave}}" @if(in_array($clave,$cita->horarios->pluck('id')->toArray())) selected @endif>{{$valor}}</option>
                                             @endforeach

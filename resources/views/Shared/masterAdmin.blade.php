@@ -193,6 +193,12 @@
                                             </a>
                                         @endcan
                                     @endif 
+                                    
+                                            <a href="{{ route('almacen.list')}}" class="dropdown-item notify-item">
+                                                <i data-feather="package" class="icon-dual icon-xs mr-2"></i>
+                                                <span>Almacén</span>
+                                            </a>
+                                       
                                     @if(auth()->user()->can('ListadoServicio'))
                                         @canany(['ListadoServicio','CrearServicio','EditarServicio','EliminarServicio'])
                                             <a href="{{route('servicios.list')}}" class="dropdown-item notify-item">

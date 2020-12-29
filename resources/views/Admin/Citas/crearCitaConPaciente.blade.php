@@ -34,7 +34,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="{{ route('citas.create') }}" class="needs-validation row" novalidate method="POST">
+                                    <form action="{{ route('citas.create') }}" class="needs-validation row"  method="POST">
                                     @csrf
                                         <input type="hidden" name="id" value="{{ $paciente->id }}">
                                         <div class="form-group col-md-4">
@@ -97,7 +97,7 @@
                                         <div class="form-group col-md-4">
                                             <label 
                                             for="Fecha">Fecha</label>
-                                            <input class="form-control @error('Fecha') is-invalid @enderror" name="Fecha" id="Fecha" type="date" value="{{ $fecha->format('Y-m-d')}}">
+                                            <input class="form-control @error('Fecha') is-invalid @enderror" name="Fecha" id="Fecha" type="date" value="{{old('Fecha',$fecha->format('Y-m-d'))}}">
                                             @error('Fecha')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -119,7 +119,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Hora">Horario</label>
-                                            <select data-plugin="customselect" class="form-control @error('Horario') is-invalid @enderror" name="Horario[]" id="Hora" multiple>
+                                            <select data-plugin="customselect" class="form-control @error('Horario') is-invalid @enderror"  required name="Horario[]" id="Hora" multiple>
                                             @foreach($horarios as $clave => $valor)
                                                 <option value="{{$clave}}">{{$valor}}</option>
                                             @endforeach

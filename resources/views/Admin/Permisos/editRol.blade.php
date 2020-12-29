@@ -15,7 +15,7 @@
                         <!-- widgets -->
                         <div class="row">
                             <div class="col-xl-12 col-md-12">
-                            <form action="{{route('permisos.rol.update',['id'=>$rol['id']])}}" method="post">
+                            <form action="{{route('permisos.rol.update',['id'=>$rol['id']])}}" method="post" class="needs-validation">>
                                         @csrf
                                         @method('put')
                                 <div class="card">
@@ -23,7 +23,12 @@
                                             <div class="table-responsive mt-12 custom-control custom-checkbox">
                                                 <div class="form-group col-md-9">
                                                     <label for="Rol">Nombre del rol</label>
-                                                    <input type="text" class="form-control" id="Rol" placeholder="Nombre del rol" name="Rol" value="{{$rol['name']}}" required>
+                                                    <input type="text" class="form-control @error('Rol') is-invalid @enderror" id="Rol" placeholder="Nombre del rol" name="Rol" value="{{$rol['name']}}" required>
+                                                    @error('Rol')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
                                                 <table class="table table-hover table-nowrap mb-0">
                                                     <thead>

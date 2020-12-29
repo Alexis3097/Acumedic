@@ -45,12 +45,12 @@
                                     </div>
                                 </div>
                                 <div class="media col-md-9 button-list" style="display: inline-flex; top:-35px;">
-                                    <a href="{{route('antecedente.patologico',['IdPaciente'=>$paciente->id])}}"  class="btn btn-info" style="width: 100%;" type="submit">Patologicos</a>
-                                    <a href="{{route('antecedente.NoPatologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">No
+                                    <a href="{{route('antecedente.patologico',['IdPaciente'=>$paciente->id])}}"  class="btn btn-info" style="width: 100%;" >Patologicos</a>
+                                    <a href="{{route('antecedente.NoPatologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" >No
                                         Patologicos</a>
                                     <button class="btn btn-outline-info" style="width: 100%;" data-toggle="modal"
                                         data-target="#modal-error" type="submit">Ginecológicos</button>
-                                    <a href="{{route('antecedente.familiares',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">H.
+                                    <a href="{{route('antecedente.familiares',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" >H.
                                         Familiares</a>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="FechaUltimaMenstruacion">Fecha de ultima menstruación</label>
-                                    <input class="form-control" type="date" value=""
+                                    <input class="form-control" type="date" value="{{date_create()->format('Y-m-d')}}"
                                         name="FechaUltimaMenstruacion" id="FechaUltimaMenstruacion">
                                 </div>
                                 <div class="form-group mb-0">

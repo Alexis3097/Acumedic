@@ -15,14 +15,19 @@
                         <!-- widgets -->
                         <div class="row">
                             <div class="col-xl-12 col-md-12">
-                                <form action="{{route('permisos.rol.store')}}" method="post">
+                                <form action="{{route('permisos.rol.store')}}" method="post" class="needs-validation">
                                 @csrf
                                     <div class="card">
                                         <div class="card-body pt-2">
                                                 <div class="table-responsive mt-12 custom-control custom-checkbox">
                                                     <div class="form-group col-md-9">
                                                         <label for="Rol">Nombre del nuevo rol</label>
-                                                        <input type="text" class="form-control" id="Rol" placeholder="Nombre del rol" name="Rol" required>
+                                                        <input type="text" class="form-control @error('Rol') is-invalid @enderror" id="Rol" placeholder="Nombre del rol" name="Rol" required>
+                                                        @error('Rol')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
                                                     </div>
                                                     <table class="table table-hover table-nowrap mb-0">
                                                         <thead>

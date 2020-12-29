@@ -28,7 +28,7 @@ class StoreProducto extends FormRequest
             'PrecioCompra' => 'required|numeric',
             'PrecioPublico' => 'required|numeric',
             'CodigoBarra' => 'required_without_all:check',
-            'DescripcionCorta' => 'required',
+            'DescripcionCorta' => 'required|max:217',
             'DescripcionLarga' => 'required',
             'Foto1' => 'image|max:2048|required',
             'Foto2' => 'image|max:2048',
@@ -58,7 +58,8 @@ class StoreProducto extends FormRequest
             'PrecioPublico.numeric' => 'El precio publico debe ser numerico',
             'CodigoBarra.required_without_all' => 'Debe escribir el codigo de barra',
             'DescripcionCorta.required' => 'La descripcion corta es requerido',
-            'DescripcionLarga.required' => 'El descripcion larga es requerido',
+            'DescripcionCorta.max' => 'Maximo 217 caracteres',
+            'DescripcionLarga.required' => 'La descripcion larga es requerido',
 
             'Foto1.image' => 'Debe agregar una imagen',
             'Foto1.max' => 'El tamaño en GB supera lo permitido',
