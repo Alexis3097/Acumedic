@@ -689,6 +689,13 @@ input {
   color:#696969;
   text-align:center;
 }
+.servicios .servicio-content .price p{
+  font-size:var(--font-s);
+  line-height: 30px;
+  color:#232323;
+  font-weight: bold;
+  text-align:center;
+}
 /* info numeros */
 .info-numeros{
   position: relative;
@@ -1315,7 +1322,7 @@ footer .colFooter .sublinks ul li a:hover{
   .contacto-formulario .formulario .titulo-form p{
     font-size: var(--font-ms);
   }
-  .servicios .servicio-content .desc p{
+  .servicios .servicio-content .desc p, .servicios .servicio-content .price p{
     font-size: var(--font-ms);
   }
   }

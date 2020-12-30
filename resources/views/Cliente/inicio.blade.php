@@ -107,6 +107,9 @@
               <div class="img"><img src="{{asset('../uploads/servicios/'.$servicio->Logo)}}" alt="{{$servicio->TextoLogo}}">
                 <p class="titulo-servicio">{{$servicio->Nombre}}</p>
               </div>
+              <div class="price">
+                <p>$560.00</p>
+              </div>
               <div class="desc">
                 <p>{{$servicio->DescripcionCorta}}</p>
                 <p>${{$servicio->Precio}}</p>
