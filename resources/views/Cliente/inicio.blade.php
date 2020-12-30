@@ -108,11 +108,14 @@
                 <p class="titulo-servicio">{{$servicio->Nombre}}</p>
               </div>
               <div class="price">
-                <p>$560.00</p>
+                <p><span>$ </span>{{$servicio->Precio}}</p>
               </div>
               <div class="desc">
                 <p>{{$servicio->DescripcionCorta}}</p>
                 <p>${{$servicio->Precio}}</p>
+              </div>
+              <div class="btn">
+                <a href="" class="btn-1 btn-primary">Ver más</a>
               </div>
             </div>
           </div>

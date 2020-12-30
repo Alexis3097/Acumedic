@@ -339,7 +339,7 @@ input {
   display: block;
   margin: auto;
 }
-.banner-section2 .title h2{
+.banner-section2 .title h2,.banner-section2 .title h1{
   color: #fff;
   position: absolute;
   top: 0;
@@ -695,6 +695,9 @@ input {
   color:#232323;
   font-weight: bold;
   text-align:center;
+}
+.servicios .servicio-content .btn{
+  display: block;
 }
 /* info numeros */
 .info-numeros{

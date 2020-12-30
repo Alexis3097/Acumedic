@@ -195,7 +195,7 @@
                                     @endif 
                                     
                                             <a href="{{ route('almacen.list')}}" class="dropdown-item notify-item">
-                                                <i data-feather="package" class="icon-dual icon-xs mr-2"></i>
+                                                <i data-feather="book" class="icon-dual icon-xs mr-2"></i>
                                                 <span>Almacén</span>
                                             </a>
                                        
@@ -207,10 +207,6 @@
                                             </a>
                                         @endcan
                                     @endif
-                                    <a href="#" class="dropdown-item notify-item">
-                                            <i data-feather="book" class="icon-dual icon-xs mr-2"></i>
-                                            <span>Inventario</span>
-                                    </a>
                                         <a href="{{route('sobreNosotros')}}" class="dropdown-item notify-item">
                                             <i data-feather="users" class="icon-dual icon-xs mr-2"></i>
                                             <span>Sobre acumedic</span>
@@ -267,6 +263,7 @@
     @yield('scriptCrearCitas')
     @yield('scriptPacientesEdit')
     @yield('scriptEliminarEstudiosGabinete')
+    @yield('scriptProductoDetallado')
     @yield('scriptUsuariosEdit')
     @yield('scriptUsuarios')
     @yield('checksPermisos')

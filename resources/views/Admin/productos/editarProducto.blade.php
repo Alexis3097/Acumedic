@@ -200,21 +200,12 @@
                                             <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
                                             <div class="form-group col-md-12">
-<<<<<<< Updated upstream
-                                                <input id="cat_image1" name="Foto2" type="file" accept="image/*" />
-                                                @if($errors->has('Foto2'))
-                                                    <span class="help-block text-danger">
-                                                        <strong>{{$errors->first('Foto2')}}</strong>
-                                                    </span>
-                                                @endif
-=======
                                                 <input id="cat_image1" name="Foto2" style="width:100%;" class="btn btn-info" type="file" accept="image/*" class="@error('Foto2') is-invalid @enderror"/>
                                                 @error('Foto2')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
                                                 @enderror
->>>>>>> Stashed changes
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <button id="btn-example-file-reset1" style="width:49%;" class="btn btn-info" class="btn btn-info" type="button">Reemplazar</button>
@@ -265,21 +256,12 @@
                                             <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
                                             <div class="form-group col-md-12">
-<<<<<<< Updated upstream
-                                                <input id="cat_image2" name="Foto3" type="file" accept="image/*" />
-                                                @if($errors->has('Foto3'))
-                                                    <span class="help-block text-danger">
-                                                        <strong>{{$errors->first('Foto3')}}</strong>
-                                                    </span>
-                                                @endif
-=======
                                                 <input id="cat_image2" name="Foto3" style="width:100%;" class="btn btn-info"  type="file" accept="image/*"class="@error('Foto3') is-invalid @enderror" />
                                                 @error('Foto3')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
                                                 @enderror
->>>>>>> Stashed changes
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <button id="btn-example-file-reset2" style="width:49%;" class="btn btn-info" class="btn btn-info" type="button">Reemplazar</button>
