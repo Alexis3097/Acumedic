@@ -329,14 +329,6 @@
                                             <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
                                             <div class="form-group col-md-12">
-<<<<<<< Updated upstream
-                                                <input id="cat_image3" name="Foto4" type="file" accept="image/*"/>
-                                                @if($errors->has('Foto4'))
-                                                    <span class="help-block text-danger">
-                                                        <strong>{{$errors->first('Foto4')}}</strong>
-                                                    </span>
-                                                @endif
-=======
                                                 <input id="cat_image3" name="Foto4" style="width:100%;" class="btn btn-info" type="file" accept="image/*" class="@error('Foto4') is-invalid @enderror"/>
                                                 @error('Foto4')
                                                     <div class="invalid-feedback">
@@ -347,7 +339,6 @@
                                                 <button id="btn-example-file-reset3" style="width:49%;" class="btn btn-info" class="btn btn-info" type="button">Reemplazar</button>
                                                 <button id="btn-example-file-reset3" style="width:49%;" class="btn btn-info" name="delete_modal" data-toggle="modal" data-target="#borrarFoto" class="btn btn-info" type="button">Borrar definitivamente</button>
                                             </div>
->>>>>>> Stashed changes
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label for="Titulo4" style="text-align: left;">Titulo de la imagen</label>
