@@ -10,7 +10,7 @@
                     @endforeach
                   </div>
                   <div class="col-md-6 col-xs-8 producto">
-                      <img src="{{asset('../uploads/productos/'.$producto->fotoProductos[0]->Nombre)}}"  
+                      <img id="expandedImg" src="{{asset('../uploads/productos/'.$producto->fotoProductos[0]->Nombre)}}"  
                       alt="{{$producto->fotoProductos[0]->TextoAlterno}}" title="{{$producto->fotoProductos[0]->Titulo}}" class="imagen-principal">
                       <div id="imgtext"></div>
                   </div>

@@ -107,9 +107,15 @@
               <div class="img"><img src="{{asset('../uploads/servicios/'.$servicio->Logo)}}" alt="{{$servicio->TextoLogo}}">
                 <p class="titulo-servicio">{{$servicio->Nombre}}</p>
               </div>
+              <div class="price">
+                <p><span>$ </span>{{$servicio->Precio}}</p>
+              </div>
               <div class="desc">
                 <p>{{$servicio->DescripcionCorta}}</p>
                 <p>${{$servicio->Precio}}</p>
+              </div>
+              <div class="btn">
+                <a href="" class="btn-1 btn-primary">Ver más</a>
               </div>
             </div>
           </div>

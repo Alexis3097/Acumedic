@@ -266,6 +266,7 @@
     @yield('scriptCrearCitas')
     @yield('scriptPacientesEdit')
     @yield('scriptEliminarEstudiosGabinete')
+    @yield('scriptProductoDetallado')
     @yield('scriptUsuariosEdit')
     @yield('scriptUsuarios')
     @yield('checksPermisos')

@@ -339,7 +339,7 @@ input {
   display: block;
   margin: auto;
 }
-.banner-section2 .title h2{
+.banner-section2 .title h2,.banner-section2 .title h1{
   color: #fff;
   position: absolute;
   top: 0;
@@ -688,6 +688,16 @@ input {
   line-height: 30px;
   color:#696969;
   text-align:center;
+}
+.servicios .servicio-content .price p{
+  font-size:var(--font-s);
+  line-height: 30px;
+  color:#232323;
+  font-weight: bold;
+  text-align:center;
+}
+.servicios .servicio-content .btn{
+  display: block;
 }
 /* info numeros */
 .info-numeros{
@@ -1315,7 +1325,7 @@ footer .colFooter .sublinks ul li a:hover{
   .contacto-formulario .formulario .titulo-form p{
     font-size: var(--font-ms);
   }
-  .servicios .servicio-content .desc p{
+  .servicios .servicio-content .desc p, .servicios .servicio-content .price p{
     font-size: var(--font-ms);
   }
   }

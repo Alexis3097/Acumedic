@@ -51,6 +51,12 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-12">
+                                            <label for="Nombre">Titulo (Máximo 40 caracteres)</label>
+                                            <input type="text" maxlength="40" class="form-control @error('Nombre') is-invalid @enderror" value="{{ old('Nombre')}}" name="Nombre" id="Nombre" placeholder="Nombre del servicio" required>
+                                                <div class="invalid-feedback">
+                                                </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
                                             <label for="DescripcionCorta">Descripción corta (Máximo 200 caracteres)</label>
                                             <input type="text" class="form-control @error('DescripcionCorta') is-invalid @enderror"  value="{{old('DescripcionCorta', $servicio->DescripcionCorta)}}" name="DescripcionCorta" id="DescripcionCorta" maxlength="200" placeholder="Descripción corta" required>
                                             @error('DescripcionCorta')
@@ -90,12 +96,16 @@
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu logo de servicio
                                             </h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image" name="Logo" type="file" accept="image/*"/>
+                                                <input id="cat_image"  class="btn btn-info" style="width:99%;" name="Logo" type="file" accept="image/*"/>
                                                 @if ($errors->has('Logo'))
                                                     <span class="help-block text-danger">
                                                         <strong>{{$errors->first('Logo')}}</strong>
                                                     </span>
                                                 @endif
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <button id="btn-example-file-reset" style="width:49%;" class="btn btn-info" class="btn btn-info" type="button">Reemplazar</button>
+                                                <button id="btn-example-file-reset" style="width:49%;" class="btn btn-info" name="delete_modal" data-toggle="modal" data-target="#borrarFoto" class="btn btn-info" type="button">Borrar definitivamente</button>
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label for="TextoLogo" style="text-align: left;">Texto alternado</label>
@@ -107,6 +117,7 @@
                                                         </div>
                                                     @enderror
                                                 </div>
+                                                
                                             </div>
                                             <h4>Imagen de tu servicio</h4>
                                             <img id="category-img-tag1" src="{{asset('../uploads/servicios/'.$servicio->Imagen)}}" alt="{{$servicio->TextoImagen}}"
@@ -115,12 +126,16 @@
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu logo de servicio
                                             </h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image1" name="Imagen" type="file" accept="image/*"/>
+                                                <input id="cat_image1" class="btn btn-info" style="width:99%;" name="Imagen" type="file" accept="image/*"/>
                                                 @if ($errors->has('Imagen'))
                                                     <span class="help-block text-danger">
                                                         <strong>{{$errors->first('Imagen')}}</strong>
                                                     </span>
                                                 @endif
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <button id="btn-example-file-reset1" style="width:49%;" class="btn btn-info" class="btn btn-info" type="button">Reemplazar</button>
+                                                <button id="btn-example-file-reset1" style="width:49%;" class="btn btn-info" name="delete_modal" data-toggle="modal" data-target="#borrarFoto" class="btn btn-info" type="button">Borrar definitivamente</button>
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label for="TextoImagen" style="text-align: left;">Texto alternado</label>
@@ -146,6 +161,25 @@
             </div> <!-- content -->
 
         </div>
+<div class="modal fade" id="borrarFoto" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myLargeModalLabel">Eliminar definitivamente</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                    <div class="modal-body">
+                    <p>¿Esta seguro que desea eliminar esta imagen definitivamente?</p>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                    </div>
+                    </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 @endsection
 @section('scriptServicios')
 <script src="{{asset('js/jquery.js')}}"></script>
@@ -165,7 +199,13 @@
         $("#cat_image").change(function(){
             readURL(this);
         });
-    </script>
+        $(document).ready(function() {
+            $('#btn-example-file-reset').on('click', function() {     
+            $('#cat_image').val('');
+            $('#category-img-tag').attr('src','../img/upload.jpg')
+         });
+        });
+</script>
         <script>
             function readURL1(input) {
             if (input.files && input.files[0]) {
@@ -182,5 +222,11 @@
         $("#cat_image1").change(function(){
             readURL1(this);
         });
-    </script>
+        $(document).ready(function() {
+            $('#btn-example-file-reset1').on('click', function() {     
+            $('#cat_image1').val('');
+            $('#category-img-tag1').attr('src','../img/upload.jpg')
+         });
+        });
+</script>
 @endsection

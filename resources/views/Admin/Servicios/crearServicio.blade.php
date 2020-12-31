@@ -50,6 +50,12 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-12">
+                                            <label for="Nombre">Titulo (Máximo 40 caracteres)</label>
+                                            <input type="text" maxlength="40" class="form-control @error('Nombre') is-invalid @enderror" value="{{ old('Nombre')}}" name="Nombre" id="Nombre" placeholder="Nombre del servicio" required>
+                                                <div class="invalid-feedback">
+                                                </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
                                             <label for="DescripcionCorta">Descripción corta (Máximo 200 caracteres)</label>
                                             <input type="text" class="form-control @error('DescripcionCorta') is-invalid @enderror"  value="{{ old('DescripcionCorta')}}" name="DescripcionCorta" id="DescripcionCorta" maxlength="200" placeholder="Descripción corta" required>
                                             @error('DescripcionCorta')
@@ -89,12 +95,15 @@
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu logo de servicio
                                             </h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image" name="Logo" type="file" accept="image/*"/>
+                                                <input id="cat_image" style="width:99%;" class="btn btn-info" name="Logo" type="file" accept="image/*"/>
                                                 @if ($errors->has('Logo'))
                                                     <span class="help-block text-danger">
                                                         <strong>{{$errors->first('Logo')}}</strong>
                                                     </span>
                                                 @endif
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <button id="btn-example-file-reset" style="width:99%;" class="btn btn-info" class="btn btn-info" type="button">Reemplazar</button>
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label for="TextoLogo" style="text-align: left;">Texto alternado</label>
@@ -114,12 +123,15 @@
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu logo de servicio
                                             </h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image1" name="Imagen" type="file" accept="image/*"/>
+                                                <input id="cat_image1" name="Imagen" style="width:99%;" class="btn btn-info" type="file" accept="image/*"/>
                                                 @if ($errors->has('Imagen'))
                                                     <span class="help-block text-danger">
                                                         <strong>{{$errors->first('Imagen')}}</strong>
                                                     </span>
                                                 @endif
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <button id="btn-example-file-reset1" style="width:99%;" class="btn btn-info" class="btn btn-info" type="button">Reemplazar</button>
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label for="TextoImagen" style="text-align: left;">Texto alternado</label>
@@ -164,7 +176,13 @@
         $("#cat_image").change(function(){
             readURL(this);
         });
-    </script>
+        $(document).ready(function() {
+            $('#btn-example-file-reset').on('click', function() {     
+            $('#cat_image').val('');
+            $('#category-img-tag').attr('src','../img/upload.jpg')
+         });
+        });
+</script>
         <script>
             function readURL1(input) {
             if (input.files && input.files[0]) {
@@ -181,5 +199,11 @@
         $("#cat_image1").change(function(){
             readURL1(this);
         });
-    </script>
+        $(document).ready(function() {
+            $('#btn-example-file-reset1').on('click', function() {     
+            $('#cat_image1').val('');
+            $('#category-img-tag1').attr('src','../img/upload.jpg')
+         });
+        });
+</script>
 @endsection
