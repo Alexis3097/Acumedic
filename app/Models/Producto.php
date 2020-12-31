@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\fotoProducto;
-use App\Models\almacen;
+use App\Models\inventario;
 use Illuminate\Database\Eloquent\Model;
 
 class Producto extends Model
@@ -18,9 +18,9 @@ class Producto extends Model
         return $this->hasMany(fotoProducto::class,'IdProducto');
     }
 
-    public function almacen()
+    public function inventario()
     {
-        return $this->hasOne(almacen::class);
+        return $this->hasOne(inventario::class);
     }
     
 }

@@ -1,3 +1,8 @@
+$('.delete').on('click', function(){
+    $tr = $(this).closest('tr');
+    var id = $tr.children("input[type=hidden]").val();
+    $('#idUsuarioEliminar').val(id);
+});
 $('.change').on('click', function(){
     $tr = $(this).closest('tr');
     var id = $tr.children("input[type=hidden]").val();
@@ -13,6 +18,8 @@ $('.enviar').on('click',function(event){
     let idUsuario = $("#idUsuario").val();
     let token = $("input[name=_token]").val();
     var route = "/usuarios/password";
+
+    // console.log(idUsuario, password, password_confirmation);
     $.ajax({
         url:route,
         headers:{'X-CSRF-TOKEN':token},

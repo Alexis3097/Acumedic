@@ -60,6 +60,11 @@ class UsuarioSeeder extends Seeder
         array_push($PermissionsArray, Permission::create(['name' => 'CrearServicio']));
         array_push($PermissionsArray, Permission::create(['name' => 'EditarServicio']));
         array_push($PermissionsArray, Permission::create(['name' => 'EliminarServicio']));
+        //INVENTARIO
+        array_push($PermissionsArray, Permission::create(['name' => 'ListadoInventario']));
+        array_push($PermissionsArray, Permission::create(['name' => 'CrearInventario']));
+        array_push($PermissionsArray, Permission::create(['name' => 'EditarInventario']));
+        array_push($PermissionsArray, Permission::create(['name' => 'EliminarInventario']));
         //asignando los permisos al rol
         $role->syncPermissions($PermissionsArray);
 

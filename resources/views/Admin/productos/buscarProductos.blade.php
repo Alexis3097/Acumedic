@@ -99,7 +99,7 @@
                     @csrf
                     @method('delete')
                     <input type="hidden" name="IdModal" id="IdModal">
-                    <p>¿Esta seguro que desea eliminar el producto?</p>
+                    <p>¿Esta seguro que desea eliminar el producto? tambien se eliminara del inventario y toda su informacion</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Si, Eliminar</button>

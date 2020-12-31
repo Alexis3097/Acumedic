@@ -118,6 +118,18 @@
                                                             <td><input type="checkbox" class="check" name="EditarServicio" value="EditarServicio" {{$permisos['EditarServicio']}}></td>
                                                             <td><input type="checkbox" class="check"name="EliminarServicio" value="EliminarServicio" {{$permisos['EliminarServicio']}}></td>
                                                         </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <input type="checkbox" class="custom-control-input checks" id="Inventario">
+                                                                <label class="custom-control-label" for="Inventario">
+                                                                    Inventario
+                                                                </label></td>
+                                                            <td><input type="checkbox" class="check" name="ListadoInventario" value="ListadoInventario" {{$permisos['ListadoInventario']}}></td>
+                                                            <td><input type="checkbox" class="check" name="CrearInventario" value="CrearInventario" {{$permisos['CrearInventario']}}></td>
+                                                            <td><input type="checkbox" class="check" name="EditarInventario" value="EditarInventario" {{$permisos['EditarInventario']}}></td>
+                                                            <td><input type="checkbox" class="check"name="EliminarInventario" value="EliminarInventario" {{$permisos['EliminarInventario']}}></td>
+                                                        </tr>
+                                                        
                                                     </tbody>
                                                 </table>
                                             </div>

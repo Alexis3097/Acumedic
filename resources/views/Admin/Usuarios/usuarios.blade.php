@@ -103,7 +103,7 @@
                 <form action="{{ route('usuarios.delete')}}" method="post">
                     @csrf
                     @method('delete')
-                    <input type="hidden" name="IdModal" id="IdModal">
+                    <input type="text" name="IdModal" id="idUsuarioEliminar">
                     <p>¿Esta seguro que desea eliminar el usuario?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

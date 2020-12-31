@@ -57,10 +57,10 @@
                                                         <td>${{$servicio->Precio}}</td>
                                                         <td>
                                                             @can('EditarServicio')
-                                                                <a href="{{route('servicios.edit',['id'=>$servicio->id])}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
+                                                                <a href="{{route('servicios.edit',['id'=>$servicio->id])}}" data-toggle="tooltip" data-placement="left" title="Editar servicio" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
                                                             @endcan
                                                             @can('EliminarServicio')
-                                                                <button type="button" class="btn btn-outline-danger delete" name="delete_modal" data-toggle="modal" data-target="#eliminarServicio" ><i class="fa fa-trash"></i></button>
+                                                            <span data-toggle="tooltip" data-placement="left" title="Eliminar servicio"> <button type="button" class="btn btn-outline-danger delete" name="delete_modal" data-toggle="modal" data-target="#eliminarServicio" ><i class="fa fa-trash"></i></button></span>
                                                             @endcan
 
                                                         </td>

@@ -23,8 +23,8 @@
                             </div>
                         </form>
                         <div class="form-group mb-4">
-                                <a href="{{route('usuarios.list')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Todos los usuarios</a>
-                            </div>
+                            <a href="{{route('usuarios.list')}}"  class="form-control btn btn-small width-xs btn-info">Todos los usuarios</a>
+                        </div>
                     </div>
                     <!-- products -->
                     <div class="row">
@@ -38,6 +38,11 @@
                                 @endcan
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista de usuarios</h5>
                                     <div style="padding:1%;" class="table-responsive mt-12">
+                                    
+                                        <div id="alerta">
+                                            
+                                        </div>
+                                    
                                         <table class="table table-hover table-nowrap mb-0" data-form="deleteForm">
                                             <thead>
                                                 <tr>
@@ -64,10 +69,12 @@
                                                                     <i class="fa fa-trash"></i>
                                                                 </button></span>
                                                             @endcan
-                                                                <span  data-toggle="tooltip" data-placement="left" title="Cambiar contraseña"><button type="button" name="delete_modal" class="btn btn-outline-info" data-toggle="modal" data-target="#contraseniaUsuario">
-                                                                    <i class="fas fa-key"></i>
+                                                            @can('EditarUsuario')
+                                                                <span  data-toggle="tooltip" data-placement="left" title="Cambiar contraseña"><button type="button" name="delete_modal" class="btn btn-outline-info change" data-toggle="modal" data-target="#contraseniaUsuario">
+                                                                <i class="fas fa-key"></i>
                                                                     </button>
                                                                 </span>
+                                                            @endcan
                                                             </td>
                                                         </tr>
                                                    @endforeach
@@ -98,7 +105,7 @@
                 <form action="{{ route('usuarios.delete')}}" method="post">
                     @csrf
                     @method('delete')
-                    <input type="hidden" name="IdModal" id="IdModal">
+                    <input type="text" name="IdModal" id="idUsuarioEliminar">
                     <p>¿Esta seguro que desea eliminar el usuario?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -113,24 +120,29 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Repetir contraseña</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">cambiar contraseña</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('usuarios.delete')}}" method="post">
+                <form action="">
+                @csrf
+                    <input type="hidden" name="idUsuario" id="idUsuario">
                     <div class="form-group col-md-12 mb-3">
-                        <label>Nueva contraseña</label>
-                        <input type="password" class="form-control">
+                        <label for="password">Nueva contraseña</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Escriba la contraseña" required>
+                        <div id="errorPassword1" style="color:red;"></div>
+                        <div id="errorPassword2" style="color:red;"></div>
                     </div>
                     <div class="form-group col-md-12 mb-3">
-                        <label>Repetir contraseña</label>
-                        <input type="password" class="form-control">
+                        <label for="password_confirmation">Repetir contraseña</label>
+                        <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="Repita la contraseña" required autocomplete="new-password">
+                        <div id="errorPasswordconfirmation" style="color:red;"></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                        <button type="button" class="btn btn-primary enviar">Actualizar</button>
                     </div>
                 </form>
             </div>
@@ -138,6 +150,6 @@
     </div>
 </div>
 @endsection
-@section('scriptUsuarios')
-    <script src="{{asset('js/Admin/modales.js')}}"></script>
+@section('changeUserPassword')
+    <script src="{{asset('js/Admin/changeUserPassword.js')}}"></script>
 @endsection

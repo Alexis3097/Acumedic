@@ -1,9 +1,11 @@
 <?php
 
 namespace App\ViewModel;
-use App\Models\Producto;
-use App\Models\fotoProducto;
 use DB;
+use App\Models\Producto;
+use App\Models\Inventario;
+use App\Models\fotoProducto;
+
 class ProductoViewModel
 {
 
@@ -182,6 +184,10 @@ class ProductoViewModel
 
   public function delete($id){
     $producto = Producto::find($id);
+    if(isset($producto->inventario)){
+      $inventario = Inventario::where('producto_id',$id)->first();
+      $inventario->delete();
+    }
     $fotoProductos = fotoProducto::where('IdProducto', $id)->get();
     foreach ($fotoProductos as $foto){
       $this->deleteProductPhoto($foto->Nombre);
@@ -221,4 +227,6 @@ class ProductoViewModel
                   ->get();
       return $producto;
   }
+
+ 
 }

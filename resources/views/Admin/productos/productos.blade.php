@@ -58,10 +58,10 @@
                                                     
                                                     <td>
                                                     @can('EditarProducto')
-                                                        <a href="{{route('productos.edit',['id' =>$producto->id])}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
+                                                    <a href="{{route('productos.edit',['id' =>$producto->id])}}" data-toggle="tooltip" data-placement="left" title="Editar producto" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
                                                     @endcan
                                                     @can('EliminarProducto')
-                                                        <button type="button" class="btn btn-outline-danger delete" name="delete_modal" data-toggle="modal" data-target="#eliminarProducto"><i class="fa fa-trash"></i></button>
+                                                    <span data-toggle="tooltip" data-placement="left" title="Eliminar producto"><button type="button" class="btn btn-outline-danger delete" name="delete_modal" data-toggle="modal" data-target="#eliminarProducto"><i class="fa fa-trash"></i></button></span>
                                                     @endcan
 
                                                     </td>
@@ -97,7 +97,7 @@
                     @csrf
                     @method('delete')
                     <input type="hidden" name="IdModal" id="IdModal">
-                    <p>¿Esta seguro que desea eliminar el producto?</p>
+                    <p>¿Esta seguro que desea eliminar el producto? tambien se eliminara del inventario y toda su informacion</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Si, Eliminar</button>

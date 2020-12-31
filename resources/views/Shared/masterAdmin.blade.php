@@ -6,7 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        
+        <link rel="shortcut icon" href="{{{ asset('img/favicon-acumedic.png') }}}"> 
+
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link rel="shortcut icon" href="{{asset('img/Admin/favicon.ico')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('js/Admin/libs/flatpickr/flatpickr.min.css')}}" type="text/css">
@@ -193,12 +194,14 @@
                                             </a>
                                         @endcan
                                     @endif 
-                                    
-                                            <a href="{{ route('almacen.list')}}" class="dropdown-item notify-item">
-                                                <i data-feather="package" class="icon-dual icon-xs mr-2"></i>
-                                                <span>Almacén</span>
+                                    @if(auth()->user()->can('ListadoInventario'))
+                                        @canany(['ListadoInventario','CrearInventario','EditarInventario','EliminarInventario'])
+                                            <a href="{{ route('inventario.list')}}" class="dropdown-item notify-item">
+                                                <i data-feather="book" class="icon-dual icon-xs mr-2"></i>
+                                                <span>Inventario</span>
                                             </a>
-                                       
+                                        @endcan
+                                    @endif
                                     @if(auth()->user()->can('ListadoServicio'))
                                         @canany(['ListadoServicio','CrearServicio','EditarServicio','EliminarServicio'])
                                             <a href="{{route('servicios.list')}}" class="dropdown-item notify-item">
@@ -207,10 +210,6 @@
                                             </a>
                                         @endcan
                                     @endif
-                                    <a href="#" class="dropdown-item notify-item">
-                                            <i data-feather="book" class="icon-dual icon-xs mr-2"></i>
-                                            <span>Inventario</span>
-                                    </a>
                                         <a href="{{route('sobreNosotros')}}" class="dropdown-item notify-item">
                                             <i data-feather="users" class="icon-dual icon-xs mr-2"></i>
                                             <span>Sobre acumedic</span>
@@ -275,5 +274,6 @@
     @yield('scriptDesc1')
     @yield('scriptDesc2')
     @yield('changeUserPassword')
+    @yield('scriptInventario')
     </body>
 </html>

@@ -117,6 +117,17 @@
                                                                 <td><input type="checkbox" class="check" name="EditarServicio" value="EditarServicio"></td>
                                                                 <td><input type="checkbox" class="check"name="EliminarServicio" value="EliminarServicio"></td>
                                                             </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="checkbox" class="custom-control-input checks" id="Inventario">
+                                                                    <label class="custom-control-label" for="Inventario">
+                                                                        Inventario
+                                                                    </label></td>
+                                                                <td><input type="checkbox" class="check" name="ListadoInventario" value="ListadoInventario"></td>
+                                                                <td><input type="checkbox" class="check" name="CrearInventario" value="CrearInventario"></td>
+                                                                <td><input type="checkbox" class="check" name="EditarInventario" value="EditarInventario"></td>
+                                                                <td><input type="checkbox" class="check"name="EliminarInventario" value="EliminarInventario"></td>
+                                                            </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>

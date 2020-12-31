@@ -64,7 +64,8 @@ class UsuarioViewModel
     }
 
     public function buscarUsuario($Nombre){
-      $usuario = User::where('name', 'like','%' . $Nombre. '%')
+      $usuario = User::where('id', '!=', auth()->id())
+                  ->where('name', 'like','%' . $Nombre. '%')
                   ->orWhere('ApellidoPaterno', 'like','%' . $Nombre. '%')
                   ->orWhere('ApellidoMaterno', 'like','%' . $Nombre. '%')
                   ->get();

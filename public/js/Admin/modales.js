@@ -4,6 +4,8 @@ $('.delete').on('click', function(){
     $('#IdModal').val(id);
 });
 
+
+
 $('.editarSintomaSub').on('click', function(){
     $tr = $(this).closest('tr');
     var id = $tr.children("input[type=hidden]").val();

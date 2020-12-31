@@ -162,9 +162,14 @@ Route::group(['middleware' => ['permission:ListadoProducto|CrearProducto|EditarP
     Route::get('/productos/buscar', 'ProductosController@buscar')->name('productos.buscar');
 });
 
-//ALMÁCEN
-Route::get('/almacen', 'AlmacenController@index')->name('almacen.list');
-
+//INVENTARIO
+Route::group(['middleware' => ['permission:ListadoInventario|CrearInventario|EditarInventario|EliminarInventario']], function () {
+    Route::get('/inventario', 'InventarioController@index')->name('inventario.list');
+    Route::put('/inventario/agregar', 'InventarioController@agregar');
+    Route::put('/inventario/actualizar', 'InventarioController@update')->name('inventario.update');
+    Route::delete('/inventario/vaciar', 'InventarioController@destroy')->name('inventario.destroy');
+    Route::get('/inventario/buscar', 'InventarioController@buscar')->name('inventario.buscar');
+});
 // SERVICIOS
 Route::group(['middleware' => ['permission:ListadoServicio|CrearServicio|EditarServicio|EliminarServicio']], function () {
     Route::get('/listado-servicios', 'ServicioController@index')->name('servicios.list');
