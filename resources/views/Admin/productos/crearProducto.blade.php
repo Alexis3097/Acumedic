@@ -125,7 +125,7 @@
                                             <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu Imagen de producto</h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image" class="btn btn-info" style="width:100%;" name="Foto1" type="file" class="@error('Foto1') is-invalid @enderror"accept="image/*"/>
+                                                <input id="cat_image"  style="width:100%;" name="Foto1" type="file" class="btn btn-info @error('Foto1') is-invalid @enderror"accept="image/*"/>
                                                 @error('Foto1')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -165,7 +165,7 @@
                                             <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image1" class="btn btn-info" style="width:100%;" name="Foto2" type="file" accept="image/*" class="@error('Foto2') is-invalid @enderror"/>
+                                                <input id="cat_image1"  style="width:100%;" name="Foto2" type="file" accept="image/*" class="btn btn-info @error('Foto2') is-invalid @enderror"/>
                                                 @error('Foto2')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -205,7 +205,7 @@
                                             <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image2" name="Foto3" type="file" style="width:100%;" class="btn btn-info" accept="image/*"class="@error('Foto3') is-invalid @enderror" />
+                                                <input id="cat_image2" name="Foto3" type="file" style="width:100%;"  accept="image/*"class="btn btn-info @error('Foto3') is-invalid @enderror" />
                                                 @error('Foto3')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -245,7 +245,7 @@
                                             <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image3" name="Foto4" style="width:100%;" class="btn btn-info" type="file" accept="image/*" class="@error('Foto4') is-invalid @enderror"/>
+                                                <input id="cat_image3" name="Foto4" style="width:100%;"  type="file" accept="image/*" class="btn btn-info @error('Foto4') is-invalid @enderror"/>
                                                 @error('Foto4')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -253,7 +253,7 @@
                                                 @enderror
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <button id="btn-example-file-reset3" style="width:100%;" class="btn btn-info" class="btn btn-info" type="button">Reemplazar</button>
+                                                <button id="btn-example-file-reset3" style="width:100%;"  class="btn btn-info" type="button">Reemplazar</button>
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label for="Titulo4" style="text-align: left;">Titulo de la imagen</label>
