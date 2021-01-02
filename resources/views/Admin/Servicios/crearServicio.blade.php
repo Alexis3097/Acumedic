@@ -49,12 +49,7 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                        <div class="form-group col-md-12">
-                                            <label for="Nombre">Titulo (Máximo 40 caracteres)</label>
-                                            <input type="text" maxlength="40" class="form-control @error('Nombre') is-invalid @enderror" value="{{ old('Nombre')}}" name="Nombre" id="Nombre" placeholder="Nombre del servicio" required>
-                                                <div class="invalid-feedback">
-                                                </div>
-                                        </div>
+                                        
                                         <div class="form-group col-md-12">
                                             <label for="DescripcionCorta">Descripción corta (Máximo 200 caracteres)</label>
                                             <input type="text" class="form-control @error('DescripcionCorta') is-invalid @enderror"  value="{{ old('DescripcionCorta')}}" name="DescripcionCorta" id="DescripcionCorta" maxlength="200" placeholder="Descripción corta" required>

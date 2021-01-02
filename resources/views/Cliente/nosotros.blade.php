@@ -21,19 +21,15 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6 imageAbout">
-              <img src="img/about-example.png" alt="sobre-acumedic">
+              <img src="{{asset('../uploads/SobreAcumedic/'.$sobreAcumedic->Foto)}}" alt="{{$sobreAcumedic->TextoAlterno}}">
             </div>
             <div class="col-md-6 descAbout">
-              <p class="titulo">About us</p>
-              <p class="desc-italic">Centro especializado en Acupuntura-naturopatia y geriatría. Diplomados profesionales en salud alternativa.</p>
-              <p class="subtitulo">Nuestra historia</p>
-              <p class="desc">Acumedic nace en en año 2008 como un centro Profesional de Asistencia Médica donde se combinan la Medicina Tradicional China y Acupuntura tanto como la medicina Moderna; con el objetivo de brindar a pacientes una eficaz manera de atender sus padecimientos y asi mismo, mantener y restaurar la salud, Teniendo atención especial a Adultos Mayores, enfermedades crónicas y degenerativas y casos donde se curse con Dolor.</p>
-              <p class="subtitulo">Mision y vision</p>
-              <p class="desc">Vestibulum nec lacus vel sapien blandit blandit id id urna. Nulla sed venenatis sapien.
-                Praesent vel orci a risus fringilla scelerisque nec a nunc. Cras blandit ante leo, vel mollis nisi lobortis
-                ac. Nam fermentum suscipit velit at scelerisque.<br></brZ>Fusce cursus nec odio eu accumsan. Sed quis
-                pharetra dui. Fusce mattis et eros ac hendrerit. Cras maximus ipsum sed leo commodo laoreet. Praesent urna
-                lectus, porta auctor arcu in, tempus facilisis justo</p>
+            <p class="titulo">{{$sobreAcumedic->Titulo1}}</p>
+            <p class="desc-italic">{{$sobreAcumedic->Informacion1}}</p>
+            <p class="subtitulo">{{$sobreAcumedic->Titulo2}}</p>
+            <p class="desc">{{$sobreAcumedic->Informacion2}}</p>
+            <p class="subtitulo">{{$sobreAcumedic->Titulo3}}</p>
+            <p class="desc">{{$sobreAcumedic->Informacion3}}</p>
             </div>
           </div>
         </div>
@@ -42,17 +38,13 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6 descAbout">
-              <p class="titulo">About us</p>
-              <p class="desc">Acumedic nace en en año 2008 como un centro Profesional de Asistencia Médica donde se combinan la Medicina Tradicional China y Acupuntura tanto como la medicina Moderna; con el objetivo de brindar a pacientes una eficaz manera de atender sus padecimientos y asi mismo, mantener y restaurar la salud, Teniendo atención especial a Adultos Mayores, enfermedades crónicas y degenerativas y casos donde se curse con Dolor.</p>
-              <p class="subtitulo">Mision y vision</p>
-              <p class="desc">Vestibulum nec lacus vel sapien blandit blandit id id urna. Nulla sed venenatis sapien.
-                Praesent vel orci a risus fringilla scelerisque nec a nunc. Cras blandit ante leo, vel mollis nisi lobortis
-                ac. Nam fermentum suscipit velit at scelerisque.<br></brZ>Fusce cursus nec odio eu accumsan. Sed quis
-                pharetra dui. Fusce mattis et eros ac hendrerit. Cras maximus ipsum sed leo commodo laoreet. Praesent urna
-                lectus, porta auctor arcu in, tempus facilisis justo</p>
+              <p class="titulo">{{$segundaSeccion->Titulo1}}</p>
+              <p class="desc">{{$segundaSeccion->Informacion1}}</p>
+              <p class="subtitulo">{{$segundaSeccion->Titulo2}}</p>
+              <p class="desc">{{$segundaSeccion->Informacion2}}</p>
             </div>
             <div class="col-md-6 imageAbout">
-              <img src="img/about-example.png" alt="sobre-acumedic">
+              <img src="{{asset('../uploads/SobreAcumedic/'.$segundaSeccion->Foto)}}" alt="{{$segundaSeccion->TextoAlterno}}">
             </div>
           </div>
         </div>
@@ -65,7 +57,7 @@
             </div>
             <div class="desc">
               <p class="titulo">Nuestro número</p>
-              <p class="numero">961-359-1414</p>
+              <p class="numero">{{$contacto->Telefono}}</p>
             </div>
           </div>
           <div class="contactoH">
@@ -74,7 +66,7 @@
             </div>
             <div class="desc">
               <p class="titulo">Horarios</p>
-              <p class="numero">Lunes a Sábado (11:00 - 15:00 , 17:00 - 19:00)</p>
+              <p class="numero">{{$contacto->Horario}}</p>
             </div>
           </div>
         </div>

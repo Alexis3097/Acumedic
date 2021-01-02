@@ -28,6 +28,7 @@
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista de páginas</h5>
 
                                     <div class="table-responsive mt-12">
+                                    <div id="alerta"></div>
                                         <table class="table table-hover table-nowrap mb-0">
                                             <thead>
                                                 <tr>
@@ -50,16 +51,15 @@
                                                     
                                                     <td>
                                                         <button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verDescripcion2" ><i class="fa fa-eye"></i></button>
-                                                        <a href="{{ route('sobreNosotros.historia')}}" class="btn btn-outline-warning"  ><i class="fa fa-edit"></i></a>
+                                                        <a href="{{ route('sobreNosotros.segundaSeccion')}}" class="btn btn-outline-warning"  ><i class="fa fa-edit"></i></a>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Información  <span><i class="fa fa-eye-slash"></i></span></td>
+                                                    <td>Contacto</td>
                                                     
                                                     <td>
                                                         <button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verInformacion" ><i class="fa fa-eye"></i></button>
-                                                        <button type="button" class="btn btn-outline-warning"  name="delete_modal" data-toggle="modal" data-target="#editInfo" ><i class="fa fa-edit"></i></button>
-                                                        <button type="button" class="btn btn-outline-danger delete" name="delete_modal" data-toggle="modal" data-target="#ocultar"><i class="fa fa-eye-slash"></i></button>
+                                                        <button type="button" class="btn btn-outline-warning"  id="infoContacto"><i class="fa fa-edit"></i></button>
 
                                                     </td>
                                                 </tr>
@@ -69,7 +69,7 @@
                                                     <td>
                                                     <button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verServicios" ><i class="fa fa-eye"></i></button>
                                                         <button type="button" class="btn btn-outline-warning" name="delete_modal" data-toggle="modal" data-target="#editServ"><i class="fa fa-edit"></i></button>
-                                                        <button type="button" class="btn btn-outline-danger" name="delete_modal" data-toggle="modal" data-target="#ocultar"><i class="fa fa-eye-slash"></i></button>
+                                                        <button type="button" class="btn btn-outline-danger" name="delete_modal" data-toggle="modal" data-target="#ocultar" disabled><i class="fa fa-eye-slash"></i></button>
 
                                                     </td>
                                                 </tr>
@@ -86,6 +86,7 @@
                 </div>
             </div> <!-- content -->
 </div>
+<!-- seleccionar servicios -->
 <div class="modal fade" id="editServ" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
@@ -103,11 +104,9 @@
                             <div class="form-group col-md-12">
                                 <label for="validationCustom01">Añade tus servicios</label>
                                 <select class="form-control wide" data-plugin="customselect" multiple>
-                                    <option value="0" selected>Shreyu</option>
-                                    <option value="1">Greeva</option>
-                                    <option value="2">Dhyanu</option>
-                                    <option value="3" disabled>Disabled</option>
-                                    <option value="4">Mannat</option>
+                                    @foreach($servicios as $servicio)
+                                        <option value="{{$servicio->id}}">{{$servicio->Nombre}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-12">
@@ -119,6 +118,8 @@
                 </div>
             </div>
 </div>
+<!-- end seleccionar servicios -->
+<!-- contacto -->
 <div class="modal fade" id="editInfo" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
@@ -129,24 +130,29 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form class="needs-validation row" novalidate>
+                        <form class="needs-validation row" id="form">
+                        @csrf
+                            <input type="hidden" id="id">
                             <div class="form-group col-md-12">
-                                <label for="validationCustom01">Escribe tu número</label>
-                                <input type="text" class="form-control" id="validationCustom01" placeholder="Pon el dato actual aqui" required>
+                                <label for="Telefono">Escribe tu número</label>
+                                <input type="text" class="form-control" id="Telefono"  name="Telefono" placeholder="Agrega el número telefónico" >
+                                <div id="errorTelefono" style="color:red;"></div>
                             </div>
                             <div class="form-group col-md-12">
-                                <label for="validationCustom01">Escribe tu horario</label>
-                                <input type="text" class="form-control" id="validationCustom01" placeholder="Pon el dato actual aqui" required>
+                                <label for="Horario">Escribe tu horario</label>
+                                <input type="text" class="form-control" id="Horario" name="Horario"  placeholder="Agrega tu horario" >
+                                <div id="errorHorario" style="color:red;"></div>
                             </div>
                             <div class="form-group col-md-12">
-                                <button class="btn btn-danger" type="submit">Cancelar</button>
-                                <button class="btn btn-primary" type="submit">Guardar</button>
+                                <button class="btn btn-danger" type="button" data-dismiss="modal">Cancelar</button>
+                                <button class="btn btn-primary ActualziarContacto" type="submit">Guardar</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+<!-- end contacto -->
         <div class="modal fade" id="verDescripcion1" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
@@ -192,6 +198,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="modal fade" id="verServicios" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
@@ -207,6 +214,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="modal fade" id="ocultar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -234,5 +242,5 @@
 <script src="{{asset('js/Admin/libs/multiselect/jquery.multi-select.js')}}"></script>
 <script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
 <script src="{{asset('js/Admin/pages/form-advanced.init.js')}}"></script>
-<script src="{{asset('js/Admin/modales.js')}}"></script>
+<script src="{{asset('js/Admin/contacto.js')}}"></script>
 @endsection
