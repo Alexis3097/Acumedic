@@ -41,35 +41,49 @@
                                                     <td>Descripción de tu empresa</td>
                                                     
                                                     <td>
-                                                        <button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verDescripcion1" ><i class="fa fa-eye"></i></button>
-                                                        <a href="{{ route('sobreNosotros.descripcion')}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
+                                                        <span data-toggle="tooltip" data-placement="left" title="Ejemplo de como se veria"><button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verDescripcion1" ><i class="fa fa-eye"></i></button></span>
+                                                        <span data-toggle="tooltip" data-placement="left" title="Editar sección"><a href="{{ route('sobreNosotros.descripcion')}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a></span>
 
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Descripción o historia de tu empresa</td>
+                                                    <td>Descripción de segunda sección</td>
                                                     
                                                     <td>
-                                                        <button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verDescripcion2" ><i class="fa fa-eye"></i></button>
-                                                        <a href="{{ route('sobreNosotros.segundaSeccion')}}" class="btn btn-outline-warning"  ><i class="fa fa-edit"></i></a>
+                                                        <span data-toggle="tooltip" data-placement="left" title="Ejemplo de como se veria"><button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verDescripcion2" ><i class="fa fa-eye"></i></button></span>
+                                                        <span data-toggle="tooltip" data-placement="left" title="Editar sección"><a href="{{ route('sobreNosotros.segundaSeccion')}}" class="btn btn-outline-warning"  ><i class="fa fa-edit"></i></a></span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>Contacto</td>
                                                     
                                                     <td>
-                                                        <button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verInformacion" ><i class="fa fa-eye"></i></button>
-                                                        <button type="button" class="btn btn-outline-warning"  id="infoContacto"><i class="fa fa-edit"></i></button>
+                                                        <span data-toggle="tooltip" data-placement="left" title="Ejemplo de como se veria"><button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verInformacion" ><i class="fa fa-eye"></i></button></span>
+                                                        <span data-toggle="tooltip" data-placement="left" title="Editar sección"><button type="button" class="btn btn-outline-warning"  id="infoContacto"><i class="fa fa-edit"></i></button></span>
 
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>¿Cuales son tus servicios? (Solo 6) <span><i class="fa fa-eye-slash"></i></span></td>
+                                                    <td>¿Cuales son tus servicios? (Solo funcional cuando tiene 6 o más servicios registrados) 
+                                                        <span>
+                                                            @if($verServicio->Servicios)
+                                                            <span data-toggle="tooltip" data-placement="right" title="Los servicios están visible"><i class="fa fa-eye"></i></span>
+                                                            @else
+                                                            <span data-toggle="tooltip" data-placement="right" title="Los servicios no están visible"><i class="fa fa-eye-slash"></i></span>
+                                                            @endif
+                                                            
+                                                        </span>
+                                                    </td>
                                                     
                                                     <td>
-                                                    <button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verServicios" ><i class="fa fa-eye"></i></button>
-                                                        <button type="button" class="btn btn-outline-warning" name="delete_modal" data-toggle="modal" data-target="#editServ"><i class="fa fa-edit"></i></button>
-                                                        <button type="button" class="btn btn-outline-danger" name="delete_modal" data-toggle="modal" data-target="#ocultar" disabled><i class="fa fa-eye-slash"></i></button>
+                                                        <span data-toggle="tooltip" data-placement="left" title="Ejemplo de como se veria"><button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verServicios" ><i class="fa fa-eye"></i></button></span>
+                                                        <span data-toggle="tooltip" data-placement="left" title="Editar sección"><button type="button" class="btn btn-outline-warning editServ" id="agregarServicios" @if(count($servicios)>=6) enabled @else disabled @endif><i class="fa fa-edit"></i></button></span>
+                                                        
+                                                        @if($verServicio->Servicios)
+                                                        <span data-toggle="tooltip" data-placement="left" title="Ocultar sección"><button type="button" class="btn btn-outline-danger" name="delete_modal" data-toggle="modal" data-target="#ocultar" @if(count($servicios)>=6) enabled @else disabled @endif ><i class="fa fa-eye-slash"></i></button></span>
+                                                        @else
+                                                        <span data-toggle="tooltip" data-placement="left" title="Hacer visible la sección"><button type="button" class="btn btn-outline-info" name="delete_modal" data-toggle="modal" data-target="#ocultar" @if(count($servicios)>=6) enabled @else disabled @endif ><i class="fa fa-eye"></i></button></span>
+                                                        @endif
 
                                                     </td>
                                                 </tr>
@@ -86,6 +100,9 @@
                 </div>
             </div> <!-- content -->
 </div>
+<!-- SECCION DE HELPERS PARA VALIDACIONES -->
+<a href="{{route('sobreNosotros')}}" id="list"></a>
+<!-- FIN DE SECCION DE HLEPERS -->
 <!-- seleccionar servicios -->
 <div class="modal fade" id="editServ" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
@@ -94,24 +111,27 @@
                         <h5 class="modal-title" style="display: inline; width: 100%;" id="exampleModalLongTitle" >Añade tus seis servicios principales</h5>
                         <br>
                         <h6 style="display: inline; width: 100%;">Esta sección se pone disponible cuando cuentas con 6 servicios o más:</h6>
+                        <div id="errorMax" style="color:red;"></div>
                         <div class="modal-footer"></div>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form class="needs-validation row" novalidate>
+                        <form class="needs-validation row form">
+                            @csrf
                             <div class="form-group col-md-12">
                                 <label for="validationCustom01">Añade tus servicios</label>
-                                <select class="form-control wide" data-plugin="customselect" multiple>
+                                <select class="form-control wide" data-plugin="customselect" multiple id="servicios" name="servicios[]">
                                     @foreach($servicios as $servicio)
-                                        <option value="{{$servicio->id}}">{{$servicio->Nombre}}</option>
+                                        <option value="{{$servicio->id}}" @if(in_array($servicio->id,$servicio->ServiciosSeleccionado->pluck('IdServicio')->toArray())) selected @endif>{{$servicio->Nombre}}</option>
                                     @endforeach
                                 </select>
+                                <div id="errorServicio" style="color:red;"></div>
                             </div>
                             <div class="form-group col-md-12">
-                                <button class="btn btn-danger" type="submit">Cancelar</button>
-                                <button class="btn btn-primary" type="submit">Guardar</button>
+                                <button class="btn btn-danger" type="button" data-dismiss="modal">Cancelar</button>
+                                <button class="btn btn-primary" type="submit" id="btnServicios">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -130,7 +150,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form class="needs-validation row" id="form">
+                        <form class="needs-validation row form" >
                         @csrf
                             <input type="hidden" id="id">
                             <div class="form-group col-md-12">
@@ -219,18 +239,34 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Ocultar</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">
+                        @if($verServicio->Servicios)
+                        Ocultar
+                        @else
+                        Hacer visible
+                        @endif
+                        </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                            <input type="hidden" name="IdModal" id="IdModal">
+                         <form action="{{route('visibilidadServicio')}}" method="post">  
+                            @csrf
+                            @method('put')
+                            @if($verServicio->Servicios)
                             <p>¿Esta seguro que quieres ocultar está sección?</p>
+                            <input type="hidden" name="opcion" value="0">
+                            @else
+                            <p>¿Esta seguro que quieres hacer visible está sección?</p>
+                            <input type="hidden" name="opcion" value="1"> 
+                            @endif
+                            
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary">Si, ocultar</button>
+                                <button type="submit" class="btn btn-primary">Si</button>
                             </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -241,6 +277,6 @@
 <script src="{{asset('js/Admin/libs/select2/select2.min.js')}}"></script>
 <script src="{{asset('js/Admin/libs/multiselect/jquery.multi-select.js')}}"></script>
 <script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
-<script src="{{asset('js/Admin/pages/form-advanced.init.js')}}"></script>
+<!-- <script src="{{asset('js/Admin/pages/form-advanced.init.js')}}"></script> -->
 <script src="{{asset('js/Admin/contacto.js')}}"></script>
 @endsection

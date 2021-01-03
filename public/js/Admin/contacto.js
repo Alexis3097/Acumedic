@@ -1,4 +1,4 @@
-$('#form').on('submit', function(e) {
+$('.form').on('submit', function(e) {
     e.preventDefault();
 })
 $('#infoContacto').on('click', function(){
@@ -30,7 +30,6 @@ $('.ActualziarContacto').on('click',function(event){
     let token = $("input[name=_token]").val();
     var route = "/sobre-nosotros/actualizarContacto";
 
-    // console.log(idUsuario, password, password_confirmation);
     $.ajax({
         url:route,
         headers:{'X-CSRF-TOKEN':token},
@@ -59,3 +58,48 @@ $('.ActualziarContacto').on('click',function(event){
         }
     })
 });
+
+//EVENTOS PARA SELECCION DE SERVICIOS A MOSTRAR
+$('.editServ').on('click',function(event){
+    $('#errorMax').html('');
+    $("#editServ").modal("show");
+});
+
+$('#servicios').on('change',function(event){
+    $('#btnServicios').prop('disabled',false);
+    $('#errorMax').html('');
+    let count = $('#servicios :selected').length;
+    if(count > 6 || count < 6){
+        $('#errorMax').html('Debe seleccionar exactemente 6 servicios y has seleccionado ' + count);
+        $('#btnServicios').prop('disabled',true);
+    }
+});
+
+$('#btnServicios').on('click',function(e) {
+    $('#btnServicios').prop('disabled',true);
+    $("#errorServicio").html('');
+    let servicios = $("#servicios").val();
+    let token = $("input[name=_token]").val();
+    var route = "/sobre-nosotros/serviciosSeleccionados";
+    
+    $.ajax({
+        url:route,
+        headers:{'X-CSRF-TOKEN':token},
+        type: "POST",
+        datatype: "json",
+        data: {
+            servicios:servicios,
+        },
+        success: function(data){
+            $("#list").on('click',function() { 
+                location.href = this.href; 
+           });
+           $("#list").click();
+        },
+        error: function(data){
+            console.log(data.responseJSON.errors)
+            $('#errorServicio').html(data.responseJSON.errors.servicios[0]);
+        }
+    })
+});
+

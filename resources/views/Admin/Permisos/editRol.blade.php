@@ -164,13 +164,39 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <div class="form-group col-md-12" style="padding-top: 2%;">
-                                                <a  href="{{route('permisos.rol')}}"class="btn btn-danger" >Cancelar</a>
-                                                <button class="btn btn-primary" type="submit">Actualizar</button>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                
+                                <div class="card">
+                                        <div class="card-body pt-2">
+                                            <div class="table-responsive mt-12 custom-control custom-checkbox">
+                                                <table class="table table-hover table-nowrap mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Nombre de permisos</th>
+                                                            <th scope="col">Sección sobre acumedic</th>
+                                                        </tr>
+                                                    </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="checkbox" class="custom-control-input checks" id="SobreAcumedic">
+                                                                    <label class="custom-control-label" for="SobreAcumedic">
+                                                                        Sección sobre acumedic
+                                                                    </label></td>
+                                                                <td><input type="checkbox" class="check" name="SobreAcumedic" value="SobreAcumedic" {{$permisos['SobreAcumedic']}}></td>
+                                                            </tr>
+                                                        </tbody>
+                                                </table>
+                                                <div class="form-group col-md-12" style="padding-top: 2%;">
+                                                    <a  href="{{route('permisos.rol')}}"class="btn btn-danger" >Cancelar</a>
+                                                    <button class="btn btn-primary" type="submit">Guardar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </form>
                             </div>
                         </div>

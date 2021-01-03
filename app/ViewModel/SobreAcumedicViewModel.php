@@ -1,9 +1,11 @@
 <?php
 
 namespace App\ViewModel;
-use App\Models\SobreAcumedic;
-use App\Models\Informacion;
 use App\Models\Contacto;
+use App\Models\Informacion;
+use App\Models\SobreAcumedic;
+use App\Models\ServiciosSeleccionado;
+
 class SobreAcumedicViewModel
 {
     public function datosPrimeraSeccion(){
@@ -75,4 +77,20 @@ class SobreAcumedicViewModel
         $contacto->save();
         return $contacto;
     }
+
+    public function agregarServicios($data){
+        $ServiciosSeleccionado = ServiciosSeleccionado::all();
+        foreach ($ServiciosSeleccionado as $selected){
+            $selected->delete();
+        }
+      
+        foreach ($data as $key => $value){
+            $ServiciosSeleccionado = new ServiciosSeleccionado;
+            $ServiciosSeleccionado->IdServicio = $value;
+            $ServiciosSeleccionado->save();
+        }
+        return;
+    }
+
+    
 }

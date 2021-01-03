@@ -7,17 +7,20 @@ use App\Http\Requests\UpdateInfo;
 use App\ViewModel\ServicioViewModel;
 use App\Http\Requests\StoreSobreAcumedic;
 use App\ViewModel\SobreAcumedicViewModel;
+use App\Http\Requests\StoreServiciosSeleted;
 
 class SobreNosotrosController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware(['permission:SobreAcumedic']);
     }
 
     public function index(ServicioViewModel $ServicioViewModel){
         $servicios = $ServicioViewModel->getAllServicios();
-        return view('Admin.paginaNosotros.sobreAcumedic',compact('servicios'));
+        $verServicio = $ServicioViewModel->verServicio();
+        return view('Admin.paginaNosotros.sobreAcumedic',compact('servicios','verServicio'));
     }
 
     public function descripcion(SobreAcumedicViewModel $SobreAcumedicViewModel){
@@ -55,5 +58,16 @@ class SobreNosotrosController extends Controller
         }
     }
 
+    public function serviciosSeleccionados(StoreServiciosSeleted $request, SobreAcumedicViewModel $SobreAcumedicViewModel){
+        if($request->ajax())
+        {   
+            $SobreAcumedicViewModel->agregarServicios($request->servicios);
+        }
+    }
+
+    public function visibilidadServicio(Request $request, ServicioViewModel $ServicioViewModel){
+        $visibilidad = $ServicioViewModel->updateVisibilidad($request->opcion);
+        return redirect()->route('sobreNosotros');
+    }
    
 }

@@ -15,10 +15,15 @@ class HomeController extends Controller
         return view('Cliente.inicio',compact('servicios','sobreAcumedic'));
     }
 
-    public function nosotros(SobreAcumedicViewModel $SobreAcumedicViewModel){
+    public function nosotros(SobreAcumedicViewModel $SobreAcumedicViewModel,ServicioViewModel $ServicioViewModel){
         $sobreAcumedic = $SobreAcumedicViewModel->datosPrimeraSeccion();
         $segundaSeccion = $SobreAcumedicViewModel->datosSegundaSeccion();
         $contacto = $SobreAcumedicViewModel->contacto();
+        $verServicio = $ServicioViewModel->verServicio();
+        if($verServicio->Servicios){
+            $servicios = $ServicioViewModel->seisServicios();
+            return view('Cliente.nosotrosConServicios',compact('sobreAcumedic','segundaSeccion','contacto','servicios'));
+        }
         return view('Cliente.nosotros',compact('sobreAcumedic','segundaSeccion','contacto'));
     }
 }
