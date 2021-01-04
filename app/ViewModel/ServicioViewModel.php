@@ -2,6 +2,9 @@
 
 namespace App\ViewModel;
 use App\Models\Servicio;
+use App\Models\VerServicios;
+use App\Models\ServiciosSeleccionado;
+
 class ServicioViewModel
 {
     public function getServicios()
@@ -59,6 +62,15 @@ class ServicioViewModel
     }
 
     public function delete($id){
+      //eliminara los servicios relacionados en la tabla servicioSeleccinado y  cambiara el estatus en la tabla verServicios
+      $ServiciosSeleccionado = ServiciosSeleccionado::where('IdServicio', $id)->first();
+      if(!is_null($ServiciosSeleccionado)){
+        $ServiciosSeleccionado->delete();
+        $VerServicios = VerServicios::first();
+        $VerServicios->Servicios = 0;
+        $VerServicios->save();
+      }
+      
       $servicio = $this->getServicio($id);
       $servicio->delete();
       return $servicio;
@@ -98,5 +110,20 @@ class ServicioViewModel
      */
     public function otrosServicios($id){
       return Servicio::where('id', '!=',$id)->take(4)->orderBy('id','desc')->get();
+    }
+    public function verServicio(){
+      return VerServicios::first();
+
+    }
+
+    public function seisServicios(){
+      return ServiciosSeleccionado::all();
+    }
+
+    public function updateVisibilidad($opcion){
+      $VerServicios = VerServicios::first();
+      $VerServicios->Servicios = $opcion;
+      $VerServicios->save();
+      return $VerServicios;
     }
 }

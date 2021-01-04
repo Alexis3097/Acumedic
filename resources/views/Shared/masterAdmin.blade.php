@@ -9,7 +9,7 @@
         <link rel="shortcut icon" href="{{{ asset('img/favicon-acumedic.png') }}}"> 
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <link rel="shortcut icon" href="{{asset('img/Admin/favicon.ico')}}" type="text/css">
+        <!-- <link rel="shortcut icon" href="{{asset('img/Admin/favicon.ico')}}" type="text/css"> -->
         <link rel="stylesheet" href="{{asset('js/Admin/libs/flatpickr/flatpickr.min.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/bootstrap.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/bootstrap.min.css')}}" type="text/css">
@@ -210,11 +210,6 @@
                                             </a>
                                         @endcan
                                     @endif
-                                        <a href="{{route('sobreNosotros')}}" class="dropdown-item notify-item">
-                                            <i data-feather="users" class="icon-dual icon-xs mr-2"></i>
-                                            <span>Sobre acumedic</span>
-                                        </a>
-
                                 </li>
                             @endif
                             @if(auth()->user()->can('ListadoUsuarios'))
@@ -237,6 +232,14 @@
                                 </li>
                                 @endcan
                             @endif
+                            @canany(['SobreAcumedic'])
+                            <li>
+                                <a href="{{route('sobreNosotros')}}" class="dropdown-item notify-item">
+                                    <i data-feather="users" class="icon-dual icon-xs mr-2"></i>
+                                    <span>Sobre acumedic</span>
+                                </a>
+                            </li>
+                            @endcan
                         </ul>
                     </div>
                     <!-- End Sidebar -->
@@ -276,5 +279,6 @@
     @yield('scriptDesc2')
     @yield('changeUserPassword')
     @yield('scriptInventario')
+    @yield('scriptAbout')
     </body>
 </html>

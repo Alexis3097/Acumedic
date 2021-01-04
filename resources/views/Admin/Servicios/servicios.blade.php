@@ -96,6 +96,7 @@
                     @method('delete')
                     <input type="hidden" name="IdModal" id="IdModal">
                     <p>¿Esta seguro que desea eliminar este servicio?</p>
+                    <p style="color:red;">(Si el servicio está en la sección de "nosotros", se eliminara y la sección se ocultara hasta que seleccione 6 servicios)</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Si, Eliminar</button>

@@ -71,7 +71,80 @@
           </div>
         </div>
       </section>
- 
+    <!-- servicios detallados -->
+    <section class="servicios-detail">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 titulo">
+            <div class="title-section">
+              <h3 style="font-weight: lighter;">Nuestros</h3>
+              <h3>Servicios</h3>
+            </div>
+          </div>
+          <div class="col-md-4" style="border-right:1px solid #cccccc; border-bottom:1px solid #cccccc;">
+            <div  class="servicio-content">
+              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicios[0]->servicio->Logo)}}" alt="{{$servicios[0]->servicio->TextoLogo}}">
+                <p class="titulo-servicio">{{$servicios[0]->servicio->Nombre}}</p>
+              </div>
+              <div class="desc">
+                <p>{{$servicios[0]->servicio->DescripcionCorta}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4" style="border-bottom:1px solid #cccccc;">
+            <div  class="servicio-content">
+              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicios[1]->servicio->Logo)}}" alt="{{$servicios[1]->servicio->TextoLogo}}">
+                <p class="titulo-servicio">{{$servicios[1]->servicio->Nombre}}</p>
+              </div>
+              <div class="desc">
+                <p>{{$servicios[1]->servicio->DescripcionCorta}}</p>
+              </div>
+            </div>
+          </div>
+          <div style="border-left:1px solid #cccccc; border-bottom:1px solid #cccccc;" class="col-md-4">
+            <div class="servicio-content">
+              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicios[2]->servicio->Logo)}}" alt="{{$servicios[2]->servicio->TextoLogo}}">
+                <p class="titulo-servicio">{{$servicios[2]->servicio->Nombre}}</p>
+              </div>
+              <div class="desc">
+                <p>{{$servicios[2]->servicio->DescripcionCorta}}</p>
+              </div>
+            </div>
+          </div>
+          <div style="border-right:1px solid #cccccc;"  class="col-md-4">
+            <div class="servicio-content">
+              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicios[3]->servicio->Logo)}}" alt="{{$servicios[3]->servicio->TextoLogo}}">
+                <p class="titulo-servicio">{{$servicios[3]->servicio->Nombre}}</p>
+              </div>
+              <div class="desc">
+                <p>{{$servicios[3]->servicio->DescripcionCorta}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="servicio-content">
+              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicios[4]->servicio->Logo)}}" alt="{{$servicios[4]->servicio->TextoLogo}}">
+                <p class="titulo-servicio">{{$servicios[4]->servicio->Nombre}}</p>
+              </div>
+              <div class="desc">
+                <p>{{$servicios[4]->servicio->DescripcionCorta}}</p>
+              </div>
+            </div>
+          </div>
+          <div style="border-left:1px solid #cccccc;" class="col-md-4">
+            <div  class="servicio-content">
+              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicios[5]->servicio->Logo)}}" alt="{{$servicios[5]->servicio->TextoLogo}}">
+                <p class="titulo-servicio">{{$servicios[5]->servicio->Nombre}}</p>
+              </div>
+              <div class="desc">
+                <p>{{$servicios[5]->servicio->DescripcionCorta}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- servicios detallados -->
     <!-- contacto -->
     <section class="contacto-formulario">
     <!-- <div class="row"> -->

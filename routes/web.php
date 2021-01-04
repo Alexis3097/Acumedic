@@ -21,10 +21,8 @@ Auth::routes();
 //Rutas de cliente
 //INDEX
 Route::get('/', 'Cliente\HomeController@index')->name('inicio');
+Route::get('/nosotros', 'Cliente\HomeController@nosotros')->name('nosotros');
 
-Route::get('/nosotros', function () {
-    return view('Cliente.nosotros');
-})->name('nosotros');
 
 Route::get('/contacto', function () {
     return view('Cliente.contacto');
@@ -182,9 +180,17 @@ Route::group(['middleware' => ['permission:ListadoServicio|CrearServicio|EditarS
 });
 
 //SOBRE NOSOTROS
-Route::get('/sobre-nosotros', 'SobreNosotrosController@index')->name('sobreNosotros');
-Route::get('/sobre-nosotros/descripcion', 'SobreNosotrosController@descripcion')->name('sobreNosotros.descripcion');
-Route::get('/sobre-nosotros/historia', 'SobreNosotrosController@historia')->name('sobreNosotros.historia');
+Route::group(['middleware' => ['permission:SobreAcumedic']], function () {
+    Route::get('/sobre-nosotros', 'SobreNosotrosController@index')->name('sobreNosotros');
+    Route::get('/sobre-nosotros/descripcion', 'SobreNosotrosController@descripcion')->name('sobreNosotros.descripcion');
+    Route::get('/sobre-nosotros/segunda-seccion', 'SobreNosotrosController@segundaSeccion')->name('sobreNosotros.segundaSeccion');
+    Route::put('/sobre-nosotros/editar-descripcion', 'SobreNosotrosController@editarDescripcion')->name('sobreNosotros.editarDescripcion');
+    Route::put('/sobre-nosotros/editar-segunda-seccion', 'SobreNosotrosController@editarSegundaSeccion')->name('sobreNosotros.editarSegundaSeccion');
+    Route::GET('/sobre-nosotros/datosContacto', 'SobreNosotrosController@datosContacto');
+    Route::put('/sobre-nosotros/actualizarContacto', 'SobreNosotrosController@updateContacto');
+    Route::post('/sobre-nosotros/serviciosSeleccionados', 'SobreNosotrosController@serviciosSeleccionados')->name('serviciosSeleccionados');
+    Route::put('/sobre-nosotros/visibilidad-servicio', 'SobreNosotrosController@visibilidadServicio')->name('visibilidadServicio');
+});
 //=============================PERMISOS================================================================
 Route::group(['middleware' => ['permission:ListarRoles|CrearRol|EditarRol|EliminarRol']], function () {
     Route::get('/roles','PermisosController@rol')->name('permisos.rol');

@@ -39,9 +39,6 @@
                         <img src="{{asset('../uploads/servicios/'.$servicio->Imagen)}}"  alt="{{$servicio->TextoImagen}}">
                     </div>
                     <div class="col-md-12">
-                        <h2 class="titulo-servicio">
-                        {{$servicio->Nombre}}
-                        </h2>
                         <h3 style="font-weight: bold;">$500.00</h3>
                     </div>
                     <div class="col-md-12">

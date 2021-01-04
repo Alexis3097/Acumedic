@@ -10,6 +10,7 @@ $('.change').on('click', function(){
 });
 
 $('.enviar').on('click',function(event){
+    $( "#buttonAdd" ).prop( "disabled", true );
     $("#errorPassword1").html('');
     $("#errorPassword2").html('');
     $("#errorPasswordconfirmation").html('');
@@ -32,6 +33,7 @@ $('.enviar').on('click',function(event){
         },
         success: function(data){
             $('#contraseniaUsuario').modal('hide')
+            $("#buttonAdd").prop( "disabled", false );
             $('#idUsuario').val('');
             $('#password').val('');
             $('#password_confirmation').val('');
@@ -46,6 +48,7 @@ $('.enviar').on('click',function(event){
                 },3000);
         },
         error: function(data){
+            $("#buttonAdd").prop( "disabled", false );
             if(data.responseJSON.errors.password.length <= 2){
                 $("#errorPassword1").html(data.responseJSON.errors.password[0]);
                 $("#errorPassword2").html(data.responseJSON.errors.password[1]);
