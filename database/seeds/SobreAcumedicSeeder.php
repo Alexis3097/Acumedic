@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Models\SobreAcumedic;
 use App\Models\Informacion;
 use App\Models\Contacto;
+
 class SobreAcumedicSeeder extends Seeder
 {
     /**
