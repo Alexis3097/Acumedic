@@ -139,7 +139,7 @@
                     <p>¿Esta seguro que desea eliminar esta cita?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                        <button type="submit" class="btn btn-primary Btndelete">Si, Eliminar</button>
                     </div>
                 </form>
             </div>

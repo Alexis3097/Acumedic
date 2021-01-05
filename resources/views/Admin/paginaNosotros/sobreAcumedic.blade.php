@@ -79,10 +79,11 @@
                                                         <span data-toggle="tooltip" data-placement="left" title="Ejemplo de como se veria"><button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verServicios" ><i class="fa fa-eye"></i></button></span>
                                                         <span data-toggle="tooltip" data-placement="left" title="Editar sección"><button type="button" class="btn btn-outline-warning editServ" id="agregarServicios" @if(count($servicios)>=6) enabled @else disabled @endif><i class="fa fa-edit"></i></button></span>
                                                         
+                                                        <!-- servicios es de tipo bool -->
                                                         @if($verServicio->Servicios)
                                                         <span data-toggle="tooltip" data-placement="left" title="Ocultar sección"><button type="button" class="btn btn-outline-danger" name="delete_modal" data-toggle="modal" data-target="#ocultar" @if(count($servicios)>=6) enabled @else disabled @endif ><i class="fa fa-eye-slash"></i></button></span>
                                                         @else
-                                                        <span data-toggle="tooltip" data-placement="left" title="Hacer visible la sección"><button type="button" class="btn btn-outline-info" name="delete_modal" data-toggle="modal" data-target="#ocultar" @if(count($servicios)>=6) enabled @else disabled @endif ><i class="fa fa-eye"></i></button></span>
+                                                        <span data-toggle="tooltip" data-placement="left" title="Hacer visible la sección"><button type="button" class="btn btn-outline-info" name="delete_modal" data-toggle="modal" data-target="#ocultar" @if($numeroDeServicios>=6) enabled @else disabled @endif ><i class="fa fa-eye"></i></button></span>
                                                         @endif
 
                                                     </td>

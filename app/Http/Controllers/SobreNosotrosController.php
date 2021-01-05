@@ -20,7 +20,9 @@ class SobreNosotrosController extends Controller
     public function index(ServicioViewModel $ServicioViewModel){
         $servicios = $ServicioViewModel->getAllServicios();
         $verServicio = $ServicioViewModel->verServicio();
-        return view('Admin.paginaNosotros.sobreAcumedic',compact('servicios','verServicio'));
+        $numeroDeServicios = $ServicioViewModel->numeroDeServicios();
+        // dd($numeroDeServicios);
+        return view('Admin.paginaNosotros.sobreAcumedic',compact('servicios','verServicio','numeroDeServicios'));
     }
 
     public function descripcion(SobreAcumedicViewModel $SobreAcumedicViewModel){

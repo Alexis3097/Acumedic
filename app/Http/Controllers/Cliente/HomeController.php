@@ -20,7 +20,8 @@ class HomeController extends Controller
         $segundaSeccion = $SobreAcumedicViewModel->datosSegundaSeccion();
         $contacto = $SobreAcumedicViewModel->contacto();
         $verServicio = $ServicioViewModel->verServicio();
-        if($verServicio->Servicios){
+        $numeroDeServicios = $ServicioViewModel->numeroDeServicios();
+        if($verServicio->Servicios && $numeroDeServicios >= 6){
             $servicios = $ServicioViewModel->seisServicios();
             return view('Cliente.nosotrosConServicios',compact('sobreAcumedic','segundaSeccion','contacto','servicios'));
         }
