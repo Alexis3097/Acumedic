@@ -132,9 +132,13 @@
           </div>
           <form>
             <div class="form-row">
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-12">
                 <label for="inputEmail4">Nombre Completo</label>
                 <input type="email" class="form-control" id="inputEmail4" placeholder="Coloca aquí tú nombre">
+              </div>
+              <div class="form-group col-md-6" >
+                <label for="inputAddress2">Correo electrónico</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="túcorreo@tudominio.com">
               </div>
               <div class="form-group col-md-6">
                 <label for="inputPassword4">Ciudad</label>
@@ -144,10 +148,6 @@
             <div class="form-group">
               <label for="inputAddress">Teléfono</label>
               <input type="text" class="form-control" id="inputAddress" placeholder="Coloca aquí tú número teléfonico">
-            </div>
-            <div class="form-group" >
-              <label for="inputAddress2">Padecimiento</label>
-              <input type="text" class="form-control" id="inputAddress2" placeholder="¿Cuál es el padecimiento que deseas tratar?">
             </div>
             <button type="submit" class="btn-2 btn-primary">Quiero una cita</button>
           </form>

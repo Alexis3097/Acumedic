@@ -83,3 +83,27 @@ function initClock() {
 }
 
 // reloj admin
+  // modal salidas
+  $('#modal-carrito').click(function(){
+  $(".modal-orden").addClass('active');
+  setTimeout(()=>{
+  $(".modal-orden").addClass('active');
+  }, 100);
+  setTimeout(()=>{
+  $(".modal-orden .container-modal").addClass('active');
+  }, 200);
+  })
+
+  $("#close-modal").click(()=>{
+    $(".modal-orden, .modal-orden .container-modal").removeClass('active');
+    });
+  // modal gracias
+$('#enviar').click(function(){
+  $(".modal-thankYou").addClass('active');
+  setTimeout(()=>{
+  $(".modal-thankYou").addClass('active');
+  }, 1000);
+  setTimeout(()=>{
+    $(".modal-thankYou").removeClass('active');
+    }, 4000);
+});

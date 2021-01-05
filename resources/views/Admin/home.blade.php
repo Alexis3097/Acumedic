@@ -1,59 +1,139 @@
 @extends('Shared.masterAdmin')
 
 @section('content')
-<div class="content-page" style="background:url('{{asset('../img/bg-7.jpg')}}'); background-size:cover; background-repeat:no-repeat;">
+<div class="content-page" style="background:url('{{asset('../img/bg-7.jpg')}}'); background-size:cover; background-repeat:no-repeat; margin-top:0px!important; padding-top:4%;min-height:93vh; ">
     <div class="content">
         <!-- Start Content-->
         <div class="container-fluid" style="position: relative;">
         <div class="row">
-            <div class="col-md-6 col-xl-3" style="padding:2%; box-sizing:border-box;">
+            <div class="col-md-3 col-md-3 col-xl-3 cardClienteInfo" style="padding:2%; box-sizing:border-box;">
                     <div class="card" style="background-color:rgba(255,255,255,.7);">
                         <div class="card-body p-0">
                             <div class="media p-3">
                                 <div class="media-body">
                                     <span class="text-muted text-uppercase font-size-12 font-weight-bold">Citas Totales</span>
-                                    <h2 class="mb-0">$2189</h2>
+                                    <h2 class="mb-0">0</h2>
+                                </div>
+                                <div class="align-self-center">
+                                    <span class="icon-lg icon-dual-primary" data-feather="calendar"></span>
                                 </div>   
                             </div>
                         </div>
                     </div>
             </div>
-            <div class="col-md-6 col-xl-3" style="padding:2%; box-sizing:border-box;">
+            <div class="col-md-3 col-md-3 col-xl-3 cardClienteInfo" style="padding:2%; box-sizing:border-box;">
+                    <div class="card" style="background-color:rgba(255,255,255,.7);">
+                        <div class="card-body p-0">
+                            <div class="media p-3">
+                                <div class="media-body">
+                                    <span class="text-muted text-uppercase font-size-12 font-weight-bold">Pacientes totales</span>
+                                    <h2 class="mb-0">0</h2>
+                                </div>
+                                <div class="align-self-center">
+                                    <span class="icon-lg icon-dual-primary" data-feather="user-check"></span>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-md-3 col-md-3 col-xl-3 cardClienteInfo" style="padding:2%; box-sizing:border-box;">
                     <div class="card" style="background-color:rgba(255,255,255,.7);">
                         <div class="card-body p-0">
                             <div class="media p-3">
                                 <div class="media-body">
                                     <span class="text-muted text-uppercase font-size-12 font-weight-bold">Ordenes</span>
-                                    <h2 class="mb-0">$2189</h2>
-                                </div>   
+                                    <h2 class="mb-0">0</h2>
+                                </div>
+                                <div class="align-self-center">
+                                    <span class="icon-lg icon-dual-primary" data-feather="shopping-cart"></span>
+                                </div>    
                             </div>
                         </div>
                     </div>
             </div>
-            <div class="col-md-6 col-xl-3" style="padding:2%; box-sizing:border-box;">
+            <div class="col-md-3 col-md-3 col-xl-3 cardClienteInfo" style="padding:2%; box-sizing:border-box;">
                     <div class="card" style="background-color:rgba(255,255,255,.7);">
                         <div class="card-body p-0">
                             <div class="media p-3">
                                 <div class="media-body">
                                     <span class="text-muted text-uppercase font-size-12 font-weight-bold">Solicitudes de citas</span>
-                                    <h2 class="mb-0">$2189</h2>
-                                </div>   
+                                    <h2 class="mb-0">0</h2>
+                                </div>
+                                <div class="align-self-center">
+                                    <span class="icon-lg icon-dual-primary" data-feather="clipboard"></span>
+                                </div>    
                             </div>
                         </div>
                     </div>
             </div>
-            <div class="col-md-6 col-xl-3" style="padding:2%; box-sizing:border-box;">
-                    <div class="card" style="background-color:rgba(255,255,255,.7);">
-                        <div class="card-body p-0">
-                            <div class="media p-3">
-                                <div class="media-body">
-                                    <span class="text-muted text-uppercase font-size-12 font-weight-bold">Productos de inventario</span>
-                                    <h2 class="mb-0">$2189</h2>
-                                </div>   
-                            </div>
-                        </div>
-                    </div>
-            </div>
+            <a href="{{ route('citas.list') }}" class="col-xl-12 col-lg-12 col-md-12 col-xd-12 cardClienteInfo">
+            <div class="col-xl-12">
+                <div class="card" style="background-color:rgba(255,255,255,.8);">
+                    <div class="card-body">
+                        <h5 class="card-title mt-0 mb-0 header-title">Citas del día de hoy</h5>
+                        <div class="table-responsive mt-4">
+                            <table class="table table-hover table-nowrap mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Hora</th>
+                                        <th scope="col">Estatus</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#98754</td>
+                                        <td>Felipe el buapo</td>
+                                        <td>11:30 AM - 12:00 PM</td>
+                                        <td><span class="badge badge-soft-warning py-1">En espera</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#98754</td>
+                                        <td>Felipe el buapo</td>
+                                        <td>11:30 AM - 12:00 PM</td>
+                                        <td><span class="badge badge-soft-warning py-1">En espera</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#98754</td>
+                                        <td>Felipe el buapo</td>
+                                        <td>11:30 AM - 12:00 PM</td>
+                                        <td><span class="badge badge-soft-warning py-1">En espera</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#98754</td>
+                                        <td>Felipe el buapo</td>
+                                        <td>11:30 AM - 12:00 PM</td>
+                                        <td><span class="badge badge-soft-warning py-1">En espera</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#98754</td>
+                                        <td>Felipe el buapo</td>
+                                        <td>11:30 AM - 12:00 PM</td>
+                                        <td><span class="badge badge-soft-warning py-1">En espera</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#98754</td>
+                                        <td>Felipe el buapo</td>
+                                        <td>11:30 AM - 12:00 PM</td>
+                                        <td><span class="badge badge-soft-warning py-1">En espera</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#98754</td>
+                                        <td>Felipe el buapo</td>
+                                        <td>11:30 AM - 12:00 PM</td>
+                                        <td><span class="badge badge-soft-warning py-1">En espera</span></td>
+                                    </tr>
+                                    <tr class="wCitas">
+                                        <p class="wCitas">Sin citas el día de hoy  <span class="icon-lg icon-dual-primary" data-feather="trending-down"></span></p>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div> <!-- end table-responsive-->
+                    </div> <!-- end card-body-->
+                </div> <!-- end card-->
+            </div> <!-- end col-->
+            </a>
         </div>
             <div class="reloj">
                 <body onLoad="initClock()">
@@ -64,6 +144,7 @@
                     <a id="h">12</a> :
                     <a id="m">00</a>:
                     <a id="s">00</a>
+                    <p style="font-size:.3em;">Version: 1.0.0</p>
                 </div>
             </div>
         </div>

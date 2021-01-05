@@ -2790,13 +2790,32 @@ body.authentication-bg {
 
 }
 .reloj{
-  position:relative;
+  /* position:relative;
   right: 0;
   bottom: 0;
   width: 100%;
-  height: 70vh;
+  height: 40vh; */
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 20%;
 }
 /* reloj js */
+/* cardHome */
+.cardClienteInfo{
+  cursor:pointer;
+  transition:ease all .2s;
+}
+.cardClienteInfo:hover{
+  transform: scale(1.03);
+}
+.wCitas{
+    font-size: 1.5em;
+    color: #232323;
+    text-align: center;
+    font-weight: bold;
+}
+/* cardHome */
 /* buscador dinamico */
 .buscador-dinamico{
   background-color: #f3f4f7!important;
@@ -2840,3 +2859,11 @@ body.authentication-bg {
 }
 /* estudios de gabinete */
 /* new contents */
+/* components admin */
+.hover-list{
+  transition: ease all .2s;
+}
+.hover-list:hover{
+  background-color: #f8f8f8;
+}
+/* components admin */
