@@ -158,6 +158,7 @@ Route::group(['middleware' => ['permission:ListadoProducto|CrearProducto|EditarP
     Route::put('/productos/actualizar/{id}', 'ProductosController@update')->name('productos.update');
     Route::delete('/productos/eliminar', 'ProductosController@destroy')->name('productos.destroy');
     Route::get('/productos/buscar', 'ProductosController@buscar')->name('productos.buscar');
+    Route::delete('/productos/eliminar-foto', 'ProductosController@destroyFoto')->name('productos.destroyFoto');
 });
 
 //INVENTARIO

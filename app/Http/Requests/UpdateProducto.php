@@ -35,25 +35,17 @@ class UpdateProducto extends FormRequest
             'Foto3' => 'image|max:2048',
             'Foto4' => 'image|max:2048',
 
-            'Titulo1' => 'required_with:Foto1',
-            'TextoAlterno1' => 'required_with:Foto1',
-            'Titulo1' => 'required_without:hayFoto1',
-            'TextoAlterno1' => 'required_without:hayFoto1',
+            'Titulo1' => 'required_with:Foto1|required_without:hayFoto1',
+            'TextoAlterno1' => 'required_with:Foto1|required_without:hayFoto1',
 
-            'Titulo2' => 'required_with:Foto2',
-            'TextoAlterno2' => 'required_with:Foto2',
-            'Titulo2' => 'required_without:hayFoto2',
-            'TextoAlterno2' => 'required_without:hayFoto2',
+            'Titulo2' => 'required_with:Foto2|required_without:hayFoto2',
+            'TextoAlterno2' => 'required_with:Foto2|required_without:hayFoto2',
 
-            'Titulo3' => 'required_with:Foto3',
-            'TextoAlterno3' => 'required_with:Foto3',
-            'Titulo3' => 'required_without:hayFoto3',
-            'TextoAlterno3' => 'required_without:hayFoto3',
+            'Titulo3' => 'required_with:Foto3|required_without:hayFoto3',
+            'TextoAlterno3' => 'required_with:Foto3|required_without:hayFoto3',
 
-            'Titulo4' => 'required_with:Foto4',
-            'TextoAlterno4' => 'required_with:Foto4',
-            'Titulo4' => 'required_without:hayFoto4',
-            'TextoAlterno4' => 'required_without:hayFoto4',
+            'Titulo4' => 'required_with:Foto4|required_without:hayFoto4',
+            'TextoAlterno4' => 'required_with:Foto4|required_without:hayFoto4',
         ];
     }
 

@@ -98,9 +98,6 @@
                                                 @endif
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <button id="btn-example-file-reset" style="width:99%;" class="btn btn-info" class="btn btn-info" type="button">Reemplazar</button>
-                                            </div>
-                                            <div class="form-group col-md-12">
                                                 <label for="TextoLogo" style="text-align: left;">Texto alternado</label>
                                                 <div>
                                                     <input type="text" class="form-control @error('TextoLogo') is-invalid @enderror" value="{{ old('TextoLogo') }}" name="TextoLogo" id="TextoLogo" placeholder="Texto alternado de tu imagen" required>
@@ -124,9 +121,6 @@
                                                         <strong>{{$errors->first('Imagen')}}</strong>
                                                     </span>
                                                 @endif
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <button id="btn-example-file-reset1" style="width:99%;" class="btn btn-info" class="btn btn-info" type="button">Reemplazar</button>
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label for="TextoImagen" style="text-align: left;">Texto alternado</label>

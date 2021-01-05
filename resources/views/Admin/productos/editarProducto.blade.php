@@ -143,10 +143,10 @@
                                                     </span>
                                                 @endif
                                             </div>
-                                            <div class="form-group col-md-12">
+                                            <!-- <div class="form-group col-md-12">
                                                 <button id="btn-example-file-reset" style="width:49%;" class="btn btn-info" class="btn btn-info" type="button">Reemplazar</button>
                                                 <button id="btn-example-file-reset" style="width:49%;" class="btn btn-info" name="delete_modal" data-toggle="modal" data-target="#borrarFoto" class="btn btn-info" type="button">Borrar definitivamente</button>
-                                            </div>
+                                            </div> -->
                                             <div class="form-group col-md-12">
                                                 <label for="Titulo1" style="text-align: left;">Titulo de la imagen</label>
                                                 <div>
@@ -199,8 +199,12 @@
                                                 @enderror
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <button id="btn-example-file-reset1" style="width:49%;" class="btn btn-info" class="btn btn-info" type="button">Reemplazar</button>
-                                                <button id="btn-example-file-reset1" style="width:49%;" class="btn btn-info" name="delete_modal" data-toggle="modal" data-target="#borrarFoto" class="btn btn-info" type="button">Borrar definitivamente</button>
+                                                <button id="btn-example-file-reset1" style="width:49%;"  class="btn btn-info" type="button">Reemplazar</button>
+                                                @if(isset($producto->fotoProductos[1]))
+                                                    <input type="hidden" value="{{ $producto->fotoProductos[1]->id}}">
+                                                    <button id="btn-example-file-reset1" style="width:49%;"  name="delete_modal" data-toggle="modal" data-target="#borrarFoto" class="btn btn-info delete" type="button">Borrar definitivamente</button>
+                                                @endif
+
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label for="Titulo2" style="text-align: left;">Titulo de la imagen</label>
@@ -255,8 +259,11 @@
                                                 @enderror
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <button id="btn-example-file-reset2" style="width:49%;" class="btn btn-info" class="btn btn-info" type="button">Reemplazar</button>
-                                                <button id="btn-example-file-reset2" style="width:49%;" class="btn btn-info" name="delete_modal" data-toggle="modal" data-target="#borrarFoto" class="btn btn-info" type="button">Borrar definitivamente</button>
+                                                <button id="btn-example-file-reset2" style="width:49%;"  class="btn btn-info" type="button">Reemplazar</button>
+                                                @if(isset($producto->fotoProductos[2]))
+                                                    <input type="hidden" value="{{ $producto->fotoProductos[2]->id}}">
+                                                    <button id="btn-example-file-reset2" style="width:49%;"  name="delete_modal" data-toggle="modal" data-target="#borrarFoto" class="btn btn-info delete" type="button">Borrar definitivamente</button>
+                                                @endif
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label for="Titulo3" style="text-align: left;">Titulo de la imagen</label>
@@ -309,8 +316,11 @@
                                                     </div>
                                                 @enderror
                                             <div class="form-group col-md-12">
-                                                <button id="btn-example-file-reset3" style="width:49%;" class="btn btn-info" class="btn btn-info" type="button">Reemplazar</button>
-                                                <button id="btn-example-file-reset3" style="width:49%;" class="btn btn-info" name="delete_modal" data-toggle="modal" data-target="#borrarFoto" class="btn btn-info" type="button">Borrar definitivamente</button>
+                                                <button id="btn-example-file-reset3" style="width:49%;"  class="btn btn-info" type="button">Reemplazar</button>
+                                                @if(isset($producto->fotoProductos[3]))
+                                                <input type="hidden" value="{{ $producto->fotoProductos[3]->id}}">
+                                                <button id="btn-example-file-reset3" style="width:49%;"  name="delete_modal" data-toggle="modal" data-target="#borrarFoto" class="btn btn-info delete" type="button">Borrar definitivamente</button>
+                                                @endif
                                             </div>
                                             </div>
                                             <div class="form-group col-md-12">
@@ -366,6 +376,11 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>
+                <form action="{{route('productos.destroyFoto')}}" method="post">
+                @csrf
+                @method('delete')
+                <input type="hidden" name="IdFotoProducto" id="IdFotoProducto">
+                <input type="hidden" name="IdProducto" id="IdProducto" value="{{$producto->id}}">
                     <div class="modal-body">
                     <p>¿Esta seguro que desea eliminar esta imagen definitivamente?</p>
                         <div class="modal-footer">
@@ -373,6 +388,7 @@
                             <button type="submit" class="btn btn-primary">Si, Eliminar</button>
                     </div>
                     </div>
+                </form>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
@@ -385,6 +401,7 @@
 <script src="{{asset('js/Admin/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.js')}}"></script>
 <script src="{{asset('js/Admin/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
 <script src="{{asset('js/Admin/pages/form-advanced.init.js')}}"></script>
+<script src="{{asset('js/Admin/eliminarProducto.js')}}"></script>
 <script>
         function readURL(input) {
             if (input.files && input.files[0]) {
@@ -401,7 +418,7 @@
             readURL(this);
         });
         $(document).ready(function() {
-            $('#btn-example-file-reset').on('click', function() {     
+            $('#btn-example-file-reset').on('click', function() {    
             $('#cat_image').val('');
             $('#category-img-tag').attr('src','../img/upload.jpg')
          });
@@ -441,7 +458,7 @@
             readURL2(this);
         });
         $(document).ready(function() {
-            $('#btn-example-file-reset2').on('click', function() {     
+            $('#btn-example-file-reset2').on('click', function() {    
             $('#cat_image2').val('');
             $('#category-img-tag2').attr('src','../img/upload.jpg')
          });
