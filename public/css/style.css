@@ -613,7 +613,7 @@ input {
 .contacto-formulario{
   background-color:#e6ede9;
   position: relative;
-  min-height: 70vh;
+  min-height: 50vh;
   width: 100%;
 }
 .contacto-formulario .bg-form{
@@ -643,6 +643,159 @@ input {
   border-radius:0px!important;
 }
 /* contacto formulario 1 */
+/* modal de orden */
+.modal-orden{
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: rgba(255, 255,255,.7);
+  position: fixed;
+  z-index: 10;
+  visibility: hidden;
+}
+.modal-orden.active{
+  visibility: visible;
+}
+.modal-orden .container-modal{
+  height: 70vh;
+  display:block;
+  margin:2%;
+  padding: 2%;
+  box-sizing: border-box;
+  left: 0;
+  right: 0;
+  top: 12%;
+  bottom: 0;
+  position: relative;
+  background: url(../img/bg-5.jpg);
+  z-index: 1!important;
+  box-shadow: 2px 4px 10px rgba(0,0,0,.3);
+  visibility: hidden;
+  opacity: 0;
+  transform:translateY(-7%);
+  transition:ease all .2s;
+}
+.modal-orden .container-modal::after{
+  background-color:rgba(80, 142, 163, 0.8);
+  position: absolute;
+  content:'';
+  z-index:-1!important;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.modal-orden .container-modal.active{
+  opacity: 1;
+  padding: 3%;
+  visibility: visible;
+  z-index:10001 ;
+  transform:translateY(0);
+}
+.modal-orden .container-modal h2{
+  font-size: var(--font-gtitle);
+  font-weight: bold;
+  color:#fff;
+  text-align: center;
+}
+.modal-orden .container-modal h4,.modal-orden .container-modal span{
+  font-size: var(--font-ms);
+  font-weight: bold;
+  color:#fff;
+  text-align: left;
+}
+.modal-orden .container-modal .icon{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right:10px;
+  top:10px;
+  color:#fff;
+  z-index: 10;
+  transition: ease all .2s;
+}
+.modal-orden .container-modal .icon:hover{
+  transform:rotate(360deg) scale(1.05);
+}
+.modal-orden .container-modal .formulario label{
+  color:#fff;
+  font-size: var(--font-ms);
+}
+.modal-orden .container-modal .formulario input{
+  color:#232323;
+  font-size: var(--font-ms);
+}
+.modal-orden .container-modal .formulario button{
+  width:95%;
+  padding:1%;
+  display: block;
+  font-size: var(--font-ms);
+  margin:auto;
+  border:1px solid #fff;
+  background-color:rgba(136,186,203,.3);
+  border-radius:0px!important;
+  color:#fff;
+  transition: ease all .2s;
+  transition:ease all .2s;
+}
+.modal-orden .container-modal .formulario button:hover{
+  box-shadow: 2px 3px 10px rgba(0,0,0,.2);
+  background-color: rgba(248,197,184,.8);
+  transform: scaleX(1.02);
+}
+/* modal de orden */
+/* modal gracias */
+/* .modal-thankYou{
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: rgba(255, 255,255,.7);
+  position: fixed;
+  z-index: 10;
+  visibility: hidden;
+}
+.modal-thankYou.active{
+  visibility: visible;
+} */
+.modal-thankYou{
+  height: 25vh;
+  width: 400px;
+  display: block;
+  margin: auto;
+  box-sizing: border-box;
+  left: 0;
+  right: 0;
+  top: 0;
+  position: fixed;
+  background-size: cover;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 100!important;
+  box-shadow: 2px 4px 10px rgba(0,0,0,.3);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-7%);
+  transition: ease all .2s;
+}
+.modal-thankYou.active{
+  opacity: 1;
+  padding: 3%;
+  visibility: visible;
+  z-index:10001 ;
+  transform:translateY(0);
+}
+.modal-thankYou h2{
+  font-size: var(--font-gtitle);
+  font-weight: bold;
+  color:#232323;
+  text-align: center;
+}
+.modal-thankYou p{
+  font-size: var(--font-s);
+  color:#232323;
+  text-align: center;
+}
+/* modal gracias */
 /* info numeros */
 .servicios{
   position: relative;
@@ -888,13 +1041,13 @@ input {
   color:#fff;
   font-family: var(--font-dos)!important;
 }
-.form-contact .container-formulario form input{
+.form-contact .container-formulario form input,.form-contact .container-formulario form textarea{
   border:1px solid #fff;
   border-radius:0px!important;
   background-color:transparent;
   color:#fff;
 }
-.form-contact .container-formulario form input::placeholder{
+.form-contact .container-formulario form input::placeholder,.form-contact .container-formulario form textarea::placeholder{
   color:#fff;
 }
 .form-contact .container-formulario form input:focus{
@@ -914,7 +1067,7 @@ input {
   transform: scale(1.01);
 }
 .form-contact .container-formulario form button{
-  width:80%;
+  width:95%;
   padding:1%;
   display: block;
   margin:auto;
@@ -928,7 +1081,7 @@ input {
 .form-contact .container-formulario form button:hover{
   box-shadow: 2px 3px 10px rgba(0,0,0,.2);
   background-color: rgba(248,197,184,.8);
-  width: 85%;
+  transform: scaleX(1.02);
 }
 .form-contact .contaiener-formulario form button:hover{
   background-color:#232323!important;
@@ -1019,7 +1172,8 @@ input {
   border:1px solid var(--blue);
 }
 .producto-single .producto img{
-  width: 450px;
+  /* width: 450px; */
+  width: 100%!important;
   display: block;
   margin: auto;
 }
@@ -1048,7 +1202,7 @@ input {
   position: absolute;
   bottom: 15px;
   left: 15px;
-  color: white;
+  color: transparent;
   font-size: 20px;
 }
 /* producto detallado */
@@ -1179,9 +1333,9 @@ footer .colFooter .sublinks ul li a:hover{
   /* FIN DE ANIMACIONES */
   /* DISEÑO RESPONSIVO */
     /* pantallas más grandes  */
-    @media only screen and (max-width: 2840px) and (min-width: 1900px) {}
+  @media only screen and (max-width: 2840px) and (min-width: 1900px) {}
   /* pantallas más grandes  */
-  @media only screen and (max-width: 800px) and (min-width: 300px) { 
+  @media only screen and (max-width: 500px) and (min-width: 300px) { 
     .info-numeros .info-contador .counter{
       font-size: var(--font-gtitle);
     }
@@ -1328,12 +1482,46 @@ footer .colFooter .sublinks ul li a:hover{
   .servicios .servicio-content .desc p, .servicios .servicio-content .price p{
     font-size: var(--font-ms);
   }
-  }
-  /* infoacumedic */
+    /* infoacumedic */
   /* producto detallado */
   .producto-single .producto img{
     width: 210px;
   }
   /* producto detallado */
+  /* modal orden */
+  .modal-orden .container-modal{
+    height: 82vh;
+    top: 13%;
+    bottom: 0;
+  }
+  .modal-orden .container-modal h2{
+    font-size: var(--font-ms);
+    font-weight: bold;
+    color:#fff;
+    text-align: center;
+  }
+  .modal-orden .container-modal h4,.modal-orden .container-modal span{
+    font-size: var(--font-s);
+    color:#fff;
+    text-align: left;
+  }
+  .modal-orden .container-modal .formulario label{
+    color:#fff;
+    font-size: var(--font-s);
+  }
+  .modal-orden .container-modal .formulario input{
+    color:#232323;
+    font-size: var(--font-s);
+  }
+  .modal-orden .container-modal .formulario button{
+    font-size: var(--font-s);
+  }
+  .modal-thankYou{
+  height: 25vh;
+  width: 300px;
+  }
+  /* modal orden */
+  }
+
   @media only screen and (max-width: 340px) and (min-width: 300px) {}
   /* FIN DE DISEÑO RESPONSIVO */

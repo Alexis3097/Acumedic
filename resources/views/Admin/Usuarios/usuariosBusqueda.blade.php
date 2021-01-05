@@ -22,7 +22,7 @@
                                     <button type="submit" style="margin:38px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
                             </div>
                         </form>
-                        <div class="form-group mb-4">
+                        <div class="form-group mb-4" style="margin: 45px 40px 0px;">
                             <a href="{{route('usuarios.list')}}"  class="form-control btn btn-small width-xs btn-info">Todos los usuarios</a>
                         </div>
                     </div>
