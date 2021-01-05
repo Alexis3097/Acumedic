@@ -111,6 +111,11 @@ class ServicioViewModel
     public function otrosServicios($id){
       return Servicio::where('id', '!=',$id)->take(4)->orderBy('id','desc')->get();
     }
+    /**
+     * @return 
+     * registro con un campo servicio de tipo bool
+     * 
+     */
     public function verServicio(){
       return VerServicios::first();
 
@@ -125,5 +130,12 @@ class ServicioViewModel
       $VerServicios->Servicios = $opcion;
       $VerServicios->save();
       return $VerServicios;
+    }
+
+    public function numeroDeServicios()
+    {
+      $ServiciosSeleccionado = ServiciosSeleccionado::all();
+      return count($ServiciosSeleccionado);
+      
     }
 }
