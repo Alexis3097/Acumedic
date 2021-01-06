@@ -124,7 +124,7 @@
                             <span data-feather="chevron-down"></span>
                         </a>
                         <div class="dropdown-menu profile-dropdown">
-                            <a href="{{route('usuarios.edit',['IdUsuario'=>Auth::user()->id])}}" class="dropdown-item notify-item">
+                            <a href="{{route('miCuenta.show')}}" class="dropdown-item notify-item">
                                 <i data-feather="user" class="icon-dual icon-xs mr-2"></i>
                                 <span>Mi cuenta</span>
                             </a>
@@ -280,5 +280,6 @@
     @yield('changeUserPassword')
     @yield('scriptInventario')
     @yield('scriptAbout')
+    @yield('miCuenta')
     </body>
 </html>

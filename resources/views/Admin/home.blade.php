@@ -11,8 +11,8 @@
                         <div class="card-body p-0">
                             <div class="media p-3">
                                 <div class="media-body">
-                                    <span class="text-muted text-uppercase font-size-12 font-weight-bold">Citas Totales</span>
-                                    <h2 class="mb-0">0</h2>
+                                    <span class="text-muted text-uppercase font-size-12 font-weight-bold">Citas Totales del Dia</span>
+                                    <h2 class="mb-0">{{$citasDelDia}}</h2>
                                 </div>
                                 <div class="align-self-center">
                                     <span class="icon-lg icon-dual-primary" data-feather="calendar"></span>
@@ -27,7 +27,7 @@
                             <div class="media p-3">
                                 <div class="media-body">
                                     <span class="text-muted text-uppercase font-size-12 font-weight-bold">Pacientes totales</span>
-                                    <h2 class="mb-0">0</h2>
+                                    <h2 class="mb-0">{{$totalPacientes}}</h2>
                                 </div>
                                 <div class="align-self-center">
                                     <span class="icon-lg icon-dual-primary" data-feather="user-check"></span>
@@ -70,62 +70,34 @@
             <div class="col-xl-12">
                 <div class="card" style="background-color:rgba(255,255,255,.8);">
                     <div class="card-body">
-                        <h5 class="card-title mt-0 mb-0 header-title">Citas del día de hoy</h5>
+                        <h5 class="card-title mt-0 mb-0 header-title">Citas del día</h5>
                         <div class="table-responsive mt-4">
                             <table class="table table-hover table-nowrap mb-0">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Hora</th>
                                         <th scope="col">Estatus</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($citas as $cita)
                                     <tr>
-                                        <td>#98754</td>
-                                        <td>Felipe el buapo</td>
-                                        <td>11:30 AM - 12:00 PM</td>
-                                        <td><span class="badge badge-soft-warning py-1">En espera</span></td>
+                                        <td>{{$cita->paciente->NombreCompleto}}</td>
+                                        <td>
+                                            @foreach($cita->horarios as $horario)
+                                                {{$horario->Horario}}<br>
+                                            @endforeach
+                                        </td>
+                                        <td>
+                                            <span class="@if($cita->estatusConsulta->Nombre == 'En espera') badge badge-soft-primary py-1 @else badge badge-soft-info py-1 @endif">
+                                                {{$cita->estatusConsulta->Nombre}}
+                                            </span>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td>#98754</td>
-                                        <td>Felipe el buapo</td>
-                                        <td>11:30 AM - 12:00 PM</td>
-                                        <td><span class="badge badge-soft-warning py-1">En espera</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>#98754</td>
-                                        <td>Felipe el buapo</td>
-                                        <td>11:30 AM - 12:00 PM</td>
-                                        <td><span class="badge badge-soft-warning py-1">En espera</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>#98754</td>
-                                        <td>Felipe el buapo</td>
-                                        <td>11:30 AM - 12:00 PM</td>
-                                        <td><span class="badge badge-soft-warning py-1">En espera</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>#98754</td>
-                                        <td>Felipe el buapo</td>
-                                        <td>11:30 AM - 12:00 PM</td>
-                                        <td><span class="badge badge-soft-warning py-1">En espera</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>#98754</td>
-                                        <td>Felipe el buapo</td>
-                                        <td>11:30 AM - 12:00 PM</td>
-                                        <td><span class="badge badge-soft-warning py-1">En espera</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>#98754</td>
-                                        <td>Felipe el buapo</td>
-                                        <td>11:30 AM - 12:00 PM</td>
-                                        <td><span class="badge badge-soft-warning py-1">En espera</span></td>
-                                    </tr>
+                                @endforeach
                                     <tr class="wCitas">
-                                        <p class="wCitas">Sin citas el día de hoy  <span class="icon-lg icon-dual-primary" data-feather="trending-down"></span></p>
+                                        <p class="wCitas"> @if(count($citas)>0)Citas pendientes del dia @else Sin citas el día de hoy @endif<span class="icon-lg icon-dual-primary" data-feather="trending-down"></span></p>
                                     </tr>
                                 </tbody>
                             </table>

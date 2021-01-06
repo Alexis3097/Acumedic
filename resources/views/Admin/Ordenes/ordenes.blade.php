@@ -20,7 +20,6 @@
                                 <table class="table table-hover table-nowrap mb-0">
                                     <thead>
                                         <tr>
-                                            <th scope="col">No.</th>
                                             <th scope="col">Nombre </th>
                                             <th scope="col">Número</th>
                                             <th scope="col">Ciudad</th>
@@ -32,7 +31,6 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>1</td>
                                             <td>Luis Felipe Martínezz Ortega</td>
                                             <td>9613591414</td>
                                             <td>Monterrey</td>

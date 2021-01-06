@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row page-title">
                 <div class="col-md-12">
-                    <h4 class="mb-1 mt-0">Profile</h4>
+                    <h4 class="mb-1 mt-0">Perfil</h4>
                 </div>
             </div>
     <div class="row">
@@ -14,9 +14,13 @@
             <div class="card">
                 <div class="card-body">
                     <div class="text-center mt-3">
-                        <img style="width: 200px;" src="assets/images/users/avatar-7.jpg" alt="" class="rounded-circle" />
-                        <h2 class="mt-2 mb-0">Felipe Martínez</h2>
-                        <h6 class="text-muted font-weight-normal mt-1 mb-4">San Francisco, CA</h6>
+                        @if(is_null(Auth::user()->Foto))
+                            <img style="width: 200px;" src="{{asset('../img/Admin/users/avatar-4.jpg')}}" alt="" class="rounded-circle" />
+                        @else
+                            <img style="width: 200px;" src="{{asset('../uploads/'.Auth::user()->Foto)}}" alt="" class="rounded-circle" />
+                        @endif
+                        <h2 class="mt-2 mb-0">{{Auth::user()->name}}</h2>
+                        <h6 class="text-muted font-weight-normal mt-1 mb-4">{{Auth::user()->ApellidoPaterno}} {{Auth::user()->ApellidoMaterno}}</h6>
                         </div>
                         <!-- profile  -->
                         <div class="mt-3 pt-2 border-top">
@@ -26,19 +30,19 @@
                                     <tbody>
                                         <tr>
                                             <th scope="row">Correo electronico</th>
-                                            <td>xyz123@gmail.com</td>
+                                            <td>{{Auth::user()->email}}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Télefono</th>
-                                            <td>(123) 123 1234</td>
+                                            <td>{{Auth::user()->Telefono}}</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row">Cumpleaños</th>
-                                            <td>1975 Boring Lane, San Francisco, California, United States -94108</td>
+                                            <th scope="row">Fecha de naciemiento</th>
+                                            <td>{{Auth::user()->FechaNacimiento}}</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Tipo de rol:</th>
-                                            <td>Mecanico</td>
+                                            <td>{{implode(" ",Auth::user()->getRoleNames()->toArray())}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -48,10 +52,12 @@
                 </div>
                 <!-- end card -->    
                 </div>
+                
                 <div class="col-md-6 col-xl-12">
+                <div id="alerta"></div>
                     <div class="card">
                         <div class="card-body p-0">
-                            <a class="" href="" name="delete_modal" data-toggle="modal" data-target="#contraseniaUsuario">
+                            <a class="" href="" name="delete_modal" id="modal">
                                 <div class="hover-list media p-3">
                                     <div class="media-body">
                                         <span class="text-muted text-uppercase font-size-12 font-weight-bold">Cambiar contraseña</span>
@@ -62,7 +68,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a class="" href="{{route('usuarios.edit',['IdUsuario'=>$usuario->id])}}">
+                            <a class="" href="{{route('miCuenta.edit',['IdUsuario'=>Auth::user()->id])}}">
                                 <div class="hover-list media p-3">
                                     <div class="media-body">
                                         <span class="text-muted text-uppercase font-size-12 font-weight-bold">Editar datos</span>
@@ -92,18 +98,17 @@
             </div>
             <div class="modal-body">
                 <form action="">
-                    <input type="hidden" name="idUsuario" id="idUsuario">
+                @csrf
+                    <input type="hidden" name="idUsuario" id="idUsuario" value="{{Auth::user()->id}}">
                     <div class="form-group col-md-12 mb-3">
                         <label for="password">Contraseña actual</label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Escriba la contraseña" required>
-                        <div id="" style="color:red;"></div>
-                        <div id="" style="color:red;"></div>
+                        <input type="password" class="form-control" name="passwordActual" id="passwordActual" placeholder="Escriba la contraseña actual" required>
+                        <div id="errorpasswordActual" style="color:red;"></div>
                     </div>
                     <div class="form-group col-md-12 mb-3">
-                        <label for="password">Nueva contraseña</label>
+                        <label for="password">Nueva contraseña (minimo 6 caracteres)</label>
                         <input type="password" class="form-control" name="password" id="password" placeholder="Escriba la contraseña" required>
-                            <div id="errorPassword1" style="color:red;"></div>
-                            <div id="errorPassword2" style="color:red;"></div>
+                            <div id="errorPassword" style="color:red;"></div>
                     </div>
                     <div class="form-group col-md-12 mb-3">
                         <label for="password_confirmation">Repetir contraseña</label>
@@ -119,4 +124,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('miCuenta')
+    <script src="{{asset('js/Admin/changePasswordAcount.js')}}"></script>
 @endsection

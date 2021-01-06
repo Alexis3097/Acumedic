@@ -1,32 +1,27 @@
-$('.delete').on('click', function(){
-    $tr = $(this).closest('tr');
-    var id = $tr.children("input[type=hidden]").val();
-    $('#idUsuarioEliminar').val(id);
-});
-$('.change').on('click', function(){
-    $tr = $(this).closest('tr');
-    var id = $tr.children("input[type=hidden]").val();
-    $('#idUsuario').val(id);
+$('#modal').on('click', function(e){
+    e.preventDefault();
+    limpiarErrores();
+    limpiarCampos();
+    $('#contraseniaUsuario').modal('show')
 });
 
 $('.enviar').on('click',function(event){
     $( "#buttonAdd" ).prop( "disabled", true );
-    $("#errorPassword1").html('');
-    $("#errorPassword2").html('');
-    $("#errorPasswordconfirmation").html('');
+    limpiarErrores();
+    let passwordActual = $("#passwordActual").val();
     let password = $("#password").val();
     let password_confirmation = $("#password_confirmation").val();
     let idUsuario = $("#idUsuario").val();
     let token = $("input[name=_token]").val();
-    var route = "/usuarios/password";
-
-    // console.log(idUsuario, password, password_confirmation);
+    var route = "/mi-cuenta/changePassword";
+    console.log(password,password_confirmation,idUsuario, passwordActual)
     $.ajax({
         url:route,
         headers:{'X-CSRF-TOKEN':token},
-        type: "post",
+        type: "put",
         datatype: "json",
         data: {
+            passwordActual: passwordActual,
             password: password,
             password_confirmation : password_confirmation,
             idUsuario: idUsuario,
@@ -34,9 +29,7 @@ $('.enviar').on('click',function(event){
         success: function(data){
             $('#contraseniaUsuario').modal('hide')
             $("#buttonAdd").prop( "disabled", false );
-            $('#idUsuario').val('');
-            $('#password').val('');
-            $('#password_confirmation').val('');
+            limpiarCampos();
             $('#alerta').html(`<div class="alert alert-success alert-dismissible fade show" role="alert">
                     Se ha cambiado la contraseña del usuario
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -49,15 +42,26 @@ $('.enviar').on('click',function(event){
         },
         error: function(data){
             $("#buttonAdd").prop( "disabled", false );
-            if(data.responseJSON.errors.password.length <= 2){
-                $("#errorPassword1").html(data.responseJSON.errors.password[0]);
-                $("#errorPassword2").html(data.responseJSON.errors.password[1]);
-            }else{
-                $("#errorPassword1").html(data.responseJSON.errors.password[0]);
+            console.log(data.responseJSON.errors);
+            if(data.responseJSON.errors.passwordActual){
+                $("#errorpasswordActual").html(data.responseJSON.errors.passwordActual[0]);
             }
-            if(data.responseJSON.errors.password_confirmation.length <= 1){
-                $("#errorPasswordconfirmation").html(data.responseJSON.errors.password_confirmation);
-            }
+            $("#errorPassword").html(data.responseJSON.errors.password[0]);
+            $("#errorPasswordconfirmation").html(data.responseJSON.errors.password_confirmation[0]);
+            
+            
         }
     })
 });
+
+function limpiarErrores(){
+    $("#errorpasswordActual").html('');
+    $("#errorPassword").html('');
+    $("#errorPasswordconfirmation").html('');
+}
+
+function limpiarCampos(){
+    $('#passwordActual').val('');
+    $('#password').val('');
+    $('#password_confirmation').val('');
+}

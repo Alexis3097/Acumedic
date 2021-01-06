@@ -44,11 +44,17 @@ Route::get('/productos/detallado/{id}', 'Cliente\ProductoController@show')->name
 
 //-------------------------------Rutas de administrador-------------------------------
 Route::get('/home', 'HomeController@index')->name('home');
+//MI CUENTA
+Route::get('/mi-cuenta', 'MiCuentaController@index')->name('miCuenta.show');
+Route::put('/mi-cuenta/changePassword', 'MiCuentaController@changePassword')->name('miCuenta.changePassword');
+Route::get('/mi-cuenta/editar/{IdUsuario}', 'MiCuentaController@edit')->name('miCuenta.edit');
+Route::put('/mi-cuenta/update/{IdUsuario}', 'MiCuentaController@update')->name('miCuenta.update');
 //CITAS
 Route::group(['middleware' => ['permission:ListadoCitas|CrearCita|EditarCita|EliminarCita']], function () {
     Route::get('/citas', 'CitasController@index')->name('citas.list');
     Route::get('/citas/nueva', 'CitasController@create')->name('citas.new');
     Route::post('/citas/crear', 'CitasController@store')->name('citas.create');
+    Route::post('/citas/crear-paciente', 'CitasController@storePaciente')->name('citas.createPaciente');
     Route::get('/citas/edit/{id}', 'CitasController@edit')->name('citas.edit');
     Route::put('/citas/update/{id}', 'CitasController@update')->name('citas.update');
     Route::get('/horarios', 'CitasController@horarios')->name('citas.horarios');
@@ -160,6 +166,9 @@ Route::group(['middleware' => ['permission:ListadoProducto|CrearProducto|EditarP
     Route::get('/productos/buscar', 'ProductosController@buscar')->name('productos.buscar');
     Route::delete('/productos/eliminar-foto', 'ProductosController@destroyFoto')->name('productos.destroyFoto');
 });
+
+//ORDENES
+Route::get('/ordenes', 'OrdenesController@index')->name('ordenes.list');
 
 //INVENTARIO
 Route::group(['middleware' => ['permission:ListadoInventario|CrearInventario|EditarInventario|EliminarInventario']], function () {

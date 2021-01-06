@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ViewModel\CitaViewModel;
+use App\ViewModel\PacienteViewModel;
 
 class HomeController extends Controller
 {
@@ -21,15 +23,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(CitaViewModel $CitaViewModel, PacienteViewModel $PacienteViewModel)
     {
-        return view('Admin.home');
+        $citas = $CitaViewModel->getCitasInicio();
+        $citasDelDia = $CitaViewModel->numeroCitasDelDia();
+        $totalPacientes = $PacienteViewModel->totalPacientes();
+        return view('Admin.home',compact('citas','citasDelDia','totalPacientes'));
     }
 
     public function doLogout()
     {
-        
- 
         return redirect()->route('inicio');
     }
 }
