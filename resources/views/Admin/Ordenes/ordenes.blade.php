@@ -22,23 +22,29 @@
                                         <tr>
                                             <th scope="col">Nombre </th>
                                             <th scope="col">Número</th>
-                                            <th scope="col">Ciudad</th>
                                             <th scope="col">Correo electrónico</th>
                                             <th scope="col">Producto</th>
                                             <th scope="col">Cantidad</th>
                                             <th scope="col">Total</th>
+                                            <th scope="col">Estatus</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($ordenes as $orden)
                                         <tr>
-                                            <td>Luis Felipe Martínezz Ortega</td>
-                                            <td>9613591414</td>
-                                            <td>Monterrey</td>
-                                            <td>felipemo@gmail.com</td>
-                                            <td>Riopan el chido uwu</td>
-                                            <td>1</td>
-                                            <td><span>$ </span>22000.00</td>
+                                            <td>{{$orden->NombreCompleto}}</td>
+                                            <td>{{$orden->Telefono}}</td>
+                                            <td>{{$orden->Correo}}</td>
+                                            <td>{{$orden->producto->Nombre}}</td>
+                                            <td>{{$orden->Cantidad}}</td>
+                                            <td><span>$ </span>{{$orden->Total}}</td>
+                                            <td>
+                                                <span class="@if($orden->estatusOrden->Estatus == 'Pendiente') badge badge-soft-danger py-1 @elseif($orden->estatusOrden->Estatus == 'En proceso') badge badge-soft-primary py-1 @else badge badge-soft-success py-1 @endif">
+                                                    {{$orden->estatusOrden->Estatus}}
+                                                </span>
+                                            </td>
                                         </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div> <!-- end table-responsive-->

@@ -210,6 +210,10 @@
                                             </a>
                                         @endcan
                                     @endif
+                                    <a href="{{route('ordenes.list')}}" class="dropdown-item notify-item">
+                                        <i data-feather="archive" class="icon-dual icon-xs mr-2"></i>
+                                        <span>ordenes</span>
+                                    </a>
                                 </li>
                             @endif
                             @if(auth()->user()->can('ListadoUsuarios'))

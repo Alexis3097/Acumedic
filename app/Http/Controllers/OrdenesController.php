@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ViewModel\OrdenDeCompraViewModel;
 
 class OrdenesController extends Controller
 {
@@ -15,9 +16,10 @@ class OrdenesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(OrdenDeCompraViewModel $OrdenDeCompraViewModel)
     {
-        return view('Admin.Ordenes.ordenes');
+        $ordenes = $OrdenDeCompraViewModel->getAllOrdenDeCompra();
+        return view('Admin.Ordenes.ordenes',compact('ordenes'));
     }
 
     /**
