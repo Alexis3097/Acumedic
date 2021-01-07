@@ -7,7 +7,8 @@
         <div class="container-fluid" style="position: relative;">
         <div class="row">
             <div class="col-md-3 col-md-3 col-xl-3 cardClienteInfo" style="padding:2%; box-sizing:border-box;">
-                    <div class="card" style="background-color:rgba(255,255,255,.7);">
+                <a href="{{ route('citas.list') }}">
+                <div class="card" style="background-color:rgba(255,255,255,.7);">
                         <div class="card-body p-0">
                             <div class="media p-3">
                                 <div class="media-body">
@@ -20,9 +21,11 @@
                             </div>
                         </div>
                     </div>
+                </a>
             </div>
             <div class="col-md-3 col-md-3 col-xl-3 cardClienteInfo" style="padding:2%; box-sizing:border-box;">
-                    <div class="card" style="background-color:rgba(255,255,255,.7);">
+                <a href="{{ route('paciente.list') }}">
+                <div class="card" style="background-color:rgba(255,255,255,.7);">
                         <div class="card-body p-0">
                             <div class="media p-3">
                                 <div class="media-body">
@@ -35,9 +38,11 @@
                             </div>
                         </div>
                     </div>
+                </a>
             </div>
             <div class="col-md-3 col-md-3 col-xl-3 cardClienteInfo" style="padding:2%; box-sizing:border-box;">
-                    <div class="card" style="background-color:rgba(255,255,255,.7);">
+                <a href="{{route('ordenes.list')}}">
+                <div class="card" style="background-color:rgba(255,255,255,.7);">
                         <div class="card-body p-0">
                             <div class="media p-3">
                                 <div class="media-body">
@@ -50,9 +55,11 @@
                             </div>
                         </div>
                     </div>
+                </a>
             </div>
             <div class="col-md-3 col-md-3 col-xl-3 cardClienteInfo" style="padding:2%; box-sizing:border-box;">
-                    <div class="card" style="background-color:rgba(255,255,255,.7);">
+                <a href="{{route('solicitudCita.show')}}">
+                <div class="card" style="background-color:rgba(255,255,255,.7);">
                         <div class="card-body p-0">
                             <div class="media p-3">
                                 <div class="media-body">
@@ -65,6 +72,7 @@
                             </div>
                         </div>
                     </div>
+                </a>
             </div>
             <a href="{{ route('citas.list') }}" class="col-xl-12 col-lg-12 col-md-12 col-xd-12 cardClienteInfo">
             <div class="col-xl-12">
@@ -97,7 +105,7 @@
                                     </tr>
                                 @endforeach
                                     <tr class="wCitas">
-                                        <p class="wCitas"> @if(count($citas)>0)Citas pendientes del dia @else Sin citas el día de hoy @endif<span class="icon-lg icon-dual-primary" data-feather="trending-down"></span></p>
+                                        <p class="wCitas"> @if(count($citas)>0)Citas pendientes del dia <span class="icon-lg icon-dual-primary" data-feather="book"></span> @else Sin citas el día de hoy <span class="icon-lg icon-dual-primary" data-feather="trending-down"></span> @endif</p>
                                     </tr>
                                 </tbody>
                             </table>
