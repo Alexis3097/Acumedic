@@ -228,5 +228,13 @@ class ProductoViewModel
       return $producto;
   }
 
+  public function eliminarFotoProducto($IdFoto){
+    $fotoProducto = fotoProducto::find($IdFoto);
+    $this->deleteProductPhoto($fotoProducto->Nombre);
+    $fotoProducto->delete();
+    return $fotoProducto;
+
+  }
+
  
 }

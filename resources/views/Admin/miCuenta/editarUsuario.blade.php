@@ -6,7 +6,7 @@
                 <div class="container-fluid">
                     <div class="row page-title align-items-center">
                         <div class="col-sm-4 col-xl-6">
-                            <h4 class="mb-1 mt-0">Editar Usuario</h4>
+                            <h4 class="mb-1 mt-0">Editar mi cuenta</h4>
                            
                         </div>
                     </div>
@@ -17,7 +17,7 @@
                         <div class="col-lg-9">
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="needs-validation row" action="{{route('usuarios.update',['IdUsuario' =>$usuario->id])}}" method="POST" enctype="multipart/form-data">
+                                    <form class="needs-validation row" validate action="{{route('miCuenta.update',['IdUsuario' =>Auth::user()->id])}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                         <div class="form-group col-md-4">
@@ -90,25 +90,9 @@
                                                 </div>
                                             @enderror
                                         </div>
-                             
-                                        <div class="form-group col-md-4">
-                                            <label for="Rol">Rol</label>
-                                            <select data-plugin="customselect" class="form-control @error('Rol') is-invalid @enderror" name="Rol">
-                                            <option value="Seleccione">Seleccione</option>
-                                                @foreach($roles as $rol)
-                                                    <option value="{{$rol->name}}"
-                                                    @if( (String) $rol->name === (String) $rolQueTengo) selected='selected' @endif>{{$rol->name}}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('Rol')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
                                         <div class="form-group col-md-12">
-                                            <a href="{{ route('usuarios.list') }}" class="btn btn-danger" >Cancelar</a>
-                                            <button type="submit" class="btn btn-primary" >Actualizar usuario</button>
+                                            <a href="{{route('miCuenta.show')}}" class="btn btn-danger" >Cancelar</a>
+                                            <button type="submit" class="btn btn-primary" >Actualizar mis datos</button>
                                         </div>
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->

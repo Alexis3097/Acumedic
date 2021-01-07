@@ -71,11 +71,50 @@ class UsuarioViewModel
                   ->get();
       return $usuario;
     }
-
+/**
+ * cambia contraseñas de los usuarios(el administrador)
+ */
     public function changePassword($IdUsuario, $password){
       $usuario = User::find($IdUsuario);
       $pass = Hash::make($password);
       $usuario->password = $pass;
       $usuario->save();
+    }
+    /**
+     * Cada usuarios puede cambiara su contraseña
+     */
+    public function changePasswordMiCuenta($IdUsuario, $password){
+      $usuario = User::find($IdUsuario);
+      $pass = Hash::make($password);
+      $usuario->password = $pass;
+      $usuario->save();
+    }
+
+    /**
+     * actualiza los dato del usuario logeado
+     */
+    public function updateMyAcount($userData,$id){
+      $usuario = User::find($id);
+      if($archivo = $userData->file('Foto'))
+      {
+        if(!is_null($usuario->Foto)){
+           $rutaImagen = public_path().'/uploads/'.$usuario->Foto;
+          if (@getimagesize($rutaImagen)){
+            unlink($rutaImagen);
+          }
+        }
+        $nombre = time().'.'.$archivo->getClientOriginalExtension();
+        $archivo->move('uploads', $nombre);
+        $usuario->Foto = $nombre;
+      }
+      $usuario->IdSexo = $userData->IdSexo;
+      $usuario->name = $userData->name;
+      $usuario->ApellidoPaterno = $userData->ApellidoPaterno;
+      $usuario->ApellidoMaterno = $userData->ApellidoMaterno;
+      $usuario->FechaNacimiento = $userData->FechaNacimiento;
+      $usuario->Telefono = $userData->Telefono;
+      $usuario->email = $userData->email;
+      $usuario->save();
+      return $usuario;
     }
 }

@@ -93,4 +93,9 @@ class PacienteViewModel
                   ->get();
       return $pacientes;
     }
+
+    public function totalPacientes(){
+      $Pacientes = Paciente::all();
+      return count($Pacientes);
+    }
 }

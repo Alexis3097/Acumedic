@@ -54,24 +54,43 @@ class CitaViewModel
     {
       return Sexo::All();
     }
-
+    /**
+     * crea cita y paciente
+     */
     public function create($citaData)
     {
-      if($citaData->input('id') == 0){
-        $paciente = new Paciente();
-        $paciente->Nombre = $citaData->Nombre;
-        $paciente->ApellidoPaterno = $citaData->ApellidoPaterno;
-        $paciente->ApellidoMaterno = $citaData->ApellidoMaterno;
-        $paciente->Telefono = $citaData->Telefono;
-        $paciente->save();
-      }
+      
+      $paciente = new Paciente();
+      $paciente->Nombre = $citaData->Nombre;
+      $paciente->ApellidoPaterno = $citaData->ApellidoPaterno;
+      $paciente->ApellidoMaterno = $citaData->ApellidoMaterno;
+      $paciente->Telefono = $citaData->Telefono;
+      $paciente->save();
+      
 
       $cita = new Cita();
-      if($citaData->id == 0){
-        $cita->IdPaciente = $paciente->id;
-      }else{
-        $cita->IdPaciente = $citaData->input('id');
+      $cita->IdPaciente = $paciente->id;
+      $cita->IdTipoConsulta = $citaData->TipoConsulta;
+      $cita->IdEstatusConsulta = $citaData->IdEstatusConsulta;
+      $cita->Descripcion = 'Guardado';
+      $cita->Fecha = $citaData->Fecha;
+      $cita->save();
+
+      foreach ($citaData->Horario as $IdHorario){
+        $citaHorario = new CitaHorario();
+        $citaHorario->IdCita = $cita->id;
+        $citaHorario->IdHorario = $IdHorario;
+        $citaHorario->save();
       }
+
+      return $cita;
+    }
+  /**
+   * crea cita con paciente relacionado
+   */
+    public function createPaciente($citaData){
+      $cita = new Cita();
+      $cita->IdPaciente = $citaData->IdPaciente;
       $cita->IdTipoConsulta = $citaData->TipoConsulta;
       $cita->IdEstatusConsulta = $citaData->IdEstatusConsulta;
       $cita->Descripcion = 'Guardado';
@@ -221,6 +240,17 @@ class CitaViewModel
       else{
         return $primeraCita = true;
       }
+    }
+
+    public function getCitasInicio()
+    {
+      $cita = Cita::where('Fecha','=', date_create()->format('Y-m-d'))->where('IdEstatusConsulta',1)->orWhere('IdEstatusConsulta',2)->get();
+      return $cita;
+    }
+
+    public function numeroCitasDelDia(){
+      $cita = Cita::where('Fecha','=', date_create()->format('Y-m-d'))->get();
+      return count($cita);
     }
 
 }

@@ -71,6 +71,8 @@ class ProductosController extends Controller
      */
     public function update(UpdateProducto $request, $id, ProductoViewModel $ProductoViewModel)
     {
+        
+        // dd($request->toArray());
        $producto = $ProductoViewModel->update($request, $id);
        return redirect()->route('productos.list');
     }
@@ -90,5 +92,11 @@ class ProductosController extends Controller
     public function buscar(buscarProducto $request, ProductoViewModel $ProductoViewModel){
         $productos = $ProductoViewModel->buscarProducto($request->Nombre);
         return view('Admin.Productos.buscarProductos',compact('productos'));
+    }
+
+    public function destroyFoto(Request $request, ProductoViewModel $ProductoViewModel){
+        $ProductoViewModel->eliminarFotoProducto($request->IdFotoProducto);
+        return redirect()->route('productos.edit',$request->IdProducto);
+
     }
 }
