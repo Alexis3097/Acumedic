@@ -71,43 +71,39 @@
           </div>
         </div>
       </section>
- 
-    <!-- contacto -->
     <section class="contacto-formulario">
-    <!-- <div class="row"> -->
-      <div class="col-md-6 bg-form">
+      <!-- <div class="row"> -->
+        <div class="col-md-6 bg-form">
 
-      </div>
-      <div class="col-md-6 formulario ">
-        <div class="col-md-12 titulo-form">
-          <p>SOLICITA UNA CITA</p>
         </div>
-        <form>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputEmail4">Email</label>
-              <input type="email" class="form-control" id="inputEmail4" placeholder="tuncorreo@dominio.com">
+        <div class="col-md-6 formulario ">
+          <div class="col-md-12 titulo-form">
+            <p>SOLICITA UNA CITA</p>
+          </div>
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="inputEmail4">Nombre Completo</label>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Coloca aquí tú nombre">
+              </div>
+              <div class="form-group col-md-6" >
+                <label for="inputAddress2">Correo electrónico</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="túcorreo@tudominio.com">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Ciudad</label>
+                <input type="password" class="form-control" id="inputPassword4" placeholder="Ej: Monterrey, N.L.">
+              </div>
             </div>
-            <div class="form-group col-md-6">
-              <label for="inputPassword4">Password</label>
-              <input type="password" class="form-control" id="inputPassword4" placeholder="Tu contraseña">
+            <div class="form-group">
+              <label for="inputAddress">Teléfono</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="Coloca aquí tú número teléfonico">
             </div>
-          </div>
-          <div class="form-group">
-            <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="#123 Tú dirección">
-          </div>
-          <div class="form-group" >
-            <label for="inputAddress2">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-          </div>
-          <button type="submit" class="btn-2 btn-primary">Sign in</button>
-        </form>
-      </div>
-    <!-- </div> -->
-
+            <button type="submit" class="btn-2 btn-primary">Quiero una cita</button>
+          </form>
+        </div>
+      <!-- </div> -->
     </section>
-    <!-- contacto -->
     <!-- más info -->
     <section class="informacion">
       <div class="container">
