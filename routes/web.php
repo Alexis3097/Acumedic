@@ -65,6 +65,12 @@ Route::group(['middleware' => ['permission:ListadoCitas|CrearCita|EditarCita|Eli
     Route::get('/citas/buscarPaciente', 'CitasController@buscarPaciente')->name('citas.buscarPaciente');
 });
 
+//SOLICITUD DE CITAS 
+// Route::get('/solicitud-citas', 'MiCuentaController@index')->name('solicitudCita.show');
+Route::get('/solicitud-citas', function () {
+    return view('Admin.Citas.solicitudCitas');
+})->name('solicitudCita.show');
+
 //PACIENTES
 Route::group(['middleware' => ['permission:ListadoPacientes|CrearPaciente|EditarPaciente|EliminarPaciente']], function () {
     Route::get('/pacientes', 'PacienteController@index')->name('paciente.list');
