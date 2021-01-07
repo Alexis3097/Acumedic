@@ -637,7 +637,7 @@ input {
   font-size: var(--font-ms);
 }
 .contacto-formulario .formulario form input{
-  color:#f4efee;
+  color:#232323;
   font-size: var(--font-s);
   border:1px solid #ccc;
   border-radius:0px!important;

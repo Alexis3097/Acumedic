@@ -92,7 +92,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="inputPassword4">Ciudad</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Ej: Monterrey, N.L.">
+                <input type="text" class="form-control" id="inputPassword4" placeholder="Ej: Monterrey, N.L.">
               </div>
             </div>
             <div class="form-group">
