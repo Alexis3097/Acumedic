@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\OrderProductoEvents;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/test', function () {
+    event(new OrderProductoEvents);
+    return view('test');
+});
 
 Auth::routes();
 // Route::pattern('IdPaciente', '[0-9]+');
