@@ -67,29 +67,73 @@
       <h4>Total: <span>$100</span></h4>
     </div>
     <form class="formulario">
-      <div class="form-group col-md-12 col-xs-12 col-lg-12">
+    <div style="border-bottom:1px solid #fff;"class="col-md-12">
+    <h4 style="font-weight:bold;">Datos Principales</h4>
+    </div>
+      <div class="form-group col-md-3 col-xs-3 col-lg-3">
         <label for="exampleInputEmail1">Nombre Completo</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Añade tú nombre">
         <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
       </div>
-      <div class="form-group col-md-12 col-xs-12 col-lg-12">
+      <div class="form-group col-md-3 col-xs-3 col-lg-3">
         <label for="exampleInputEmail1">Correo electronico</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="tucorreo@tudominio.com">
         <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
       </div>
-      <div class="form-group col-md-12 col-xs-12 col-lg-12">
+      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+        <label for="exampleInputPhone">Telefono</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Escribe aqui tú número">
+      </div>
+      <div class="form-group col-md-3 col-xs-3 col-lg-3">
         <label for="points">Cantidad a pedir:</label>
         <input min="0" class="form-control" type="number" id="points" name="points" step="1" value="0">
         <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
       </div>
-      <div class="form-group col-md-12 col-xs-12 col-lg-12">
-        <label for="exampleInputEmail1">Ciudad</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tú ciudad">
+      <div style="border-bottom:1px solid #fff;" class="col-md-12">
+      <h4 style="font-weight:bold;">Dirección</h4>
+      </div>
+      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+        <label for="exampleInputEmail1">Estado</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tú estado">
         <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
       </div>
-      <div class="form-group col-md-12 col-xs-12 col-lg-12">
-        <label for="exampleInputPhone">Telefono</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Escribe aqui tú número">
+      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+        <label for="exampleInputEmail1">Municipio</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tú municipio">
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      </div>
+      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+        <label for="exampleInputEmail1">Colonia</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tú colonia">
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      </div>
+      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+        <label for="exampleInputEmail1">Calle</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tú calle">
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      </div>
+      <div style="border-bottom:1px solid #fff;" class="col-md-12">
+      <h4 style="font-weight:bold;">Referencias</h4>
+      </div>
+      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+        <label for="exampleInputEmail1">No. Interior</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tú número interior">
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      </div>
+      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+        <label for="exampleInputEmail1">Entre calle</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tú primer referencia">
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      </div>
+      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+        <label for="exampleInputEmail1">Y calle</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tú segunda referencia">
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      </div>
+      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+        <label for="exampleInputEmail1">No. Exterior</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tú no. exterior">
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
       </div>
       <button type="submit" id="enviar" class="btn btn-primary">Enviar</button>
     </form>
