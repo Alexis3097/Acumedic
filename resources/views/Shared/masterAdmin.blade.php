@@ -211,12 +211,12 @@
                                         @endcan
                                     @endif
                                     <a href="{{route('ordenes.list')}}" class="dropdown-item notify-item">
-                                        <i data-feather="archive" class="icon-dual icon-xs mr-2"></i>
-                                        <span>ordenes</span>
+                                        <i data-feather="shopping-bag" class="icon-dual icon-xs mr-2"></i>
+                                        <span>Ordenes</span>
                                     </a>
                                     <a href="{{route('solicitudCita.show')}}" class="dropdown-item notify-item">
-                                        <i data-feather="archive" class="icon-dual icon-xs mr-2"></i>
-                                        <span>solicitud de citas</span>
+                                        <i data-feather="clipboard" class="icon-dual icon-xs mr-2"></i>
+                                        <span>Solicitud de citas</span>
                                     </a>
                                 </li>
                             @endif

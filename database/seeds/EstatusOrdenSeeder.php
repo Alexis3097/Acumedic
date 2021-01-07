@@ -1,9 +1,8 @@
 <?php
-
 use App\Models\EstatusOrden;
 use Illuminate\Database\Seeder;
 
-class EstausOrdenSeeder extends Seeder
+class EstatusOrdenSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +10,7 @@ class EstausOrdenSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {     
         EstatusOrden::create([
             'Estatus'=> 'Pendiente',
         ]);
