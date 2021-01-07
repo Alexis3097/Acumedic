@@ -27,6 +27,7 @@
                                             <th scope="col">Cantidad</th>
                                             <th scope="col">Total</th>
                                             <th scope="col">Estatus</th>
+                                            <th scope="col">Datos generales</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -43,6 +44,7 @@
                                                     {{$orden->estatusOrden->Estatus}}
                                                 </span>
                                             </td>
+                                            <td><span data-toggle="tooltip" data-placement="left" title=""><button type="button" name="" class="btn btn-outline-info" data-toggle="modal" data-target="#verDireccion"><i class="fa fa-eye"></i></button></span></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -57,4 +59,37 @@
         </div>
     </div> <!-- content -->
 </div>
+<div id="verDireccion" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Datos de dirección</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h6>Dirección:</h6>
+                <p><span>Estado: </span>Chiapas</p>
+                <p><span>Municipio: </span>Tuxtla</p>
+                <p><span>Colonia: </span>Campayork</p>
+                <p><span>Calle: </span>Av. Fontana</p>
+                <hr>
+                <h6>Referencias</h6>
+                <p><span>Número exterior:# </span>332</p>
+                <p><span>Número interior: </span>AB</p>
+                <p><span>Calle referencia 1: </span>Av. Santa Maria</p>
+                <p><span>Calle referencia 2: </span>Circuto las flores sur</p>
+            </div>
+            <div class="modal-footer">
+            <h6>Seleccionar estatus</h6>
+                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warn">Cancelado</button>
+                <button type="button" class="btn btn-info">Pendiente</button>
+                <button type="button" class="btn btn-success">Completado</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 @endsection
