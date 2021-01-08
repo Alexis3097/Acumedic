@@ -10,7 +10,7 @@ class EstatusOrdenSeeder extends Seeder
      * @return void
      */
     public function run()
-    {     
+    { 
         EstatusOrden::create([
             'Estatus'=> 'Pendiente',
         ]);

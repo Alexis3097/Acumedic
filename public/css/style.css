@@ -1335,7 +1335,55 @@ footer .colFooter .sublinks ul li a:hover{
   /* FIN DE ANIMACIONES */
   /* DISEÑO RESPONSIVO */
     /* pantallas más grandes  */
-  @media only screen and (max-width: 2840px) and (min-width: 1900px) {}
+  @media only screen and (max-width: 2840px) and (min-width: 1900px) {
+    .banner-section{
+      min-height: 90vh;
+    }
+    .contacto-formulario{
+      min-height: 70vh;
+    }
+    .info-numeros {
+      min-height: 16vh;
+      padding:2%;
+    }
+    .about-section .descAbout .titulo{
+      font-size: var(--font-xgtitle);
+    }
+    .about-section .descAbout .desc-italic{
+      font-size: var(--font-ms);
+    }
+    .about-section .descAbout .subtitulo{
+      font-size: var(--font-gtitle);
+    }
+    .about-section .descAbout .desc{
+      font-size: var(--font-ms);
+    }
+    .servicios {
+      min-height: 70vh;
+
+    }
+    .servicios .titulo .title-section h3{
+      font-size: var(--font-xgtitle);
+    }
+    .servicios .servicio-content .titulo-servicio{
+      font-size: var(--font-gtitle);
+    }
+    .servicios .servicio-content .price p{
+      font-size: var(--font-ms);
+    }
+    .servicios .servicio-content .desc{
+      font-size: var(--font-ms);
+    }
+    .form-contact{
+      min-height: 65vh;
+    }
+    .modal-orden .container-modal{
+        height: 55vh;
+    }
+    .modal-orden .container-modal::after{
+      height: 55vh;
+    }
+  }
   /* pantallas más grandes  */
   @media only screen and (max-width: 700px) and (min-width: 300px) { 
     .info-numeros .info-contador .counter{
