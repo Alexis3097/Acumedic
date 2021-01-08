@@ -112,7 +112,8 @@
                         <h5 class="modal-title" style="display: inline; width: 100%;" id="exampleModalLongTitle" >Añade tus seis servicios principales</h5>
                         <br>
                         <h6 style="display: inline; width: 100%;">Esta sección se pone disponible cuando cuentas con 6 servicios o más:</h6>
-                        <div id="errorMax" style="color:red;"></div>
+                        <br>
+                        <div id="errorMax" style="color:red; display: inline; width: 100%;"></div>
                         <div class="modal-footer"></div>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
