@@ -289,5 +289,6 @@
     @yield('scriptInventario')
     @yield('scriptAbout')
     @yield('miCuenta')
+    @yield('orden')
     </body>
 </html>

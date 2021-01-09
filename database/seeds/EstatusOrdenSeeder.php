@@ -18,7 +18,10 @@ class EstatusOrdenSeeder extends Seeder
             'Estatus'=> 'En proceso'
         ]);
         EstatusOrden::create([
-            'Estatus'=> 'Finalizado'
+            'Estatus'=> 'Completado'
+        ]);
+        EstatusOrden::create([
+            'Estatus'=> 'Cancelado'
         ]);
     }
 }

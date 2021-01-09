@@ -11,7 +11,7 @@ class OrdenDeCompra extends Model
 {
     protected $table = 'OrdenDeCompra';
     protected $fillable = [
-        'IdProducto','IdDireccion','IdEstatusOrden','NombreCompleto','Correo','Telefono','Domicilio','Cantidad','Total'
+        'IdProducto','IdDireccion','IdEstatusOrden','NombreCompleto','Correo','Telefono','Cantidad','Total'
     ];
 
     public function producto()

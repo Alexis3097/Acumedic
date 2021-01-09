@@ -21,7 +21,6 @@ class CreateOrdenDeCompraTable extends Migration
             $table->string('NombreCompleto');
             $table->string('Correo');
             $table->string('Telefono');
-            $table->string('Domicilio');
             $table->Integer('Cantidad');
             $table->float('Total');
             $table->timestamps();
