@@ -613,7 +613,7 @@ input {
 .contacto-formulario{
   background-color:#e6ede9;
   position: relative;
-  min-height: 70vh;
+  min-height: 75vh;
   width: 100%;
 }
 .contacto-formulario .bg-form{
@@ -993,6 +993,13 @@ input {
   color:var(--blue2);
   font-weight: bold;
 }
+.form-contact h4{
+  text-align: left;
+  font-size:var(--font-mtitle);
+  color:var(--blue2);
+  font-weight: bold;
+  font-style: italic;
+}
 .form-contact .info-direccion .desc p{
   font-style: italic;
   text-align: left;
@@ -1264,6 +1271,7 @@ footer .colFooter .tituloFooter p:before{
 footer .colFooter .sublinks ul li a{
   color:#fff;
   line-height: 40px;
+  cursor:pointer;
   font-size: var(--font-s);
   text-align: left;
   transition:ease all .2s;
@@ -1336,6 +1344,19 @@ footer .colFooter .sublinks ul li a:hover{
   /* DISEÑO RESPONSIVO */
     /* pantallas más grandes  */
   @media only screen and (max-width: 2840px) and (min-width: 1900px) {
+    .banner-section .banner-acumedic{
+      padding: 5%,0%;
+    }
+    .banner-section .banner-acumedic .titulo-sitio h1{
+      font-size: var(--font-xxgtitle);
+    }
+    .banner-section .banner-acumedic .titulo-sitio h2{
+      font-size: var(--font-ms);
+    }
+    .nav-item a,.nav-item .btn-nav{
+      border-radius: 30px;
+      font-size: var(--font-ms);
+    }
     .banner-section{
       min-height: 90vh;
     }
@@ -1382,6 +1403,19 @@ footer .colFooter .sublinks ul li a:hover{
     }
     .modal-orden .container-modal::after{
       height: 55vh;
+    }
+    .contacto-formulario .formulario .titulo-form{
+      font-size: var(--font-xgtitle)  ;
+    }
+    .contacto-formulario .formulario form label{
+      font-size:var(--font-gtitle);
+    }
+    .contacto-formulario .formulario form input{
+      font-size: var(--font-ms);
+    }
+    .btn-2{
+      font-size: var(--font-gtitle);
+      border-radius: 30px;
     }
   }
   /* pantallas más grandes  */

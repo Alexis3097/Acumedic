@@ -35,6 +35,7 @@
                   <div class="direccion">
                     <div class="titulo">
                       <h3>Tuxtla Gutierrez, Chiapas, México.</h3>
+                      <h4>Solicita una cita en nuestra clínica</h4>
                     </div>
                     <div class="desc">
                       <p class="descripcion">Monseni, Número #124. Fraccionamiento Montserrat. C.P. 29070</p>
