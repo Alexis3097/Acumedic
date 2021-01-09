@@ -1,4 +1,5 @@
 @extends('Shared.master')
+@section('title', 'Acumedic - servicio')
 @section('content')
 <main>
     <section class="banner-section2">

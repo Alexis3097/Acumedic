@@ -1,4 +1,5 @@
 @extends('Shared.master')
+@section('title', 'Acumedic - productos')
 @section('content')
 <main style="z-index:1">
 <section class="producto-single">
@@ -158,6 +159,6 @@
     }
 </script>
 @endsection
-@section('stock')
+@section('scripts')
 <script src="{{asset('js/valorStock.js')}}"></script>
 @endsection

@@ -23,11 +23,11 @@ class OrdenDeCompraViewModel
 
     public function changeEstatus($IdOrden, $IdEstatus){
       $orden = OrdenDeCompra::find($IdOrden);
-      if($IdEstatus == 3 && $orden->IdEstatusOrden != 3)//Estatus tres es completado por lo tanto restaomos la cantidad de producto del inventario
+      if($IdEstatus == 3 && $orden->IdEstatusSolicitud != 3)//Estatus tres es completado por lo tanto restaomos la cantidad de producto del inventario
       {
         $this->restarInventario($orden->IdProducto, $orden->Cantidad);
       }
-      $orden->IdEstatusOrden = $IdEstatus;
+      $orden->IdEstatusSolicitud = $IdEstatus;
       $orden->save();
       return $orden;
 

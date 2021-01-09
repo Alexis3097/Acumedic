@@ -252,7 +252,7 @@ class ProductoViewModel
     $orden = new OrdenDeCompra;
     $orden->IdProducto = $ordenData->IdProducto;
     $orden->IdDireccion = $direccion->id;
-    $orden->IdEstatusOrden = $_ESTATUS_PENDIENTE;
+    $orden->IdEstatusSolicitud = $_ESTATUS_PENDIENTE;
     $orden->NombreCompleto = $ordenData->NombreCompleto;
     $orden->Correo = $ordenData->Correo;
     $orden->Telefono = $ordenData->Telefono;

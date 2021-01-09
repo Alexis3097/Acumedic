@@ -1,4 +1,5 @@
 @extends('Shared.master')
+@section('title', 'Acumedic - productos')
 @section('content')
 <main>
       <section class="banner-section2">
@@ -11,7 +12,7 @@
                   </div>
                   <div class="col-md-3">
                       <div class="redirect">
-                          <h3><i class="icono fas fa-home"></i><a style="color:#fff;" href="">Inicio</a><i class="icono fas fa-chevron-right"></i> Productos</h3>
+                          <h3><i class="icono fas fa-home"></i><a style="color:#fff;" ref="{{ route('inicio') }}">Inicio</a><i class="icono fas fa-chevron-right"></i> Productos</h3>
                       </div>
                   </div>
               </div>

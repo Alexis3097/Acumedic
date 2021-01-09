@@ -1,4 +1,5 @@
 @extends('Shared.master')
+@section('title', 'Acumedic - servicios')
 @section('content')
   <!-- main -->
   <main>

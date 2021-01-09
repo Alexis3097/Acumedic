@@ -1,8 +1,8 @@
 <?php
-use App\Models\EstatusOrden;
+use App\Models\EstatusSolicitud;
 use Illuminate\Database\Seeder;
 
-class EstatusOrdenSeeder extends Seeder
+class EstatusSolicitudSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,16 +11,16 @@ class EstatusOrdenSeeder extends Seeder
      */
     public function run()
     {     
-        EstatusOrden::create([
+        EstatusSolicitud::create([
             'Estatus'=> 'Pendiente',
         ]);
-        EstatusOrden::create([
+        EstatusSolicitud::create([
             'Estatus'=> 'En proceso'
         ]);
-        EstatusOrden::create([
+        EstatusSolicitud::create([
             'Estatus'=> 'Completado'
         ]);
-        EstatusOrden::create([
+        EstatusSolicitud::create([
             'Estatus'=> 'Cancelado'
         ]);
     }

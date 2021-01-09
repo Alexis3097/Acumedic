@@ -1,4 +1,5 @@
 @extends('Shared.master')
+@section('title', 'Acumedic - contacto')
 @section('content')
 <main>
     <section class="banner-section2">
@@ -49,33 +50,45 @@
                 </div>
                   <div class="col-md-6 container-formulario">
                     <div class="container-formbg">
-                      <form class="formulario">
+                      <form class="formulario" onclick="event.preventDefault();" validate>
+                      @csrf
                         <div class="form-group col-md-12">
-                          <label for="exampleInputEmail1">Nombre Completo</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        <label for="NombreCompleto">Nombre Completo</label>
+                        <input type="text" class="form-control" id="NombreCompleto" name="NombreCompleto" placeholder="Coloca aquí tú nombre">
+                        <div style="color:red;" id="errorNombre">error</div>
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="exampleInputEmail1">Correo electronico</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        <label for="Correo">Correo electrónico</label>
+                        <input type="email" class="form-control" id="Correo" name="Correo" placeholder="túcorreo@tudominio.com">
+                        <div style="color:red;" id="errorCorreo">error</div>
                           </div>
                         <div class="form-group col-md-12">
-                          <label for="exampleInputEmail1">Ciudad</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        <label for="Ciudad">Ciudad</label>
+                        <input type="text" class="form-control" id="Ciudad" name="Ciudad"   placeholder="Ej: Monterrey, N.L.">
+                        <div style="color:red;" id="errorCiudad">error</div>
                         </div>
                           <div class="form-group col-md-12">
-                            <label for="exampleInputPhone">Telefono</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Escribe aqui tú número">
+                          <label for="Telefono">Teléfono</label>
+                          <input type="text" class="form-control" id="Telefono" name="Telefono" placeholder="Coloca aquí tú número teléfonico">
+                          <div style="color:red;" id="errorTelefono">error</div>
                           </div>
-                          <button type="submit" class="btn btn-primary">Enviar</button>
+                          <button type="submit" class="btn btn-primary enviar" id="enviarSolicitud">Enviar</button>
                         </form>
                     </div>
                   </div>
               </div>
           </div>
       </section>
+      <div class="modal-thankYou ">
+  <div class="text">
+    <h2>¡Gracias!</h2>
+    <p>Tus datos han sido guardado satisfactoriamente</p>
+    <p>Te mandaremos un correo para el seguimiento de tu cita</p>
+  </div>
+</div>
       <!-- formulario del contacto -->
   </main>
+@endsection
+@section('scripts')
+<script src="{{asset('js/solicitarCita.js')}}"></script>
 @endsection
