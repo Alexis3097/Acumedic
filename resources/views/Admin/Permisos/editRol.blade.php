@@ -15,7 +15,7 @@
                         <!-- widgets -->
                         <div class="row">
                             <div class="col-xl-12 col-md-12">
-                            <form action="{{route('permisos.rol.update',['id'=>$rol['id']])}}" method="post" class="needs-validation">>
+                            <form action="{{route('permisos.rol.update',['id'=>$rol['id']])}}" method="post" class="needs-validation">
                                         @csrf
                                         @method('put')
                                 <div class="card">

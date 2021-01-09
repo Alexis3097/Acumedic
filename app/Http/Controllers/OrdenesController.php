@@ -23,13 +23,12 @@ class OrdenesController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * cambia el estatus de la orden dependiendo la que haya elegido el admin o el de ventas de productos
      */
-    public function create()
+    public function changeEstatus(Request $request, OrdenDeCompraViewModel $OrdenDeCompraViewModel)
     {
-        //
+        $OrdenDeCompraViewModel->changeEstatus($request->IdOrden, $request->IdEstatus);
+        return redirect()->route('ordenes.list');
     }
 
     /**

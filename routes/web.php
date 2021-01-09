@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\OrderProductoEvents;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/test', function () {
+    event(new OrderProductoEvents);
+    return view('test');
+});
 
 Auth::routes();
 // Route::pattern('IdPaciente', '[0-9]+');
@@ -41,6 +46,9 @@ Route::get('/servicios/detallado/{id}', 'Cliente\ServicioController@show')->name
 //PRODUCTOS
 Route::get('/productos', 'Cliente\ProductoController@index')->name('productos');
 Route::get('/productos/detallado/{id}', 'Cliente\ProductoController@show')->name('productos.detallado');
+
+//ORDEN DE COMPRA DE LADO DE CLIENTE, SOLICITUD DE COMPRA
+Route::post('/productos/detallado/ordenDeCompra', 'Cliente\ProductoController@ordenDeCompra')->name('productos.ordenDeCompra');
 
 //-------------------------------Rutas de administrador-------------------------------
 Route::get('/home', 'HomeController@index')->name('home');
@@ -175,6 +183,7 @@ Route::group(['middleware' => ['permission:ListadoProducto|CrearProducto|EditarP
 
 //ORDENES
 Route::get('/ordenes', 'OrdenesController@index')->name('ordenes.list');
+Route::put('/ordenes/cambiar-estatus', 'OrdenesController@changeEstatus')->name('ordenes.changeEstatus');
 
 //INVENTARIO
 Route::group(['middleware' => ['permission:ListadoInventario|CrearInventario|EditarInventario|EliminarInventario']], function () {

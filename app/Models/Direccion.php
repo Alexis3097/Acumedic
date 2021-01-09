@@ -9,7 +9,7 @@ class Direccion extends Model
 {
     protected $table = 'Direccion';
     protected $fillable = [
-        'Estado','Municipio','Colonia','Calle','NoExterior','Calle1','Calle2'
+        'Estado','Municipio','Colonia','Calle','NoExterior','NoInterior','Calle1','Calle2'
     ];
 
     public function ordenDeCompra()

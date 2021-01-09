@@ -33,6 +33,16 @@
                                     <tbody>
                                     @foreach($ordenes as $orden)
                                         <tr>
+                                            <input type="hidden" value="{{$orden->direccion->Estado}}">
+                                            <input type="hidden" value="{{$orden->direccion->Municipio}}">
+                                            <input type="hidden" value="{{$orden->direccion->Colonia}}">
+                                            <input type="hidden" value="{{$orden->direccion->Calle}}">
+                                            <input type="hidden" value="{{$orden->direccion->NoExterior}}">
+                                            <input type="hidden" value="{{$orden->direccion->NoInterior}}">
+                                            <input type="hidden" value="{{$orden->direccion->Calle1}}">
+                                            <input type="hidden" value="{{$orden->direccion->Calle2}}">
+                                            <input type="hidden" value="{{$orden->id}}">
+                                            <input type="hidden" value="{{$orden->estatusOrden->Estatus}}">
                                             <td>{{$orden->NombreCompleto}}</td>
                                             <td>{{$orden->Telefono}}</td>
                                             <td>{{$orden->Correo}}</td>
@@ -40,11 +50,11 @@
                                             <td>{{$orden->Cantidad}}</td>
                                             <td><span>$ </span>{{$orden->Total}}</td>
                                             <td>
-                                                <span class="@if($orden->estatusOrden->Estatus == 'Pendiente') badge badge-soft-danger py-1 @elseif($orden->estatusOrden->Estatus == 'En proceso') badge badge-soft-primary py-1 @else badge badge-soft-success py-1 @endif">
+                                                <span class="@if($orden->estatusOrden->Estatus == 'Pendiente') badge badge-soft-warning py-1 @elseif($orden->estatusOrden->Estatus == 'En proceso') badge badge-soft-primary py-1 @elseif($orden->estatusOrden->Estatus == 'Cancelado') badge badge-soft-danger py-1 @else badge badge-soft-success py-1 @endif">
                                                     {{$orden->estatusOrden->Estatus}}
                                                 </span>
                                             </td>
-                                            <td><span data-toggle="tooltip" data-placement="left" title=""><button type="button" name="" class="btn btn-outline-info" data-toggle="modal" data-target="#verDireccion"><i class="fa fa-eye"></i></button></span></td>
+                                            <td><span data-toggle="tooltip" data-placement="left" title="Ver detalles de direccion"><button type="button" name=""  class="btn btn-outline-info ver" data-toggle="modal" data-target="#verDireccion"><i class="fa fa-eye"></i></button></span></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -69,27 +79,55 @@
                 </button>
             </div>
             <div class="modal-body">
+                <input type="hidden" id="IdOrden">
                 <h6>Dirección:</h6>
-                <p><span>Estado: </span>Chiapas</p>
-                <p><span>Municipio: </span>Tuxtla</p>
-                <p><span>Colonia: </span>Campayork</p>
-                <p><span>Calle: </span>Av. Fontana</p>
+                <p>Estado: <span id="Estado"></span></p>
+                <p>Municipio: <span id="Municipio"></span></p>
+                <p>Colonia: <span id="Colonia"></span></p>
+                <p>Calle: <span id="Calle"></span></p>
                 <hr>
                 <h6>Referencias</h6>
-                <p><span>Número exterior:# </span>332</p>
-                <p><span>Número interior: </span>AB</p>
-                <p><span>Calle referencia 1: </span>Av. Santa Maria</p>
-                <p><span>Calle referencia 2: </span>Circuto las flores sur</p>
+                <p>Número exterior: <span id="NoExterior"></span></p>
+                <p>Número interior: <span id="NoInterior"></span></p>
+                <p>Calle referencia 1: <span id="Calle1"></span></p>
+                <p>Calle referencia 2: <span id="Calle2"></span></p>
             </div>
             <div class="modal-footer">
             <h6>Seleccionar estatus</h6>
-                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-warn">Cancelado</button>
-                <button type="button" class="btn btn-info">Pendiente</button>
-                <button type="button" class="btn btn-success">Completado</button>
+                <button type="button" class="btn btn-info IdEstatus" data-toggle="modal" data-target="#Estatus" value="2">En proceso</button>
+                <button type="button" class="btn btn-success IdEstatus" data-toggle="modal" data-target="#Estatus"  value="3" id="Completado">Completado</button>
+                <button type="button" class="btn btn-danger IdEstatus" data-toggle="modal" data-target="#Estatus"  value="4">Cancelado</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+<div class="modal fade" id="Estatus" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Cambiar estatus</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{route('ordenes.changeEstatus')}}" method="post">
+                    @csrf
+                    @method('put')
+                    <input type="hidden" name="IdEstatus" id="IdEstatus">
+                    <input type="hidden" name="IdOrden" id="IdOrdenEdit">
+                    <p>¿Esta seguro que desea cambiar el estatus?</p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary Btndelete">Si, cambiar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
+@endsection
+@section('orden')
+    <script src="{{asset('js/Admin/ordenDeCompra.js')}}"></script>
 @endsection

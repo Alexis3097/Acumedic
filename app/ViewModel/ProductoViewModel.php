@@ -3,8 +3,10 @@
 namespace App\ViewModel;
 use DB;
 use App\Models\Producto;
+use App\Models\Direccion;
 use App\Models\Inventario;
 use App\Models\fotoProducto;
+use App\Models\OrdenDeCompra;
 
 class ProductoViewModel
 {
@@ -234,6 +236,40 @@ class ProductoViewModel
     $fotoProducto->delete();
     return $fotoProducto;
 
+  }
+
+  //CREAR ORDEN DE COMPRA DE PRODUCTO 
+
+  /**
+   * recibe los datos de una nueva orden de producto
+   */
+  public function generarOrden($ordenData){
+    $_ESTATUS_PENDIENTE = 1; //el estatus uno significa que esta pendiente
+
+    $direccion = $this->crearDireccion($ordenData);
+    $producto = Producto::find($ordenData->IdProducto);
+    $TOTAL = $producto->PrecioPublico * $ordenData->Cantidad;
+    $orden = new OrdenDeCompra;
+    $orden->IdProducto = $ordenData->IdProducto;
+    $orden->IdDireccion = $direccion->id;
+    $orden->IdEstatusOrden = $_ESTATUS_PENDIENTE;
+    $orden->NombreCompleto = $ordenData->NombreCompleto;
+    $orden->Correo = $ordenData->Correo;
+    $orden->Telefono = $ordenData->Telefono;
+    $orden->Cantidad = $ordenData->Cantidad;
+    $orden->Total = $TOTAL;
+    $orden->save();
+    return $orden;
+
+  }
+
+  /**
+   * crea la direccion de la orden
+   */
+  public function crearDireccion($ordenData){
+    $DireccionModel = Direccion::create($ordenData->toArray());
+    return $DireccionModel;
+    
   }
 
  
