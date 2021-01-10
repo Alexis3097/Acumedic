@@ -86,26 +86,26 @@
             <div class="form-row">
               <div class="form-group col-md-12">
                 <label for="NombreCompleto">Nombre Completo</label>
-                <input type="text" class="form-control" id="NombreCompleto" name="NombreCompleto" placeholder="Coloca aquí tú nombre">
+                <input type="text" class="form-control" id="NombreCompleto" name="NombreCompleto" placeholder="Coloca aquí tú nombre" maxlength="190">
                 
                 <div style="color:red;" id="errorNombre">error</div>
               </div>
               <div class="form-group col-md-6" >
                 <label for="Correo">Correo electrónico</label>
-                <input type="email" class="form-control" id="Correo" name="Correo" placeholder="túcorreo@tudominio.com">
+                <input type="email" class="form-control" id="Correo" name="Correo" placeholder="túcorreo@tudominio.com" maxlength="190">
                 
                 <div style="color:red;" id="errorCorreo">error</div>
               </div>
               <div class="form-group col-md-6">
                 <label for="Ciudad">Ciudad</label>
-                <input type="text" class="form-control" id="Ciudad" name="Ciudad"   placeholder="Ej: Monterrey, N.L.">
+                <input type="text" class="form-control" id="Ciudad" name="Ciudad"   placeholder="Ej: Monterrey, N.L." maxlength="190">
                 
                 <div style="color:red;" id="errorCiudad">error</div>
               </div>
             </div>
             <div class="form-group">
               <label for="Telefono">Teléfono</label>
-              <input type="text" class="form-control" id="Telefono" name="Telefono" placeholder="Coloca aquí tú número teléfonico">
+              <input type="text" class="form-control" id="Telefono" name="Telefono" placeholder="Coloca aquí tú número teléfonico" maxlength="190">
             
               <div style="color:red;" id="errorTelefono">error</div>
             </div>

@@ -128,7 +128,7 @@
                     @csrf
                     <input type="hidden" name="IdModal" id="IdProducto" class="IdProducto">
                     <label for="Cantidad">Cantidad a agregar</label>
-                    <input type="text" class="form-control" required name="Cantidad" id="Cantidad">
+                    <input type="text" class="form-control" required name="Cantidad" id="Cantidad" maxlength="190">
                     <div id="errorCantidad1" style="color:red;"></div>
                     <div id="errorCantidad2" style="color:red;"></div>
                     <div class="modal-footer">
@@ -155,11 +155,11 @@
                     @csrf
                     <input type="hidden" name="IdModal" id="IdProductoEditar" class="IdProducto">
                     <label for="Cantidad">Cantidad total</label>
-                    <input type="text" class="form-control" required name="Cantidad" id="editCantidad">
+                    <input type="text" class="form-control" required name="Cantidad" id="editCantidad" maxlength="190">
                     <div id="errorEditCantidad1" style="color:red;"></div>
 
                     <label for="Cantidad">Stock minimo</label>
-                    <input type="text" class="form-control" required name="StockMinimo" id="Stock">
+                    <input type="text" class="form-control" required name="StockMinimo" id="Stock" maxlength="190">
                     <div id="errorStock1" style="color:red;"></div>
 
                     <div class="modal-footer">

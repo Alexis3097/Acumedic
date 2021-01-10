@@ -24,19 +24,24 @@ class StoreSolicitudCita extends FormRequest
     public function rules()
     {
         return [
-            'NombreCompleto'=> 'required',
-            'Correo'=> 'required',
-            'Ciudad'=> 'required',
-            'Telefono'=> 'required',
+            'NombreCompleto'=> 'required|max:190',
+            'Correo'=> 'required|email:rfc|max:190',
+            'Ciudad'=> 'required|max:190',
+            'Telefono'=> 'required|max:190',
         ];
     }
     public function messages()
     {
         return [
             'NombreCompleto.required'=> 'El nombre es requerido',
+            'NombreCompleto.max'=> 'Solo puedes agregar 190 caracteres',
             'Correo.required'=> 'El Correo es requerido',
+            'Correo.email'=> 'Correo invalido',
+            'Correo.max'=> 'Solo puedes agregar 190 caracteres',
             'Ciudad.required'=> 'La Ciudad es requerido',
+            'Ciudad.max'=> 'Solo puedes agregar 190 caracteres',
             'Telefono.required'=> 'El Telefono es requerido',
+            'Telefono.max'=> 'Solo puedes agregar 190 caracteres',
         ];
     }
 }

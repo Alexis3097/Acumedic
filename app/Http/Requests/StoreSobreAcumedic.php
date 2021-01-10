@@ -24,11 +24,12 @@ class StoreSobreAcumedic extends FormRequest
     public function rules()
     {
         return [
-        'Titulo1'=> 'required',
+        'Titulo1'=> 'required|max:190',
+        'Titulo2'=> 'max:190',
         'Informacion1'=> 'required',
         'Foto'=> 'image|max:2048',
-        'TituloImagen'=> 'required',
-        'TextoAlterno'=> 'required',
+        'TituloImagen'=> 'required|max:190',
+        'TextoAlterno'=> 'required|max:190',
         ];
     }
 
@@ -41,6 +42,11 @@ class StoreSobreAcumedic extends FormRequest
             'Foto.max' => 'La foto como limite debe ser menor a 2GB',
             'TituloImagen.required' => 'El titulo es requerido',
             'TextoAlterno.required' => 'El texto alterno es requerido',
+
+            'Titulo1.max' => 'Solo puedes agregar 190 caracteres',
+            'Titulo2.max' => 'Solo puedes agregar 190 caracteres',
+            'TituloImagen.max' => 'Solo puedes agregar 190 caracteres',
+            'TextoAlterno.max' => 'Solo puedes agregar 190 caracteres',
         ];
     }
 }

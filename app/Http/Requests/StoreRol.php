@@ -24,14 +24,15 @@ class StoreRol extends FormRequest
     public function rules()
     {
         return [
-            'Rol'=>'required'
+            'Rol'=>'required|max:190'
         ];
     }
 
     public function messages()
     {
         return [
-            'Rol.required'=>'El :attribute es requerido'
+            'Rol.required'=>'El :attribute es requerido',
+            'Rol.max' => 'Solo puedes agregar 190 caracteres',
         ];
     }
 }

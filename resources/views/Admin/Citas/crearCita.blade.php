@@ -28,7 +28,7 @@
                                         <input type="hidden" name="id" value="0">
                                         <div class="form-group col-md-4">
                                             <label for="Nombre">Nombre (s)</label>
-                                            <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror"  value="{{ old('Nombre') }}" id="Nombre" placeholder="Nombre" required>
+                                            <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror"  value="{{ old('Nombre') }}" id="Nombre" placeholder="Nombre" required maxlength="190">
                                             @error('Nombre')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -37,7 +37,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoPaterno">Apellido paterno</label>
-                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror"  value="{{ old('ApellidoPaterno') }}" id="ApellidoPaterno" placeholder="Apellido paterno" required>
+                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror"  value="{{ old('ApellidoPaterno') }}" id="ApellidoPaterno" placeholder="Apellido paterno" required maxlength="190">
                                             @error('ApellidoPaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -46,7 +46,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoMaterno">Apellido materno</label>
-                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror"  value="{{ old('ApellidoMaterno') }}" id="ApellidoMaterno" placeholder="Apellido materno" required>
+                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror"  value="{{ old('ApellidoMaterno') }}" id="ApellidoMaterno" placeholder="Apellido materno" required maxlength="190">
                                             @error('ApellidoMaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -55,7 +55,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Telefono">Teléfono</label>
-                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror"  value="{{ old('Telefono') }}" id="Telefono" placeholder="Telefono" required>
+                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror"  value="{{ old('Telefono') }}" id="Telefono" placeholder="Telefono" required maxlength="190">
                                             @error('Telefono')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}

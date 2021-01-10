@@ -156,12 +156,12 @@
                             <input type="hidden" id="id">
                             <div class="form-group col-md-12">
                                 <label for="Telefono">Escribe tu número</label>
-                                <input type="text" class="form-control" id="Telefono"  name="Telefono" placeholder="Agrega el número telefónico" >
+                                <input type="text" class="form-control" id="Telefono"  name="Telefono" placeholder="Agrega el número telefónico" maxlength="190">
                                 <div id="errorTelefono" style="color:red;"></div>
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="Horario">Escribe tu horario</label>
-                                <input type="text" class="form-control" id="Horario" name="Horario"  placeholder="Agrega tu horario" >
+                                <input type="text" class="form-control" id="Horario" name="Horario"  placeholder="Agrega tu horario" maxlength="190">
                                 <div id="errorHorario" style="color:red;"></div>
                             </div>
                             <div class="form-group col-md-12">

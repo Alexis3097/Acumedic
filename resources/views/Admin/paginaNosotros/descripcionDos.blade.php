@@ -35,7 +35,7 @@
                                     <input type="hidden" name="id" value="{{$sobreAcumedic->id}}">
                                         <div class="form-group col-md-12">
                                             <label for="Titulo1">Titulo</label>
-                                            <input type="text" class="form-control @error('Titulo1') is-invalid @enderror" value="{{old('Titulo1', $sobreAcumedic->Titulo1)}}" id="Titulo1" name="Titulo1" placeholder="Titulo" required>
+                                            <input type="text" class="form-control @error('Titulo1') is-invalid @enderror" value="{{old('Titulo1', $sobreAcumedic->Titulo1)}}" id="Titulo1" name="Titulo1" placeholder="Titulo" required maxlength="190">
                                             @error('Titulo1')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -55,7 +55,7 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="Titulo2">Subtitulo</label>
-                                            <input type="text" class="form-control @error('Titulo2') is-invalid @enderror" value="{{old('Titulo2', $sobreAcumedic->Titulo2)}}" id="Titulo2" name="Titulo2" placeholder="Subtitulo" >
+                                            <input type="text" class="form-control @error('Titulo2') is-invalid @enderror" value="{{old('Titulo2', $sobreAcumedic->Titulo2)}}" id="Titulo2" name="Titulo2" placeholder="Subtitulo" maxlength="190">
                                             @error('Titulo2')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -103,7 +103,7 @@
                                         <div class="form-group col-md-12">
                                             <label for="TituloImagen" style="text-align: left;">Titulo:</label>
                                             <div>
-                                                <input type="text" class="form-control  @error('TituloImagen') is-invalid @enderror" required value="{{old('TituloImagen',$sobreAcumedic->TituloImagen)}}"id="TituloImagen" name="TituloImagen" placeholder="Titulo" >
+                                                <input type="text" class="form-control  @error('TituloImagen') is-invalid @enderror" maxlength="190" required value="{{old('TituloImagen',$sobreAcumedic->TituloImagen)}}"id="TituloImagen" name="TituloImagen" placeholder="Titulo" >
                                                 @error('TituloImagen')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -114,7 +114,7 @@
                                         <div class="form-group col-md-12">
                                             <label for="TextoAlterno" style="text-align: left;">Texto alternado:</label>
                                             <div>
-                                                <input type="text" class="form-control  @error('TextoAlterno') is-invalid @enderror" required value="{{old('TextoAlterno', $sobreAcumedic->TextoAlterno)}}" id="TextoAlterno" name="TextoAlterno" placeholder="Texto alterno" >
+                                                <input type="text" class="form-control  @error('TextoAlterno') is-invalid @enderror" maxlength="190" required value="{{old('TextoAlterno', $sobreAcumedic->TextoAlterno)}}" id="TextoAlterno" name="TextoAlterno" placeholder="Texto alterno" >
                                                 @error('TextoAlterno')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
