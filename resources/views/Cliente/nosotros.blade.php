@@ -1,5 +1,5 @@
 @extends('Shared.master')
-@section('content')
+@section('title', 'Acumedic - nosotros
 <main>
       <section class="banner-section2">
           <div class="container">
@@ -11,7 +11,7 @@
                   </div>
                   <div class="col-md-3">
                       <div class="redirect">
-                          <h3><i class="icono fas fa-home"></i><a style="color:#fff;" href="">Inicio</a><i class="icono fas fa-chevron-right"></i> Nosotros</h3>
+                          <h3><i class="icono fas fa-home"></i><a style="color:#fff;" ref="{{ route('inicio') }}">Inicio</a><i class="icono fas fa-chevron-right"></i> Nosotros</h3>
                       </div>
                   </div>
               </div>
@@ -80,28 +80,44 @@
           <div class="col-md-12 titulo-form">
             <p>SOLICITA UNA CITA</p>
           </div>
-          <form>
+          <form onclick="event.preventDefault();" validate>
+          @csrf
             <div class="form-row">
               <div class="form-group col-md-12">
-                <label for="inputEmail4">Nombre Completo</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Coloca aquí tú nombre">
+                <label for="NombreCompleto">Nombre Completo</label>
+                <input type="text" class="form-control" id="NombreCompleto" name="NombreCompleto" placeholder="Coloca aquí tú nombre">
+                
+                <div style="color:red;" id="errorNombre">error</div>
               </div>
               <div class="form-group col-md-6" >
-                <label for="inputAddress2">Correo electrónico</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="túcorreo@tudominio.com">
+                <label for="Correo">Correo electrónico</label>
+                <input type="email" class="form-control" id="Correo" name="Correo" placeholder="túcorreo@tudominio.com">
+                
+                <div style="color:red;" id="errorCorreo">error</div>
               </div>
               <div class="form-group col-md-6">
-                <label for="inputPassword4">Ciudad</label>
-                <input type="text" class="form-control" id="inputPassword4" placeholder="Ej: Monterrey, N.L.">
+                <label for="Ciudad">Ciudad</label>
+                <input type="text" class="form-control" id="Ciudad" name="Ciudad"   placeholder="Ej: Monterrey, N.L.">
+                
+                <div style="color:red;" id="errorCiudad">error</div>
               </div>
             </div>
             <div class="form-group">
-              <label for="inputAddress">Teléfono</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="Coloca aquí tú número teléfonico">
+              <label for="Telefono">Teléfono</label>
+              <input type="text" class="form-control" id="Telefono" name="Telefono" placeholder="Coloca aquí tú número teléfonico">
+            
+              <div style="color:red;" id="errorTelefono">error</div>
             </div>
-            <button type="submit" class="btn-2 btn-primary">Quiero una cita</button>
+            <button type="submit" class="btn-2 btn-primary enviar" id="enviarSolicitud">Quiero una cita</button>
           </form>
         </div>
+        <div class="modal-thankYou ">
+        <div class="text">
+          <h2>¡Gracias!</h2>
+          <p>Tus datos han sido guardado satisfactoriamente</p>
+          <p>Te mandaremos un correo para el seguimiento de tu cita</p>
+        </div>
+      </div>
       <!-- </div> -->
     </section>
     <!-- más info -->
@@ -142,4 +158,7 @@
     </section>
     <!-- más info -->
 </main>
+@endsection
+@section('scripts')
+<script src="{{asset('js/solicitarCita.js')}}"></script>
 @endsection

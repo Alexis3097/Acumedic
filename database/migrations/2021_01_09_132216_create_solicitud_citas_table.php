@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrdenDeCompraTable extends Migration
+class CreateSolicitudCitasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,14 @@ class CreateOrdenDeCompraTable extends Migration
      */
     public function up()
     {
-        Schema::create('OrdenDeCompra', function (Blueprint $table) {
+        Schema::create('SolicitudCitas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('IdProducto');
-            $table->unsignedBigInteger('IdDireccion');
             $table->unsignedBigInteger('IdEstatusSolicitud');
             $table->string('NombreCompleto');
             $table->string('Correo');
+            $table->string('Ciudad');
             $table->string('Telefono');
-            $table->Integer('Cantidad');
-            $table->float('Total');
             $table->timestamps();
-
-            $table->foreign('IdProducto')->references('id')->on('productos');
-            $table->foreign('IdDireccion')->references('id')->on('Direccion');
             $table->foreign('IdEstatusSolicitud')->references('id')->on('EstatusSolicitud');
         });
     }
@@ -38,6 +32,6 @@ class CreateOrdenDeCompraTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('OrdenDeCompra');
+        Schema::dropIfExists('SolicitudCitas');
     }
 }

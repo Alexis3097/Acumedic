@@ -21,21 +21,30 @@
                                 <table class="table table-hover table-nowrap mb-0">
                                     <thead>
                                         <tr>
-                                            <th scope="col">No.</th>
                                             <th scope="col">Nombre </th>
                                             <th scope="col">Número</th>
                                             <th scope="col">Ciudad</th>
                                             <th scope="col">Correo electrónico</th>
+                                            <th scope="col">Estatus</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Luis Felipe Martínezz Ortega</td>
-                                            <td>9613591414</td>
-                                            <td>Monterrey</td>
-                                            <td>felipemo@gmail.com</td>
-                                        </tr>
+                                        <div class="container">
+                                            @foreach($solicitudCitas as $solicitud)
+                                                <tr>
+                                                    <td>{{$solicitud->NombreCompleto}}</td>
+                                                    <td>{{$solicitud->Telefono}}</td>
+                                                    <td>{{$solicitud->Ciudad}}</td>
+                                                    <td>{{$solicitud->Correo}}</td>
+                                                    <td>
+                                                        <span class="@if($solicitud->estatusSolicitud->Estatus == 'Pendiente') badge badge-soft-warning py-1 @elseif($solicitud->estatusSolicitud->Estatus == 'En proceso') badge badge-soft-primary py-1 @elseif($solicitud->estatusSolicitud->Estatus == 'Cancelado') badge badge-soft-danger py-1 @else badge badge-soft-success py-1 @endif">
+                                                        {{$solicitud->estatusSolicitud->Estatus}}
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </div>
+                                        {{ $solicitudCitas->links() }}
                                     </tbody>
                                 </table>
                             </div> <!-- end table-responsive-->

@@ -50,6 +50,9 @@ Route::get('/productos/detallado/{id}', 'Cliente\ProductoController@show')->name
 //ORDEN DE COMPRA DE LADO DE CLIENTE, SOLICITUD DE COMPRA
 Route::post('/productos/detallado/ordenDeCompra', 'Cliente\ProductoController@ordenDeCompra')->name('productos.ordenDeCompra');
 
+
+//SOLICITUD DE CITA 
+Route::post('/solicitar-cita', 'Cliente\CitaController@solicitarCita')->name('solicitarCita');
 //-------------------------------Rutas de administrador-------------------------------
 Route::get('/home', 'HomeController@index')->name('home');
 //MI CUENTA
@@ -74,10 +77,7 @@ Route::group(['middleware' => ['permission:ListadoCitas|CrearCita|EditarCita|Eli
 });
 
 //SOLICITUD DE CITAS 
-// Route::get('/solicitud-citas', 'MiCuentaController@index')->name('solicitudCita.show');
-Route::get('/solicitud-citas', function () {
-    return view('Admin.Citas.solicitudCitas');
-})->name('solicitudCita.show');
+Route::get('/solicitud-citas', 'SolicitudCitasController@index')->name('solicitudCita.show');
 
 //PACIENTES
 Route::group(['middleware' => ['permission:ListadoPacientes|CrearPaciente|EditarPaciente|EliminarPaciente']], function () {

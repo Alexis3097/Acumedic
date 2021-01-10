@@ -11,7 +11,7 @@ class OrdenDeCompra extends Model
 {
     protected $table = 'OrdenDeCompra';
     protected $fillable = [
-        'IdProducto','IdDireccion','IdEstatusOrden','NombreCompleto','Correo','Telefono','Cantidad','Total'
+        'IdProducto','IdDireccion','IdEstatusSolicitud','NombreCompleto','Correo','Telefono','Cantidad','Total'
     ];
 
     public function producto()
@@ -24,9 +24,9 @@ class OrdenDeCompra extends Model
         return $this->belongsTo(Direccion::class,'IdDireccion');
     }
 
-    public function estatusOrden()
+    public function estatusSolicitud()
     {
-        return $this->belongsTo(EstatusOrden::class,'IdEstatusOrden');
+        return $this->belongsTo(EstatusSolicitud::class,'IdEstatusSolicitud');
     }
 
     

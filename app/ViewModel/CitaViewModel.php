@@ -1,15 +1,17 @@
 <?php
 
 namespace App\ViewModel;
-use App\Models\Paciente;
-use App\Models\TipoConsulta;
-use App\Models\Sexo;
-use App\Models\Cita;
-use App\Models\EstatusConsulta;
-use App\Models\CitaHorario;
-use App\Models\Horario;
-use Carbon\Carbon;
 use DB;
+use Carbon\Carbon;
+use App\Models\Cita;
+use App\Models\Sexo;
+use App\Models\Horario;
+use App\Models\Paciente;
+use App\Models\CitaHorario;
+use App\Models\TipoConsulta;
+use App\Models\SolicitudCitas;
+use App\Models\EstatusConsulta;
+
 class CitaViewModel
 {
     public static function getFecha()
@@ -253,4 +255,26 @@ class CitaViewModel
       return count($cita);
     }
 
+    /**
+     * crea una solicitud de cita
+     */
+    public function solicitarCita($solicitudData){
+      // dd($solicitudData->toArray());
+      $_ESTATUS_SOLICITUD = 1;//EL ESTATUS ES PENDIENTE
+      $solicitudCita = new SolicitudCitas();
+      $solicitudCita->IdEstatusSolicitud = $_ESTATUS_SOLICITUD;
+      $solicitudCita->NombreCompleto = $solicitudData->NombreCompleto;
+      $solicitudCita->Correo = $solicitudData->Correo;
+      $solicitudCita->Ciudad = $solicitudData->Ciudad;
+      $solicitudCita->Telefono = $solicitudData->Telefono;
+      $solicitudCita->save();
+      return $solicitudCita;
+    }
+
+    /**
+     * mostrar todas las solicitudes
+     */
+    public function getAllSolicitudCitas(){
+      return SolicitudCitas::paginate(15);
+    }
 }

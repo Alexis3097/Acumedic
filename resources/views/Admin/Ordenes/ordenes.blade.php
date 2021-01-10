@@ -42,7 +42,7 @@
                                             <input type="hidden" value="{{$orden->direccion->Calle1}}">
                                             <input type="hidden" value="{{$orden->direccion->Calle2}}">
                                             <input type="hidden" value="{{$orden->id}}">
-                                            <input type="hidden" value="{{$orden->estatusOrden->Estatus}}">
+                                            <input type="hidden" value="{{$orden->estatusSolicitud->Estatus}}">
                                             <td>{{$orden->NombreCompleto}}</td>
                                             <td>{{$orden->Telefono}}</td>
                                             <td>{{$orden->Correo}}</td>
@@ -50,8 +50,8 @@
                                             <td>{{$orden->Cantidad}}</td>
                                             <td><span>$ </span>{{$orden->Total}}</td>
                                             <td>
-                                                <span class="@if($orden->estatusOrden->Estatus == 'Pendiente') badge badge-soft-warning py-1 @elseif($orden->estatusOrden->Estatus == 'En proceso') badge badge-soft-primary py-1 @elseif($orden->estatusOrden->Estatus == 'Cancelado') badge badge-soft-danger py-1 @else badge badge-soft-success py-1 @endif">
-                                                    {{$orden->estatusOrden->Estatus}}
+                                                <span class="@if($orden->estatusSolicitud->Estatus == 'Pendiente') badge badge-soft-warning py-1 @elseif($orden->estatusSolicitud->Estatus == 'En proceso') badge badge-soft-primary py-1 @elseif($orden->estatusSolicitud->Estatus == 'Cancelado') badge badge-soft-danger py-1 @else badge badge-soft-success py-1 @endif">
+                                                    {{$orden->estatusSolicitud->Estatus}}
                                                 </span>
                                             </td>
                                             <td><span data-toggle="tooltip" data-placement="left" title="Ver detalles de direccion"><button type="button" name=""  class="btn btn-outline-info ver" data-toggle="modal" data-target="#verDireccion"><i class="fa fa-eye"></i></button></span></td>
