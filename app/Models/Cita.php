@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Models;
+use App\Models\Horario;
+use App\Models\Consulta;
+use App\Models\Paciente;
 use App\Models\TipoConsulta;
 use App\Models\EstatusConsulta;
-use App\Models\Horario;
-use App\Models\Paciente;
 use Illuminate\Database\Eloquent\Model;
 
 class Cita extends Model
@@ -32,6 +33,11 @@ class Cita extends Model
         return $this->belongsToMany(Horario::class, 'CitaHorario','IdCita','IdHorario')
                         ->as('CitaHorario')
                         ->withTimestamps();
+    }
+
+    public function consulta()
+    {
+        return $this->hasOne(Consulta::class,'IdCita');
     }
 
    

@@ -23,7 +23,7 @@
                                             <div class="table-responsive mt-12 custom-control custom-checkbox">
                                                 <div class="form-group col-md-9">
                                                     <label for="Rol">Nombre del rol</label>
-                                                    <input type="text" class="form-control @error('Rol') is-invalid @enderror" id="Rol" placeholder="Nombre del rol" name="Rol" value="{{$rol['name']}}" required>
+                                                    <input type="text" class="form-control @error('Rol') is-invalid @enderror" id="Rol" placeholder="Nombre del rol" name="Rol" value="{{$rol['name']}}" required maxlength="190">
                                                     @error('Rol')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}

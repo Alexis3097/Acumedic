@@ -22,7 +22,7 @@
                                     @method('PUT')
                                         <div class="form-group col-md-4">
                                             <label for="name">Nombre (s)</label>
-                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="Nombre" placeholder="Nombres" required value="{{old('name',$usuario->name)}}">
+                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="Nombre" placeholder="Nombres" required value="{{old('name',$usuario->name)}}" maxlength="190">
                                             @error('name')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -31,7 +31,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoPaterno">Apellido paterno</label>
-                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" id="ApellidoPaterno" placeholder="Apellido paterno" required value="{{old('ApellidoPaterno',$usuario->ApellidoPaterno)}}">
+                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" id="ApellidoPaterno" placeholder="Apellido paterno" required value="{{old('ApellidoPaterno',$usuario->ApellidoPaterno)}}" maxlength="190">
                                             @error('ApellidoPaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -40,7 +40,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoMaterno">Apellido materno</label>
-                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" id="ApellidoMaterno" placeholder="Apellido materno" required value="{{old('ApellidoMaterno',$usuario->ApellidoMaterno)}}">
+                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" id="ApellidoMaterno" placeholder="Apellido materno" required value="{{old('ApellidoMaterno',$usuario->ApellidoMaterno)}}" maxlength="190">
                                             @error('ApellidoMaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -58,7 +58,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Telefono">Teléfono</label>
-                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" id="Telefono" placeholder="Telefono" required value="{{old('Telefono',$usuario->Telefono)}}">
+                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" id="Telefono" placeholder="Telefono" required value="{{old('Telefono',$usuario->Telefono)}}" maxlength="190">
                                             @error('Telefono')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -83,7 +83,7 @@
                                         <div class="form-group col-md-4">
                                             <label
                                             for="email">E-mail</label>
-                                            <input type="email" name ="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="E-mail" required value="{{old('email',$usuario->email)}}">
+                                            <input type="email" name ="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="E-mail" required value="{{old('email',$usuario->email)}}" maxlength="190">
                                             @error('email')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}

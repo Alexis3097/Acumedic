@@ -17,15 +17,15 @@ class StorePaciente extends FormRequest
     public function rules(): array
     {
         return [
-            'Nombre' => 'required',
-            'ApellidoPaterno' => 'required',
-            'ApellidoMaterno' => 'required',
+            'Nombre' => 'required|max:190',
+            'ApellidoPaterno' => 'required|max:190',
+            'ApellidoMaterno' => 'required|max:190',
             'FechaNacimiento' => ['required',new FechaMenorAHoy],
-            'Telefono' => 'required|numeric',
+            'Telefono' => 'required|numeric|max:190',
             'IdSexo' => ['required',new OptionSelect],
-            'Correo' => ['required','email'],
-            'LugarOrigen' => 'required',
-            'TipoSangre' => 'required',
+            'Correo' => ['required','email','max:190'],
+            'LugarOrigen' => 'required|max:190',
+            'TipoSangre' => 'required|max:190',
             'Foto' => 'image|max:2048',
         ];
     }
@@ -45,6 +45,14 @@ class StorePaciente extends FormRequest
             'TipoSangre.required' => 'El :attribute es requerido',
             'Foto.image' => 'Debe ser un archivo tipo imagen',
             'Foto.max' => 'La :attribute como limite debe ser menor a 2GB',
+
+            'Nombre.max' => 'Solo puedes agregar 190 caracteres',
+            'ApellidoPaterno.max' => 'Solo puedes agregar 190 caracteres',
+            'ApellidoMaterno.max' => 'Solo puedes agregar 190 caracteres',
+            'Telefono.max' => 'Solo puedes agregar 190 caracteres',
+            'Correo.max' => 'Solo puedes agregar 190 caracteres',
+            'LugarOrigen.max' => 'Solo puedes agregar 190 caracteres',
+            'TipoSangre.max' => 'Solo puedes agregar 190 caracteres',
             
         ];
     }

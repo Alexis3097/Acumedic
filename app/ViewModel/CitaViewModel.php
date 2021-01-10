@@ -145,7 +145,7 @@ class CitaViewModel
     }
 
     public static function getHorariosDisponibles($fecha, $IdCita = 0){
-      $citasOcupadas = Cita::where('Fecha', '=',$fecha)->where('id','<>',$IdCita)->get();
+      $citasOcupadas = Cita::where('Fecha', '=',$fecha)->where('id','<>',$IdCita)->where('IdEstatusConsulta','<>',5)->get();//5 es el estatus cancelada, el horario queda libre
       if(count($citasOcupadas)==0)
       {
         $horariosAll = Horario::All();
@@ -277,4 +277,18 @@ class CitaViewModel
     public function getAllSolicitudCitas(){
       return SolicitudCitas::paginate(15);
     }
+
+
+    /**
+     * Devuelve idcita del paciente si su cita esta "en espera" o "Presente" si no lo es, devuelve un 0
+     */
+
+     public function getCitaXEstatus($IdPaciente){
+       $cita = Cita::where('IdPaciente',$IdPaciente)->get();
+       $ultimaCita = $cita->last();
+       if($ultimaCita->IdEstatusConsulta == 1 || $ultimaCita->IdEstatusConsulta == 2){
+          return $ultimaCita->id;
+       }
+       return 0;
+     }
 }

@@ -26,12 +26,12 @@ class StoreCita extends FormRequest
     public function rules()
     {
         return [
-            'Nombre' => 'required',
-            'ApellidoPaterno' => 'required',
-            'ApellidoMaterno' => 'required',
+            'Nombre' => 'required|max:190',
+            'ApellidoPaterno' => 'required|max:190',
+            'ApellidoMaterno' => 'required|max:190',
             'Horario' => 'required',
             'TipoConsulta' => [new OptionSelect],
-            'Telefono' => 'required|numeric',
+            'Telefono' => 'required|numeric|max:190',
             'Fecha' => ['required',new FechaMayorAHoy],
             'IdEstatusConsulta' => 'required',
         ];
@@ -47,6 +47,11 @@ class StoreCita extends FormRequest
             'Telefono.numeric' => 'El :attribute debe ser de tipo numerico',
             'Fecha.required' => 'El :attribute es requerido',
             'IdEstatusConsulta.required' => 'El :attribute es requerido',
+
+            'Nombre.max' => 'Solo puedes agregar 190 caracteres',
+            'ApellidoPaterno.max' => 'Solo puedes agregar 190 caracteres',
+            'ApellidoMaterno.max' => 'Solo puedes agregar 190 caracteres',
+            'Telefono.max' => 'Solo puedes agregar 190 caracteres',
             
         ];
     }

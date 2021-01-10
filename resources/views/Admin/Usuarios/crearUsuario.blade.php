@@ -21,7 +21,7 @@
                                     @csrf
                                         <div class="form-group col-md-4">
                                             <label for="name">Nombre (s)</label>
-                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" id="Nombre" placeholder="Nombres" required>
+                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" id="Nombre" placeholder="Nombres" required maxlength="190">
                                             @error('name')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -30,7 +30,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoPaterno">Apellido paterno</label>
-                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" value="{{ old('ApellidoPaterno') }}"  id="ApellidoPaterno" placeholder="Apellido paterno" required>
+                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" value="{{ old('ApellidoPaterno') }}"  id="ApellidoPaterno" maxlength="190" placeholder="Apellido paterno" required>
                                             @error('ApellidoPaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -39,7 +39,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoMaterno">Apellido materno</label>
-                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" value="{{ old('ApellidoMaterno') }}" id="ApellidoMaterno" placeholder="Apellido materno" required>
+                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" value="{{ old('ApellidoMaterno') }}" id="ApellidoMaterno" maxlength="190" placeholder="Apellido materno" required>
                                             @error('ApellidoMaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -57,7 +57,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Telefono">Teléfono</label>
-                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" value="{{ old('Telefono') }}" id="Telefono" placeholder="Telefono" required>
+                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" value="{{ old('Telefono') }}" id="Telefono" placeholder="Telefono" required maxlength="190">
                                             @error('Telefono')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -81,7 +81,7 @@
                                         <div class="form-group col-md-4">
                                             <label
                                             for="email">E-mail</label>
-                                            <input type="email" name ="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" id="email" placeholder="E-mail" required>
+                                            <input type="email" name ="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" id="email" placeholder="E-mail" required maxlength="190">
                                             @error('email')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -91,7 +91,7 @@
                                         <div class="form-group col-md-4">
                                             <label
                                             for="password">Contraseña</label>
-                                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Escriba la contraseña" required name="password">
+                                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Escriba la contraseña" required name="password" maxlength="190">
                                             @error('password')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -101,7 +101,7 @@
                                         <div class="form-group col-md-4">
                                             <label
                                             for="password_confirmation">Repita la contraseña</label>
-                                            <input id="password-confirm" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" placeholder="Repita la contraseña" required autocomplete="new-password">
+                                            <input id="password-confirm" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" placeholder="Repita la contraseña" maxlength="190" required autocomplete="new-password">
                                             @error('password_confirmation')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}

@@ -121,6 +121,7 @@ Route::group(['middleware' => ['permission:Historial']], function () {
 Route::group(['middleware' => ['permission:InicarConsulta']], function () {
     //INICIAR CONSULTA
     Route::post('/consulta-paciente/consulta/iniciarConsulta', 'ConsultaController@iniciarConsulta')->name('consulta.iniciar');
+    Route::get('/consulta-paciente/consulta/paciente-{IdPaciente}/consulta-{IdConsulta}', 'ConsultaController@consultaIniciada')->name('consulta.iniciada');
     Route::post('/consulta-paciente/consulta/AparatosSistemas/guardar', 'ConsultaController@guardarConsultaAparatosSistemas')->name('consulta.GuardarAparatosSistemas');
     Route::put('/consulta-paciente/consulta/AparatosSistemas/update', 'ConsultaController@updateConsultaAparatosSistemas')->name('consulta.updateAparatosSistemas');
     Route::get('/consulta-paciente/consulta/AparatosSistemas/ver-{IdConsulta}', 'ConsultaController@verAparatosSistemas')->name('consulta.verAparatosSistemas');
