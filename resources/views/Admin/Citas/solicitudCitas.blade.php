@@ -26,6 +26,7 @@
                                             <th scope="col">Ciudad</th>
                                             <th scope="col">Correo electrónico</th>
                                             <th scope="col">Estatus</th>
+                                            <th scope="col">Cambiar estatus</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -40,6 +41,16 @@
                                                         <span class="@if($solicitud->estatusSolicitud->Estatus == 'Pendiente') badge badge-soft-warning py-1 @elseif($solicitud->estatusSolicitud->Estatus == 'En proceso') badge badge-soft-primary py-1 @elseif($solicitud->estatusSolicitud->Estatus == 'Cancelado') badge badge-soft-danger py-1 @else badge badge-soft-success py-1 @endif">
                                                         {{$solicitud->estatusSolicitud->Estatus}}
                                                         </span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Estatus <i class="fas fa-chevron-down"></i></button>
+                                                            <div class="dropdown-menu">
+                                                                <button type="button" class="dropdown-item IdEstatus" data-toggle="modal" data-target="#Estatus" value="2" id="">En proceso</button>
+                                                                <button type="button" class="dropdown-item IdEstatus" data-toggle="modal" data-target="#Estatus" value="3" id="Completado">Completado</button>
+                                                                <button type="button" class="dropdown-item IdEstatus" data-toggle="modal" data-target="#Estatus" value="4" id="">Cancelado</button>
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -56,5 +67,30 @@
             <!-- stats + charts -->
          </div>
     </div> <!-- content -->
+</div>
+<div class="modal fade" id="Estatus" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Cambiar estatus</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{route('ordenes.changeEstatus')}}" method="post">
+                    @csrf
+                    @method('put')
+                    <input type="hidden" name="IdEstatus" id="IdEstatus">
+                    <input type="hidden" name="IdOrden" id="IdOrdenEdit">
+                    <p>¿Esta seguro que desea cambiar el estatus?</p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary Btndelete">Si, cambiar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

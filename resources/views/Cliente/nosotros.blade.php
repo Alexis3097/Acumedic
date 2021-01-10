@@ -1,5 +1,6 @@
 @extends('Shared.master')
-@section('title', 'Acumedic - nosotros
+@section('title', 'Acumedic - Nosotros')
+@section('content')
 <main>
       <section class="banner-section2">
           <div class="container">
@@ -87,26 +88,26 @@
                 <label for="NombreCompleto">Nombre Completo</label>
                 <input type="text" class="form-control" id="NombreCompleto" name="NombreCompleto" placeholder="Coloca aquí tú nombre">
                 
-                <div style="color:red;" id="errorNombre">error</div>
+                <div class="errorLabel" id="errorNombre">erxror</div>
               </div>
               <div class="form-group col-md-6" >
                 <label for="Correo">Correo electrónico</label>
                 <input type="email" class="form-control" id="Correo" name="Correo" placeholder="túcorreo@tudominio.com">
                 
-                <div style="color:red;" id="errorCorreo">error</div>
+                <div class="errorLabel" id="errorCorreo">error</div>
               </div>
               <div class="form-group col-md-6">
                 <label for="Ciudad">Ciudad</label>
                 <input type="text" class="form-control" id="Ciudad" name="Ciudad"   placeholder="Ej: Monterrey, N.L.">
                 
-                <div style="color:red;" id="errorCiudad">error</div>
+                <div class="errorLabel" id="errorCiudad">error</div>
               </div>
             </div>
             <div class="form-group">
               <label for="Telefono">Teléfono</label>
               <input type="text" class="form-control" id="Telefono" name="Telefono" placeholder="Coloca aquí tú número teléfonico">
             
-              <div style="color:red;" id="errorTelefono">error</div>
+              <div class="errorLabel" id="errorTelefono">error</div>
             </div>
             <button type="submit" class="btn-2 btn-primary enviar" id="enviarSolicitud">Quiero una cita</button>
           </form>

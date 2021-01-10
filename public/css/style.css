@@ -64,7 +64,11 @@ body{
 	-moz-animation: gradbar 7s ease infinite;
 	animation: gradbar 7s ease infinite;
 }
-
+.errorLabel{
+  color:#aa0505;
+  font-size: var(--font-s);
+  font-style: italic;
+}
 /* botones */
 .btn-1{
   color:#fff;
@@ -613,7 +617,7 @@ input {
 .contacto-formulario{
   background-color:#e6ede9;
   position: relative;
-  min-height: 75vh;
+  min-height: 80vh;
   width: 100%;
 }
 .contacto-formulario .bg-form{
