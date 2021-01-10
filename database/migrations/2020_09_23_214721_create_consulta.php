@@ -16,11 +16,13 @@ class CreateConsulta extends Migration
         Schema::create('Consulta', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('IdPaciente');
+            $table->unsignedBigInteger('IdCita');
             $table->text('Motivo');
             $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('IdPaciente')->references('id')->on('Paciente');
+            $table->foreign('IdCita')->references('id')->on('Cita');
         });
     }
 

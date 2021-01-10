@@ -17,8 +17,13 @@ class ConsultaController extends Controller
     public function iniciarConsulta(StoreMotivoCita $request, ConsultaViewModel $ConsultaViewModel)
     {
         $consulta = $ConsultaViewModel->crearConsulta($request);
+        $ConsultaViewModel->cambiarEstatusCita($request->IdCita,3);//3 es el estatus "En Cita"
         $IdConsulta = $consulta->id;
         $IdPaciente = $consulta->IdPaciente;
+        return redirect()->route('consulta.iniciada',compact('IdPaciente','IdConsulta'));
+    }
+
+    public function consultaIniciada($IdPaciente,$IdConsulta, ConsultaViewModel $ConsultaViewModel){
         $paciente = $ConsultaViewModel->getPaciente($IdPaciente);
         return view('Admin.datosDeConsulta.Consulta.consultaMedicaAparatosSistemas', compact('IdConsulta','paciente'));
     }
@@ -84,9 +89,8 @@ class ConsultaController extends Controller
     
     public function finalizarConsulta(Request $request, ConsultaViewModel $ConsultaViewModel)
     {
-        $IdConsulta = session('IdConsulta');
-        $IdPaciente = $ConsultaViewModel->getIdpaciente($IdConsulta);
-        session()->forget('IdConsulta');
+        $ConsultaViewModel->finalzarCita($request->IdConsulta);
+        $IdPaciente = $ConsultaViewModel->getIdpaciente($request->IdConsulta);
         return redirect()->route('consulta.paciente', $IdPaciente);
     }
     

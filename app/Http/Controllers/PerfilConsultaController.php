@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ViewModel\CitaViewModel;
 use App\ViewModel\PacienteViewModel;
+
 class PerfilConsultaController extends Controller
 {
     public function __construct()
@@ -13,13 +15,10 @@ class PerfilConsultaController extends Controller
     }
     
     
-    public function index(PacienteViewModel $PacienteViewModel,$IdPaciente)
+    public function index(PacienteViewModel $PacienteViewModel,$IdPaciente, CitaViewModel $CitaViewModel)
     {
-        if(session()->has('IdConsulta'))
-        {
-            session()->forget('IdConsulta');
-        }
+        $IdCita = $CitaViewModel->getCitaXEstatus($IdPaciente);
         $paciente = $PacienteViewModel->getPaciente($IdPaciente);
-        return view('Admin.datosDeConsulta.datosPaciente', compact('paciente'));
+        return view('Admin.datosDeConsulta.datosPaciente', compact('paciente','IdCita'));
     }
 }

@@ -92,7 +92,7 @@
                                     @can('InicarConsulta')
                                         <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-file-prescription"></i> Consulta médica</h6>
                                         <p style="margin:0;">Inicia la consulta y solicita los campos para ello</p>
-                                        <span data-toggle="tooltip" data-placement="left" title="Iniciar consulta"><button data-toggle="modal" data-target="#iniciarConsulta" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</button></span> 
+                                        <span data-toggle="tooltip" data-placement="left" title="Iniciar consulta"><button @if((int)$IdCita == 0) disabled @else enabled @endif data-toggle="modal" data-target="#iniciarConsulta" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</button></span> 
                                     @endcan
                                     @can('Antecedentes')
                                         <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-diagnoses"></i> Antecedentes</h6>
@@ -126,12 +126,13 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('consulta.iniciar')}}" method="post" class="needs-validation" novalidate>
+                <form action="{{ route('consulta.iniciar')}}" method="post" class="needs-validation" validate>
                     @csrf
                     <input type="hidden" name="IdPaciente" value="{{ $paciente->id}}">
+                    <input type="hidden" name="IdCita" value="{{ $IdCita}}">
                     <h6>Para iniciar la consulta debe agregar el motivo y aceptar</h6>
                     <label for="IdModal">Motivo</label>
-                    <textarea  class="form-control @error('Motivo') is-invalid @enderror" name="Motivo" id="Motivo"></textarea>
+                    <textarea  class="form-control @error('Motivo') is-invalid @enderror" name="Motivo" id="Motivo" required></textarea>
                     @error('Motivo')
                     <div class="invalid-feedback">
                         {{ $message }}
