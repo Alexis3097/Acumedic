@@ -78,12 +78,14 @@ body{
   padding: 1% 4%;
   width: auto;
   border:none;
+  text-decoration: none;
   border-radius: 20px;
   transition: ease all .2s
 }
 .btn-1:hover{
   transform:scale(1.05);
   background-color:var(--orange3);
+  text-decoration: none;
 }
 .btn-2{
   color:#fff;
@@ -96,12 +98,14 @@ body{
   margin: auto;
   border:none;
   border-radius: 20px;
+  text-decoration: none;
   transition: ease all .2s
 }
 .btn-2:hover{
   transform:scale(1.05);
   color:#fff;
   border-bottom-color:transparent;
+  text-decoration: none;
 }
 .btn-3{
   color:#fff;
@@ -112,10 +116,12 @@ body{
   width: auto;
   border:none;
   border-radius: 20px;
-  transition: ease all .2s
+  transition: ease all .2s;
+  text-decoration: none;
 }
 .btn-3:hover{
   background-color:var(--orange)!important;
+  text-decoration: none;
   color:#fff!important;
 }
 /* botones */

@@ -33,7 +33,7 @@
                                         @csrf
                                         <div class="form-group col-md-12">
                                             <label for="Nombre">Nombre del servicio</label>
-                                            <input type="text" class="form-control @error('Nombre') is-invalid @enderror" value="{{ old('Nombre')}}" name="Nombre" id="Nombre" placeholder="Nombre del servicio" required>
+                                            <input type="text" maxlength="190" class="form-control @error('Nombre') is-invalid @enderror" value="{{ old('Nombre')}}" name="Nombre" id="Nombre" placeholder="Nombre del servicio" required>
                                             @error('Nombre')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -42,7 +42,7 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="Precio">Precio</label>
-                                            <input type="text" class="form-control @error('Precio') is-invalid @enderror" value="{{ old('Precio')}}" name="Precio" id="Precio" placeholder="Precio del servicio" required>
+                                            <input type="text" maxlength="190" class="form-control @error('Precio') is-invalid @enderror" value="{{ old('Precio')}}" name="Precio" id="Precio" placeholder="Precio del servicio" required>
                                             @error('Precio')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -51,8 +51,8 @@
                                         </div>
                                         
                                         <div class="form-group col-md-12">
-                                            <label for="DescripcionCorta">Descripción corta (Máximo 200 caracteres)</label>
-                                            <input type="text" class="form-control @error('DescripcionCorta') is-invalid @enderror"  value="{{ old('DescripcionCorta')}}" name="DescripcionCorta" id="DescripcionCorta" maxlength="200" placeholder="Descripción corta" required>
+                                            <label for="DescripcionCorta">Descripción corta (Máximo 190 caracteres)</label>
+                                            <input type="text" class="form-control @error('DescripcionCorta') is-invalid @enderror"  value="{{ old('DescripcionCorta')}}" name="DescripcionCorta" id="DescripcionCorta" maxlength="190" placeholder="Descripción corta" required>
                                             @error('DescripcionCorta')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}

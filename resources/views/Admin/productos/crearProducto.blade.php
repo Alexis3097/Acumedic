@@ -39,7 +39,7 @@
                                     @csrf
                                         <div class="form-group col-md-12">
                                             <label for="Nombre">Nombre del producto</label>
-                                            <input type="text" class="form-control @error('Nombre') is-invalid @enderror" name="Nombre" id="Nombre" placeholder="Tú nombre del producto"  value="{{ old('Nombre') }}" required>
+                                            <input type="text" maxlength="190" class="form-control @error('Nombre') is-invalid @enderror" name="Nombre" id="Nombre" placeholder="Tú nombre del producto"  value="{{ old('Nombre') }}" required>
                                             @error('Nombre')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -94,7 +94,7 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="DescripcionCorta">Descripción corta (Máximo 217 caracteres)</label>
-                                            <input type="text" class="form-control @error('DescripcionCorta') is-invalid @enderror"  value="{{ old('DescripcionCorta') }}" name="DescripcionCorta" id="DescripcionCorta" maxlength="217" placeholder="Escribe tu descripción" required>
+                                            <input type="text" maxlength="190" class="form-control @error('DescripcionCorta') is-invalid @enderror"  value="{{ old('DescripcionCorta') }}" name="DescripcionCorta" id="DescripcionCorta" maxlength="217" placeholder="Escribe tu descripción" required>
                                             @error('DescripcionCorta')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}

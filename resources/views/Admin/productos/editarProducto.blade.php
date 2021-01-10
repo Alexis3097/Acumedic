@@ -40,7 +40,7 @@
                                     @method('put')
                                         <div class="form-group col-md-12">
                                             <label for="Nombre">Nombre del producto</label>
-                                            <input type="text" class="form-control @error('Nombre') is-invalid @enderror" name="Nombre" id="Nombre" placeholder="Tú nombre del producto"  value="{{old('Nombre', $producto->Nombre)}}" required>
+                                            <input type="text" maxlength="190" class="form-control @error('Nombre') is-invalid @enderror" name="Nombre" id="Nombre" placeholder="Tú nombre del producto"  value="{{old('Nombre', $producto->Nombre)}}" required>
                                             @error('Nombre')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -95,8 +95,8 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="DescripcionCorta">Descripción corta (Máximo 217 caracteres)</label>
-                                            <input type="text" class="form-control @error('DescripcionCorta') is-invalid @enderror"  value="{{old('DescripcionCorta', $producto->DescripcionCorta)}}" name="DescripcionCorta" id="DescripcionCorta" maxlength="217" placeholder="Escribe tu descripción" required>
+                                            <label for="DescripcionCorta">Descripción corta (Máximo 190 caracteres)</label>
+                                            <input type="text" maxlength="190" class="form-control @error('DescripcionCorta') is-invalid @enderror"  value="{{old('DescripcionCorta', $producto->DescripcionCorta)}}" name="DescripcionCorta" id="DescripcionCorta" maxlength="217" placeholder="Escribe tu descripción" required>
                                             @error('DescripcionCorta')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}

@@ -14,7 +14,7 @@
             <h2>lorems ipsum dolos is a met a lorems ipsum</h2>
           </div>
           <div class="button">
-            <button class="btn-1">Ver más</button>
+            <a href="{{route('servicios')}}" class="btn-1">Ver más</a>
           </div>
         </div>
         <div class="col-md-6"></div>
