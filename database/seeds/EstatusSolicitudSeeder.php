@@ -1,4 +1,5 @@
 <?php
+
 use App\Models\EstatusSolicitud;
 use Illuminate\Database\Seeder;
 

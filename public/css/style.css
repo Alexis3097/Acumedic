@@ -631,7 +631,7 @@ input {
   background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 70vh;
+  height: 80vh;
 }
 .contacto-formulario .formulario{
   padding: 2%;
@@ -770,7 +770,7 @@ input {
   visibility: visible;
 } */
 .modal-thankYou{
-  height: 25vh;
+  height: 23vh;
   width: 400px;
   display: block;
   margin: auto;
@@ -791,7 +791,7 @@ input {
 }
 .modal-thankYou.active{
   opacity: 1;
-  padding: 3%;
+  padding: 1% 2%;
   visibility: visible;
   z-index:10001 ;
   transform:translateY(0);
@@ -1372,6 +1372,9 @@ footer .colFooter .sublinks ul li a:hover{
     }
     .contacto-formulario{
       min-height: 70vh;
+    }
+    .contacto-formulario .bg-form{
+      height: 70vh;
     }
     .info-numeros {
       min-height: 16vh;
