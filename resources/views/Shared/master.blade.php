@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="{{asset('css/normalize.css')}}">
   <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
   <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+  <link rel="shortcut icon" type="image/x-icon" href="{{asset('../img/favicon.png')}}">
 </head>
 <header>
   <!--sección navbar-->

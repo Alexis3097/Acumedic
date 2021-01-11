@@ -125,6 +125,36 @@ body{
   color:#fff!important;
 }
 /* botones */
+/* error 404 */
+.error404{
+  position: relative;
+  min-height: 80vh;
+  padding: 1%;
+  background:url('../img/error404.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.error404 .cont{
+  position: absolute;
+  height: 50vh;
+  padding: 3%;
+  width: auto;
+  background-color:rgba(255,255,255,.5);
+  display: block;
+  margin:auto;
+  top:0;bottom:0;left:0;right:0;
+}
+.error404 h3{
+  font-size: var(--font-xxgtitle);
+  font-weight: bold;
+  color:var(--blue);
+}
+.error404 p{
+  font-size: var(--font-gtitle);
+  color:#232323;
+}
+/* error 404 */
 /* Navegación */
 
 .navbar {
@@ -1429,6 +1459,14 @@ footer .colFooter .sublinks ul li a:hover{
     .btn-2{
       font-size: var(--font-gtitle);
       border-radius: 30px;
+    }
+    .error404{
+      min-height: 90vh;
+      padding: 1%;
+    }
+    .error404 .cont{
+      height: 30vh;
+      padding: 2%;
     }
   }
   /* pantallas más grandes  */

@@ -21,11 +21,13 @@
                         <div class="form-group mb-3" style="display:inline-block;">
                                 <button type="submit" style="margin:38px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
                         </div>
+                        <div class="col-md-2">
+                            <div class="form-group mb-4">
+                                <a href="{{route('inventario.list')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Todos los productos</a>
+                            </div>
+                        </div>
                     </div>
                 </form>
-                <div class="form-group mb-4">
-                    <a href="{{route('inventario.list')}}"  class="form-control btn btn-small width-xs btn-info">Todos los productos</a>
-                </div>
                 <!-- content -->
                 <!-- row -->
                 <!-- products -->

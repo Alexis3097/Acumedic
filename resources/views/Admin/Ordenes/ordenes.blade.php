@@ -5,8 +5,16 @@
         <div class="container-fluid">
             <div class="row page-title align-items-center">
                 <div class="col-sm-4 col-xl-6">
-                    <h4 class="mb-1 mt-0">Ordenes de productos</h4>       
+                    <h4 class="mb-1 mt-0">Ordenes de productos</h4> 
+                    <div class="input-group">
+                        <input type="text" name="Nombre" class="form-control col-lg-12 @error('Nombre') is-invalid @enderror" placeholder="Buscar orden" required>
+                        <div class="invalid-feedback">
+                        </div>
+                    </div>    
                 </div>
+                <div class="form-group mb-3" style="display:inline-block;">
+                        <button type="submit" style="margin:38px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
+                </div>  
             </div>
                 <!-- content -->
                 <!-- row -->            

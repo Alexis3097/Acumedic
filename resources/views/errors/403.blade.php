@@ -10,7 +10,7 @@
                         <div class="text-center">
                             
                             <div>
-                                <img src="{{asset('../img/Admin/not-found.png')}}" alt="" class="img-fluid" />
+                                <img src="{{asset('../img/Admin/sin-premisos.png')}}" alt="" class="img-fluid" />
                             </div>
                         </div>
 
