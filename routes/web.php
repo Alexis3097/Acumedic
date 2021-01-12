@@ -188,6 +188,7 @@ Route::group(['middleware' => ['permission:ListadoProducto|CrearProducto|EditarP
 Route::get('/ordenes/pendientes', 'OrdenesController@index')->name('ordenes.pendientes');
 Route::get('/ordenes/todas', 'OrdenesController@getAllOrdenes')->name('ordenes.todas');
 Route::put('/ordenes/cambiar-estatus', 'OrdenesController@changeEstatus')->name('ordenes.changeEstatus');
+Route::get('/ordenes/buscar', 'OrdenesController@buscar')->name('ordenes.buscar');
 
 //INVENTARIO
 Route::group(['middleware' => ['permission:ListadoInventario|CrearInventario|EditarInventario|EliminarInventario']], function () {

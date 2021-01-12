@@ -40,15 +40,11 @@ class OrdenesController extends Controller
         return view('Admin.Ordenes.Allordenes',compact('ordenes'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    
+    public function buscar(Request $request, OrdenDeCompraViewModel $OrdenDeCompraViewModel)
     {
-        //
+        $ordenes = $OrdenDeCompraViewModel->buscar($request->buscar);
+        return view('Admin.Ordenes.Allordenes',compact('ordenes'));
     }
 
     /**
