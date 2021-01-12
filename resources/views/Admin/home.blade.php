@@ -41,7 +41,7 @@
                 </a>
             </div>
             <div class="col-md-3 col-md-3 col-xl-3 cardClienteInfo" style="padding:2%; box-sizing:border-box;">
-                <a href="{{route('ordenes.list')}}">
+                <a href="{{route('ordenes.pendientes')}}">
                 <div class="card" style="background-color:rgba(255,255,255,.7);">
                         <div class="card-body p-0">
                             <div class="media p-3">
@@ -58,7 +58,7 @@
                 </a>
             </div>
             <div class="col-md-3 col-md-3 col-xl-3 cardClienteInfo" style="padding:2%; box-sizing:border-box;">
-                <a href="{{route('solicitudCita.show')}}">
+                <a href="{{route('solicitudCita.pendientes')}}">
                 <div class="card" style="background-color:rgba(255,255,255,.7);">
                         <div class="card-body p-0">
                             <div class="media p-3">

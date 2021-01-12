@@ -77,7 +77,8 @@ Route::group(['middleware' => ['permission:ListadoCitas|CrearCita|EditarCita|Eli
 });
 
 //SOLICITUD DE CITAS 
-Route::get('/solicitud-citas', 'SolicitudCitasController@index')->name('solicitudCita.show');
+Route::get('/solicitud-citas/pendientes', 'SolicitudCitasController@index')->name('solicitudCita.pendientes');
+Route::get('/solicitud-citas/todas', 'SolicitudCitasController@todas')->name('solicitudCita.todas');
 Route::put('/solicitud-citas/cambiar-estatus', 'SolicitudCitasController@changeEstatus')->name('solicitudCita.changeEstatus');
 
 //PACIENTES

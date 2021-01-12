@@ -19,7 +19,7 @@
                 </form>
             </div>
             <div class="form-group mb-4">
-                <a href="{{route('ordenes.todas')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">solicitud de citas pendientes</a>
+                <a href="{{route('solicitudCita.pendientes')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Solicitud de citas pendientes</a>
             </div>
                     <!-- content -->
                     <!-- row -->       

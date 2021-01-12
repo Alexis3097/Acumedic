@@ -18,7 +18,7 @@
                 </form> 
             </div>
             <div class="form-group mb-4">
-                <a href="{{route('ordenes.pendientes')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Todas las ordenes</a>
+                <a href="{{route('ordenes.pendientes')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Ordenes pendientes</a>
             </div>
            
                 <!-- content -->
