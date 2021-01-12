@@ -3,8 +3,8 @@
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
+        <form action="">
             <div class="row page-title align-items-center">
-                <form action="">
                     <div class="col-sm-4 col-xl-6">
                         <h4 class="mb-1 mt-0">Ordenes de productos</h4> 
                         <div class="input-group">
@@ -16,9 +16,9 @@
                             <button type="submit" style="margin:38px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
                     </div>  
                 </form>
-            </div>
-            <div class="form-group mb-4">
-                <a href="{{route('ordenes.todas')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Todas las ordenes</a>
+                    <div class="form-group mb-4">
+                        <a href="{{route('ordenes.todas')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Todas las ordenes</a>
+                    </div>
             </div>
                 <!-- content -->
                 <!-- row -->            

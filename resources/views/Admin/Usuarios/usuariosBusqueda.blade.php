@@ -7,21 +7,21 @@
                 <div class="container-fluid">
                 <form action="{{route('usuarios.buscar')}}" method="get">
                     <div class="row page-title align-items-center">
-                            <div class="col-sm-6 col-md-6 col-xl-6">
+                        <div class="col-sm-6 col-md-6 col-xl-6">
                             <h4 class="mb-1 mt-0">Buscar usuario</h4>
-                                <div class="input-group">
-                                    <input type="text" name="Nombre" class="form-control col-lg-12 @error('Nombre') is-invalid @enderror" placeholder="Buscar usuario" required>
-                                    @error('Nombre')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                            <div class="input-group">
+                                <input type="text" name="Nombre" class="form-control col-lg-12 @error('Nombre') is-invalid @enderror" placeholder="Buscar usuario" required>
+                                @error('Nombre')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
                                 </div>
+                                @enderror
                             </div>
-                            <div class="form-group mb-3" style="display:inline-block;">
-                                    <button type="submit" style="margin:38px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
-                            </div>
-                        </form>
+                        </div>
+                        <div class="form-group mb-3" style="display:inline-block;">
+                            <button type="submit" style="margin:38px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
+                        </div>
+                </form>
                         <div class="form-group mb-4" style="margin: 45px 40px 0px;">
                             <a href="{{route('usuarios.list')}}"  class="form-control btn btn-small width-xs btn-info">Todos los usuarios</a>
                         </div>

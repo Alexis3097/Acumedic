@@ -5,7 +5,7 @@
     @can('ListadoServicio')
         <div class="content">
             <div class="container-fluid">
-                <form action="{{route('servicios.buscar')}}" method="get">
+                <form class="form-grouop" action="{{route('servicios.buscar')}}" method="get">
                     <div class="row page-title align-items-center">
                         <div class="col-sm-6 col-md-6 col-xl-6">
                             <h4 class="mb-1 mt-0">Buscar servicio</h4>
@@ -19,12 +19,12 @@
                             </div>
                         </div>
                         <div class="form-group mb-3" style="display:inline-block;">
-                                <button type="submit" style="margin:38px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
+                            <button type="submit" style="margin:38px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
                         </div>
-                    </div>
                 </form>
-                <div class="form-group mb-4">
-                    <a href="{{route('servicios.list')}}"  class="form-control btn btn-small width-xs btn-info">Todos los servicios</a>
+                        <div class="form-group mb-4">
+                            <a href="{{route('servicios.list')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Todos los servicios</a>
+                        </div>
                 </div>
                 <!-- content -->
                 <!-- row -->

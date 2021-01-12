@@ -5,10 +5,10 @@
             @can('ListadoPacientes')
             <div class="content">
                 <div class="container-fluid">
-                <form action="{{route('paciente.buscar')}}" method="get">
-                    <div class="row page-title align-items-center">
+                    <form action="{{route('paciente.buscar')}}" method="get">
+                        <div class="row page-title align-items-center">
                             <div class="col-sm-6 col-md-6 col-xl-6">
-                            <h4 class="mb-1 mt-0">Buscar paciente</h4>
+                                <h4 class="mb-1 mt-0">Buscar paciente</h4>
                                 <div class="input-group">
                                     <input type="text" name="Nombre" class="form-control col-lg-12 @error('Nombre') is-invalid @enderror" placeholder="Buscar paciente" required>
                                     @error('Nombre')
@@ -21,10 +21,10 @@
                             <div class="form-group mb-3" style="display:inline-block;">
                                     <button type="submit" style="margin:38px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
                             </div>
-                        </form>
+                    </form>
                         <div class="form-group mb-4">
-                                <a href="{{route('paciente.list')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Todos los pacientes</a>
-                            </div>
+                            <a href="{{route('paciente.list')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Todos los pacientes</a>
+                        </div>
                     </div>
                     <!-- products -->
                     <div class="row">
