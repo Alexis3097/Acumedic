@@ -14,12 +14,13 @@
                     </div>
                     <div class="form-group mb-3" style="display:inline-block;">
                             <button type="submit" style="margin:38px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
-                    </div>  
-                </form>
+                    </div> 
+                </form> 
             </div>
             <div class="form-group mb-4">
-                <a href="{{route('ordenes.todas')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Todas las ordenes</a>
+                <a href="{{route('ordenes.pendientes')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Todas las ordenes</a>
             </div>
+           
                 <!-- content -->
                 <!-- row -->            
                 <!-- products -->

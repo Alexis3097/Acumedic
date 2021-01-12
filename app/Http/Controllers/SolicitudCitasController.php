@@ -17,4 +17,9 @@ class SolicitudCitasController extends Controller
         $solicitudCitas = $CitaViewModel->getAllSolicitudCitas();
         return view('Admin.Citas.solicitudCitas',compact('solicitudCitas'));
     }
+
+    public function changeEstatus(Request $request, CitaViewModel $CitaViewModel){
+        $CitaViewModel->changeEstatusSolicitudCita($request->IdSolicitudCita,$request->IdEstatus);
+        return redirect()->route('solicitudCita.show');
+    }
 }

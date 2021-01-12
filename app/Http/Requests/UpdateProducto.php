@@ -24,28 +24,28 @@ class UpdateProducto extends FormRequest
     public function rules()
     {
         return [
-            'Nombre' => 'required',
-            'PrecioCompra' => 'required|numeric',
-            'PrecioPublico' => 'required|numeric',
-            'CodigoBarra' => 'required_without_all:check',
+            'Nombre' => 'required|max:190',
+            'PrecioCompra' => 'required|numeric|max:190',
+            'PrecioPublico' => 'required|numeric|max:190',
+            'CodigoBarra' => 'required_without_all:check|max:190',
             'DescripcionCorta' => 'required|max:217',
             'DescripcionLarga' => 'required',
-            'Foto1' => 'image|max:2048|',
+            'Foto1' => 'image|max:2048',
             'Foto2' => 'image|max:2048',
             'Foto3' => 'image|max:2048',
             'Foto4' => 'image|max:2048',
 
-            'Titulo1' => 'required_with:Foto1|required_without:hayFoto1',
-            'TextoAlterno1' => 'required_with:Foto1|required_without:hayFoto1',
+            'Titulo1' => 'required_with:Foto1|required_without:hayFoto1|max:190',
+            'TextoAlterno1' => 'required_with:Foto1|required_without:hayFoto1|max:190',
 
-            'Titulo2' => 'required_with:Foto2|required_without:hayFoto2',
-            'TextoAlterno2' => 'required_with:Foto2|required_without:hayFoto2',
+            'Titulo2' => 'required_with:Foto2|required_without:hayFoto2|max:190',
+            'TextoAlterno2' => 'required_with:Foto2|required_without:hayFoto2|max:190',
 
-            'Titulo3' => 'required_with:Foto3|required_without:hayFoto3',
-            'TextoAlterno3' => 'required_with:Foto3|required_without:hayFoto3',
+            'Titulo3' => 'required_with:Foto3|required_without:hayFoto3|max:190',
+            'TextoAlterno3' => 'required_with:Foto3|required_without:hayFoto3|max:190',
 
-            'Titulo4' => 'required_with:Foto4|required_without:hayFoto4',
-            'TextoAlterno4' => 'required_with:Foto4|required_without:hayFoto4',
+            'Titulo4' => 'required_with:Foto4|required_without:hayFoto4|max:190',
+            'TextoAlterno4' => 'required_with:Foto4|required_without:hayFoto4|max:190',
         ];
     }
 
@@ -90,6 +90,19 @@ class UpdateProducto extends FormRequest
             'TextoAlterno4.required_with' => 'El texto alternado es requerido',
             'Titulo4.required_without' => 'El titulo es requerido',
             'TextoAlterno4.required_without' => 'El texto alternado es requerido',
+
+            'Nombre.max' => 'Solo puedes agregar 190 caracteres',
+            'PrecioCompra.max' => 'Solo puedes agregar 190 caracteres',
+            'PrecioPublico.max' => 'Solo puedes agregar 190 caracteres',
+            'CodigoBarra.max' => 'Solo puedes agregar 190 caracteres',
+            'Titulo1.max' => 'Solo puedes agregar 190 caracteres',
+            'TextoAlterno1.max' => 'Solo puedes agregar 190 caracteres',
+            'Titulo2.max' => 'Solo puedes agregar 190 caracteres',
+            'TextoAlterno2.max' => 'Solo puedes agregar 190 caracteres',
+            'Titulo3.max' => 'Solo puedes agregar 190 caracteres',
+            'TextoAlterno3.max' => 'Solo puedes agregar 190 caracteres',
+            'TextoAlterno4.max' => 'Solo puedes agregar 190 caracteres',
+            'Rol.max' => 'Solo puedes agregar 190 caracteres',
         ];
     }
 }

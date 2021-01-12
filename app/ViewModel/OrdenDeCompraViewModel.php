@@ -7,9 +7,18 @@ use App\Models\OrdenDeCompra;
 
 class OrdenDeCompraViewModel
 {
-  public function getAllOrdenDeCompra()
+  /**
+   * retorna las ordenes de compra con estatus 1 = pendiente o 2  = proceso
+   */
+  public function getPedidosPendientes()
   {
-    return OrdenDeCompra::all();
+    return OrdenDeCompra::where('IdEstatusSolicitud',1)->orWhere('IdEstatusSolicitud',2)->paginate(15);
+  }
+  /**
+   * retorna todas las ordenes en orden de la más nueva a la más vieja
+   */
+  public function getAllOrdenes(){
+    return OrdenDeCompra::orderBy('id','desc')->paginate(15);
   }
 
   public function getOrdenDeCompra($Id)
