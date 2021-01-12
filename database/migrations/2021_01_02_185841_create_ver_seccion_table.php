@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVerServiciosTable extends Migration
+class CreateVerSeccionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateVerServiciosTable extends Migration
      */
     public function up()
     {
-        Schema::create('VerServicios', function (Blueprint $table) {
+        Schema::create('VerSeccion', function (Blueprint $table) {
             $table->id();
-            $table->boolean('Servicios');
+            $table->string('Nombre');
+            $table->boolean('Ver');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateVerServiciosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('VerServicios');
+        Schema::dropIfExists('VerSeccion');
     }
 }

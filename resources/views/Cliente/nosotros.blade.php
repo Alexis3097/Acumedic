@@ -35,21 +35,23 @@
           </div>
         </div>
       </section>
-      <section class="about-section about-dos" style="background-color: #e6ede9;">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 descAbout">
-              <p class="titulo">{{$segundaSeccion->Titulo1}}</p>
-              <p class="desc">{{$segundaSeccion->Informacion1}}</p>
-              <p class="subtitulo">{{$segundaSeccion->Titulo2}}</p>
-              <p class="desc">{{$segundaSeccion->Informacion2}}</p>
-            </div>
-            <div class="col-md-6 imageAbout">
-              <img src="{{asset('../uploads/SobreAcumedic/'.$segundaSeccion->Foto)}}" alt="{{$segundaSeccion->TextoAlterno}}">
+      @if($verSeccion[0]->Ver)
+        <section class="about-section about-dos" style="background-color: #e6ede9;">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 descAbout">
+                <p class="titulo">{{$segundaSeccion->Titulo1}}</p>
+                <p class="desc">{{$segundaSeccion->Informacion1}}</p>
+                <p class="subtitulo">{{$segundaSeccion->Titulo2}}</p>
+                <p class="desc">{{$segundaSeccion->Informacion2}}</p>
+              </div>
+              <div class="col-md-6 imageAbout">
+                <img src="{{asset('../uploads/SobreAcumedic/'.$segundaSeccion->Foto)}}" alt="{{$segundaSeccion->TextoAlterno}}">
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      @endif
       <section class="sub-banner" style="padding: 2%;">
         <div class="infoAcumedic" style="margin-top: 0px;">
           <div class="contacto">

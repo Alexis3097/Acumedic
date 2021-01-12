@@ -220,7 +220,8 @@ Route::group(['middleware' => ['permission:SobreAcumedic']], function () {
     Route::GET('/sobre-nosotros/datosContacto', 'SobreNosotrosController@datosContacto');
     Route::put('/sobre-nosotros/actualizarContacto', 'SobreNosotrosController@updateContacto');
     Route::post('/sobre-nosotros/serviciosSeleccionados', 'SobreNosotrosController@serviciosSeleccionados')->name('serviciosSeleccionados');
-    Route::put('/sobre-nosotros/visibilidad-servicio', 'SobreNosotrosController@visibilidadServicio')->name('visibilidadServicio');
+    Route::put('/sobre-nosotros/visibilidad-servicio', 'SobreNosotrosController@visibilidadServicio')->name('visibilidadServicios');
+    Route::put('/sobre-nosotros/visibilidad-segundaSeccion', 'SobreNosotrosController@visibilidadSegundaSeccion')->name('visibilidadSegundaSeccion');
 });
 //=============================PERMISOS================================================================
 Route::group(['middleware' => ['permission:ListarRoles|CrearRol|EditarRol|EliminarRol']], function () {

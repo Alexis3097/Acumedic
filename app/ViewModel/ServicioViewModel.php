@@ -2,7 +2,7 @@
 
 namespace App\ViewModel;
 use App\Models\Servicio;
-use App\Models\VerServicios;
+use App\Models\VerSeccion;
 use App\Models\ServiciosSeleccionado;
 
 class ServicioViewModel
@@ -116,8 +116,8 @@ class ServicioViewModel
      * registro con un campo servicio de tipo bool
      * 
      */
-    public function verServicio(){
-      return VerServicios::first();
+    public function verSeccion(){
+      return VerSeccion::all();
 
     }
 
@@ -125,12 +125,25 @@ class ServicioViewModel
       return ServiciosSeleccionado::all();
     }
 
-    public function updateVisibilidad($opcion){
-      $VerServicios = VerServicios::first();
-      $VerServicios->Servicios = $opcion;
-      $VerServicios->save();
-      return $VerServicios;
+    public function updateVisibilidadServicio($opcion){
+      $_ID = 2; // EL ID 2 ESTA DECLARADO PARA VISIBILIDAD DE SERVICIOS
+      $VerSeccion = VerSeccion::find($_ID);
+      $VerSeccion->Ver = $opcion;
+      $VerSeccion->save();
+      return $VerSeccion;
     }
+
+    /**
+     * actuliza si la visiblidad de la seunda seccion en cliente(nosotros)
+     */
+    public function updateVisibilidadSegundaSeccion($opcion){
+      $_ID = 1; // EL ID  ESTA DECLARADO PARA VISIBILIDAD DE LA SEGUNDA SECCION
+      $VerSeccion = VerSeccion::find($_ID);
+      $VerSeccion->Ver = $opcion;
+      $VerSeccion->save();
+      return $VerSeccion;
+    }
+    
 
     public function numeroDeServicios()
     {

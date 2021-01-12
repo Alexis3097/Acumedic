@@ -19,10 +19,9 @@ class SobreNosotrosController extends Controller
 
     public function index(ServicioViewModel $ServicioViewModel){
         $servicios = $ServicioViewModel->getAllServicios();
-        $verServicio = $ServicioViewModel->verServicio();
+        $verSeccion = $ServicioViewModel->verSeccion();
         $numeroDeServicios = $ServicioViewModel->numeroDeServicios();
-        // dd($numeroDeServicios);
-        return view('Admin.paginaNosotros.sobreAcumedic',compact('servicios','verServicio','numeroDeServicios'));
+        return view('Admin.paginaNosotros.sobreAcumedic',compact('servicios','verSeccion','numeroDeServicios'));
     }
 
     public function descripcion(SobreAcumedicViewModel $SobreAcumedicViewModel){
@@ -68,7 +67,15 @@ class SobreNosotrosController extends Controller
     }
 
     public function visibilidadServicio(Request $request, ServicioViewModel $ServicioViewModel){
-        $visibilidad = $ServicioViewModel->updateVisibilidad($request->opcion);
+        $visibilidad = $ServicioViewModel->updateVisibilidadServicio($request->opcion);
+        return redirect()->route('sobreNosotros');
+    }
+
+    /**
+     * cambia la visibilidad de la segunda seccion, si puede o no estar visible en la parte de admin
+     */
+    public function visibilidadSegundaSeccion(Request $request, ServicioViewModel $ServicioViewModel){
+        $visibilidad = $ServicioViewModel->updateVisibilidadSegundaSeccion($request->opcion);
         return redirect()->route('sobreNosotros');
     }
    

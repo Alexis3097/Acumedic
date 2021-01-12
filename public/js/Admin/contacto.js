@@ -16,7 +16,7 @@ $('#infoContacto').on('click', function(){
             $("#editInfo").modal("show");
         },
         error: function(data){
-            console.log(data.responseJSON);
+            alert('No se ha podido realizar la peticion')
         }
     })
 });
@@ -97,7 +97,6 @@ $('#btnServicios').on('click',function(e) {
            $("#list").click();
         },
         error: function(data){
-            console.log(data.responseJSON.errors)
             $('#errorServicio').html(data.responseJSON.errors.servicios[0]);
         }
     })

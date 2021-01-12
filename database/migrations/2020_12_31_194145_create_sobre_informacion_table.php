@@ -17,8 +17,8 @@ class CreateSobreInformacionTable extends Migration
             $table->id();
             $table->string('Titulo1');
             $table->text('Informacion1');
-            $table->string('Titulo2');
-            $table->text('Informacion2');
+            $table->string('Titulo2')->nullable();
+            $table->text('Informacion2')->nullable();
             $table->string('Foto');
             $table->string('TituloImagen');
             $table->string('TextoAlterno');

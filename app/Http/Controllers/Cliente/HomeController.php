@@ -19,12 +19,13 @@ class HomeController extends Controller
         $sobreAcumedic = $SobreAcumedicViewModel->datosPrimeraSeccion();
         $segundaSeccion = $SobreAcumedicViewModel->datosSegundaSeccion();
         $contacto = $SobreAcumedicViewModel->contacto();
-        $verServicio = $ServicioViewModel->verServicio();
+        $verSeccion = $ServicioViewModel->verSeccion();
         $numeroDeServicios = $ServicioViewModel->numeroDeServicios();
-        if($verServicio->Servicios && $numeroDeServicios >= 6){
+        // la seccion 1 corresponde al registro dos que es visibilidad de servicios
+        if($verSeccion[1]->Ver && $numeroDeServicios >= 6){
             $servicios = $ServicioViewModel->seisServicios();
-            return view('Cliente.nosotrosConServicios',compact('sobreAcumedic','segundaSeccion','contacto','servicios'));
+            return view('Cliente.nosotrosConServicios',compact('sobreAcumedic','segundaSeccion','contacto','servicios','verSeccion'));
         }
-        return view('Cliente.nosotros',compact('sobreAcumedic','segundaSeccion','contacto'));
+        return view('Cliente.nosotros',compact('sobreAcumedic','segundaSeccion','contacto','verSeccion'));
     }
 }

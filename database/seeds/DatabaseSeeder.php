@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TipoConsultaSeeder::class);
         $this->call(UsuarioSeeder::class);
         $this->call(SobreAcumedicSeeder::class);
-        $this->call(verServiciosSeeder::class);
+        $this->call(VerSeccionSeeder::class);
         $this->call(EstatusSolicitudSeeder::class);
         $this->call(PacienteSeeder::class);//datos de prueba
         $this->call(UserSeed::class);//datos de prueba
