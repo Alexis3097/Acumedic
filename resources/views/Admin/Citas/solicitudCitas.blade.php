@@ -3,10 +3,10 @@
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
-        <form action="">
+        <form action="{{route('solicitudCita.buscar')}}">
             <div class="row page-title align-items-center">
                 <div class="col-sm-4 col-xl-6">
-                    <h4 class="mb-1 mt-0">Solicitudes de citas</h4>
+                    <h4 class="mb-1 mt-0">Solicitudes de citas pendientes</h4>
                     <div class="input-group">
                         <input type="text" name="Nombre" class="form-control col-lg-12 @error('Nombre') is-invalid @enderror" placeholder="Buscar solicitud" required>
                         <div class="invalid-feedback">
@@ -14,7 +14,7 @@
                     </div>      
                 </div>
                 <div class="form-group mb-3" style="display:inline-block;">
-                    <button type="submit" style="margin:38px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
+                        <button type="submit" style="margin:38px 19px 0px;" class="form-control btn btn-large btn-primary">Buscar</button>
                 </div>  
         </form>
                 <div class="form-group mb-4">
@@ -36,8 +36,8 @@
                                             <th scope="col">Nombre </th>
                                             <th scope="col">Número</th>
                                             <th scope="col">Ciudad</th>
-                                            <th scope="col">Correo electrónico</th>
-                                            <th scope="col">Tiempo de solicitud</th>
+                                            <th scope="col">Correo</th>
+                                            <th scope="col">Tiempo</th>
                                             <th scope="col">Estatus</th>
                                             <th scope="col">Cambiar estatus</th>
                                         </tr>

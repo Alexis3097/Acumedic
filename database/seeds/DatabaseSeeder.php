@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductoSeeder::class);//datos de prueba
         $this->call(ServicioSeeder::class);//datos de prueba
         $this->call(OrdenDeCompraSeeder::class);//datos de prueba
+        $this->call(SolicitudCitasSeeder::class);//datos de prueba
         
     }
 }

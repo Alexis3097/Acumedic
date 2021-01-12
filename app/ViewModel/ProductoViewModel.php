@@ -224,9 +224,9 @@ class ProductoViewModel
     return Producto::where('id', '!=',$id)->take(4)->orderBy('id','desc')->get();
   }
 
-  public function buscarProducto($nombre){
+  public function buscarProducto($nombre, $variableurl){
     $producto = Producto::where('Nombre', 'like','%' . $nombre. '%')
-                  ->get();
+                  ->paginate(15)->appends($variableurl);
       return $producto;
   }
 

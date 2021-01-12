@@ -52,25 +52,26 @@
                                         </thead>
                                         <tbody>
                                             <div class="container">
-                                            @foreach($productos as $producto)
-                                                <tr>
-                                                    <input type="hidden" value="{{ $producto->id}}">
-                                                    <td>{{$producto->Nombre}}</td>
-                                                    <td>{{$producto->PrecioPublico}}</td>
-                                                    <td>{{$producto->CodigoBarra}}</td>
-                                                    
-                                                    <td>
-                                                    @can('EditarProducto')
-                                                        <a href="{{route('productos.edit',['id' =>$producto->id])}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
-                                                    @endcan
-                                                    @can('EliminarProducto')
-                                                        <button type="button" class="btn btn-outline-danger delete" name="delete_modal" data-toggle="modal" data-target="#eliminarProducto"><i class="fa fa-trash"></i></button>
-                                                    @endcan
+                                                @foreach($productos as $producto)
+                                                    <tr>
+                                                        <input type="hidden" value="{{ $producto->id}}">
+                                                        <td>{{$producto->Nombre}}</td>
+                                                        <td>{{$producto->PrecioPublico}}</td>
+                                                        <td>{{$producto->CodigoBarra}}</td>
+                                                        
+                                                        <td>
+                                                        @can('EditarProducto')
+                                                            <a href="{{route('productos.edit',['id' =>$producto->id])}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
+                                                        @endcan
+                                                        @can('EliminarProducto')
+                                                            <button type="button" class="btn btn-outline-danger delete" name="delete_modal" data-toggle="modal" data-target="#eliminarProducto"><i class="fa fa-trash"></i></button>
+                                                        @endcan
 
-                                                    </td>
-                                                </tr>
-                                            @endforeach
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </div>
+                                            {{ $productos->links() }}
                                         </tbody>
                                     </table>
                                 </div> <!-- end table-responsive-->

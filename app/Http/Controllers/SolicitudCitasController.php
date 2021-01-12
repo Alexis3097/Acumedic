@@ -31,4 +31,13 @@ class SolicitudCitasController extends Controller
         $solicitudCitas = $CitaViewModel->getAllSolicitudCitas();
         return view('Admin.Citas.AllsolicitudCitas',compact('solicitudCitas'));
     }
+
+    /**
+     * retorna las solicirudes segun la busqueda
+     */
+    public function buscar(Request $request,CitaViewModel $CitaViewModel){
+        $variableurl = $request->all();
+        $solicitudCitas = $CitaViewModel->buscar($request->Nombre,$variableurl);
+        return view('Admin.Citas.AllsolicitudCitas',compact('solicitudCitas'));
+    }
 }

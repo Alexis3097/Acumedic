@@ -3,7 +3,7 @@
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
-        <form action="">
+        <form action="{{route('solicitudCita.buscar')}}">
             <div class="row page-title align-items-center">
                 <div class="col-sm-4 col-xl-6">
                     <h4 class="mb-1 mt-0">Solicitudes de citas</h4>
@@ -36,8 +36,8 @@
                                             <th scope="col">Nombre </th>
                                             <th scope="col">Número</th>
                                             <th scope="col">Ciudad</th>
-                                            <th scope="col">Correo electrónico</th>
-                                            <th scope="col">Tiempo de solicitud</th>
+                                            <th scope="col">Correo</th>
+                                            <th scope="col">Tiempo</th>
                                             <th scope="col">Estatus</th>
                                             <th scope="col">Cambiar estatus</th>
                                         </tr>

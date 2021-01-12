@@ -45,8 +45,9 @@ class ServicioController extends Controller
         return redirect()->route('servicios.list');
     }
 
-    public function buscar(buscarProducto $request, ServicioViewModel $ServicioViewModel){
-        $servicios = $ServicioViewModel->buscarServicios($request->Nombre);
+    public function buscar(Request $request, ServicioViewModel $ServicioViewModel){
+        $variableurl = $request->all();
+        $servicios = $ServicioViewModel->buscarServicios($request->Nombre, $variableurl);
         return view('Admin.Servicios.buscarServicios',compact('servicios')); 
     }
 }

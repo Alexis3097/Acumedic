@@ -63,12 +63,12 @@ class UsuarioViewModel
       return $usuario;
     }
 
-    public function buscarUsuario($Nombre){
+    public function buscarUsuario($Nombre, $variableurl){
       $usuario = User::where('id', '!=', auth()->id())
                   ->where('name', 'like','%' . $Nombre. '%')
                   ->orWhere('ApellidoPaterno', 'like','%' . $Nombre. '%')
                   ->orWhere('ApellidoMaterno', 'like','%' . $Nombre. '%')
-                  ->get();
+                  ->paginate()->appends($variableurl);
       return $usuario;
     }
 /**

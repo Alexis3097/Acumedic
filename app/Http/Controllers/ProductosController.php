@@ -89,8 +89,9 @@ class ProductosController extends Controller
         return redirect()->route('productos.list');
     }
 
-    public function buscar(buscarProducto $request, ProductoViewModel $ProductoViewModel){
-        $productos = $ProductoViewModel->buscarProducto($request->Nombre);
+    public function buscar(Request $request, ProductoViewModel $ProductoViewModel){
+        $variableurl = $request->all();
+        $productos = $ProductoViewModel->buscarProducto($request->Nombre,$variableurl);
         return view('Admin.Productos.buscarProductos',compact('productos'));
     }
 

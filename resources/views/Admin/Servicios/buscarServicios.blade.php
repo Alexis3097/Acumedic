@@ -69,6 +69,7 @@
                                                     </tr>
                                                 @endforeach
                                             </div>
+                                            {{$servicios->links() }}
                                         </tbody>
                                     </table>
                                 </div> <!-- end table-responsive-->

@@ -85,12 +85,12 @@ class PacienteViewModel
         return  $paciente;
     }
 
-    public static function buscarPaciente($Nombre) 
+    public static function buscarPaciente($Nombre, $varibles) 
     {
       $pacientes = Paciente::where('Nombre', 'like','%' . $Nombre. '%')
                   ->orWhere('ApellidoPaterno', 'like','%' . $Nombre. '%')
                   ->orWhere('ApellidoMaterno', 'like','%' . $Nombre. '%')
-                  ->get();
+                  ->paginate(15)->appends($varibles);
       return $pacientes;
     }
 

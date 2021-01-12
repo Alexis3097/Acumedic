@@ -25,9 +25,9 @@ class updatePasswordAcount extends FormRequest
     public function rules()
     {
         return [
-            'passwordActual' => ['required',new validatePassword],
-            'password' => 'required|confirmed|min:6',
-            'password_confirmation' => 'required',
+            'passwordActual' => ['required',new validatePassword,'max:190'],
+            'password' => 'required|confirmed|min:6|max:190',
+            'password_confirmation' => 'required|max:190',
         ];
     }
 
@@ -39,6 +39,10 @@ class updatePasswordAcount extends FormRequest
             'password.min' => 'La contraseña debe tener minimo 6 caracteres',
             'password_confirmation.required' => 'La contraseña es requerida',
             'passwordActual.required' => 'La contraseña actual es requerida',
+
+            'passwordActual.max' => 'Solo puedes agregar 190 caracteres',
+            'password.max' => 'Solo puedes agregar 190 caracteres',
+            'password_confirmation.max' => 'Solo puedes agregar 190 caracteres',
             
         ];
     }

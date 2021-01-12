@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Paciente;
+use App\Models\SolicitudCitas;
 use Illuminate\Database\Seeder;
 
-class PacienteSeeder extends Seeder
+class SolicitudCitasSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class PacienteSeeder extends Seeder
      */
     public function run()
     {
-        factory(Paciente::Class,60)->create();
+        factory(SolicitudCitas::Class,60)->create();
     }
 }

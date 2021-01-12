@@ -97,9 +97,10 @@ class PacienteController extends Controller
         return redirect()->route('paciente.list');
     }
 
-    public function buscarPaciente(BuscarPacienteXCita $request)
+    public function buscarPaciente(Request $request)
     {
-        $pacientes = PacienteViewModel::buscarPaciente($request->Nombre);
+        $varibles = $request->all();
+        $pacientes = PacienteViewModel::buscarPaciente($request->Nombre, $varibles);
         return view('Admin.Pacientes.busquedaPacientes', compact('pacientes'));
     }
 

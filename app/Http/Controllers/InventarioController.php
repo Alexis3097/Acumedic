@@ -63,8 +63,9 @@ class InventarioController extends Controller
         return redirect()->route('inventario.list');
     }
 
-    public function buscar(buscarProducto $request, ProductoViewModel $ProductoViewModel){
-        $productos = $ProductoViewModel->buscarProducto($request->Nombre);
+    public function buscar(Request $request, ProductoViewModel $ProductoViewModel){
+        $variableurl = $request->all();
+        $productos = $ProductoViewModel->buscarProducto($request->Nombre,$variableurl);
         return view('Admin.Inventario.buscarInventario',compact('productos'));
     }
 }

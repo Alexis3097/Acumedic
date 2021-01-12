@@ -21,8 +21,8 @@ class OrdenDeCompraViewModel
     return OrdenDeCompra::orderBy('id','desc')->paginate(15);
   }
 
-  public function buscar($Nombre){
-    $orden = OrdenDeCompra::where('NombreCompleto', 'like','%' . $Nombre. '%')->paginate(15);
+  public function buscar($Nombre, $vairableurl){
+    $orden = OrdenDeCompra::where('NombreCompleto', 'like','%' . $Nombre. '%')->paginate(15)->appends($vairableurl);
     return $orden;
   }
 

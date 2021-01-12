@@ -48,33 +48,34 @@
                                         </thead>
                                         <tbody>
                                             <div class="container">
-                                            @foreach($productos as $producto)
-                                                <tr>
-                                                    <input type="hidden" value="{{ $producto->id}}">
-                                                    <td>{{$producto->Nombre}}</td>
-                                                    <td>@if(isset($producto->inventario->Cantidad)){{$producto->inventario->Cantidad}}@else 0 @endif</td>
-                                                    <td>@if(isset($producto->inventario->StockMinimo)){{$producto->inventario->StockMinimo}}@else 0 @endif</td>
-                                                    <td>{{$producto->PrecioPublico}}</td>
-                                                    
-                                                    <td>
-                                                    @can('CrearInventario')
-                                                        <span data-toggle="tooltip" data-placement="left" title="Agregar prducto"><button type="button"  class="btn btn-outline-success AgregarProducto"  data-toggle="modal" data-target="#agregarProducto"><i class="fas fa-plus-circle"></i></button></span>  
-                                                    @endcan
-                                                    @can('EditarInventario')
-                                                    <span data-toggle="tooltip" data-placement="left" title="Editar inventario" ><button class="btn btn-outline-warning editar agregarId" data-toggle="modal" data-target="#editarInventario"><i class="fa fa-edit"></i></button></span>    
-                                                    @endcan
-                                                    @can('EliminarInventario')
-                                                        <span data-toggle="tooltip" data-placement="left" title="Vaciar inventario">
-                                                            <button type="button" class="btn btn-outline-danger agregarId" name="delete_modal" data-toggle="modal" data-target="#eliminarProducto"
-                                                                @if(isset($producto->inventario->Cantidad)) enabled @else disabled @endif>
-                                                                <i class="fa fa-trash"></i>
-                                                            </button>
-                                                        </span>
-                                                    @endcan
-                                                    </td>
-                                                </tr>
-                                            @endforeach
+                                                @foreach($productos as $producto)
+                                                    <tr>
+                                                        <input type="hidden" value="{{ $producto->id}}">
+                                                        <td>{{$producto->Nombre}}</td>
+                                                        <td>@if(isset($producto->inventario->Cantidad)){{$producto->inventario->Cantidad}}@else 0 @endif</td>
+                                                        <td>@if(isset($producto->inventario->StockMinimo)){{$producto->inventario->StockMinimo}}@else 0 @endif</td>
+                                                        <td>{{$producto->PrecioPublico}}</td>
+                                                        
+                                                        <td>
+                                                        @can('CrearInventario')
+                                                            <span data-toggle="tooltip" data-placement="left" title="Agregar prducto"><button type="button"  class="btn btn-outline-success AgregarProducto"  data-toggle="modal" data-target="#agregarProducto"><i class="fas fa-plus-circle"></i></button></span>  
+                                                        @endcan
+                                                        @can('EditarInventario')
+                                                        <span data-toggle="tooltip" data-placement="left" title="Editar inventario" ><button class="btn btn-outline-warning editar agregarId" data-toggle="modal" data-target="#editarInventario"><i class="fa fa-edit"></i></button></span>    
+                                                        @endcan
+                                                        @can('EliminarInventario')
+                                                            <span data-toggle="tooltip" data-placement="left" title="Vaciar inventario">
+                                                                <button type="button" class="btn btn-outline-danger agregarId" name="delete_modal" data-toggle="modal" data-target="#eliminarProducto"
+                                                                    @if(isset($producto->inventario->Cantidad)) enabled @else disabled @endif>
+                                                                    <i class="fa fa-trash"></i>
+                                                                </button>
+                                                            </span>
+                                                        @endcan
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </div>
+                                            {{ $productos->links() }}
                                         </tbody>
                                     </table>
                                 </div> <!-- end table-responsive-->

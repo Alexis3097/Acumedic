@@ -308,4 +308,14 @@ class CitaViewModel
       $solicitud->save();
       return;
      }
+
+     /**
+      * busca las citas y tiene en cuenta la url para el paginadors
+      */
+      public function buscar($Nombre, $varibles){
+        $solicitudes = SolicitudCitas::where('NombreCompleto', 'like','%' . $Nombre. '%')
+                      ->paginate(15)->appends($varibles);
+        return $solicitudes;
+
+      }
 }

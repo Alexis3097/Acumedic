@@ -78,6 +78,7 @@
                                                         </tr>
                                                     @endforeach
                                                 </div>
+                                                {{ $pacientes->links() }}
                                             </tbody>
                                         </table>
                                     </div> <!-- end table-responsive-->

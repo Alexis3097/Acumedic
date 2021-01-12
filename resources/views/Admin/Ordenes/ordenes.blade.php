@@ -6,7 +6,7 @@
             <form action="{{route('ordenes.buscar')}}">
                 <div class="row page-title align-items-center">
                     <div class="col-sm-4 col-xl-6">
-                        <h4 class="mb-1 mt-0">Ordenes de productos</h4> 
+                        <h4 class="mb-1 mt-0">Ordenes de productos pendientes</h4> 
                         <div class="input-group">
                             <input type="text" name="buscar" class="form-control col-lg-12" placeholder="Buscar orden" required>
                         </div>    
@@ -33,45 +33,45 @@
                                         <tr>
                                             <th scope="col">Nombre </th>
                                             <th scope="col">Número</th>
-                                            <th scope="col">Correo electrónico</th>
+                                            <th scope="col">Correo</th>
                                             <th scope="col">Producto</th>
                                             <th scope="col">Cantidad</th>
                                             <th scope="col">Total</th>
                                             <th scope="col">Tiempo</th>
                                             <th scope="col">Estatus</th>
-                                            <th scope="col">Datos generales</th>
+                                            <th scope="col">Detalles</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <div class="container">
-                                    @foreach($ordenes as $orden)
-                                        <tr>
-                                            <input type="hidden" value="{{$orden->direccion->Estado}}">
-                                            <input type="hidden" value="{{$orden->direccion->Municipio}}">
-                                            <input type="hidden" value="{{$orden->direccion->Colonia}}">
-                                            <input type="hidden" value="{{$orden->direccion->Calle}}">
-                                            <input type="hidden" value="{{$orden->direccion->NoExterior}}">
-                                            <input type="hidden" value="{{$orden->direccion->NoInterior}}">
-                                            <input type="hidden" value="{{$orden->direccion->Calle1}}">
-                                            <input type="hidden" value="{{$orden->direccion->Calle2}}">
-                                            <input type="hidden" value="{{$orden->id}}">
-                                            <input type="hidden" value="{{$orden->estatusSolicitud->Estatus}}">
-                                            <input type="hidden" value="{{$orden->created_at->toDateTimeString()}}">
-                                            <td>{{$orden->NombreCompleto}}</td>
-                                            <td>{{$orden->Telefono}}</td>
-                                            <td>{{$orden->Correo}}</td>
-                                            <td>{{$orden->producto->Nombre}}</td>
-                                            <td>{{$orden->Cantidad}}</td>
-                                            <td><span>$ </span>{{$orden->Total}}</td>
-                                            <td>{{$orden->created_at->diffForHumans()}}</td>
-                                            <td>
-                                                <span class="@if($orden->estatusSolicitud->Estatus == 'Pendiente') badge badge-soft-warning py-1 @elseif($orden->estatusSolicitud->Estatus == 'En proceso') badge badge-soft-primary py-1 @elseif($orden->estatusSolicitud->Estatus == 'Cancelado') badge badge-soft-danger py-1 @else badge badge-soft-success py-1 @endif">
-                                                    {{$orden->estatusSolicitud->Estatus}}
-                                                </span>
-                                            </td>
-                                            <td><span data-toggle="tooltip" data-placement="left" title="Ver detalles de direccion"><button type="button" name=""  class="btn btn-outline-info ver" data-toggle="modal" data-target="#verDireccion"><i class="fa fa-eye"></i></button></span></td>
-                                        </tr>
-                                    @endforeach
+                                        @foreach($ordenes as $orden)
+                                            <tr>
+                                                <input type="hidden" value="{{$orden->direccion->Estado}}">
+                                                <input type="hidden" value="{{$orden->direccion->Municipio}}">
+                                                <input type="hidden" value="{{$orden->direccion->Colonia}}">
+                                                <input type="hidden" value="{{$orden->direccion->Calle}}">
+                                                <input type="hidden" value="{{$orden->direccion->NoExterior}}">
+                                                <input type="hidden" value="{{$orden->direccion->NoInterior}}">
+                                                <input type="hidden" value="{{$orden->direccion->Calle1}}">
+                                                <input type="hidden" value="{{$orden->direccion->Calle2}}">
+                                                <input type="hidden" value="{{$orden->id}}">
+                                                <input type="hidden" value="{{$orden->estatusSolicitud->Estatus}}">
+                                                <input type="hidden" value="{{$orden->created_at->toDateTimeString()}}">
+                                                <td>{{$orden->NombreCompleto}}</td>
+                                                <td>{{$orden->Telefono}}</td>
+                                                <td>{{$orden->Correo}}</td>
+                                                <td>{{$orden->producto->Nombre}}</td>
+                                                <td>{{$orden->Cantidad}}</td>
+                                                <td><span>$ </span>{{$orden->Total}}</td>
+                                                <td>{{$orden->created_at->diffForHumans()}}</td>
+                                                <td>
+                                                    <span class="@if($orden->estatusSolicitud->Estatus == 'Pendiente') badge badge-soft-warning py-1 @elseif($orden->estatusSolicitud->Estatus == 'En proceso') badge badge-soft-primary py-1 @elseif($orden->estatusSolicitud->Estatus == 'Cancelado') badge badge-soft-danger py-1 @else badge badge-soft-success py-1 @endif">
+                                                        {{$orden->estatusSolicitud->Estatus}}
+                                                    </span>
+                                                </td>
+                                                <td><span data-toggle="tooltip" data-placement="left" title="Ver detalles de direccion"><button type="button" name=""  class="btn btn-outline-info ver" data-toggle="modal" data-target="#verDireccion"><i class="fa fa-eye"></i></button></span></td>
+                                            </tr>
+                                        @endforeach
                                     </div>
                                     {{ $ordenes->links() }}
                                     </tbody>

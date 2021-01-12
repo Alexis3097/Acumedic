@@ -43,7 +43,8 @@ class OrdenesController extends Controller
     
     public function buscar(Request $request, OrdenDeCompraViewModel $OrdenDeCompraViewModel)
     {
-        $ordenes = $OrdenDeCompraViewModel->buscar($request->buscar);
+        $variableurl = $request->all();
+        $ordenes = $OrdenDeCompraViewModel->buscar($request->buscar, $variableurl);
         return view('Admin.Ordenes.Allordenes',compact('ordenes'));
     }
 

@@ -8,7 +8,7 @@
                 <div class="col-sm-4 col-xl-6">
                     <h4 class="mb-1 mt-0">Ordenes de productos</h4> 
                     <div class="input-group">
-                        <input type="text" name="Nombre" class="form-control col-lg-12 @error('Nombre') is-invalid @enderror" placeholder="Buscar orden" required>                            
+                        <input type="text" name="buscar" class="form-control col-lg-12 @error('Nombre') is-invalid @enderror" placeholder="Buscar orden" required>                            
                     </div>    
                 </div>
                 <div class="form-group mb-3" style="display:inline-block;">
@@ -33,11 +33,11 @@
                                         <tr>
                                             <th scope="col">Nombre </th>
                                             <th scope="col">Número</th>
-                                            <th scope="col">Correo electrónico</th>
+                                            <th scope="col">Correo</th>
                                             <th scope="col">Producto</th>
                                             <th scope="col">Cantidad</th>
                                             <th scope="col">Total</th>
-                                            <th scope="col">Tiempo de solicitud</th>
+                                            <th scope="col">Tiempo</th>
                                             <th scope="col">Estatus</th>
                                             <th scope="col">Datos generales</th>
                                         </tr>

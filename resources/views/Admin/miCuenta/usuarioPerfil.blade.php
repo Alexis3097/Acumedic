@@ -102,17 +102,17 @@
                     <input type="hidden" name="idUsuario" id="idUsuario" value="{{Auth::user()->id}}">
                     <div class="form-group col-md-12 mb-3">
                         <label for="password">Contraseña actual</label>
-                        <input type="password" class="form-control" name="passwordActual" id="passwordActual" placeholder="Escriba la contraseña actual" required>
+                        <input type="password" class="form-control" name="passwordActual" id="passwordActual" placeholder="Escriba la contraseña actual" required maxlength="190">
                         <div id="errorpasswordActual" style="color:red;"></div>
                     </div>
                     <div class="form-group col-md-12 mb-3">
                         <label for="password">Nueva contraseña (minimo 6 caracteres)</label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Escriba la contraseña" required>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Escriba la contraseña" required maxlength="190">
                             <div id="errorPassword" style="color:red;"></div>
                     </div>
                     <div class="form-group col-md-12 mb-3">
                         <label for="password_confirmation">Repetir contraseña</label>
-                        <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="Repita la contraseña" required autocomplete="new-password">
+                        <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="Repita la contraseña" maxlength="190" required autocomplete="new-password">
                             <div id="errorPasswordconfirmation" style="color:red;"></div>
                     </div>
                     <div class="modal-footer">

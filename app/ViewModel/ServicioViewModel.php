@@ -87,9 +87,9 @@ class ServicioViewModel
       return Servicio::find($id);
     }
 
-    public function buscarServicios($nombre){
+    public function buscarServicios($nombre, $variableurl){
       $servicio = Servicio::where('Nombre', 'like','%' . $nombre. '%')
-                  ->get();
+                  ->paginate(15)->appends($variableurl);
       return $servicio;
     }
 

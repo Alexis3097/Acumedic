@@ -54,9 +54,10 @@ class usuariosController extends Controller
         return redirect()->route('usuarios.list');
     }
 
-    public function buscarUsuario(BuscarPacienteXCita $request, UsuarioViewModel $UsuarioViewModel)
+    public function buscarUsuario(Request $request, UsuarioViewModel $UsuarioViewModel)
     {
-        $usuarios = $UsuarioViewModel->buscarUsuario($request->Nombre);
+        $variableurl = $request->all();
+        $usuarios = $UsuarioViewModel->buscarUsuario($request->Nombre, $variableurl);
         return view('Admin.Usuarios.usuariosBusqueda',compact('usuarios'));
     }
 
