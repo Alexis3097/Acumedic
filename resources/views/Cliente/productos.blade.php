@@ -24,8 +24,10 @@
                 @foreach($productos as $producto)
                     <div class="col-md-3 single-product">
                         <div class="img-producto">
+                        @if(isset($producto->fotoProductos[0]))
                             <img src="{{asset('../uploads/productos/'.$producto->fotoProductos[0]->Nombre)}}" 
                             alt="{{$producto->fotoProductos[0]->TextoAlterno}}" title="{{$producto->fotoProductos[0]->Titulo}}">
+                        @endif
                         </div>
                         <div class="desc">
                             <h3 class="title-product">{{$producto->Nombre}}</h3>

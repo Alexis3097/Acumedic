@@ -6,14 +6,18 @@
           <div class="container">
               <div class="row">
                   <div class="col-md-1 col-xs-3 gallery">
+                  @if(isset($producto->fotoProductos))
                     @foreach($producto->fotoProductos as $foto)
                       <img src="{{asset('../uploads/productos/'.$foto->Nombre)}}" onclick="myFunction(this);" class="imagen-gallery" alt="{{$foto->TextoAlterno}}" title="{{$foto->Titulo}}">
                     @endforeach
+                  @endif
                   </div>
                   <div class="col-md-6 col-xs-8 producto">
+                    @if(isset($producto->fotoProductos[0]))
                       <img id="expandedImg" src="{{asset('../uploads/productos/'.$producto->fotoProductos[0]->Nombre)}}"  
                       alt="{{$producto->fotoProductos[0]->TextoAlterno}}" title="{{$producto->fotoProductos[0]->Titulo}}" class="imagen-principal">
                       <div id="imgtext"></div>
+                    @endif
                   </div>
                   <div class="col-md-5 col-xs-12 descripcion">
                       <h1 class="nombreProducto">{{$producto->Nombre}}</h1>
@@ -43,8 +47,10 @@
             @foreach($productos as $otroroducto)
                     <div class="col-md-3 single-product">
                         <div class="img-producto">
+                          @if(isset($otroroducto->fotoProductos[0]))
                             <img src="{{asset('../uploads/productos/'.$otroroducto->fotoProductos[0]->Nombre)}}" 
                             alt="{{$otroroducto->fotoProductos[0]->TextoAlterno}}" title="{{$otroroducto->fotoProductos[0]->Titulo}}">
+                          @endif
                         </div>
                         <div class="desc">
                             <h3 class="title-product">{{$otroroducto->Nombre}}</h3>
