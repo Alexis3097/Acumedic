@@ -10,6 +10,7 @@ class OrdenesController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware(['permission:OrdenDeCompra']);
     }
     /**
      * Display a listing of the resource.

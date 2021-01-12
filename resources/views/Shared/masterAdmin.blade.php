@@ -210,14 +210,18 @@
                                             </a>
                                         @endcan
                                     @endif
-                                    <a href="{{route('ordenes.pendientes')}}" class="dropdown-item notify-item">
-                                        <i data-feather="shopping-bag" class="icon-dual icon-xs mr-2"></i>
-                                        <span>Ordenes</span>
-                                    </a>
-                                    <a href="{{route('solicitudCita.pendientes')}}" class="dropdown-item notify-item">
-                                        <i data-feather="clipboard" class="icon-dual icon-xs mr-2"></i>
-                                        <span>Solicitud de citas</span>
-                                    </a>
+                                    @can('OrdenDeCompra')
+                                        <a href="{{route('ordenes.pendientes')}}" class="dropdown-item notify-item">
+                                            <i data-feather="shopping-bag" class="icon-dual icon-xs mr-2"></i>
+                                            <span>Ordenes</span>
+                                        </a>
+                                    @endcan
+                                    @can('SolicitudDeCita')
+                                        <a href="{{route('solicitudCita.pendientes')}}" class="dropdown-item notify-item">
+                                            <i data-feather="clipboard" class="icon-dual icon-xs mr-2"></i>
+                                            <span>Solicitud de citas</span>
+                                        </a>
+                                    @endcan
                                 </li>
                             @endif
                             @if(auth()->user()->can('ListadoUsuarios'))

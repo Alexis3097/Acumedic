@@ -10,7 +10,7 @@ class SolicitudCitasController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        // $this->middleware(['permission:SobreAcumedic']);
+        $this->middleware(['permission:SolicitudDeCita']);
     }
 /**
  * retorna solicitudes de citas pendientes

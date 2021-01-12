@@ -67,6 +67,10 @@ class UsuarioSeeder extends Seeder
         array_push($PermissionsArray, Permission::create(['name' => 'EliminarInventario']));
         //SOBRE ACUMEDIC
         array_push($PermissionsArray, Permission::create(['name' => 'SobreAcumedic']));
+        //ORDEN DE COMPRA DE PRODUCTOS
+        array_push($PermissionsArray, Permission::create(['name' => 'OrdenDeCompra']));
+        //SOLICITUD DE CITA
+        array_push($PermissionsArray, Permission::create(['name' => 'SolicitudDeCita']));
         //asignando los permisos al rol
         $role->syncPermissions($PermissionsArray);
 

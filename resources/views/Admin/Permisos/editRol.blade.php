@@ -176,6 +176,8 @@
                                                         <tr>
                                                             <th scope="col">Nombre de permisos</th>
                                                             <th scope="col">Sección sobre acumedic</th>
+                                                            <th scope="col">Ordenes de compra</th>
+                                                            <th scope="col">Solicitud de citas</th>
                                                         </tr>
                                                     </thead>
                                                         <tbody>
@@ -183,9 +185,11 @@
                                                                 <td>
                                                                     <input type="checkbox" class="custom-control-input checks" id="SobreAcumedic">
                                                                     <label class="custom-control-label" for="SobreAcumedic">
-                                                                        Sección sobre acumedic
+                                                                        Secciónes extra
                                                                     </label></td>
                                                                 <td><input type="checkbox" class="check" name="SobreAcumedic" value="SobreAcumedic" {{$permisos['SobreAcumedic']}}></td>
+                                                                <td><input type="checkbox" class="check" name="OrdenDeCompra" value="OrdenDeCompra" {{$permisos['OrdenDeCompra']}}></td>
+                                                                <td><input type="checkbox" class="check" name="SolicitudDeCita" value="SolicitudDeCita" {{$permisos['SolicitudDeCita']}}></td>
                                                             </tr>
                                                         </tbody>
                                                 </table>

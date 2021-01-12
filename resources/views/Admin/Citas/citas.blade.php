@@ -6,11 +6,12 @@
 <link rel="stylesheet" href="{{asset('js/Admin/libs/flatpickr/flatpickr.min.css')}}" type="text/css">
 @endsection
 @section('content')
+@can('ListadoCitas')
 <div class="content-page">
             <div class="content">
                 <div class="container-fluid">
                 <form action="{{route('citas.buscarPaciente')}}" method="get">
-                @can('ListadoCitas')
+                
                 <div class="row page-title align-items-center">
                             <div class="col-sm-4 col-md-4 col-xl-4">
                                 <h4 class="mb-1 mt-0">Citas</h4>

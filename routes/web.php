@@ -77,11 +77,12 @@ Route::group(['middleware' => ['permission:ListadoCitas|CrearCita|EditarCita|Eli
 });
 
 //SOLICITUD DE CITAS 
-Route::get('/solicitud-citas/pendientes', 'SolicitudCitasController@index')->name('solicitudCita.pendientes');
-Route::get('/solicitud-citas/todas', 'SolicitudCitasController@todas')->name('solicitudCita.todas');
-Route::put('/solicitud-citas/cambiar-estatus', 'SolicitudCitasController@changeEstatus')->name('solicitudCita.changeEstatus');
-Route::get('/solicitud-citas/buscar', 'SolicitudCitasController@buscar')->name('solicitudCita.buscar');
-
+Route::group(['middleware' => ['permission:SolicitudDeCita']], function () {
+    Route::get('/solicitud-citas/pendientes', 'SolicitudCitasController@index')->name('solicitudCita.pendientes');
+    Route::get('/solicitud-citas/todas', 'SolicitudCitasController@todas')->name('solicitudCita.todas');
+    Route::put('/solicitud-citas/cambiar-estatus', 'SolicitudCitasController@changeEstatus')->name('solicitudCita.changeEstatus');
+    Route::get('/solicitud-citas/buscar', 'SolicitudCitasController@buscar')->name('solicitudCita.buscar');
+});
 //PACIENTES
 Route::group(['middleware' => ['permission:ListadoPacientes|CrearPaciente|EditarPaciente|EliminarPaciente']], function () {
     Route::get('/pacientes', 'PacienteController@index')->name('paciente.list');
@@ -186,11 +187,12 @@ Route::group(['middleware' => ['permission:ListadoProducto|CrearProducto|EditarP
 });
 
 //ORDENES
-Route::get('/ordenes/pendientes', 'OrdenesController@index')->name('ordenes.pendientes');
-Route::get('/ordenes/todas', 'OrdenesController@getAllOrdenes')->name('ordenes.todas');
-Route::put('/ordenes/cambiar-estatus', 'OrdenesController@changeEstatus')->name('ordenes.changeEstatus');
-Route::get('/ordenes/buscar', 'OrdenesController@buscar')->name('ordenes.buscar');
-
+Route::group(['middleware' => ['permission:OrdenDeCompra']], function () {
+    Route::get('/ordenes/pendientes', 'OrdenesController@index')->name('ordenes.pendientes');
+    Route::get('/ordenes/todas', 'OrdenesController@getAllOrdenes')->name('ordenes.todas');
+    Route::put('/ordenes/cambiar-estatus', 'OrdenesController@changeEstatus')->name('ordenes.changeEstatus');
+    Route::get('/ordenes/buscar', 'OrdenesController@buscar')->name('ordenes.buscar');
+});
 //INVENTARIO
 Route::group(['middleware' => ['permission:ListadoInventario|CrearInventario|EditarInventario|EliminarInventario']], function () {
     Route::get('/inventario', 'InventarioController@index')->name('inventario.list');

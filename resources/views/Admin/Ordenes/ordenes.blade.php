@@ -1,5 +1,6 @@
 @extends('Shared.masterAdmin')
 @section('content')
+@can('OrdenDeCompra')
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -144,7 +145,7 @@
         </div>
     </div>
 </div>
-
+@endcan
 @endsection
 @section('orden')
     <script src="{{asset('js/Admin/ordenDeCompra.js')}}"></script>

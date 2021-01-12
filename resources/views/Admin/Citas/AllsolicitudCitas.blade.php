@@ -1,5 +1,6 @@
 @extends('Shared.masterAdmin')
 @section('content')
+@can('SolicitudDeCita')
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -108,6 +109,7 @@
         </div>
     </div>
 </div>
+@endcan
 @endsection
 @section('orden')
     <script src="{{asset('js/Admin/OrdenDeCita.js')}}"></script>
