@@ -78,6 +78,7 @@ Route::group(['middleware' => ['permission:ListadoCitas|CrearCita|EditarCita|Eli
 
 //SOLICITUD DE CITAS 
 Route::get('/solicitud-citas', 'SolicitudCitasController@index')->name('solicitudCita.show');
+Route::put('/solicitud-citas/cambiar-estatus', 'SolicitudCitasController@changeEstatus')->name('solicitudCita.changeEstatus');
 
 //PACIENTES
 Route::group(['middleware' => ['permission:ListadoPacientes|CrearPaciente|EditarPaciente|EliminarPaciente']], function () {
@@ -183,7 +184,8 @@ Route::group(['middleware' => ['permission:ListadoProducto|CrearProducto|EditarP
 });
 
 //ORDENES
-Route::get('/ordenes', 'OrdenesController@index')->name('ordenes.list');
+Route::get('/ordenes/pendientes', 'OrdenesController@index')->name('ordenes.pendientes');
+Route::get('/ordenes/todas', 'OrdenesController@getAllOrdenes')->name('ordenes.todas');
 Route::put('/ordenes/cambiar-estatus', 'OrdenesController@changeEstatus')->name('ordenes.changeEstatus');
 
 //INVENTARIO

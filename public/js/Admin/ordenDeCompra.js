@@ -12,6 +12,7 @@ $('.ver').on('click', function(){
     $('#Calle1').html(datos[6]);
     $('#Calle2').html(datos[7]);
     $('#IdOrden').val(datos[8]);
+    $('#FechaHora').html(datos[10]);
 
     //validar si ya esta completado el pedido ya no dar esa opcion
     if(datos[9] == 'Completado'){

@@ -291,4 +291,14 @@ class CitaViewModel
        }
        return 0;
      }
+
+     /**
+      * Cambia el estatus de la solicitud del la cita con el id correspondiente
+      */
+     public function changeEstatusSolicitudCita($IdSolicitudCita, $IdEstus){
+      $solicitud = SolicitudCitas::find($IdSolicitudCita);
+      $solicitud->IdEstatusSolicitud = $IdEstus;
+      $solicitud->save();
+      return;
+     }
 }

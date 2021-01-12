@@ -210,7 +210,7 @@
                                             </a>
                                         @endcan
                                     @endif
-                                    <a href="{{route('ordenes.list')}}" class="dropdown-item notify-item">
+                                    <a href="{{route('ordenes.pendientes')}}" class="dropdown-item notify-item">
                                         <i data-feather="shopping-bag" class="icon-dual icon-xs mr-2"></i>
                                         <span>Ordenes</span>
                                     </a>

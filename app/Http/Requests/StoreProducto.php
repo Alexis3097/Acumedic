@@ -24,27 +24,27 @@ class StoreProducto extends FormRequest
     public function rules()
     {
         return [
-            'Nombre' => 'required',
-            'PrecioCompra' => 'required|numeric',
-            'PrecioPublico' => 'required|numeric',
-            'CodigoBarra' => 'required_without_all:check',
+            'Nombre' => 'required|max:190',
+            'PrecioCompra' => 'required|numeric|max:190',
+            'PrecioPublico' => 'required|numeric|max:190',
+            'CodigoBarra' => 'required_without_all:check|max:190',
             'DescripcionCorta' => 'required|max:217',
             'DescripcionLarga' => 'required',
             'Foto1' => 'image|max:2048|required',
             'Foto2' => 'image|max:2048',
             'Foto3' => 'image|max:2048',
             'Foto4' => 'image|max:2048',
-            'Titulo1' => 'required',
-            'TextoAlterno1' => 'required',
+            'Titulo1' => 'required|max:190',
+            'TextoAlterno1' => 'required|max:190',
 
-            'Titulo2' => 'required_with:Foto2',
-            'TextoAlterno2' => 'required_with:Foto2',
+            'Titulo2' => 'required_with:Foto2|max:190',
+            'TextoAlterno2' => 'required_with:Foto2|max:190',
 
-            'Titulo3' => 'required_with:Foto3',
-            'TextoAlterno3' => 'required_with:Foto3',
+            'Titulo3' => 'required_with:Foto3|max:190',
+            'TextoAlterno3' => 'required_with:Foto3|max:190',
 
-            'Titulo4' => 'required_with:Foto4',
-            'TextoAlterno4' => 'required_with:Foto4',
+            'Titulo4' => 'required_with:Foto4|max:190',
+            'TextoAlterno4' => 'required_with:Foto4|max:190',
         ];
     }
 
@@ -82,6 +82,19 @@ class StoreProducto extends FormRequest
 
             'Titulo4.required_with' => 'El titulo es requerido',
             'TextoAlterno4.required_with' => 'El texto alternado es requerido',
+
+            'Nombre.max' => 'Solo puedes agregar 190 caracteres',
+            'PrecioCompra.max' => 'Solo puedes agregar 190 caracteres',
+            'PrecioPublico.max' => 'Solo puedes agregar 190 caracteres',
+            'CodigoBarra.max' => 'Solo puedes agregar 190 caracteres',
+            'Titulo1.max' => 'Solo puedes agregar 190 caracteres',
+            'TextoAlterno1.max' => 'Solo puedes agregar 190 caracteres',
+            'Titulo2.max' => 'Solo puedes agregar 190 caracteres',
+            'TextoAlterno2.max' => 'Solo puedes agregar 190 caracteres',
+            'Titulo3.max' => 'Solo puedes agregar 190 caracteres',
+            'TextoAlterno3.max' => 'Solo puedes agregar 190 caracteres',
+            'TextoAlterno4.max' => 'Solo puedes agregar 190 caracteres',
+            'Rol.max' => 'Solo puedes agregar 190 caracteres',
         ];
     }
 }

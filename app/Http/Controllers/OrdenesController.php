@@ -18,7 +18,7 @@ class OrdenesController extends Controller
      */
     public function index(OrdenDeCompraViewModel $OrdenDeCompraViewModel)
     {
-        $ordenes = $OrdenDeCompraViewModel->getAllOrdenDeCompra();
+        $ordenes = $OrdenDeCompraViewModel->getPedidosPendientes();
         return view('Admin.Ordenes.ordenes',compact('ordenes'));
     }
 
@@ -32,14 +32,12 @@ class OrdenesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * retorna todas los pedidos en orden del ultimo al primero
      */
-    public function store(Request $request)
+    public function getAllOrdenes(OrdenDeCompraViewModel $OrdenDeCompraViewModel)
     {
-        //
+        $ordenes = $OrdenDeCompraViewModel->getAllOrdenes();
+        return view('Admin.Ordenes.Allordenes',compact('ordenes'));
     }
 
     /**

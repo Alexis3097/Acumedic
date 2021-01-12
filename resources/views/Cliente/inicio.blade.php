@@ -138,26 +138,26 @@
                 <label for="NombreCompleto">Nombre Completo</label>
                 <input type="text" class="form-control" id="NombreCompleto" name="NombreCompleto" placeholder="Coloca aquí tú nombre" maxlength="190">
                
-                <div class="errorLabel" id="errorNombre">error</div>
+                <div class="errorLabel" id="errorNombre"></div>
               </div>
               <div class="form-group col-md-6" >
                 <label for="Correo">Correo electrónico</label>
                 <input type="email" class="form-control" id="Correo" name="Correo" placeholder="túcorreo@tudominio.com" maxlength="190">
                
-                <div class="errorLabel" id="errorCorreo">error</div>
+                <div class="errorLabel" id="errorCorreo"></div>
               </div>
               <div class="form-group col-md-6">
                 <label for="Ciudad">Ciudad</label>
                 <input type="text" class="form-control" id="Ciudad" name="Ciudad"   placeholder="Ej: Monterrey, N.L." maxlength="190">
                
-                <div class="errorLabel" id="errorCiudad">error</div>
+                <div class="errorLabel" id="errorCiudad"></div>
               </div>
             </div>
             <div class="form-group">
               <label for="Telefono">Teléfono</label>
               <input type="text" class="form-control" id="Telefono" name="Telefono" placeholder="Coloca aquí tú número teléfonico" maxlength="190">
              
-              <div class="errorLabel" id="errorTelefono">error</div>
+              <div class="errorLabel" id="errorTelefono"></div>
             </div>
             <button type="submit" class="btn-2 btn-primary enviar" id="enviarSolicitud">Quiero una cita</button>
           </form>

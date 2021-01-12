@@ -32,6 +32,7 @@
                                             <th scope="col">Número</th>
                                             <th scope="col">Ciudad</th>
                                             <th scope="col">Correo electrónico</th>
+                                            <th scope="col">Tiempo de solicitud</th>
                                             <th scope="col">Estatus</th>
                                             <th scope="col">Cambiar estatus</th>
                                         </tr>
@@ -44,6 +45,7 @@
                                                     <td>{{$solicitud->Telefono}}</td>
                                                     <td>{{$solicitud->Ciudad}}</td>
                                                     <td>{{$solicitud->Correo}}</td>
+                                                    <td>{{$solicitud->created_at->diffForHumans()}}</td>
                                                     <td>
                                                         <span class="@if($solicitud->estatusSolicitud->Estatus == 'Pendiente') badge badge-soft-warning py-1 @elseif($solicitud->estatusSolicitud->Estatus == 'En proceso') badge badge-soft-primary py-1 @elseif($solicitud->estatusSolicitud->Estatus == 'Cancelado') badge badge-soft-danger py-1 @else badge badge-soft-success py-1 @endif">
                                                         {{$solicitud->estatusSolicitud->Estatus}}
@@ -52,10 +54,11 @@
                                                     <td>
                                                         <div class="btn-group">
                                                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Estatus <i class="fas fa-chevron-down"></i></button>
-                                                            <div class="dropdown-menu">
-                                                                <button type="button" class="dropdown-item IdEstatus" data-toggle="modal" data-target="#Estatus" value="2" id="">En proceso</button>
-                                                                <button type="button" class="dropdown-item IdEstatus" data-toggle="modal" data-target="#Estatus" value="3" id="Completado">Completado</button>
-                                                                <button type="button" class="dropdown-item IdEstatus" data-toggle="modal" data-target="#Estatus" value="4" id="">Cancelado</button>
+                                                            <div class="dropdown-menu estatus">
+                                                                <input type="hidden" value="{{$solicitud->id}}">
+                                                                <button type="button" class="dropdown-item changeEstatus" data-toggle="modal" data-target="#Estatus" value="2" id="">En proceso</button>
+                                                                <button type="button" class="dropdown-item changeEstatus" data-toggle="modal" data-target="#Estatus" value="3" id="Completado">Completado</button>
+                                                                <button type="button" class="dropdown-item changeEstatus" data-toggle="modal" data-target="#Estatus" value="4" id="">Cancelado</button>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -85,11 +88,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('ordenes.changeEstatus')}}" method="post">
+                <form action="{{route('solicitudCita.changeEstatus')}}" method="post">
                     @csrf
                     @method('put')
                     <input type="hidden" name="IdEstatus" id="IdEstatus">
-                    <input type="hidden" name="IdOrden" id="IdOrdenEdit">
+                    <input type="hidden" name="IdSolicitudCita" id="IdSolicitudCita">
                     <p>¿Esta seguro que desea cambiar el estatus?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -100,4 +103,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('orden')
+    <script src="{{asset('js/Admin/OrdenDeCita.js')}}"></script>
 @endsection

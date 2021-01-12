@@ -49,7 +49,7 @@
                                         </div>
                                         <div class="form-group col-md-4 mb-3">
                                             <label for="PrecioCompra">Precio de compra</label>
-                                            <input class="form-control @error('PrecioCompra') is-invalid @enderror"  name="PrecioCompra" id="PrecioCompra" value="{{old('PrecioCompra', $producto->PrecioCompra)}}" required placeholder="0.00">
+                                            <input maxlength="190"class="form-control @error('PrecioCompra') is-invalid @enderror"  name="PrecioCompra" id="PrecioCompra" value="{{old('PrecioCompra', $producto->PrecioCompra)}}" required placeholder="0.00">
                                             @error('PrecioCompra')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -58,7 +58,7 @@
                                         </div>
                                         <div class="form-group col-md-4 mb-3">
                                             <label for="PrecioPublico">Precio publico</label>
-                                            <input class="form-control @error('PrecioPublico') is-invalid @enderror"  value="{{old('PrecioPublico', $producto->PrecioPublico)}}" name="PrecioPublico" id="PrecioPublico" required placeholder="0.00">
+                                            <input maxlength="190" class="form-control @error('PrecioPublico') is-invalid @enderror"  value="{{old('PrecioPublico', $producto->PrecioPublico)}}" name="PrecioPublico" id="PrecioPublico" required placeholder="0.00">
                                             @error('PrecioPublico')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -87,7 +87,7 @@
                                                 <input type="checkbox" name="check" value="1">
                                                 <label style="display:inline-block;">Generar automaticamente</label>
                                             </div>
-                                            <input type="text" class="form-control @error('CodigoBarra') is-invalid @enderror"  value="{{old('CodigoBarra', $producto->CodigoBarra)}}" name="CodigoBarra" id="CodigoBarra" placeholder="Escribe el código">
+                                            <input maxlength="190" type="text" class="form-control @error('CodigoBarra') is-invalid @enderror"  value="{{old('CodigoBarra', $producto->CodigoBarra)}}" name="CodigoBarra" id="CodigoBarra" placeholder="Escribe el código">
                                             @error('CodigoBarra')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -150,7 +150,7 @@
                                             <div class="form-group col-md-12">
                                                 <label for="Titulo1" style="text-align: left;">Titulo de la imagen</label>
                                                 <div>
-                                                    <input type="text" class="form-control @error('Titulo1') is-invalid @enderror" 
+                                                    <input maxlength="190" type="text" class="form-control @error('Titulo1') is-invalid @enderror" 
                                                     value="@if(isset($producto->fotoProductos[0])){{old('Titulo1', $producto->fotoProductos[0]->Titulo)}}@else{{old('Titulo1')}}@endif"
                                                     name="Titulo1" id="Titulo1" placeholder="Titulo">
                                                     @error('Titulo1')
@@ -163,7 +163,7 @@
                                             <div class="form-group col-md-12">
                                                 <label for="TextoAlterno1" style="text-align: left;">Texto alternado</label>
                                                 <div>
-                                                    <input type="text" class="form-control @error('TextoAlterno1') is-invalid @enderror" 
+                                                    <input maxlength="190" type="text" class="form-control @error('TextoAlterno1') is-invalid @enderror" 
                                                     value="@if(isset($producto->fotoProductos[0])){{old('TextoAlterno1', $producto->fotoProductos[0]->TextoAlterno)}}@else{{old('TextoAlterno1')}}@endif"
                                                     name="TextoAlterno1" id="TextoAlterno1" placeholder="Texto alterno de imagen" >
                                                     @error('TextoAlterno1')
@@ -209,7 +209,7 @@
                                             <div class="form-group col-md-12">
                                                 <label for="Titulo2" style="text-align: left;">Titulo de la imagen</label>
                                                 <div>
-                                                    <input type="text" 
+                                                    <input type="text" maxlength="190"
                                                     value="@if(isset($producto->fotoProductos[1])){{old('Titulo2', $producto->fotoProductos[1]->Titulo)}}@else{{old('Titulo2')}}@endif" 
                                                     class="form-control @error('Titulo2') is-invalid @enderror" name="Titulo2" id="Titulo2" placeholder="Titulo">
                                                     @error('Titulo2')
@@ -222,7 +222,7 @@
                                             <div class="form-group col-md-12">
                                                 <label for="TextoAlterno2" style="text-align: left;">Texto alternado</label>
                                                 <div>
-                                                    <input type="text" 
+                                                    <input type="text" maxlength="190"
                                                     value="@if(isset($producto->fotoProductos[1])){{old('TextoAlterno2', $producto->fotoProductos[1]->TextoAlterno)}}@else{{old('TextoAlterno2')}}@endif" 
                                                     class="form-control @error('TextoAlterno2') is-invalid @enderror" name="TextoAlterno2" id="TextoAlterno2" placeholder="Texto alterno de imagen">
                                                     @error('TextoAlterno2')
@@ -268,7 +268,7 @@
                                             <div class="form-group col-md-12">
                                                 <label for="Titulo3" style="text-align: left;">Titulo de la imagen</label>
                                                 <div>
-                                                    <input type="text" 
+                                                    <input type="text" maxlength="190"
                                                     value="@if(isset($producto->fotoProductos[2])){{old('Titulo3', $producto->fotoProductos[2]->Titulo)}}@else{{old('Titulo3')}}@endif"  
                                                     class="form-control @error('Titulo3') is-invalid @enderror" name="Titulo3" id="Titulo3" placeholder="Titulo">
                                                     @error('Titulo3')
@@ -281,7 +281,7 @@
                                             <div class="form-group col-md-12">
                                                 <label for="TextoAlterno3" style="text-align: left;">Texto alternado</label>
                                                 <div>
-                                                    <input type="text" value="@if(isset($producto->fotoProductos[2])){{old('TextoAlterno3', $producto->fotoProductos[2]->TextoAlterno)}}@else{{old('TextoAlterno3')}}@endif" 
+                                                    <input type="text" maxlength="190" value="@if(isset($producto->fotoProductos[2])){{old('TextoAlterno3', $producto->fotoProductos[2]->TextoAlterno)}}@else{{old('TextoAlterno3')}}@endif" 
                                                     class="form-control @error('TextoAlterno3') is-invalid @enderror" name="TextoAlterno3" id="TextoAlterno3" placeholder="Texto alterno de imagen">
                                                     @error('TextoAlterno3')
                                                         <div class="invalid-feedback">
@@ -326,7 +326,7 @@
                                             <div class="form-group col-md-12">
                                                 <label for="Titulo4" style="text-align: left;">Titulo de la imagen</label>
                                                 <div>
-                                                    <input type="text" 
+                                                    <input type="text" maxlength="190"
                                                     value="@if(isset($producto->fotoProductos[3])){{old('Titulo4', $producto->fotoProductos[3]->Titulo)}}@else{{old('Titulo4')}}@endif" 
                                                     class="form-control @error('Titulo4') is-invalid @enderror" name="Titulo4" id="Titulo4" placeholder="Titulo">
                                                     @error('Titulo4')
@@ -339,7 +339,7 @@
                                             <div class="form-group col-md-12">
                                                 <label for="TextoAlterno4" style="text-align: left;">Texto alternado</label>
                                                 <div>
-                                                    <input type="text"  value="@if(isset($producto->fotoProductos[3])){{old('TextoAlterno4', $producto->fotoProductos[3]->TextoAlterno)}}@else{{old('TextoAlterno4')}}@endif" 
+                                                    <input type="text"  maxlength="190" value="@if(isset($producto->fotoProductos[3])){{old('TextoAlterno4', $producto->fotoProductos[3]->TextoAlterno)}}@else{{old('TextoAlterno4')}}@endif" 
                                                     class="form-control @error('TextoAlterno4') is-invalid @enderror" name="TextoAlterno4" id="TextoAlterno4" placeholder="Texto alterno de imagen">
                                                     @error('TextoAlterno4')
                                                         <div class="invalid-feedback">
