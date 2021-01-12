@@ -28,7 +28,7 @@ class OrdenesController extends Controller
     public function changeEstatus(Request $request, OrdenDeCompraViewModel $OrdenDeCompraViewModel)
     {
         $OrdenDeCompraViewModel->changeEstatus($request->IdOrden, $request->IdEstatus);
-        return redirect()->route('ordenes.list');
+        return redirect()->route('ordenes.pendientes');
     }
 
     /**

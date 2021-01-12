@@ -275,7 +275,14 @@ class CitaViewModel
      * mostrar todas las solicitudes
      */
     public function getAllSolicitudCitas(){
-      return SolicitudCitas::paginate(15);
+      return SolicitudCitas::orderBy('id','desc')->paginate(15);
+    }
+
+    /**
+     * retorna las solicitudes de cita con estatus 1= pendiente o 2= proceso
+     */
+    public function getSolicitudCitasPendientes(){
+      return SolicitudCitas::where('IdEstatusSolicitud',1)->orWhere('IdEstatusSolicitud',2)->paginate(15);
     }
 
 

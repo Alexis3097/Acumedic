@@ -12,14 +12,23 @@ class SolicitudCitasController extends Controller
         $this->middleware('auth');
         // $this->middleware(['permission:SobreAcumedic']);
     }
-
+/**
+ * retorna solicitudes de citas pendientes
+ */
     public function index(CitaViewModel $CitaViewModel){
-        $solicitudCitas = $CitaViewModel->getAllSolicitudCitas();
+        $solicitudCitas = $CitaViewModel->getSolicitudCitasPendientes();
         return view('Admin.Citas.solicitudCitas',compact('solicitudCitas'));
     }
 
     public function changeEstatus(Request $request, CitaViewModel $CitaViewModel){
         $CitaViewModel->changeEstatusSolicitudCita($request->IdSolicitudCita,$request->IdEstatus);
-        return redirect()->route('solicitudCita.show');
+        return redirect()->route('solicitudCita.pendientes');
+    }
+    /**
+     * retorna todas las solicitudes
+     */
+    public function todas( CitaViewModel $CitaViewModel){
+        $solicitudCitas = $CitaViewModel->getAllSolicitudCitas();
+        return view('Admin.Citas.AllsolicitudCitas',compact('solicitudCitas'));
     }
 }

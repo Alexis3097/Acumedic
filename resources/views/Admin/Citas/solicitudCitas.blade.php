@@ -19,7 +19,7 @@
                 </form>
             </div>
             <div class="form-group mb-4">
-                <a href="{{route('ordenes.todas')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Todas las citas</a>
+                <a href="{{route('solicitudCita.todas')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Todas las solicitudes</a>
             </div>
                     <!-- content -->
                     <!-- row -->       
