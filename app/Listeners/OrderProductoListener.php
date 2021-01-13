@@ -2,9 +2,12 @@
 
 namespace App\Listeners;
 
+use App\User;
+use App\Notifications\OrdenCreada;
 use App\Events\OrderProductoEvents;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Notification;
 
 class OrderProductoListener
 {
@@ -26,6 +29,9 @@ class OrderProductoListener
      */
     public function handle(OrderProductoEvents $event)
     {
-        //
+        User::All()->each(function(User $users) use ($event){
+            Notification::send($users, new OrdenCreada($event->OrdenDeCompra));
+          });
+          
     }
 }

@@ -1,9 +1,11 @@
 <?php
 
 namespace App\ViewModel;
+use Carbon\Carbon;
 use App\Models\Direccion;
 use App\Models\Inventario;
 use App\Models\OrdenDeCompra;
+use Illuminate\Support\Facades\DB;
 
 class OrdenDeCompraViewModel
 {
@@ -24,6 +26,18 @@ class OrdenDeCompraViewModel
   public function buscar($Nombre, $vairableurl){
     $orden = OrdenDeCompra::where('NombreCompleto', 'like','%' . $Nombre. '%')->paginate(15)->appends($vairableurl);
     return $orden;
+  }
+
+  public function buscarXId($id){
+    $orden = OrdenDeCompra::where('id',$id)->paginate(1);
+    return $orden;
+  }
+  /**
+   * marca la notificacion como leida, solo la del id
+   */
+  public function marcarNotificacion($idnotify){
+    DB::table('notifications')->where('id', $idnotify)->update(['read_at' => Carbon::now()]);
+    return;
   }
 
   public function getOrdenDeCompra($Id)

@@ -49,15 +49,14 @@ class OrdenesController extends Controller
         return view('Admin.Ordenes.Allordenes',compact('ordenes'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+  /**
+   * busca ordenes especificos  por id
+   */
+    public function buscarXId($id,$idnotify, OrdenDeCompraViewModel $OrdenDeCompraViewModel)
     {
-        //
+        $ordenes = $OrdenDeCompraViewModel->buscarXId($id);
+        $OrdenDeCompraViewModel->marcarNotificacion($idnotify);
+        return view('Admin.Ordenes.Allordenes',compact('ordenes'));
     }
 
     /**

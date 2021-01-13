@@ -2,23 +2,25 @@
 
 namespace App\Notifications;
 
+use Carbon\Carbon;
+use App\Models\OrdenDeCompra;
 use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Notifications\Notification;
 
 class OrdenCreada extends Notification
 {
     use Queueable;
-
+    public $OrdenDeCompra;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(OrdenDeCompra $OrdenDeCompra)
     {
-        //
+        $this->OrdenDeCompra = $OrdenDeCompra;
     }
 
     /**
@@ -55,7 +57,9 @@ class OrdenCreada extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            'IdOrden' => $this->OrdenDeCompra->id,
+            'Cantidad' => $this->OrdenDeCompra->Cantidad,
+            'Telefono' => $this->OrdenDeCompra->Telefono,
         ];
     }
 }

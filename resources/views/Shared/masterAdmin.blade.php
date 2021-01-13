@@ -51,54 +51,69 @@
                     </ul>
 
                     <ul class="navbar-nav flex-row ml-auto d-flex list-unstyled topnav-menu float-right mb-0">
+                        <!-- NOTIFICACIONES -->
+                        <li class="dropdown notification-list" data-toggle="tooltip" data-placement="left"
+                            @if(auth()->user()->unreadNotifications()->count() > 0)
+                                title="{{auth()->user()->unreadNotifications()->count()}} Notificación sin leer"
+                            @else
+                                title="No tiene notificacioes"
+                            @endif>
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+                                aria-expanded="false">
+                                <i data-feather="bell"></i>
+                                @if(auth()->user()->unreadNotifications()->count() > 0)
+                                    <span class="noti-icon-badge"></span>
+                                @endif
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-lg">
+
+                                <!-- item-->
+                                <div class="dropdown-item noti-title border-bottom">
+                                    <h5 class="m-0 font-size-16">
+                                        <span class="float-right">
+                                        @if(auth()->user()->unreadNotifications()->count() > 0)
+                                            <a href="{{route('markAsRead')}}" class="text-dark">
+                                                <small>Marcar como leidas</small>
+                                            </a>
+                                        @endif
+                                        </span>Notificaciones
+                                    </h5>
+                                </div>
+                                @if(auth()->user()->unreadNotifications()->count() > 0)
+                                    <div class="slimscroll noti-scroll">
+                                    @foreach(auth()->user()->unreadNotifications as $notification)
+                                        @if($notification->type == 'App\Notifications\OrdenCreada')
+                                            <!-- item-->
+                                            <a href="{{route('ordenes.buscarXId',['id' =>$notification->data['IdOrden'], 'idnotify' => $notification->id])}}" class="dropdown-item notify-item border-bottom">
+                                                <div class="notify-icon"><i data-feather="shopping-bag" class="icon-dual icon-xs mr-2"></i></div>
+                                                <p class="notify-details">Nueva orden de compra.<small class="text-muted">{{$notification->created_at->diffForHumans()}}</small>
+                                                </p>
+                                            </a>
+                                        @else
+                                            <!-- item-->
+                                            <a href="" class="dropdown-item notify-item border-bottom">
+                                                <div class="notify-icon"><i data-feather="clipboard" class="icon-dual icon-xs mr-2"></i></div>
+                                                <p class="notify-details">Solicitud de cita.<small class="text-muted">{{$notification->created_at->diffForHumans()}}</small>
+                                                </p>
+                                            </a>
+                                        @endif
+                                    @endforeach
+                                    </div>
+                                @endif
+                                <!-- All-->
+                                <a href="{{ route('home') }}"
+                                    class="dropdown-item text-center text-primary notify-item notify-all border-top">
+                                    Ver más
+                                    <i class="fi-arrow-right"></i>
+                                </a>
+
+                            </div>
+                        </li>
+                        <!-- END NOTIFICACIONES -->
                         <li class="dropdown notification-list" data-toggle="tooltip" data-placement="left" title="Configuración">
                             <a href="javascript:void(0);" class="nav-link right-bar-toggle">
                                 <i data-feather="settings"></i>
                             </a>
-                        </li>
-
-                        <li class="dropdown notification-list align-self-center profile-dropdown">
-                            <a class="nav-link dropdown-toggle nav-user mr-0" data-toggle="dropdown" href="#" role="button"
-                                aria-haspopup="false" aria-expanded="false">
-                                <div class="media user-profile ">
-                                    <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" alt="user-image" class="rounded-circle align-self-center" />
-                                    <div class="media-body text-left">
-                                        <h6 class="pro-user-name ml-2 my-0">
-                                            <span>Acumedic</span>
-                                            <span class="pro-user-desc text-muted d-block mt-1">Administrator </span>
-                                        </h6>
-                                    </div>
-                                    <span data-feather="chevron-down" class="ml-2 align-self-center"></span>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu profile-dropdown-items dropdown-menu-right">
-                                <a href="pages-profile.html" class="dropdown-item notify-item">
-                                    <i data-feather="user" class="icon-dual icon-xs mr-2"></i>
-                                    <span>Mi cuenta</span>
-                                </a>
-
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i data-feather="settings" class="icon-dual icon-xs mr-2"></i>
-                                    <span>Configuración</span>
-                                </a>
-
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i data-feather="help-circle" class="icon-dual icon-xs mr-2"></i>
-                                    <span>Support</span>
-                                </a>
-
-                                <a href="pages-lock-screen.html" class="dropdown-item notify-item">
-                                    <i data-feather="lock" class="icon-dual icon-xs mr-2"></i>
-                                    <span>Lock Screen</span>
-                                </a>
-
-                                <div class="dropdown-divider"></div>
-
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i data-feather="log-out" class="icon-dual icon-xs mr-2"></i>
-                                    <span>Logout</span>
-                                </a>
-                            </div>
                         </li>
                     </ul>
                 </div>
@@ -153,7 +168,9 @@
                             <li>
                                 <a href="{{ route('home') }}">
                                     <i data-feather="home"></i>
-                                    <span class="badge badge-success float-right">1</span>
+                                    @if(auth()->user()->unreadNotifications()->count() > 0)
+                                        <span class="badge badge-success float-right">{{auth()->user()->unreadNotifications()->count()}} </span>
+                                    @endif
                                     <span> Inicio </span>
                                 </a>
                             </li>

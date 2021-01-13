@@ -2,11 +2,14 @@
 
 namespace App\ViewModel;
 use DB;
+use App\User;
 use App\Models\Producto;
 use App\Models\Direccion;
 use App\Models\Inventario;
 use App\Models\fotoProducto;
 use App\Models\OrdenDeCompra;
+use App\Notifications\OrdenCreada;
+use App\Events\OrderProductoEvents;
 
 class ProductoViewModel
 {
@@ -259,6 +262,7 @@ class ProductoViewModel
     $orden->Cantidad = $ordenData->Cantidad;
     $orden->Total = $TOTAL;
     $orden->save();
+    $this->notificacionOrdenDeCompra($orden);
     return $orden;
 
   }
@@ -270,6 +274,11 @@ class ProductoViewModel
     $DireccionModel = Direccion::create($ordenData->toArray());
     return $DireccionModel;
     
+  }
+
+  public function notificacionOrdenDeCompra($orden){
+    event(new OrderProductoEvents($orden));
+    return;
   }
 
  

@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/test', function () {
-    event(new OrderProductoEvents);
-    return view('test');
-});
+// Route::get('/test', function () {
+//     event(new OrderProductoEvents);
+//     return view('test');
+// });
 
 Auth::routes();
 // Route::pattern('IdPaciente', '[0-9]+');
@@ -56,10 +56,17 @@ Route::post('/solicitar-cita', 'Cliente\CitaController@solicitarCita')->name('so
 //-------------------------------Rutas de administrador-------------------------------
 Route::get('/home', 'HomeController@index')->name('home');
 //MI CUENTA
-Route::get('/mi-cuenta', 'MiCuentaController@index')->name('miCuenta.show');
-Route::put('/mi-cuenta/changePassword', 'MiCuentaController@changePassword')->name('miCuenta.changePassword');
-Route::get('/mi-cuenta/editar/{IdUsuario}', 'MiCuentaController@edit')->name('miCuenta.edit');
-Route::put('/mi-cuenta/update/{IdUsuario}', 'MiCuentaController@update')->name('miCuenta.update');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/mi-cuenta', 'MiCuentaController@index')->name('miCuenta.show');
+    Route::put('/mi-cuenta/changePassword', 'MiCuentaController@changePassword')->name('miCuenta.changePassword');
+    Route::get('/mi-cuenta/editar/{IdUsuario}', 'MiCuentaController@edit')->name('miCuenta.edit');
+    Route::put('/mi-cuenta/update/{IdUsuario}', 'MiCuentaController@update')->name('miCuenta.update');
+    Route::get('/mi-cuenta/update/{IdUsuario}', 'MiCuentaController@update')->name('miCuenta.update');
+    Route::get('/markAsRead', function () {
+        auth()->user()->unreadNotifications->markAsRead();
+        return redirect()->back();
+    })->name('markAsRead');
+});
 //CITAS
 Route::group(['middleware' => ['permission:ListadoCitas|CrearCita|EditarCita|EliminarCita']], function () {
     Route::get('/citas', 'CitasController@index')->name('citas.list');
@@ -192,6 +199,7 @@ Route::group(['middleware' => ['permission:OrdenDeCompra']], function () {
     Route::get('/ordenes/todas', 'OrdenesController@getAllOrdenes')->name('ordenes.todas');
     Route::put('/ordenes/cambiar-estatus', 'OrdenesController@changeEstatus')->name('ordenes.changeEstatus');
     Route::get('/ordenes/buscar', 'OrdenesController@buscar')->name('ordenes.buscar');
+    Route::get('/ordenes/buscar/orden-{id}-{idnotify}', 'OrdenesController@buscarXId')->name('ordenes.buscarXId');
 });
 //INVENTARIO
 Route::group(['middleware' => ['permission:ListadoInventario|CrearInventario|EditarInventario|EliminarInventario']], function () {
