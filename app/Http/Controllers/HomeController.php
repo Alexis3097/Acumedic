@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ViewModel\CitaViewModel;
 use App\ViewModel\PacienteViewModel;
+use App\ViewModel\OrdenDeCompraViewModel;
 
 class HomeController extends Controller
 {
@@ -23,12 +24,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(CitaViewModel $CitaViewModel, PacienteViewModel $PacienteViewModel)
+    public function index(CitaViewModel $CitaViewModel, PacienteViewModel $PacienteViewModel, OrdenDeCompraViewModel $OrdenDeCompraViewModel)
     {
         $citas = $CitaViewModel->getCitasInicio();
+        $numeroSolicitudPendientes = $CitaViewModel->getNumeroSolicitudPendientes();
+        $numeroOrdenes = $OrdenDeCompraViewModel->getNumeroPedidosPendientes();
         $citasDelDia = $CitaViewModel->numeroCitasDelDia();
         $totalPacientes = $PacienteViewModel->totalPacientes();
-        return view('Admin.home',compact('citas','citasDelDia','totalPacientes'));
+        return view('Admin.home',compact('citas','citasDelDia','totalPacientes','numeroSolicitudPendientes','numeroOrdenes'));
     }
 
     public function doLogout()

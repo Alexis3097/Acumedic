@@ -40,4 +40,10 @@ class SolicitudCitasController extends Controller
         $solicitudCitas = $CitaViewModel->buscar($request->Nombre,$variableurl);
         return view('Admin.Citas.AllsolicitudCitas',compact('solicitudCitas'));
     }
+
+    public function buscarXId($id,$idnotify, CitaViewModel $CitaViewModel){
+        $solicitudCitas = $CitaViewModel->buscarXId($id);
+        $CitaViewModel->marcarNotificacion($idnotify);
+        return view('Admin.Citas.AllsolicitudCitas',compact('solicitudCitas'));
+    }
 }

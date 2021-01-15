@@ -17,6 +17,14 @@ class OrdenDeCompraViewModel
     return OrdenDeCompra::where('IdEstatusSolicitud',1)->orWhere('IdEstatusSolicitud',2)->paginate(15);
   }
   /**
+   * retorna el numero de ordenes pendientes
+   */
+  public function getNumeroPedidosPendientes()
+  {
+    return count($this->getPedidosPendientes());
+  }
+  
+  /**
    * retorna todas las ordenes en orden de la más nueva a la más vieja
    */
   public function getAllOrdenes(){

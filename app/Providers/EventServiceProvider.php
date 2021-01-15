@@ -21,6 +21,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\OrderProductoEvents'=>[
             'App\Listeners\OrderProductoListener'
         ],
+        'App\Events\SolicituCitaEvents'=>[
+            'App\Listeners\SolicituCitaListener'
+        ],
     ];
 
     /**

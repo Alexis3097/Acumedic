@@ -47,7 +47,11 @@
                             <div class="media p-3">
                                 <div class="media-body">
                                     <span class="text-muted text-uppercase font-size-12 font-weight-bold">Ordenes pendientes</span>
-                                    <h2 class="mb-0">0</h2>
+                                    @if($numeroOrdenes == 0)
+                                        <h2 class="mb-0">0</h2>
+                                    @else
+                                        <h2 class="mb-0">{{$numeroOrdenes}}</h2>
+                                    @endif
                                 </div>
                                 <div class="align-self-center">
                                     <span class="icon-lg icon-dual-primary" data-feather="shopping-cart"></span>
@@ -63,8 +67,12 @@
                         <div class="card-body p-0">
                             <div class="media p-3">
                                 <div class="media-body">
-                                    <span class="text-muted text-uppercase font-size-12 font-weight-bold">Solicitudes de citas</span>
-                                    <h2 class="mb-0">0</h2>
+                                    <span class="text-muted text-uppercase font-size-12 font-weight-bold">Solicitudes de citas pendientes</span>
+                                    @if($numeroSolicitudPendientes == 0)
+                                        <h2 class="mb-0">0</h2>
+                                    @else
+                                        <h2 class="mb-0">{{$numeroSolicitudPendientes}}</h2>
+                                    @endif
                                 </div>
                                 <div class="align-self-center">
                                     <span class="icon-lg icon-dual-primary" data-feather="clipboard"></span>

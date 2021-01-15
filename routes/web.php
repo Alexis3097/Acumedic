@@ -89,6 +89,7 @@ Route::group(['middleware' => ['permission:SolicitudDeCita']], function () {
     Route::get('/solicitud-citas/todas', 'SolicitudCitasController@todas')->name('solicitudCita.todas');
     Route::put('/solicitud-citas/cambiar-estatus', 'SolicitudCitasController@changeEstatus')->name('solicitudCita.changeEstatus');
     Route::get('/solicitud-citas/buscar', 'SolicitudCitasController@buscar')->name('solicitudCita.buscar');
+    Route::get('/solicitud-citas/buscar/orden-{id}-{idnotify}', 'SolicitudCitasController@buscarXId')->name('solicitudCita.buscarXId');
 });
 //PACIENTES
 Route::group(['middleware' => ['permission:ListadoPacientes|CrearPaciente|EditarPaciente|EliminarPaciente']], function () {

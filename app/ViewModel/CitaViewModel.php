@@ -11,6 +11,7 @@ use App\Models\CitaHorario;
 use App\Models\TipoConsulta;
 use App\Models\SolicitudCitas;
 use App\Models\EstatusConsulta;
+use App\Events\SolicituCitaEvents;
 
 class CitaViewModel
 {
@@ -268,6 +269,7 @@ class CitaViewModel
       $solicitudCita->Ciudad = $solicitudData->Ciudad;
       $solicitudCita->Telefono = $solicitudData->Telefono;
       $solicitudCita->save();
+      $this->notificacionSolicitudCita($solicitudCita);
       return $solicitudCita;
     }
 
@@ -283,6 +285,10 @@ class CitaViewModel
      */
     public function getSolicitudCitasPendientes(){
       return SolicitudCitas::where('IdEstatusSolicitud',1)->orWhere('IdEstatusSolicitud',2)->paginate(15);
+    }
+
+    public function getNumeroSolicitudPendientes(){
+     return count($this->getSolicitudCitasPendientes());
     }
 
 
@@ -317,5 +323,20 @@ class CitaViewModel
                       ->paginate(15)->appends($varibles);
         return $solicitudes;
 
+      }
+
+      public function notificacionSolicitudCita($Solicitud){
+        event(new SolicituCitaEvents($Solicitud));
+        return;
+      }
+
+      public function buscarXId($id){
+        $solicitud = SolicitudCitas::where('id',$id)->paginate(1);
+        return $solicitud;
+      }
+
+      public function marcarNotificacion($idnotify){
+        DB::table('notifications')->where('id', $idnotify)->update(['read_at' => Carbon::now()]);
+        return;
       }
 }

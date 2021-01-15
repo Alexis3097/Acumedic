@@ -32,6 +32,7 @@ $('.enviar').on('click',function(event){
             }, 6000);
         },
         error: function(data){
+            console.log(data.responseJSON)
             $("#enviarSolicitud").prop('disabled',false);
             if(data.responseJSON.errors.NombreCompleto){
                 $('#errorNombre').html(data.responseJSON.errors.NombreCompleto[0]);

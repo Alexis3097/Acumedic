@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="{{asset('css/Admin/icons.min.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/app.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/app.min.css')}}" type="text/css">
+        <script src="https://js.pusher.com/6.0/pusher.min.js"></script>
         @livewireStyles
         @yield('estilosCitas')
         @yield('estilosCitasIndex')
@@ -51,14 +52,16 @@
                     </ul>
 
                     <ul class="navbar-nav flex-row ml-auto d-flex list-unstyled topnav-menu float-right mb-0">
+                        <audio src="{{asset('../notificacion.mp3')}}" id="sonido"></audio>
                         <!-- NOTIFICACIONES -->
                         <li class="dropdown notification-list" data-toggle="tooltip" data-placement="left"
+                        
                             @if(auth()->user()->unreadNotifications()->count() > 0)
                                 title="{{auth()->user()->unreadNotifications()->count()}} Notificación sin leer"
                             @else
                                 title="No tiene notificacioes"
                             @endif>
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" id="notificacion"
                                 aria-expanded="false">
                                 <i data-feather="bell"></i>
                                 @if(auth()->user()->unreadNotifications()->count() > 0)
@@ -79,27 +82,25 @@
                                         </span>Notificaciones
                                     </h5>
                                 </div>
-                                @if(auth()->user()->unreadNotifications()->count() > 0)
-                                    <div class="slimscroll noti-scroll">
-                                    @foreach(auth()->user()->unreadNotifications as $notification)
-                                        @if($notification->type == 'App\Notifications\OrdenCreada')
-                                            <!-- item-->
-                                            <a href="{{route('ordenes.buscarXId',['id' =>$notification->data['IdOrden'], 'idnotify' => $notification->id])}}" class="dropdown-item notify-item border-bottom">
-                                                <div class="notify-icon"><i data-feather="shopping-bag" class="icon-dual icon-xs mr-2"></i></div>
-                                                <p class="notify-details">Nueva orden de compra.<small class="text-muted">{{$notification->created_at->diffForHumans()}}</small>
-                                                </p>
-                                            </a>
-                                        @else
-                                            <!-- item-->
-                                            <a href="" class="dropdown-item notify-item border-bottom">
-                                                <div class="notify-icon"><i data-feather="clipboard" class="icon-dual icon-xs mr-2"></i></div>
-                                                <p class="notify-details">Solicitud de cita.<small class="text-muted">{{$notification->created_at->diffForHumans()}}</small>
-                                                </p>
-                                            </a>
-                                        @endif
-                                    @endforeach
-                                    </div>
-                                @endif
+                                <div class="slimscroll noti-scroll" id="Mensajes">
+                                @foreach(auth()->user()->unreadNotifications as $notification)
+                                    @if($notification->type == 'App\Notifications\OrdenCreada')
+                                        <!-- item-->
+                                        <a href="{{route('ordenes.buscarXId',['id' =>$notification->data['IdOrden'], 'idnotify' => $notification->id])}}" class="dropdown-item notify-item border-bottom">
+                                            <div class="notify-icon"><i data-feather="shopping-bag" class="icon-dual icon-xs mr-2"></i></div>
+                                            <p class="notify-details">Nueva orden de compra.<small class="text-muted">{{$notification->created_at->diffForHumans()}}</small>
+                                            </p>
+                                        </a>
+                                    @else
+                                        <!-- item-->
+                                        <a href="{{route('solicitudCita.buscarXId',['id' =>$notification->data['IdSolicitud'], 'idnotify' => $notification->id])}}" class="dropdown-item notify-item border-bottom">
+                                            <div class="notify-icon"><i data-feather="clipboard" class="icon-dual icon-xs mr-2"></i></div>
+                                            <p class="notify-details">Solicitud de cita.<small class="text-muted">{{$notification->created_at->diffForHumans()}}</small>
+                                            </p>
+                                        </a>
+                                    @endif
+                                @endforeach
+                                </div>
                                 <!-- All-->
                                 <a href="{{ route('home') }}"
                                     class="dropdown-item text-center text-primary notify-item notify-all border-top">
@@ -311,5 +312,40 @@
     @yield('scriptAbout')
     @yield('miCuenta')
     @yield('orden')
+    <script>
+    
+        
+        // // Enable pusher logging - don't include this in production
+        // Pusher.logToConsole = true;
+  
+        var pusher = new Pusher('{{env('PUSHER_APP_KEY')}}', {
+            cluster: '{{env('PUSHER_APP_CLUSTER')}}',
+            forceTLS: true
+        });
+        
+        var channel = pusher.subscribe('Orden-producto');
+        var channel2 = pusher.subscribe('Solicitud-cita');
+        
+        channel.bind('Orden-producto', function(data) {
+            $(document).ready(function() {
+                $('#sonido')[0].play();
+                $('#notificacion').append(`<span class="noti-icon-badge"></span>`);
+                $('#Mensajes').prepend(`<a href="{{route('ordenes.pendientes')}}" class="dropdown-item notify-item border-bottom">
+                                            <div class="notify-icon"><i data-feather="shopping-bag" class="icon-dual icon-xs mr-2"></i></div>
+                                            <p class="notify-details">Nueva orden de compra.<small class="text-muted">Hace unos segundos</small>
+                                            </p>
+                                        </a>`);
+            });
+        });
+        channel2.bind('Solicitud-cita', function(data) {
+            $('#sonido')[0].play();
+            $('#notificacion').append(`<span class="noti-icon-badge"></span>`);
+                $('#Mensajes').prepend(`<a href="{{route('solicitudCita.pendientes')}}" class="dropdown-item notify-item border-bottom">
+                                            <div class="notify-icon"><i data-feather="clipboard" class="icon-dual icon-xs mr-2"></i></div>
+                                            <p class="notify-details">Nueva Solicitud de cita.<small class="text-muted">Hace unos segundos</small>
+                                            </p>
+                                        </a>`);
+        });
+    </script>
     </body>
 </html>

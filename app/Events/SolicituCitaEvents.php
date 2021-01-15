@@ -2,27 +2,26 @@
 
 namespace App\Events;
 
-use Carbon\Carbon;
 use Illuminate\Broadcasting\Channel;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
 
-class OrderProductoEvents implements ShouldBroadcast
+class SolicituCitaEvents implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $OrdenDeCompra;
+    public $SolicitudCita;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($OrdenDeCompra)
+    public function __construct($SolicitudCita)
     {
-        $this->OrdenDeCompra = $OrdenDeCompra;
+        $this->SolicitudCita = $SolicitudCita;
     }
 
     /**
@@ -32,9 +31,8 @@ class OrderProductoEvents implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('Orden-producto');
+        return new Channel('Solicitud-cita');
     }
-
     /**
      * The event's broadcast name.
      *
@@ -42,10 +40,10 @@ class OrderProductoEvents implements ShouldBroadcast
      */
     public function broadcastAs()
     {
-        return 'Orden-producto';
+        return 'Solicitud-cita';
     }
 
-    /**
+     /**
      * Get the data to broadcast.
      *
      * @return array
@@ -53,9 +51,9 @@ class OrderProductoEvents implements ShouldBroadcast
     public function broadcastWith()
     {
         return [
-            'IdOrden' => $this->OrdenDeCompra->id,
-            'Cantidad' => $this->OrdenDeCompra->Cantidad,
-            'Telefono' => $this->OrdenDeCompra->Telefono,
+            'IdSolicitud' => $this->SolicitudCita->id,
+            'Correo' => $this->SolicitudCita->Correo,
+            'Telefono' => $this->SolicitudCita->Telefono,
         ];
     }
 }
