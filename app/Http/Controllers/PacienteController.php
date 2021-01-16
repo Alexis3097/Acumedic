@@ -10,6 +10,7 @@ class PacienteController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware(['permission:ListadoPacientes|CrearPaciente|EditarPaciente|EliminarPaciente']);
     }
     /**
      * Display a listing of the resource.
@@ -96,9 +97,10 @@ class PacienteController extends Controller
         return redirect()->route('paciente.list');
     }
 
-    public function buscarPaciente(BuscarPacienteXCita $request)
+    public function buscarPaciente(Request $request)
     {
-        $pacientes = PacienteViewModel::buscarPaciente($request->Nombre);
+        $varibles = $request->all();
+        $pacientes = PacienteViewModel::buscarPaciente($request->Nombre, $varibles);
         return view('Admin.Pacientes.busquedaPacientes', compact('pacientes'));
     }
 

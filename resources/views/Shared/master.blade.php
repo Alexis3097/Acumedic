@@ -4,12 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acumedic - Inicio</title>
-  
+  <title>@yield('title')</title> 
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="stylesheet" href="{{asset('css/style.css')}}">
   <link rel="stylesheet" href="{{asset('css/normalize.css')}}">
   <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
   <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+  <link rel="shortcut icon" type="image/x-icon" href="{{asset('../img/favicon.png')}}">
 </head>
 <header>
   <!--sección navbar-->
@@ -25,22 +27,25 @@
       <ul class="nav no-search">
         <li class="nav-item"><a href="{{ route('inicio') }}">Inicio</a></li>
         <li class="nav-item"><a href="{{ route('nosotros') }}">Nosotros</a></li>
-        <li class="nav-item"><a href="{{ route('servicios') }}">Servicios</a></li>
+        <li class="nav-item"><a href="{{route('servicios')}}">Servicios</a></li>
         <li class="nav-item"><a href="{{ route('contacto') }}">Contacto</a></li>
-        <li class="nav-item"><a href="#"class="btn-nav">Productos</a></li>
+        <li class="nav-item"><a href="{{route('productos')}}"class="btn-nav">Productos</a></li>
       </ul>
     </nav>
   </div>
   <!-- Fin de navbar -->
 </header>
-@yield('content')
 <body>
-
+@yield('content')
   <footer>
     <div class="container">
       <div class="row">
         <div class="col-md-4 footer-logo">
-          <figure class="figure-footer"><img src="{{asset('img/acumedic-logo.png')}}" alt=""></figure>
+          <figure class="figure-footer">
+            <!-- <a href="{{route('inicio')}}"> -->
+              <img src="{{asset('img/acumedic-logo.png')}}" alt="">
+            <!-- </a> -->
+          </figure>
           <div class="desc">
             <p class="descripcion">Centro especializado en Acupuntura-Naturopatia y geriatría. Diplomados profesionales en salud alternativa</p>
             <ul>
@@ -108,6 +113,9 @@
   <script src="{{asset('js/all.js')}}"></script>
   <script src="{{asset('js/jquery.js')}}"></script>
   <script src="{{asset('js/acumedic.js')}}"></script>
+  @livewireScripts
+  @yield('scriptProductoDetallado')
+  @yield('scripts')
 </body>
 
 </html>

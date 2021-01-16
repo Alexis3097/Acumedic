@@ -6,21 +6,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        
+        <link rel="shortcut icon" type="image/x-icon" href="{{asset('../img/favicon.png')}}">
+
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <link rel="shortcut icon" href="{{asset('img/Admin/favicon.ico')}}" type="text/css">
-        <link rel="stylesheet" href="{{asset('libs/flatpickr/flatpickr.min.css')}}" type="text/css">
+        <!-- <link rel="shortcut icon" href="{{asset('img/Admin/favicon.ico')}}" type="text/css"> -->
+        <link rel="stylesheet" href="{{asset('js/Admin/libs/flatpickr/flatpickr.min.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/bootstrap.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/bootstrap.min.css')}}" type="text/css">
-        <link rel="stylesheet" href="{{asset('css/Admin/icon.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/Admin/icons.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/icons.min.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/app.css')}}" type="text/css">
         <link rel="stylesheet" href="{{asset('css/Admin/app.min.css')}}" type="text/css">
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+        <script src="https://js.pusher.com/6.0/pusher.min.js"></script>
         @livewireStyles
         @yield('estilosCitas')
         @yield('estilosCitasIndex')
         @yield('estilosAntecedentes')
+        @yield('estilosVentas')
     </head>
 
     <body>
@@ -50,65 +52,69 @@
                     </ul>
 
                     <ul class="navbar-nav flex-row ml-auto d-flex list-unstyled topnav-menu float-right mb-0">
-                        <!-- <li class="d-none d-sm-block">
-                            <div class="app-search">
-                                <form>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search...">
-                                        <span data-feather="search"></span>
-                                    </div>
-                                </form>
-                            </div>
-                        </li> -->
+                        <audio src="{{asset('../notificacion.mp3')}}" id="sonido"></audio>
+                        <!-- NOTIFICACIONES -->
+                        <li class="dropdown notification-list" data-toggle="tooltip" data-placement="left"
+                        
+                            @if(auth()->user()->unreadNotifications()->count() > 0)
+                                title="{{auth()->user()->unreadNotifications()->count()}} Notificación sin leer"
+                            @else
+                                title="No tiene notificacioes"
+                            @endif>
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" id="notificacion"
+                                aria-expanded="false">
+                                <i data-feather="bell"></i>
+                                @if(auth()->user()->unreadNotifications()->count() > 0)
+                                    <span class="noti-icon-badge"></span>
+                                @endif
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-lg">
 
+                                <!-- item-->
+                                <div class="dropdown-item noti-title border-bottom">
+                                    <h5 class="m-0 font-size-16">
+                                        <span class="float-right">
+                                        @if(auth()->user()->unreadNotifications()->count() > 0)
+                                            <a href="{{route('markAsRead')}}" class="text-dark">
+                                                <small>Marcar como leidas</small>
+                                            </a>
+                                        @endif
+                                        </span>Notificaciones
+                                    </h5>
+                                </div>
+                                <div class="slimscroll noti-scroll" id="Mensajes">
+                                @foreach(auth()->user()->unreadNotifications as $notification)
+                                    @if($notification->type == 'App\Notifications\OrdenCreada')
+                                        <!-- item-->
+                                        <a href="{{route('ordenes.buscarXId',['id' =>$notification->data['IdOrden'], 'idnotify' => $notification->id])}}" class="dropdown-item notify-item border-bottom">
+                                            <div class="notify-icon"><img src="{{asset('../iconos/SVG/shopping-bag-g.svg')}}"></div>
+                                            <p class="notify-details">Nueva orden de compra.<small class="text-muted">{{$notification->created_at->diffForHumans()}}</small>
+                                            </p>
+                                        </a>
+                                    @else
+                                        <!-- item-->
+                                        <a href="{{route('solicitudCita.buscarXId',['id' =>$notification->data['IdSolicitud'], 'idnotify' => $notification->id])}}" class="dropdown-item notify-item border-bottom">
+                                            <div class="notify-icon"><img src="{{asset('../iconos/SVG/clipboard-g.svg')}}"></div>
+                                            <p class="notify-details">Solicitud de cita.<small class="text-muted">{{$notification->created_at->diffForHumans()}}</small>
+                                            </p>
+                                        </a>
+                                    @endif
+                                @endforeach
+                                </div>
+                                <!-- All-->
+                                <a href="{{ route('home') }}"
+                                    class="dropdown-item text-center text-primary notify-item notify-all border-top">
+                                    Ver más
+                                    <i class="fi-arrow-right"></i>
+                                </a>
+
+                            </div>
+                        </li>
+                        <!-- END NOTIFICACIONES -->
                         <li class="dropdown notification-list" data-toggle="tooltip" data-placement="left" title="Configuración">
                             <a href="javascript:void(0);" class="nav-link right-bar-toggle">
                                 <i data-feather="settings"></i>
                             </a>
-                        </li>
-
-                        <li class="dropdown notification-list align-self-center profile-dropdown">
-                            <a class="nav-link dropdown-toggle nav-user mr-0" data-toggle="dropdown" href="#" role="button"
-                                aria-haspopup="false" aria-expanded="false">
-                                <div class="media user-profile ">
-                                    <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" alt="user-image" class="rounded-circle align-self-center" />
-                                    <div class="media-body text-left">
-                                        <h6 class="pro-user-name ml-2 my-0">
-                                            <span>Shreyu N</span>
-                                            <span class="pro-user-desc text-muted d-block mt-1">Administrator </span>
-                                        </h6>
-                                    </div>
-                                    <span data-feather="chevron-down" class="ml-2 align-self-center"></span>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu profile-dropdown-items dropdown-menu-right">
-                                <a href="pages-profile.html" class="dropdown-item notify-item">
-                                    <i data-feather="user" class="icon-dual icon-xs mr-2"></i>
-                                    <span>Mi cuenta</span>
-                                </a>
-
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i data-feather="settings" class="icon-dual icon-xs mr-2"></i>
-                                    <span>Configuración</span>
-                                </a>
-
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i data-feather="help-circle" class="icon-dual icon-xs mr-2"></i>
-                                    <span>Support</span>
-                                </a>
-
-                                <a href="pages-lock-screen.html" class="dropdown-item notify-item">
-                                    <i data-feather="lock" class="icon-dual icon-xs mr-2"></i>
-                                    <span>Lock Screen</span>
-                                </a>
-
-                                <div class="dropdown-divider"></div>
-
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i data-feather="log-out" class="icon-dual icon-xs mr-2"></i>
-                                    <span>Logout</span>
-                                </a>
-                            </div>
                         </li>
                     </ul>
                 </div>
@@ -126,7 +132,7 @@
                     @endif
                     <div class="media-body">
                         <h6 class="pro-user-name mt-0 mb-0">{{Auth::user()->name}}</h6>
-                        <span class="pro-user-desc">Administrador</span>
+                        <span class="pro-user-desc">{{implode(" ",Auth::user()->getRoleNames()->toArray())}}</span>
                     </div>
                     <div class="dropdown align-self-center profile-dropdown-menu">
                         <a class="dropdown-toggle mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
@@ -134,7 +140,7 @@
                             <span data-feather="chevron-down"></span>
                         </a>
                         <div class="dropdown-menu profile-dropdown">
-                            <a href="{{route('usuarios.edit',['IdUsuario'=>Auth::user()->id])}}" class="dropdown-item notify-item">
+                            <a href="{{route('miCuenta.show')}}" class="dropdown-item notify-item">
                                 <i data-feather="user" class="icon-dual icon-xs mr-2"></i>
                                 <span>Mi cuenta</span>
                             </a>
@@ -163,41 +169,107 @@
                             <li>
                                 <a href="{{ route('home') }}">
                                     <i data-feather="home"></i>
-                                    <span class="badge badge-success float-right">1</span>
+                                    @if(auth()->user()->unreadNotifications()->count() > 0)
+                                        <span class="badge badge-success float-right">{{auth()->user()->unreadNotifications()->count()}} </span>
+                                    @endif
                                     <span> Inicio </span>
                                 </a>
                             </li>
                             <li class="menu-title">Funciones</li>
+                            @if(auth()->user()->can('ListadoCitas'))
+                                @canany(['ListadoCitas','CrearCita','EditarCita','EliminarCita','CrearFicha','Consulta'])
+                                    <li>
+                                        <a href="{{ route('citas.list') }}">
+                                            <i data-feather="calendar"></i>
+                                            <span> Citas </span>
+                                        </a>
+                                    </li>
+                                 @endcan
+                            @endif
+                            @if(auth()->user()->can('ListadoPacientes'))
+                                @canany(['ListadoPacientes','CrearPaciente','EditarPaciente','EliminarPaciente','ListadoFicha','Consulta'])
+                                <li>
+                                    <a href="{{ route('paciente.list') }}">
+                                        <i data-feather="user"></i>
+                                        <span> Pacientes </span>                                  
+                                    </a>
+                                </li>
+                                @endcan
+                            @endif
+                            @if(auth()->user()->can('ListadoProducto','ListadoServicio'))
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                                        <i data-feather="shopping-cart"></i>
+                                        <span > Ventas </span>
+                                        <span data-feather="chevron-down" class="ml-2 align-self-center"></span>
+                                    </a>
+                                    <div class="dropdown-menu profile-dropdown-items dropdown-menu-right">
+                                    @if(auth()->user()->can('ListadoProducto'))
+                                        @canany(['ListadoProducto','CrearProducto','EditarProducto','EliminarProducto'])
+                                            <a href="{{ route('productos.list')}}" class="dropdown-item notify-item">
+                                                <i data-feather="package" class="icon-dual icon-xs mr-2"></i>
+                                                <span>Productos</span>
+                                            </a>
+                                        @endcan
+                                    @endif 
+                                    @if(auth()->user()->can('ListadoInventario'))
+                                        @canany(['ListadoInventario','CrearInventario','EditarInventario','EliminarInventario'])
+                                            <a href="{{ route('inventario.list')}}" class="dropdown-item notify-item">
+                                                <i data-feather="book" class="icon-dual icon-xs mr-2"></i>
+                                                <span>Inventario</span>
+                                            </a>
+                                        @endcan
+                                    @endif
+                                    @if(auth()->user()->can('ListadoServicio'))
+                                        @canany(['ListadoServicio','CrearServicio','EditarServicio','EliminarServicio'])
+                                            <a href="{{route('servicios.list')}}" class="dropdown-item notify-item">
+                                                <i data-feather="archive" class="icon-dual icon-xs mr-2"></i>
+                                                <span>Servicios</span>
+                                            </a>
+                                        @endcan
+                                    @endif
+                                    @can('OrdenDeCompra')
+                                        <a href="{{route('ordenes.pendientes')}}" class="dropdown-item notify-item">
+                                            <i data-feather="shopping-bag" class="icon-dual icon-xs mr-2"></i>
+                                            <span>Ordenes</span>
+                                        </a>
+                                    @endcan
+                                    @can('SolicitudDeCita')
+                                        <a href="{{route('solicitudCita.pendientes')}}" class="dropdown-item notify-item">
+                                            <i data-feather="clipboard" class="icon-dual icon-xs mr-2"></i>
+                                            <span>Solicitud de citas</span>
+                                        </a>
+                                    @endcan
+                                </li>
+                            @endif
+                            @if(auth()->user()->can('ListadoUsuarios'))
+                                @canany(['ListadoUsuarios','CrearUsuario','EditarUsuario','EliminarUsuario'])
+                                <li>
+                                    <a href="{{ route('usuarios.list')}}">
+                                        <i data-feather="users"></i>
+                                        <span> Usuarios </span>
+                                    </a>
+                                </li>
+                                @endcan
+                            @endif
+                            @if(auth()->user()->can('ListarRoles'))
+                                @canany(['ListarRoles','CrearRol','EditarRol','EliminarRol'])
+                                <li>
+                                    <a href="{{ route('permisos.rol')}}">
+                                        <i data-feather="octagon"></i>
+                                        <span> Roles </span>
+                                    </a>
+                                </li>
+                                @endcan
+                            @endif
+                            @canany(['SobreAcumedic'])
                             <li>
-                                <a href="{{ route('citas.list') }}">
-                                     <i data-feather="calendar"></i>
-                                    <span> Citas </span>
+                                <a href="{{route('sobreNosotros')}}" class="dropdown-item notify-item">
+                                    <i data-feather="users" class="icon-dual icon-xs mr-2"></i>
+                                    <span>Sobre acumedic</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="{{ route('paciente.list') }}">
-                                    <i data-feather="user"></i>
-                                    <span> Pacientes </span>                                  
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i data-feather="shopping-cart"></i>
-                                    <span> Ventas </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('usuarios.list')}}">
-                                    <i data-feather="users"></i>
-                                    <span> Usuarios </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('permisos')}}">
-                                    <i data-feather="octagon"></i>
-                                    <span> Permisos </span>
-                                </a>
-                            </li>
+                            @endcan
                         </ul>
                     </div>
                     <!-- End Sidebar -->
@@ -210,22 +282,71 @@
         <!-- fin wrapper -->
     @yield('content')
         <!-- Vendor js -->
+        <script src="{{asset('js/jquery.js')}}"></script>
         <script src="{{asset('js/Admin/vendor.min.js')}}"></script>
         <script src="{{asset('js/Admin/libs/moment/moment.min.js')}}"></script>
         <script src="{{asset('js/Admin/app.js')}}"></script>
-        <script src="{{asset('js/jquery.js')}}"></script>
         <script src="{{asset('js/acumedic.js')}}"></script>
         <script src="{{asset('js/all.js')}}"></script>
         <script src="{{asset('js/Admin/libs/apexcharts/apexcharts.min.js')}}"></script>
         <script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
+        <!-- <script src="{{asset('js/dashboard.init.js')}}"></script> -->
         <script src="{{asset('js/Admin/app.min.js')}}"></script>
+       
     @livewireScripts
     @yield('scriptAntecedentes')
     @yield('scriptPacientes')
     @yield('scriptCrearCitas')
     @yield('scriptPacientesEdit')
     @yield('scriptEliminarEstudiosGabinete')
+    @yield('scriptProductoDetallado')
     @yield('scriptUsuariosEdit')
     @yield('scriptUsuarios')
+    @yield('checksPermisos')
+    @yield('scriptServicios')
+    @yield('scriptVentas')
+    @yield('scriptDesc1')
+    @yield('scriptDesc2')
+    @yield('changeUserPassword')
+    @yield('scriptInventario')
+    @yield('scriptAbout')
+    @yield('miCuenta')
+    @yield('orden')
+    <script>
+    
+        
+        // // Enable pusher logging - don't include this in production
+        // Pusher.logToConsole = true;
+  
+        var pusher = new Pusher('{{env('PUSHER_APP_KEY')}}', {
+            cluster: '{{env('PUSHER_APP_CLUSTER')}}',
+            forceTLS: true
+        });
+        
+        var channel = pusher.subscribe('Orden-producto');
+        var channel2 = pusher.subscribe('Solicitud-cita');
+        
+        channel.bind('Orden-producto', function(data) {
+            $(document).ready(function() {
+                $('#sonido')[0].play();
+                $('#notificacion').append(`<span class="noti-icon-badge"></span>`);
+                $('#Mensajes').prepend(`<a href="{{route('ordenes.pendientes')}}" class="dropdown-item notify-item border-bottom">
+                                            <div class="notify-icon"><img src="{{asset('../iconos/SVG/shopping-bag-g.svg')}}"></div>
+                                            <p class="notify-details">Nueva orden de compra.<small class="text-muted">Hace unos segundos</small>
+                                            </p>
+                                        </a>`);
+            });
+        });
+        channel2.bind('Solicitud-cita', function(data) {
+            $('#sonido')[0].play();
+            $('#notificacion').append(`<span class="noti-icon-badge"></span>`);
+                $('#Mensajes').prepend(`<a href="{{route('solicitudCita.pendientes')}}" class="dropdown-item notify-item border-bottom">
+                                            <div class="notify-icon"><img src="{{asset('../iconos/SVG/clipboard-g.svg')}}"></div>
+                                            <p class="notify-details">Nueva Solicitud de cita.<small class="text-muted">Hace unos segundos</small>
+                                            </p>
+                                        </a>`);
+                                        
+        });
+    </script>
     </body>
 </html>

@@ -21,13 +21,13 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="{{ route('citas.update', ['id' => $cita->id]) }}" class="needs-validation row" novalidate method="POST">
+                                    <form action="{{ route('citas.update', ['id' => $cita->id]) }}" class="needs-validation row" method="POST">
                                     @csrf
                                     @method('PUT')
                                         <input type="hidden" id="IdCita" value="{{$cita->id}}">
                                         <div class="form-group col-md-4">
                                             <label for="Nombre">Nombre (s)</label>
-                                            <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="Nombre" placeholder="Nombre" required value="{{$cita->paciente->Nombre}}">
+                                            <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="Nombre" placeholder="Nombre" required value="{{$cita->paciente->Nombre}}" readonly="">
                                             @error('Nombre')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -36,7 +36,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoPaterno">Apellido paterno</label>
-                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" id="ApellidoPaterno" placeholder="Apellido paterno" required value="{{$cita->paciente->ApellidoPaterno}}">
+                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" id="ApellidoPaterno" placeholder="Apellido paterno" required value="{{$cita->paciente->ApellidoPaterno}}" readonly="">
                                             @error('ApellidoPaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -45,7 +45,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoMaterno">Apellido materno</label>
-                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" id="ApellidoMaterno" placeholder="Apellido materno" required value="{{$cita->paciente->ApellidoMaterno}}">
+                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" id="ApellidoMaterno" placeholder="Apellido materno" required value="{{$cita->paciente->ApellidoMaterno}}" readonly="">
                                             @error('ApellidoMaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -54,7 +54,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Telefono">Teléfono</label>
-                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" id="Telefono" placeholder="Telefono" required value="{{$cita->paciente->Telefono}}">
+                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" id="Telefono" placeholder="Telefono" required value="{{$cita->paciente->Telefono}}" readonly="">
                                             @error('Telefono')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -79,7 +79,7 @@
                                         <div class="form-group col-md-4">
                                             <label 
                                             for="Fecha">Fecha</label>
-                                            <input class="form-control @error('Fecha') is-invalid @enderror" name="Fecha" id="FechaEdit" type="date" value="{{$cita->Fecha}}">
+                                            <input class="form-control @error('Fecha') is-invalid @enderror" name="Fecha" id="FechaEdit" type="date" value="{{old('Fecha',$cita->Fecha)}}">
                                             @error('Fecha')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -102,7 +102,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Hora">Horario</label>
-                                            <select data-plugin="customselect" class="form-control @error('Horario') is-invalid @enderror" name="Horario[]" id="Hora" multiple>
+                                            <select data-plugin="customselect" class="form-control @error('Horario') is-invalid @enderror" name="Horario[]" required id="Hora" multiple>
                                             @foreach($horarios as $clave =>$valor)
                                                 <option value="{{$clave}}" @if(in_array($clave,$cita->horarios->pluck('id')->toArray())) selected @endif>{{$valor}}</option>
                                             @endforeach

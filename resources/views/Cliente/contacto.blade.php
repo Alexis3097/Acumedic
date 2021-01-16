@@ -1,4 +1,5 @@
 @extends('Shared.master')
+@section('title', 'Acumedic - contacto')
 @section('content')
 <main>
     <section class="banner-section2">
@@ -12,7 +13,7 @@
           <div class="col-xs-2 col-md-3">
             <div class="redirect">
               <h3><i class="icono fas fa-home"></i><a style="color:#fff;" href="{{ route('inicio') }}">Inicio</a><i
-                  class="icono fas fa-chevron-right"></i> Contactaaa</h3>
+                  class="icono fas fa-chevron-right"></i> Contacto</h3>
             </div>
           </div>
         </div>
@@ -35,6 +36,7 @@
                   <div class="direccion">
                     <div class="titulo">
                       <h3>Tuxtla Gutierrez, Chiapas, México.</h3>
+                      <h4>Solicita una cita en nuestra clínica</h4>
                     </div>
                     <div class="desc">
                       <p class="descripcion">Monseni, Número #124. Fraccionamiento Montserrat. C.P. 29070</p>
@@ -49,37 +51,45 @@
                 </div>
                   <div class="col-md-6 container-formulario">
                     <div class="container-formbg">
-                      <form class="formulario">
+                      <form class="formulario" onclick="event.preventDefault();" validate>
+                      @csrf
                         <div class="form-group col-md-12">
-                          <label for="exampleInputEmail1">Nombre Completo</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        <label for="NombreCompleto">Nombre Completo</label>
+                        <input type="text" class="form-control" id="NombreCompleto" name="NombreCompleto" placeholder="Coloca aquí tú nombre" maxlength="190">
+                        <div class="errorLabel" id="errorNombre"></div>
                         </div>
                         <div class="form-group col-md-12">
-                          <label for="exampleInputEmail1">Ciudad</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        <label for="Correo">Correo electrónico</label>
+                        <input type="email" class="form-control" id="Correo" name="Correo" placeholder="túcorreo@tudominio.com" maxlength="190">
+                        <div class="errorLabel" id="errorCorreo"></div>
+                          </div>
+                        <div class="form-group col-md-12">
+                        <label for="Ciudad">Ciudad</label>
+                        <input type="text" class="form-control" id="Ciudad" name="Ciudad"   placeholder="Ej: Monterrey, N.L." maxlength="190">
+                        <div class="errorLabel" id="errorCiudad"></div>
                         </div>
-                          <div class="form-group col-md-6">
-                            <label for="exampleInputEmail1">Correo electronico</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                          </div>
-                          <div class="form-group col-md-6">
-                            <label for="exampleInputPassword1">Telefono</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                          </div>
                           <div class="form-group col-md-12">
-                            <label for="exampleInputPassword1">Dejanos un mensaje</label>
-                            <textarea type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"></textarea>
+                          <label for="Telefono">Teléfono</label>
+                          <input type="text" class="form-control" id="Telefono" name="Telefono" placeholder="Coloca aquí tú número teléfonico" maxlength="190">
+                          <div class="errorLabel" id="errorTelefono"></div>
                           </div>
-                          <button type="submit" class="btn btn-primary">Submit</button>
+                          <button type="submit" class="btn btn-primary enviar" id="enviarSolicitud">Enviar</button>
                         </form>
                     </div>
                   </div>
               </div>
           </div>
       </section>
+      <div class="modal-thankYou ">
+  <div class="text">
+    <h2>¡Gracias!</h2>
+    <p>Tus datos han sido guardado satisfactoriamente</p>
+    <p>Te mandaremos un correo para el seguimiento de tu cita</p>
+  </div>
+</div>
       <!-- formulario del contacto -->
   </main>
+@endsection
+@section('scripts')
+<script src="{{asset('js/solicitarCita.js')}}"></script>
 @endsection

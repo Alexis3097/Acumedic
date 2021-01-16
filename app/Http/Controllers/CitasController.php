@@ -1,21 +1,25 @@
 <?php
 
 namespace App\Http\Controllers;
+use Carbon\Carbon;
 use App\Models\Cita;
 use App\Models\Horario;
 use App\Models\Paciente;
-use App\ViewModel\CitaViewModel;
-use App\ViewModel\PacienteViewModel;
-use App\Http\Requests\StoreCita;
-use App\Http\Requests\BuscarRangoFecha;
-use App\Http\Requests\BuscarPacienteXCita;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
+use App\Http\Requests\StoreCita;
+use App\ViewModel\CitaViewModel;
+use App\Http\Requests\UpdateCita;
+use App\ViewModel\PacienteViewModel;
+use App\Http\Requests\BuscarRangoFecha;
+use App\Http\Requests\StoreCitaPaciente;
+use App\Http\Requests\BuscarPacienteXCita;
+
 class CitasController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware(['permission:ListadoCitas|CrearCita|EditarCita|EliminarCita']);
     }
    
     public function index()
@@ -34,10 +38,22 @@ class CitasController extends Controller
         return view('Admin.Citas.crearCita', compact('fecha','tipoConsultas','horarios','estatus'));
     }
 
-    
+    /**
+     * crea la cita y un nuevo paciente
+     */
     public function store(StoreCita $request, CitaViewModel $CitaViewModel)
     {
         $cita = $CitaViewModel->create($request);
+        return redirect()->route('citas.list');
+        
+    }
+
+    /**
+     * crea cita con paciente relacionado
+     */
+    public function storePaciente(StoreCitaPaciente $request, CitaViewModel $CitaViewModel)
+    {
+        $cita = $CitaViewModel->createPaciente($request);
         return redirect()->route('citas.list');
         
     }
@@ -66,7 +82,7 @@ class CitasController extends Controller
     }
 
    
-    public function update(StoreCita $request, CitaViewModel $CitaViewModel, $id)
+    public function update(UpdateCita $request, CitaViewModel $CitaViewModel, $id)
     {
         $cita = $CitaViewModel->update($request, $id);
         return redirect()->route('citas.list');

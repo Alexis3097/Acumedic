@@ -1,6 +1,7 @@
 @extends('Shared.masterAdmin')
 
 @section('content')
+@can('ListarRoles')
 <div class="content-page">
             <div class="content">
                 <div class="container-fluid">
@@ -18,9 +19,11 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <a href="" style="margin:10px;" class="btn btn-primary btn-sm float-right">
-                                        <i class='uil fas fa-plus'></i> Añadir rol
+                                @can('CrearRol')
+                                    <a href="{{ route('permisos.rol.create') }}" style="margin:10px;" class="btn btn-primary btn-sm float-right">
+                                        <i class='uil fas fa-plus'></i> Nuevo rol
                                     </a>
+                                @endcan
                                     <h5 class="card-title mt-0 mb-0 header-title">Lista de roles</h5>
 
                                     <div class="table-responsive mt-12">
@@ -32,15 +35,20 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach($roles as $rol)
                                                 <tr>
-                                                    <td>Rollbackazo</td>
+                                                    <input type="hidden" value="{{ $rol->id}}">
+                                                    <td>{{$rol->name}}</td>
                                                     <td>
-                                                        <button type="button" class="btn btn-outline-success"><i class="fa fa-eye"></i></button>
-                                                        <button type="button" class="btn btn-outline-warning"><i class="fa fa-edit"></i></button>
-                                                        <button type="button" class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
-                                                       
+                                                    @can('EditarRol')
+                                                        <a href="{{route('permisos.rol.edit',['id'=>$rol->id])}}" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="left" title="Editar rol"><i class="fa fa-edit"></i></a>
+                                                    @endcan
+                                                    @can('EliminarRol')
+                                                       <span data-toggle="tooltip" data-placement="left" title="Eliminar rol"><button type="button" class="btn btn-outline-danger delete" data-toggle="modal" data-target="#eliminarPaciente"><i class="fa fa-trash"></i></button></span> 
+                                                    @endcan
                                                     </td>
                                                 </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div> <!-- end table-responsive-->
@@ -53,20 +61,33 @@
 
                 </div>
             </div> <!-- content -->
-
-            
-
-            <!-- Footer Start -->
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            2019 &copy; Shreyu. All Rights Reserved. Crafted with <i class='uil uil-heart text-danger font-size-12'></i> by <a href="https://coderthemes.com" target="_blank">Coderthemes</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!-- end Footer -->
-
 </div>
+@endcan
+<div class="modal fade" id="eliminarPaciente" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Eliminar rol</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('permisos.rol.delete')}}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="hidden" name="IdModal" id="IdModal">
+                    <p>¿Esta seguro que desea eliminar el rol?</p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+@section('scriptPacientes')
+    <script src="{{asset('js/Admin/modales.js')}}"></script>
 @endsection

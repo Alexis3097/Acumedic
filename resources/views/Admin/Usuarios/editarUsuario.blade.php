@@ -17,12 +17,12 @@
                         <div class="col-lg-9">
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="needs-validation row" novalidate action="{{route('usuarios.update',['IdUsuario' =>$usuario->id])}}" method="POST" enctype="multipart/form-data">
+                                    <form class="needs-validation row" action="{{route('usuarios.update',['IdUsuario' =>$usuario->id])}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                         <div class="form-group col-md-4">
                                             <label for="name">Nombre (s)</label>
-                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="Nombre" placeholder="Nombres" required value="{{$usuario->name}}">
+                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="Nombre" placeholder="Nombres" required value="{{old('name',$usuario->name)}}" maxlength="190">
                                             @error('name')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -31,7 +31,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoPaterno">Apellido paterno</label>
-                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" id="ApellidoPaterno" placeholder="Apellido paterno" required value="{{$usuario->ApellidoPaterno}}">
+                                            <input type="text" name="ApellidoPaterno" class="form-control @error('ApellidoPaterno') is-invalid @enderror" id="ApellidoPaterno" placeholder="Apellido paterno" required value="{{old('ApellidoPaterno',$usuario->ApellidoPaterno)}}" maxlength="190">
                                             @error('ApellidoPaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -40,7 +40,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="ApellidoMaterno">Apellido materno</label>
-                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" id="ApellidoMaterno" placeholder="Apellido materno" required value="{{$usuario->ApellidoMaterno}}">
+                                            <input type="text" name="ApellidoMaterno" class="form-control @error('ApellidoMaterno') is-invalid @enderror" id="ApellidoMaterno" placeholder="Apellido materno" required value="{{old('ApellidoMaterno',$usuario->ApellidoMaterno)}}" maxlength="190">
                                             @error('ApellidoMaterno')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -49,7 +49,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="FechaNacimiento">Fecha de nacimiento</label>
-                                            <input type="date" name="FechaNacimiento" class="form-control @error('FechaNacimiento') is-invalid @enderror" id="FechaNacimiento" value="{{$usuario->FechaNacimiento}}">
+                                            <input type="date" name="FechaNacimiento" class="form-control @error('FechaNacimiento') is-invalid @enderror" id="FechaNacimiento" value="{{old('FechaNacimiento',$usuario->FechaNacimiento)}}">
                                             @error('FechaNacimiento')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -58,7 +58,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Telefono">Teléfono</label>
-                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" id="Telefono" placeholder="Telefono" required value="{{$usuario->Telefono}}">
+                                            <input type="text" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" id="Telefono" placeholder="Telefono" required value="{{old('Telefono',$usuario->Telefono)}}" maxlength="190">
                                             @error('Telefono')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -74,11 +74,16 @@
                                             @if( (int) $sexo->id === (int) $usuario->IdSexo) selected='selected' @endif>{{$sexo->Sexo}}</option>
                                             @endforeach
                                             </select>
+                                            @error('IdSexo')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label
                                             for="email">E-mail</label>
-                                            <input type="email" name ="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="E-mail" required value="{{$usuario->email}}">
+                                            <input type="email" name ="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="E-mail" required value="{{old('email',$usuario->email)}}" maxlength="190">
                                             @error('email')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -87,10 +92,15 @@
                                         </div>
                              
                                         <div class="form-group col-md-4">
-                                            <label
-                                            for="IdRol">Rol de usuario</label>
-                                            <input type="text" class="form-control @error('IdRol') is-invalid @enderror" id="IdRol" placeholder="Es un select, luego lo cambio" required name="IdRol">
-                                            @error('IdRol')
+                                            <label for="Rol">Rol</label>
+                                            <select data-plugin="customselect" class="form-control @error('Rol') is-invalid @enderror" name="Rol">
+                                            <option value="Seleccione">Seleccione</option>
+                                                @foreach($roles as $rol)
+                                                    <option value="{{$rol->name}}"
+                                                    @if( (String) $rol->name === (String) $rolQueTengo) selected='selected' @endif>{{$rol->name}}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('Rol')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>

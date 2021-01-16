@@ -1,33 +1,33 @@
 <?php
 
 namespace App\ViewModel;
+use App\Models\Cita;
 use App\Models\Consulta;
-use App\Models\AparatoSistema;
 use App\Models\Paciente;
+use App\Models\AparatoSistema;
 use App\Models\SintomaSubjetivo;
+
 class ConsultaViewModel
 {
     public function crearConsulta($consultaData)
     {
         $cita = $consultaData->except('_token');
-        if(session()->has('IdConsulta'))
-        {
-            $IdConsultaSession = session('IdConsulta');
-            $consultaExistente = Consulta::find($IdConsultaSession);
-            if(is_null($consultaExistente)){
-                $citaCreada = Consulta::create($cita);
-                session()->forget('IdConsulta');
-                session(['IdConsulta' => $citaCreada->id]);
-                return $citaCreada;
-            }
-            return $consultaExistente;
-        }else{
-            session()->forget('IdConsulta');
-            $citaCreada = Consulta::create($cita);
-            session(['IdConsulta' => $citaCreada->id]);
-            return $citaCreada;
-        }
+        return  Consulta::create($cita);
         
+    }
+
+    public function finalzarCita($IdConsulta){
+        $consulta = Consulta::find($IdConsulta);
+        $this->cambiarEstatusCita($consulta->cita->id,4);//El estatus 4 es finalizada
+        return;
+
+    }
+    public function cambiarEstatusCita($IdCita, $IdEstatus){
+        
+        $cita = Cita::find($IdCita);
+        $cita->IdEstatusConsulta = $IdEstatus; 
+        $cita->save();
+        return;
     }
     public function guardarConsultaAparatosSistemas($consultaData)
     {

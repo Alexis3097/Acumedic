@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\ViewModel\PacienteViewModel;
 use App\ViewModel\ConsultaViewModel;
 use App\Http\Requests\StoreMotivoCita;
 class ConsultaController extends Controller
@@ -11,24 +10,20 @@ class ConsultaController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-    }
-    
-    public function index(PacienteViewModel $PacienteViewModel,$IdPaciente)
-    {
-        if(session()->has('IdConsulta'))
-        {
-            session()->forget('IdConsulta');
-        }
-        $paciente = $PacienteViewModel->getPaciente($IdPaciente);
-        return view('Admin.datosDeConsulta.datosPaciente', compact('paciente'));
+        $this->middleware('permission:InicarConsulta');
     }
 
     //iniciar la consultaa, crea el registro de la consulta
     public function iniciarConsulta(StoreMotivoCita $request, ConsultaViewModel $ConsultaViewModel)
     {
         $consulta = $ConsultaViewModel->crearConsulta($request);
+        $ConsultaViewModel->cambiarEstatusCita($request->IdCita,3);//3 es el estatus "En Cita"
         $IdConsulta = $consulta->id;
         $IdPaciente = $consulta->IdPaciente;
+        return redirect()->route('consulta.iniciada',compact('IdPaciente','IdConsulta'));
+    }
+
+    public function consultaIniciada($IdPaciente,$IdConsulta, ConsultaViewModel $ConsultaViewModel){
         $paciente = $ConsultaViewModel->getPaciente($IdPaciente);
         return view('Admin.datosDeConsulta.Consulta.consultaMedicaAparatosSistemas', compact('IdConsulta','paciente'));
     }
@@ -94,9 +89,8 @@ class ConsultaController extends Controller
     
     public function finalizarConsulta(Request $request, ConsultaViewModel $ConsultaViewModel)
     {
-        $IdConsulta = session('IdConsulta');
-        $IdPaciente = $ConsultaViewModel->getIdpaciente($IdConsulta);
-        session()->forget('IdConsulta');
+        $ConsultaViewModel->finalzarCita($request->IdConsulta);
+        $IdPaciente = $ConsultaViewModel->getIdpaciente($request->IdConsulta);
         return redirect()->route('consulta.paciente', $IdPaciente);
     }
     

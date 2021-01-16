@@ -27,6 +27,11 @@ class EstatusConsultaSeeder extends Seeder
         ]);
 
         DB::table('EstatusConsulta')->insert([
+            'Nombre' => 'Finalizada',
+            'Descripcion' => 'Cuando se inica la cita',
+        ]);
+
+        DB::table('EstatusConsulta')->insert([
             'Nombre' => 'Cancelada',
             'Descripcion' => 'Cuando cancela la cita',
         ]);

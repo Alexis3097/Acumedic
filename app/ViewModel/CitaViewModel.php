@@ -1,15 +1,18 @@
 <?php
 
 namespace App\ViewModel;
-use App\Models\Paciente;
-use App\Models\TipoConsulta;
-use App\Models\Sexo;
-use App\Models\Cita;
-use App\Models\EstatusConsulta;
-use App\Models\CitaHorario;
-use App\Models\Horario;
-use Carbon\Carbon;
 use DB;
+use Carbon\Carbon;
+use App\Models\Cita;
+use App\Models\Sexo;
+use App\Models\Horario;
+use App\Models\Paciente;
+use App\Models\CitaHorario;
+use App\Models\TipoConsulta;
+use App\Models\SolicitudCitas;
+use App\Models\EstatusConsulta;
+use App\Events\SolicituCitaEvents;
+
 class CitaViewModel
 {
     public static function getFecha()
@@ -54,24 +57,43 @@ class CitaViewModel
     {
       return Sexo::All();
     }
-
+    /**
+     * crea cita y paciente
+     */
     public function create($citaData)
     {
-      if($citaData->input('id') == 0){
-        $paciente = new Paciente();
-        $paciente->Nombre = $citaData->Nombre;
-        $paciente->ApellidoPaterno = $citaData->ApellidoPaterno;
-        $paciente->ApellidoMaterno = $citaData->ApellidoMaterno;
-        $paciente->Telefono = $citaData->Telefono;
-        $paciente->save();
-      }
+      
+      $paciente = new Paciente();
+      $paciente->Nombre = $citaData->Nombre;
+      $paciente->ApellidoPaterno = $citaData->ApellidoPaterno;
+      $paciente->ApellidoMaterno = $citaData->ApellidoMaterno;
+      $paciente->Telefono = $citaData->Telefono;
+      $paciente->save();
+      
 
       $cita = new Cita();
-      if($citaData->id == 0){
-        $cita->IdPaciente = $paciente->id;
-      }else{
-        $cita->IdPaciente = $citaData->input('id');
+      $cita->IdPaciente = $paciente->id;
+      $cita->IdTipoConsulta = $citaData->TipoConsulta;
+      $cita->IdEstatusConsulta = $citaData->IdEstatusConsulta;
+      $cita->Descripcion = 'Guardado';
+      $cita->Fecha = $citaData->Fecha;
+      $cita->save();
+
+      foreach ($citaData->Horario as $IdHorario){
+        $citaHorario = new CitaHorario();
+        $citaHorario->IdCita = $cita->id;
+        $citaHorario->IdHorario = $IdHorario;
+        $citaHorario->save();
       }
+
+      return $cita;
+    }
+  /**
+   * crea cita con paciente relacionado
+   */
+    public function createPaciente($citaData){
+      $cita = new Cita();
+      $cita->IdPaciente = $citaData->IdPaciente;
       $cita->IdTipoConsulta = $citaData->TipoConsulta;
       $cita->IdEstatusConsulta = $citaData->IdEstatusConsulta;
       $cita->Descripcion = 'Guardado';
@@ -124,7 +146,7 @@ class CitaViewModel
     }
 
     public static function getHorariosDisponibles($fecha, $IdCita = 0){
-      $citasOcupadas = Cita::where('Fecha', '=',$fecha)->where('id','<>',$IdCita)->get();
+      $citasOcupadas = Cita::where('Fecha', '=',$fecha)->where('id','<>',$IdCita)->where('IdEstatusConsulta','<>',5)->get();//5 es el estatus cancelada, el horario queda libre
       if(count($citasOcupadas)==0)
       {
         $horariosAll = Horario::All();
@@ -223,4 +245,98 @@ class CitaViewModel
       }
     }
 
+    public function getCitasInicio()
+    {
+      $cita = Cita::where('Fecha','=', date_create()->format('Y-m-d'))->where('IdEstatusConsulta',1)->orWhere('IdEstatusConsulta',2)->get();
+      return $cita;
+    }
+
+    public function numeroCitasDelDia(){
+      $cita = Cita::where('Fecha','=', date_create()->format('Y-m-d'))->get();
+      return count($cita);
+    }
+
+    /**
+     * crea una solicitud de cita
+     */
+    public function solicitarCita($solicitudData){
+      // dd($solicitudData->toArray());
+      $_ESTATUS_SOLICITUD = 1;//EL ESTATUS ES PENDIENTE
+      $solicitudCita = new SolicitudCitas();
+      $solicitudCita->IdEstatusSolicitud = $_ESTATUS_SOLICITUD;
+      $solicitudCita->NombreCompleto = $solicitudData->NombreCompleto;
+      $solicitudCita->Correo = $solicitudData->Correo;
+      $solicitudCita->Ciudad = $solicitudData->Ciudad;
+      $solicitudCita->Telefono = $solicitudData->Telefono;
+      $solicitudCita->save();
+      $this->notificacionSolicitudCita($solicitudCita);
+      return $solicitudCita;
+    }
+
+    /**
+     * mostrar todas las solicitudes
+     */
+    public function getAllSolicitudCitas(){
+      return SolicitudCitas::orderBy('id','desc')->paginate(15);
+    }
+
+    /**
+     * retorna las solicitudes de cita con estatus 1= pendiente o 2= proceso
+     */
+    public function getSolicitudCitasPendientes(){
+      return SolicitudCitas::where('IdEstatusSolicitud',1)->orWhere('IdEstatusSolicitud',2)->paginate(15);
+    }
+
+    public function getNumeroSolicitudPendientes(){
+     return count($this->getSolicitudCitasPendientes());
+    }
+
+
+    /**
+     * Devuelve idcita del paciente si su cita esta "en espera" o "Presente" si no lo es, devuelve un 0
+     */
+
+     public function getCitaXEstatus($IdPaciente){
+       $cita = Cita::where('IdPaciente',$IdPaciente)->get();
+       $ultimaCita = $cita->last();
+       if($ultimaCita->IdEstatusConsulta == 1 || $ultimaCita->IdEstatusConsulta == 2){
+          return $ultimaCita->id;
+       }
+       return 0;
+     }
+
+     /**
+      * Cambia el estatus de la solicitud del la cita con el id correspondiente
+      */
+     public function changeEstatusSolicitudCita($IdSolicitudCita, $IdEstus){
+      $solicitud = SolicitudCitas::find($IdSolicitudCita);
+      $solicitud->IdEstatusSolicitud = $IdEstus;
+      $solicitud->save();
+      return;
+     }
+
+     /**
+      * busca las citas y tiene en cuenta la url para el paginadors
+      */
+      public function buscar($Nombre, $varibles){
+        $solicitudes = SolicitudCitas::where('NombreCompleto', 'like','%' . $Nombre. '%')
+                      ->paginate(15)->appends($varibles);
+        return $solicitudes;
+
+      }
+
+      public function notificacionSolicitudCita($Solicitud){
+        event(new SolicituCitaEvents($Solicitud));
+        return;
+      }
+
+      public function buscarXId($id){
+        $solicitud = SolicitudCitas::where('id',$id)->paginate(1);
+        return $solicitud;
+      }
+
+      public function marcarNotificacion($idnotify){
+        DB::table('notifications')->where('id', $idnotify)->update(['read_at' => Carbon::now()]);
+        return;
+      }
 }
