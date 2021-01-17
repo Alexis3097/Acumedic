@@ -22,7 +22,7 @@ class ServicioController extends Controller
     }
 
     public function create(){
-        return view('Admin.Servicios.CrearServicio');
+        return view('Admin.Servicios.crearServicio');
     }
 
     public function store(StoreServicio $request, ServicioViewModel $ServicioViewModel){

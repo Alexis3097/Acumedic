@@ -111,11 +111,11 @@
                             </div>
                         </li>
                         <!-- END NOTIFICACIONES -->
-                        <li class="dropdown notification-list" data-toggle="tooltip" data-placement="left" title="Configuración">
+                        <!-- <li class="dropdown notification-list" data-toggle="tooltip" data-placement="left" title="Configuración">
                             <a href="javascript:void(0);" class="nav-link right-bar-toggle">
                                 <i data-feather="settings"></i>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
 
