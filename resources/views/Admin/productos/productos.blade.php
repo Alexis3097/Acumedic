@@ -43,7 +43,7 @@
                                             <tr>
                                                 <th scope="col">Nombre de producto</th>
                                                 <th scope="col">Precio publico</th>
-                                                <th scope="col">Codigo de barra</th>
+                                                <th scope="col">Código/Clave de producto</th>
                                                 <th scope="col">Acciones</th>
                                             </tr>
                                         </thead>

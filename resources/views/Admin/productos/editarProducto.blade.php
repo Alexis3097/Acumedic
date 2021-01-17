@@ -82,11 +82,11 @@
                                             
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="CodigoBarra">Código de barras</label>
-                                            <div class="checkbox-1">
+                                            <label for="CodigoBarra">Código/Clave de producto</label>
+                                            <!-- <div class="checkbox-1">
                                                 <input type="checkbox" name="check" value="1">
                                                 <label style="display:inline-block;">Generar automaticamente</label>
-                                            </div>
+                                            </div> -->
                                             <input maxlength="190" type="text" class="form-control @error('CodigoBarra') is-invalid @enderror"  value="{{old('CodigoBarra', $producto->CodigoBarra)}}" name="CodigoBarra" id="CodigoBarra" placeholder="Escribe el código">
                                             @error('CodigoBarra')
                                                 <div class="invalid-feedback">
