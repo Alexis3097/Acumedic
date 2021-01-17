@@ -87,14 +87,14 @@
                                     @if($notification->type == 'App\Notifications\OrdenCreada')
                                         <!-- item-->
                                         <a href="{{route('ordenes.buscarXId',['id' =>$notification->data['IdOrden'], 'idnotify' => $notification->id])}}" class="dropdown-item notify-item border-bottom">
-                                            <div class="notify-icon"><i data-feather="shopping-bag" class="icon-dual icon-xs mr-2"></i></div>
+                                            <div class="notify-icon"><img src="{{asset('../iconos/SVG/shopping-bag-g.svg')}}"></div>
                                             <p class="notify-details">Nueva orden de compra.<small class="text-muted">{{$notification->created_at->diffForHumans()}}</small>
                                             </p>
                                         </a>
                                     @else
                                         <!-- item-->
                                         <a href="{{route('solicitudCita.buscarXId',['id' =>$notification->data['IdSolicitud'], 'idnotify' => $notification->id])}}" class="dropdown-item notify-item border-bottom">
-                                            <div class="notify-icon"><i data-feather="clipboard" class="icon-dual icon-xs mr-2"></i></div>
+                                            <div class="notify-icon"><img src="{{asset('../iconos/SVG/clipboard-g.svg')}}"></div>
                                             <p class="notify-details">Solicitud de cita.<small class="text-muted">{{$notification->created_at->diffForHumans()}}</small>
                                             </p>
                                         </a>
@@ -327,24 +327,22 @@
         var channel2 = pusher.subscribe('Solicitud-cita');
         
         channel.bind('Orden-producto', function(data) {
-            $(document).ready(function() {
-                $('#sonido')[0].play();
-                $('#notificacion').append(`<span class="noti-icon-badge"></span>`);
-                $('#Mensajes').prepend(`<a href="{{route('ordenes.pendientes')}}" class="dropdown-item notify-item border-bottom">
-                                            <div class="notify-icon"><i data-feather="shopping-bag" class="icon-dual icon-xs mr-2"></i></div>
-                                            <p class="notify-details">Nueva orden de compra.<small class="text-muted">Hace unos segundos</small>
-                                            </p>
-                                        </a>`);
-            });
+            $('#sonido')[0].play();
+            $('#notificacion').append(`<span class="noti-icon-badge"></span>`);
+            $('#Mensajes').prepend(`<a href="{{route('ordenes.pendientes')}}" class="dropdown-item notify-item border-bottom">
+                                        <div class="notify-icon"><img src="{{asset('../iconos/SVG/shopping-bag-g.svg')}}"></div>
+                                        <p class="notify-details">Nueva orden de compra.<small class="text-muted">Hace unos segundos</small>
+                                        </p>
+                                    </a>`);
         });
         channel2.bind('Solicitud-cita', function(data) {
             $('#sonido')[0].play();
             $('#notificacion').append(`<span class="noti-icon-badge"></span>`);
                 $('#Mensajes').prepend(`<a href="{{route('solicitudCita.pendientes')}}" class="dropdown-item notify-item border-bottom">
-                                            <div class="notify-icon"><i data-feather="clipboard" class="icon-dual icon-xs mr-2"></i></div>
+                                            <div class="notify-icon"><img src="{{asset('../iconos/SVG/clipboard-g.svg')}}"></div>
                                             <p class="notify-details">Nueva Solicitud de cita.<small class="text-muted">Hace unos segundos</small>
                                             </p>
-                                        </a>`);
+                                        </a>`);       
         });
     </script>
     </body>

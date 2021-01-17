@@ -42,7 +42,7 @@
 
                                             <div class="form-group mt-4">
                                                 <label class="form-control-label" for="password">Contraseña</label>
-                                                <a href="#" class="float-right text-muted text-unline-dashed ml-1">¿Olvidaste tu contraseña?</a>
+                                                <a href="{{ route('password.request') }}" class="float-right text-muted text-unline-dashed ml-1">¿Olvidaste tu contraseña?</a>
                                                 <div class="input-group input-group-merge">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">
