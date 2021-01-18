@@ -24,7 +24,7 @@ class ProductosController extends Controller
     public function index(ProductoViewModel $ProductoViewModel)
     {
         $productos = $ProductoViewModel->getProductos();
-        return view('Admin.Productos.productos',compact('productos'));
+        return view('Admin.productos.productos',compact('productos'));
     }
 
     /**
@@ -34,7 +34,7 @@ class ProductosController extends Controller
      */
     public function create()
     {
-        return view('Admin.Productos.crearProducto');
+        return view('Admin.productos.crearProducto');
     }
 
     /**
@@ -59,7 +59,7 @@ class ProductosController extends Controller
     public function edit(ProductoViewModel $ProductoViewModel, $id)
     {
         $producto = $ProductoViewModel->getProducto($id);
-        return view('Admin.Productos.editarProducto',compact('producto'));
+        return view('Admin.productos.editarProducto',compact('producto'));
     }
 
     /**
@@ -92,7 +92,7 @@ class ProductosController extends Controller
     public function buscar(Request $request, ProductoViewModel $ProductoViewModel){
         $variableurl = $request->all();
         $productos = $ProductoViewModel->buscarProducto($request->Nombre,$variableurl);
-        return view('Admin.Productos.buscarProductos',compact('productos'));
+        return view('Admin.productos.buscarProductos',compact('productos'));
     }
 
     public function destroyFoto(Request $request, ProductoViewModel $ProductoViewModel){
