@@ -95,7 +95,7 @@
                                 </div> 
                                 <div class="form-group col-md-12" style="padding-top:2%;">
                                     <a href="{{route('consulta.pacientePerfil',['IdPaciente' =>$paciente->id])}}" class="btn btn-danger" >Cancelar</a>
-                                    <button class="btn btn-primary" type="submit">Atualizar</button>
+                                    <button class="btn btn-primary" type="submit">Actualizar</button>
                                 </div>
                             </form>
                         </div>
