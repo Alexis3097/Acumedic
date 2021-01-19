@@ -12,7 +12,8 @@ class HomeController extends Controller
     public function index(ServicioViewModel $ServicioViewModel, SobreAcumedicViewModel $SobreAcumedicViewModel){
         $servicios = $ServicioViewModel->getServiciosAMostrar();
         $sobreAcumedic = $SobreAcumedicViewModel->datosPrimeraSeccion();
-        return view('Cliente.inicio',compact('servicios','sobreAcumedic'));
+        $contacto = $SobreAcumedicViewModel->contacto();
+        return view('Cliente.inicio',compact('servicios','sobreAcumedic','contacto'));
     }
 
     public function nosotros(SobreAcumedicViewModel $SobreAcumedicViewModel,ServicioViewModel $ServicioViewModel){

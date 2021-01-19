@@ -24,10 +24,12 @@ class EstudiosGabineteController extends Controller
 
     public function guardarFoto(StoreEstudioGabinete $request, EstudioGabineteViewModel $EstudioGabineteViewModel)
     {
-        $datos = $EstudioGabineteViewModel->create($request);
-        $estudiosGabinete = $EstudioGabineteViewModel->getFotos($datos->IdPaciente);
-        $IdPaciente = $datos->IdPaciente;
-        return redirect()->route('consulta.estudioGabinete', $IdPaciente);
+        if($request->ajax()){
+            $datos = $EstudioGabineteViewModel->create($request);
+            $estudiosGabinete = $EstudioGabineteViewModel->getFotos($datos->IdPaciente);
+            // $IdPaciente = $datos->IdPaciente;
+        }
+        // return redirect()->route('consulta.estudioGabinete', $IdPaciente);
     }
 
     public function eliminarFoto(Request $request, EstudioGabineteViewModel $EstudioGabineteViewModel)

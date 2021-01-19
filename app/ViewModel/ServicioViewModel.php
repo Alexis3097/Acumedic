@@ -66,9 +66,9 @@ class ServicioViewModel
       $ServiciosSeleccionado = ServiciosSeleccionado::where('IdServicio', $id)->first();
       if(!is_null($ServiciosSeleccionado)){
         $ServiciosSeleccionado->delete();
-        $VerServicios = VerServicios::first();
-        $VerServicios->Servicios = 0;
-        $VerServicios->save();
+        $VerSeccion = VerSeccion::find(2);//El 2 es igual al id 2 que representa servicios visibles
+        $VerSeccion->Ver = 0;
+        $VerSeccion->save();
       }
       
       $servicio = $this->getServicio($id);
@@ -126,11 +126,26 @@ class ServicioViewModel
     }
 
     public function updateVisibilidadServicio($opcion){
-      $_ID = 2; // EL ID 2 ESTA DECLARADO PARA VISIBILIDAD DE SERVICIOS
-      $VerSeccion = VerSeccion::find($_ID);
+      //opcion 1 es que se hara visible
+      if($opcion == 1){
+        //si hay menos de 6 servicios entonces no poner visible
+        if(count(ServiciosSeleccionado::all()) < 6){
+          return;
+        }
+        else{
+          // EL ID 2 ESTA DECLARADO PARA VISIBILIDAD DE SERVICIOS
+          $VerSeccion = VerSeccion::find(2);
+          $VerSeccion->Ver = $opcion;
+          $VerSeccion->save();
+          return $VerSeccion;
+        }
+      }
+       // EL ID 2 ESTA DECLARADO PARA VISIBILIDAD DE SERVICIOS
+      $VerSeccion = VerSeccion::find(2);
       $VerSeccion->Ver = $opcion;
       $VerSeccion->save();
       return $VerSeccion;
+     
     }
 
     /**

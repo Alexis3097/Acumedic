@@ -15,7 +15,17 @@ class PerfilConsultaController extends Controller
     }
     
     
-    public function index(PacienteViewModel $PacienteViewModel,$IdPaciente, CitaViewModel $CitaViewModel)
+    public function index($IdPaciente,$IdCita,PacienteViewModel $PacienteViewModel, CitaViewModel $CitaViewModel)
+    {   
+        $IdCita = $CitaViewModel->estatusCita($IdCita);
+        $paciente = $PacienteViewModel->getPaciente($IdPaciente);
+        return view('Admin.datosDeConsulta.datosPaciente', compact('paciente','IdCita'));
+    }
+    /**
+     *
+     * En esta parte al igual que index lleva al perfil de consula pero desde el listado de paciente 
+     */
+    public function perfilUsuario($IdPaciente,PacienteViewModel $PacienteViewModel, CitaViewModel $CitaViewModel)
     {
         $IdCita = $CitaViewModel->getCitaXEstatus($IdPaciente);
         $paciente = $PacienteViewModel->getPaciente($IdPaciente);

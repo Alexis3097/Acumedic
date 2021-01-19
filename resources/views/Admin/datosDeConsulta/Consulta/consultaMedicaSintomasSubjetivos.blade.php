@@ -142,6 +142,7 @@
                     @method('put')
                         <div class="form-group col-md-12">
                             <input type="hidden" name="IdSintoma" id="IdSintoma">
+                            <input type="hidden" name="IdConsulta" value="{{ $IdConsulta }}">
                             <label for="Nombre">Nombre del sintoma</label>
                             <input type="text" class="form-control" id="NombreUpdate" name="Nombre" required>
                         </div>
@@ -201,6 +202,7 @@
                     @csrf
                     @method('delete')
                     <input type="hidden" name="IdModal" id="IdModal">
+                    <input type="hidden" name="IdConsulta" value="{{ $IdConsulta }}">
                     <p>¿Esta seguro que desea eliminar este sintoma subjetivo?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

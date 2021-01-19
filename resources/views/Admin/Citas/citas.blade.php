@@ -102,7 +102,7 @@
                                                     @endcan
                                                     @can('Consulta')
                                                         @canany(['Historial','InicarConsulta','Antecedentes','EstudiosGabinete'])
-                                                        <a href="{{route('consulta.paciente',['IdPaciente' =>$cita->paciente->id])}}" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="left" title="Perfil de consulta"> <i class="fas fa-notes-medical"></i> </a>
+                                                        <a href="{{route('consulta.paciente',['IdPaciente' =>$cita->paciente->id, 'IdCita'=>$cita->id])}}" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="left" title="Perfil de consulta"> <i class="fas fa-notes-medical"></i> </a>
                                                         @endcan
                                                     @endcan
                                                     </td>

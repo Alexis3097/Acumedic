@@ -10,7 +10,7 @@
                            
                         </div>
                         <div class="col-sm-2 col-xl-2">
-                                    <a href="{{route('consulta.paciente',['IdPaciente' => $paciente->id])}}" class="btn btn-outline-primary">
+                                    <a href="{{route('consulta.pacientePerfil',['IdPaciente' => $paciente->id])}}" class="btn btn-outline-primary">
                                         <i class='fas fa-arrow-left'></i> Regresar
                                     </a>
                         </div>

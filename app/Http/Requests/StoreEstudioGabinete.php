@@ -33,7 +33,9 @@ class StoreEstudioGabinete extends FormRequest
     public function messages()
     {
         return [
-            'Url'=>'La Foto como limite debe ser menor a 2GB',
+            'Url.max'=>'La Foto como limite debe ser menor a 2GB',
+            'Url.required'=>'La imagen es requerida',
+            'Url.image'=>'Debe subir una imagen',
             'Nombre.required' => 'El :attribute es requerido',
             'Descripcion'=> 'La :attribute es requerido'
         ];

@@ -15,7 +15,11 @@ class ServicioController extends Controller
 
     public function show($id, ServicioViewModel $ServicioViewModel){
         $servicio = $ServicioViewModel->getServicio($id);
-        $otrosServicios = $ServicioViewModel->otrosServicios($id);
-        return view('Cliente.servicio-detallado',compact('servicio','otrosServicios'));
+        if(!is_null($servicio)){
+            $otrosServicios = $ServicioViewModel->otrosServicios($id);
+            return view('Cliente.servicio-detallado',compact('servicio','otrosServicios'));
+        }else{
+            return redirect()->route('servicios');
+        }
     }
 }

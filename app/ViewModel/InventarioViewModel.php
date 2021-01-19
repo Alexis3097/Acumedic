@@ -45,9 +45,9 @@ class InventarioViewModel
     public function destroy($IdProducto){
       $producto = Producto::find($IdProducto);
       $inventario = Inventario::where('producto_id',$IdProducto)->first();
-      $inventario->delete();
+      if(!is_null($inventario)){
+        $inventario->delete();
+      }
       return $inventario;
-      
     }
-   
 }

@@ -31,7 +31,7 @@ class StoreCita extends FormRequest
             'ApellidoMaterno' => 'required|max:190',
             'Horario' => 'required',
             'TipoConsulta' => [new OptionSelect],
-            'Telefono' => 'required|numeric|max:190',
+            'Telefono' => 'required|numeric',
             'Fecha' => ['required',new FechaMayorAHoy],
             'IdEstatusConsulta' => 'required',
         ];
@@ -51,7 +51,6 @@ class StoreCita extends FormRequest
             'Nombre.max' => 'Solo puedes agregar 190 caracteres',
             'ApellidoPaterno.max' => 'Solo puedes agregar 190 caracteres',
             'ApellidoMaterno.max' => 'Solo puedes agregar 190 caracteres',
-            'Telefono.max' => 'Solo puedes agregar 190 caracteres',
             
         ];
     }

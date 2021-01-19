@@ -23,6 +23,8 @@ class ContactSearchBar extends Component
     function updatedQuery()
     {
         $this->pacientes = Paciente::where('Nombre', 'like','%' . $this->query . '%')
+                ->orWhere('ApellidoPaterno', 'like','%' . $this->query . '%')
+                ->orWhere('ApellidoMaterno', 'like','%' . $this->query . '%')
                 ->get()
                 ->toArray();
     }

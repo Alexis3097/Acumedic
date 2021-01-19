@@ -164,7 +164,5 @@
       expandImg.parentElement.style.display = "block";
     }
 </script>
-@endsection
-@section('scripts')
 <script src="{{asset('js/valorStock.js')}}"></script>
 @endsection
