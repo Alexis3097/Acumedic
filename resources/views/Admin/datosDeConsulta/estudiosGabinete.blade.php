@@ -12,7 +12,7 @@
                                     <a href="{{route('consulta.pacientePerfil',['IdPaciente' => $IdPaciente])}}" class="btn btn-outline-primary">
                                         <i class='fas fa-arrow-left'></i> Regresar
                                     </a>
-                                    <button type="button" data-toggle="modal" data-target="#bs-example-modal-lg" class="btn btn-outline-primary">
+                                    <button type="button" data-toggle="modal" data-target="#bs-example-modal-lg" class="btn btn-outline-primary" id="nuevaFoto">
                                         <i class='fas fa-plus'></i> Nueva foto
                                     </button>
                         </div>
@@ -76,6 +76,7 @@
                 </div>
         </div> 
 </div><!-- content -->
+<a href="{{route('consulta.estudioGabinete',['IdPaciente'=>$IdPaciente])}}" id="sintomasList"></a>
 <!-- modal nueva foto -->
 <div class="modal fade" id="bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
@@ -86,47 +87,35 @@
               <span aria-hidden="true">&times;</span>
           </button>
       </div>
-      <form action="{{route('consulta.guardarFoto')}}" method="post" enctype="multipart/form-data">
+      <form >
       @csrf
-      <input type="hidden" name="IdPaciente" value="{{$IdPaciente}}">
+      <input type="hidden" name="IdPaciente" value="{{$IdPaciente}}" id="IdPaciente">
         <div class="modal-body">
             <div class="col">
               <div class="form-group row">
                 <label class="col-lg-2 col-form-label" for="Url">Sube tu archivo</label>
                 <div class="col-lg-10">
-                  <input type="file" class="form-control @error('Url') is-invalid @enderror" accept="image/*" name="Url" id="Url">
-                  @error('Url')
-                      <div class="invalid-feedback">
-                          {{ $message }}
-                      </div>
-                  @enderror
+                  <input type="file" class="form-control" accept="image/*" name="Url" id="Url">
+                  <div id="errorUrl" style="color:red;"></div>
                 </div>
               </div>
               <div class="form-group row">
                 <label class="col-lg-2 col-form-label" for="Nombre">Nombre de tu foto</label>
                 <div class="col-lg-10">
-                <input type="text" class="form-control @error('Nombre') is-invalid @enderror" id="Nombre" name="Nombre" placeholder="Nombre de foto"  required>
-                @error('Nombre')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
+                <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Nombre de foto"  required>
+                <div id="errorNombre" style="color:red;"></div>
                 </div>
               </div>
               <div class="form-group row">
                 <label class="col-lg-2 col-form-label" for="Descripcion">Descripción</label>
                   <div class="col-md-10">
-                    <textarea required class="form-control @error('Descripcion') is-invalid @enderror" name="Descripcion"></textarea>
-                    @error('Descripcion')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
+                    <textarea required class="form-control" name="Descripcion" id="Descripcion"></textarea>
+                    <div id="errorDescripcion" style="color:red;"></div>
                   </div>
               </div>
               <div class="form-group col-md-12">
                 <a href="#" class="btn btn-danger"  data-dismiss="modal" >Cancelar</a>
-                <button class="btn btn-primary" type="submit">Subir foto</button>
+                <button class="btn btn-primary enviar" id="ButtonEnviar"type="button">Subir foto</button>
               </div>
             </div>
         </div>
@@ -164,4 +153,5 @@
 @endsection
 @section('scriptEliminarEstudiosGabinete')
     <script src="{{asset('js/Admin/deleteEstudiosGabinete.js')}}"></script>
+    <script src="{{asset('js/Admin/subirFotoSintomasSubjetivos.js')}}"></script>
 @endsection
