@@ -9,11 +9,15 @@ $('#Cantidad').prop('max', stock);
 //calcualaando el total a pagar
 $('#Cantidad').on('change', function(e){
     $("#enviar").prop( "disabled", false );
-    let Cantidad = $("#Cantidad").val();
-    let cantidadDisponible = $('#Stock').text();
-    if(Cantidad > cantidadDisponible){
+    let CantidadAPedir = parseInt($("#Cantidad").val());
+    let cantidadDisponible = parseInt ($('#Stock').text());
+    if(CantidadAPedir > cantidadDisponible){
         $('#errorCantidad').html('La cantidad no debe ser mayor a '+ cantidadDisponible);
         $("#enviar").prop( "disabled", true );
+    }
+    else{
+        $('#errorCantidad').html('');
+        $("#enviar").prop( "disabled", false );
     }
     let precio = $('#Precio').text();
     let Total = precio * $(this).val();
@@ -40,8 +44,8 @@ $('.enviar').on('click',function(event){
     let NoExterior = $("#NoExterior").val();
     let token = $("input[name=_token]").val();
     var route = "/productos/detallado/ordenDeCompra";
-    let cantidadDisponible = $('#Stock').text();
-    if(Cantidad <= cantidadDisponible){
+    let cantidadDisponible = parseInt($('#Stock').text());
+    if(parseInt(Cantidad) <= cantidadDisponible){
         $.ajax({
             url:route,
             headers:{'X-CSRF-TOKEN':token},

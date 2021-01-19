@@ -31,7 +31,7 @@ class ConsultaController extends Controller
     public function guardarConsultaAparatosSistemas(Request $request, ConsultaViewModel $ConsultaViewModel)
     {
         $aparatosSistemas = $ConsultaViewModel->guardarConsultaAparatosSistemas($request);
-        $IdConsulta = $aparatosSistemas->IdConsulta;
+        $IdConsulta = $request->IdConsulta;
         $sintomasSubjetivos = $ConsultaViewModel->getSintomasSubjetivosXId($IdConsulta);
         $paciente = $ConsultaViewModel->getPacienteXConsulta($IdConsulta);
         return view('Admin.datosDeConsulta.Consulta.consultaMedicaSintomasSubjetivos',compact('IdConsulta','sintomasSubjetivos','paciente'));
@@ -61,9 +61,8 @@ class ConsultaController extends Controller
         
     }
 
-    public function consultaSintomasSubjetivos(ConsultaViewModel $ConsultaViewModel)
+    public function consultaSintomasSubjetivos($IdConsulta,ConsultaViewModel $ConsultaViewModel)
     {
-        $IdConsulta = session('IdConsulta');
         $sintomasSubjetivos = $ConsultaViewModel->getSintomasSubjetivosXId($IdConsulta);
         $paciente = $ConsultaViewModel->getPacienteXConsulta($IdConsulta);
         return view('Admin.datosDeConsulta.Consulta.consultaMedicaSintomasSubjetivos', compact('IdConsulta','sintomasSubjetivos','paciente'));
@@ -72,26 +71,26 @@ class ConsultaController extends Controller
     public function guardarConsultaSintomasSubjetivos(Request $request, ConsultaViewModel $ConsultaViewModel)
     {
         $sintomaSubjetivo = $ConsultaViewModel->guardarSintomasSubjetivos($request);
-        return redirect()->route('consulta.SintomasSubjetivos');
+        return redirect()->route('consulta.SintomasSubjetivos',$request->IdConsulta);
     }
 
     public function updateConsultaSintomasSubjetivos(Request $request, ConsultaViewModel $ConsultaViewModel)
     {
         $sintomaSubjetivo = $ConsultaViewModel->updateSintomasSubjetivos($request);
-        return redirect()->route('consulta.SintomasSubjetivos');
+        return redirect()->route('consulta.SintomasSubjetivos',$request->IdConsulta);
     }
 
     public function deleteConsultaSintomasSubjetivos(Request $request, ConsultaViewModel $ConsultaViewModel)
     {
         $sintomaSubjetivo = $ConsultaViewModel->deleteSintomasSubjetivos($request->IdModal);
-        return redirect()->route('consulta.SintomasSubjetivos');
+        return redirect()->route('consulta.SintomasSubjetivos',$request->IdConsulta);
     }
     
     public function finalizarConsulta(Request $request, ConsultaViewModel $ConsultaViewModel)
     {
         $ConsultaViewModel->finalzarCita($request->IdConsulta);
         $IdPaciente = $ConsultaViewModel->getIdpaciente($request->IdConsulta);
-        return redirect()->route('consulta.paciente', $IdPaciente);
+        return redirect()->route('consulta.pacientePerfil', $IdPaciente);
     }
     
 }

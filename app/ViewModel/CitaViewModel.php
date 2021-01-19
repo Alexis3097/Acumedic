@@ -141,7 +141,9 @@ class CitaViewModel
         $citaHorario->delete();
       }
       $cita = Cita::find($id);
-      $cita->delete();
+      if(!is_null($cita)){
+        $cita->delete();
+      }
       return $cita;
     }
 
@@ -299,10 +301,24 @@ class CitaViewModel
      public function getCitaXEstatus($IdPaciente){
        $cita = Cita::where('IdPaciente',$IdPaciente)->get();
        $ultimaCita = $cita->last();
-       if($ultimaCita->IdEstatusConsulta == 1 || $ultimaCita->IdEstatusConsulta == 2){
+       if(!is_null($ultimaCita)){
+        if($ultimaCita->IdEstatusConsulta == 1 || $ultimaCita->IdEstatusConsulta == 2){
           return $ultimaCita->id;
+        }
        }
        return 0;
+     }
+      /**
+     * Devuelve idcita del paciente si su cita esta "en espera" o "Presente" si no lo es, devuelve un 0
+     */
+     public function estatusCita($IdCita){
+      $cita = Cita::find($IdCita);
+      if(!is_null($cita)){
+        if($cita->IdEstatusConsulta == 1 || $cita->IdEstatusConsulta == 2){
+          return $cita->id;
+        }
+      }
+      return 0;
      }
 
      /**

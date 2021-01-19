@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\inventario;
+use App\Models\Inventario;
 use App\Models\fotoProducto;
 use App\Models\OrdenDeCompra;
 use Illuminate\Database\Eloquent\Model;

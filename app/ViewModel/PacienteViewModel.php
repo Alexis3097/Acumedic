@@ -41,7 +41,9 @@ class PacienteViewModel
        
       }
       $paciente = Paciente::find($id);
-      $paciente->delete();
+      if(!is_null($paciente)){
+        $paciente->delete();
+      }
       return $paciente;
     }
 

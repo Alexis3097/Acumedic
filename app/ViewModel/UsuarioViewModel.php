@@ -49,8 +49,10 @@ class UsuarioViewModel
 
     public function delete($id){
       $usuario = User::find($id);
-      $usuario->roles()->detach();
-      $usuario->delete();
+      if(!is_null($usuario)){
+        $usuario->roles()->detach();
+        $usuario->delete();
+      }
       return $usuario;
     }
     public function getUsuarios(){

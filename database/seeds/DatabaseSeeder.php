@@ -19,13 +19,13 @@ class DatabaseSeeder extends Seeder
         $this->call(SobreAcumedicSeeder::class);
         $this->call(VerSeccionSeeder::class);
         $this->call(EstatusSolicitudSeeder::class);
-        // $this->call(PacienteSeeder::class);//datos de prueba
-        // $this->call(UserSeed::class);//datos de prueba
-        // $this->call(CitaSeeder::class);//datos de prueba
-        // $this->call(ProductoSeeder::class);//datos de prueba
-        // $this->call(ServicioSeeder::class);//datos de prueba
-        // $this->call(OrdenDeCompraSeeder::class);//datos de prueba
-        // $this->call(SolicitudCitasSeeder::class);//datos de prueba
+        $this->call(PacienteSeeder::class);//datos de prueba
+        $this->call(UserSeed::class);//datos de prueba
+        $this->call(CitaSeeder::class);//datos de prueba
+        $this->call(ProductoSeeder::class);//datos de prueba
+        $this->call(ServicioSeeder::class);//datos de prueba
+        $this->call(OrdenDeCompraSeeder::class);//datos de prueba
+        $this->call(SolicitudCitasSeeder::class);//datos de prueba
         
     }
 }

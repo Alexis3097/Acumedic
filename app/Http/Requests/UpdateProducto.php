@@ -25,8 +25,8 @@ class UpdateProducto extends FormRequest
     {
         return [
             'Nombre' => 'required|max:190',
-            'PrecioCompra' => 'required|numeric|max:190',
-            'PrecioPublico' => 'required|numeric|max:190',
+            'PrecioCompra' => 'required|numeric',
+            'PrecioPublico' => 'required|numeric',
             'CodigoBarra' => 'required|max:190',
             'DescripcionCorta' => 'required|max:217',
             'DescripcionLarga' => 'required',
@@ -92,8 +92,6 @@ class UpdateProducto extends FormRequest
             'TextoAlterno4.required_without' => 'El texto alternado es requerido',
 
             'Nombre.max' => 'Solo puedes agregar 190 caracteres',
-            'PrecioCompra.max' => 'Solo puedes agregar 190 caracteres',
-            'PrecioPublico.max' => 'Solo puedes agregar 190 caracteres',
             'CodigoBarra.max' => 'Solo puedes agregar 190 caracteres',
             'Titulo1.max' => 'Solo puedes agregar 190 caracteres',
             'TextoAlterno1.max' => 'Solo puedes agregar 190 caracteres',

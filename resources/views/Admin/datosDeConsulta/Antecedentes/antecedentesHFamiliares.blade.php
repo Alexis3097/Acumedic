@@ -18,7 +18,7 @@
                                 class="icon-dual fas fa-file-prescription"></i> Antecedentes</span></h2>
                     </div>
                     <div class="col-sm-1 col-xl-1">
-                        <a href="{{route('consulta.paciente',['IdPaciente' =>$paciente->id])}}" class="btn btn-outline-primary">
+                        <a href="{{route('consulta.pacientePerfil',['IdPaciente' =>$paciente->id])}}" class="btn btn-outline-primary">
                             <i class='fas fa-arrow-left'></i> Regresar
                         </a>
                     </div>
@@ -32,8 +32,13 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="media col-xl-2" style="display: inline-flex">
+                                @if(is_null($paciente->Foto))
                                     <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" class="avatar-lg rounded-circle mr-2"
                                         alt="foto">
+                                    @else
+                                    <img src="{{asset('../uploads/'.$paciente->Foto)}}" class="avatar-lg rounded-circle mr-2"
+                                        alt="foto">
+                                    @endif
                                     <div class="media-body">
                                         <h5 class="mt-2 mb-0">{{$paciente->NombreCompleto}}</h5>
                                         <h6 class="text-muted font-weight-normal mt-1 mb-4">{{$paciente->LugarOrigen}}</h6>
@@ -75,7 +80,7 @@
                                     <input type="text"  name="Otros" id="Otros"class="form-control" placeholder="Otros antecedentes">
                                 </div>
                                 <div class="form-group col-md-12" style="padding-top:2%;">
-                                    <a href="{{route('consulta.paciente',['IdPaciente' =>$paciente->id])}}" class="btn btn-danger" >Cancelar</a>
+                                    <a href="{{route('consulta.pacientePerfil',['IdPaciente' =>$paciente->id])}}" class="btn btn-danger" >Cancelar</a>
                                     <button class="btn btn-primary" type="submit">Guardar</button>
                                 </div>
                             </form>
