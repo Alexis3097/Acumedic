@@ -125,7 +125,7 @@
                                             <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu Imagen de producto</h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image"  style="width:100%;" name="Foto1" type="file" class="btn btn-info"accept="image/*"/>
+                                                <input id="cat_image"  style="width:100%;" name="Foto1" type="file" class="btn btn-primary"accept="image/*"/>
                                                 @if ($errors->has('Foto1'))
                                                     <span class="help-block text-danger">
                                                         <strong>{{$errors->first('Foto1')}}</strong>
@@ -133,7 +133,7 @@
                                                 @endif
                                             </div>
                                             <div class="form-group col-md-12">
-                                            <button id="btn-example-file-reset" style="width:100%;"class="btn btn-info" type="button">Reemplazar</button>
+                                            <button id="btn-example-file-reset" style="width:100%;"class="btn btn-primary" type="button">Reemplazar</button>
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label for="Titulo1" style="text-align: left;">Titulo de la imagen</label>
@@ -165,7 +165,7 @@
                                             <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image1"  style="width:100%;" name="Foto2" type="file" accept="image/*" class="btn btn-info"/>
+                                                <input id="cat_image1"  style="width:100%;" name="Foto2" type="file" accept="image/*" class="btn btn-primary"/>
                                                 @if ($errors->has('Foto2'))
                                                     <span class="help-block text-danger">
                                                         <strong>{{$errors->first('Foto2')}}</strong>
@@ -173,7 +173,7 @@
                                                 @endif
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <button id="btn-example-file-reset1" style="width:100%;"class="btn btn-info" type="button">Reemplazar</button>
+                                                <button id="btn-example-file-reset1" style="width:100%;"class="btn btn-primary" type="button">Reemplazar</button>
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label for="Titulo2" style="text-align: left;">Titulo de la imagen</label>
@@ -205,7 +205,7 @@
                                             <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image2" name="Foto3" type="file" style="width:100%;"  accept="image/*"class="btn btn-info" />
+                                                <input id="cat_image2" name="Foto3" type="file" style="width:100%;"  accept="image/*"class="btn btn-primary" />
                                                 @if($errors->has('Foto3'))
                                                     <span class="help-block text-danger">
                                                         <strong>{{$errors->first('Foto3')}}</strong>
@@ -213,7 +213,7 @@
                                                 @endif
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <button id="btn-example-file-reset2" style="width:100%;"class="btn btn-info" type="button">Reemplazar</button>
+                                                <button id="btn-example-file-reset2" style="width:100%;"class="btn btn-primary" type="button">Reemplazar</button>
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label for="Titulo3" style="text-align: left;">Titulo de la imagen</label>
@@ -245,7 +245,7 @@
                                             <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image3" name="Foto4" style="width:100%;"  type="file" accept="image/*" class="btn btn-info"/>
+                                                <input id="cat_image3" name="Foto4" style="width:100%;"  type="file" accept="image/*" class="btn btn-primary"/>
                                                 @if($errors->has('Foto4'))
                                                     <span class="help-block text-danger">
                                                         <strong>{{$errors->first('Foto4')}}</strong>
@@ -253,7 +253,7 @@
                                                 @endif
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <button id="btn-example-file-reset3" style="width:100%;"  class="btn btn-info" type="button">Reemplazar</button>
+                                                <button id="btn-example-file-reset3" style="width:100%;"  class="btn btn-primary" type="button">Reemplazar</button>
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label for="Titulo4" style="text-align: left;">Titulo de la imagen</label>

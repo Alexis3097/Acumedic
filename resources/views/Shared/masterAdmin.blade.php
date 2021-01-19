@@ -20,6 +20,7 @@
         <script src="https://js.pusher.com/6.0/pusher.min.js"></script>
         @livewireStyles
         @yield('estilosCitas')
+        @yield('estilosAbouts')
         @yield('estilosCitasIndex')
         @yield('estilosAntecedentes')
         @yield('estilosVentas')
@@ -286,6 +287,7 @@
     @livewireScripts
     @yield('scriptAntecedentes')
     @yield('scriptPacientes')
+    @yield('scriptAbout')
     @yield('scriptCrearCitas')
     @yield('scriptPacientesEdit')
     @yield('scriptEliminarEstudiosGabinete')

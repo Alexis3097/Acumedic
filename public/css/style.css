@@ -941,7 +941,7 @@ input {
   font-size:var(--font-xgtitle);
   font-weight: bold;
   text-align: center;
-  line-height: 20px;
+  line-height: 30px;
   text-transform: uppercase;
 }
 .servicios-detail .titulo .desc-section{

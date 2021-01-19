@@ -138,7 +138,7 @@
                             @csrf
                             <div class="form-group col-md-12">
                                 <label for="validationCustom01">Añade tus servicios</label>
-                                <select class="form-control wide" data-plugin="customselect" multiple id="servicios" name="servicios[]">
+                                <select class="form-control wide" data-plugin="customselect" multiple id="servicios" name="servicios[]" multiple>
                                     @foreach($servicios as $servicio)
                                         <option value="{{$servicio->id}}" @if(in_array($servicio->id,$servicio->ServiciosSeleccionado->pluck('IdServicio')->toArray())) selected @endif>{{$servicio->Nombre}}</option>
                                     @endforeach
@@ -333,6 +333,6 @@
 <script src="{{asset('js/Admin/libs/select2/select2.min.js')}}"></script>
 <script src="{{asset('js/Admin/libs/multiselect/jquery.multi-select.js')}}"></script>
 <script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
-<!-- <script src="{{asset('js/Admin/pages/form-advanced.init.js')}}"></script> -->
+<script src="{{asset('js/Admin/pages/form-advanced.init.js')}}"></script>
 <script src="{{asset('js/Admin/contacto.js')}}"></script>
 @endsection

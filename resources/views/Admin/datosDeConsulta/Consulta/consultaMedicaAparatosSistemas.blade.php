@@ -22,7 +22,7 @@
                         <div class="col-md-12 col-xl-12 col-xs-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="media col-xl-2" style="display: inline-flex">
+                                    <div class="media col-xs-3 col-md-3 col-xl-3" style="display: inline-flex">
                                         @if(is_null($paciente->Foto))
                                         <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}"
                                             class="avatar-lg rounded-circle mr-2" alt="shreyu">

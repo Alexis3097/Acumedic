@@ -7,12 +7,12 @@
                 <!-- content -->
                 <!-- row -->
                 <div class="row page-title align-items-center">
-                    <div class="col-sm-12 col-xl-11">
+                    <div class="col-xs-10 col-sm-10 col-xl-10">
                         <h2 class="mb-1 mt-0"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-file-prescription"></i> Consulta médica</span></h2>
                     </div>
-                    <div class="col-sm-1 col-xl-1">
+                    <div class="col-xs-2 col-md-2 col-xl-2">
                                 <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#finalizarConsulta">
-                                    <i class='fas fa-arrow-left'></i> FINALIZAR CONSULTA
+                                    <i class='fas fa-arrow-left'></i> Finlaizar consulta
                                 </button>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                     <div class="col-md-12 col-xl-12 col-xs-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="media col-xl-2" style="display: inline-flex">
+                                <div class="media col-xs-3 col-md-3 col-xl-3" style="display: inline-flex">
                                         @if(is_null($paciente->Foto))
                                         <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}"
                                             class="avatar-lg rounded-circle mr-2" alt="shreyu">
