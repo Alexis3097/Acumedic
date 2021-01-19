@@ -77,13 +77,13 @@ class ConsultaController extends Controller
     public function updateConsultaSintomasSubjetivos(Request $request, ConsultaViewModel $ConsultaViewModel)
     {
         $sintomaSubjetivo = $ConsultaViewModel->updateSintomasSubjetivos($request);
-        return redirect()->route('consulta.SintomasSubjetivos');
+        return redirect()->route('consulta.SintomasSubjetivos',$request->IdConsulta);
     }
 
     public function deleteConsultaSintomasSubjetivos(Request $request, ConsultaViewModel $ConsultaViewModel)
     {
         $sintomaSubjetivo = $ConsultaViewModel->deleteSintomasSubjetivos($request->IdModal);
-        return redirect()->route('consulta.SintomasSubjetivos');
+        return redirect()->route('consulta.SintomasSubjetivos',$request->IdConsulta);
     }
     
     public function finalizarConsulta(Request $request, ConsultaViewModel $ConsultaViewModel)
