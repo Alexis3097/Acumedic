@@ -21,7 +21,7 @@ class StorePaciente extends FormRequest
             'ApellidoPaterno' => 'required|max:190',
             'ApellidoMaterno' => 'required|max:190',
             'FechaNacimiento' => ['required',new FechaMenorAHoy],
-            'Telefono' => 'required|numeric|max:190',
+            'Telefono' => 'required|numeric',
             'IdSexo' => ['required',new OptionSelect],
             'Correo' => ['required','email','max:190'],
             'LugarOrigen' => 'required|max:190',
@@ -52,7 +52,6 @@ class StorePaciente extends FormRequest
             'Telefono.max' => 'Solo puedes agregar 190 caracteres',
             'Correo.max' => 'Solo puedes agregar 190 caracteres',
             'LugarOrigen.max' => 'Solo puedes agregar 190 caracteres',
-            'TipoSangre.max' => 'Solo puedes agregar 190 caracteres',
             
         ];
     }

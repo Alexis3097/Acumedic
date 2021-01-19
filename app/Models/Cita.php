@@ -5,11 +5,13 @@ use App\Models\Horario;
 use App\Models\Consulta;
 use App\Models\Paciente;
 use App\Models\TipoConsulta;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\EstatusConsulta;
 use Illuminate\Database\Eloquent\Model;
 
 class Cita extends Model
 {
+    use SoftDeletes;
     protected $table = 'Cita';
     protected $fillable = [
         'IdPaciente','IdTipoConsulta','IdEstatusConsulta','Descripcion','Fecha',

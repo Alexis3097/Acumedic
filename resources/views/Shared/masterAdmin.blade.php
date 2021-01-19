@@ -110,12 +110,6 @@
 
                             </div>
                         </li>
-                        <!-- END NOTIFICACIONES -->
-                        <!-- <li class="dropdown notification-list" data-toggle="tooltip" data-placement="left" title="Configuración">
-                            <a href="javascript:void(0);" class="nav-link right-bar-toggle">
-                                <i data-feather="settings"></i>
-                            </a>
-                        </li> -->
                     </ul>
                 </div>
 
@@ -143,10 +137,6 @@
                             <a href="{{route('miCuenta.show')}}" class="dropdown-item notify-item">
                                 <i data-feather="user" class="icon-dual icon-xs mr-2"></i>
                                 <span>Mi cuenta</span>
-                            </a>
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i data-feather="settings" class="icon-dual icon-xs mr-2"></i>
-                                <span>Configuraciones</span>
                             </a>
                             <div class="dropdown-divider"></div>
                             <a href="{{ route('logout') }}" class="dropdown-item notify-item"
@@ -196,7 +186,7 @@
                                 </li>
                                 @endcan
                             @endif
-                            @if(auth()->user()->can('ListadoProducto','ListadoServicio'))
+                            @if(auth()->user()->hasAnyPermission(['ListadoProducto','ListadoInventario','ListadoServicio','OrdenDeCompra','SolicitudDeCita']))
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                         <i data-feather="shopping-cart"></i>

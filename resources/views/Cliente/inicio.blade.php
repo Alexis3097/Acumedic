@@ -29,7 +29,7 @@
         </div>
         <div class="desc">
           <p class="titulo">Nuestro número</p>
-          <p class="numero">961-359-1414</p>
+          <p class="numero">{{$contacto->Telefono}}</p>
         </div>
       </div>
       <div class="contactoH">
@@ -38,7 +38,7 @@
         </div>
         <div class="desc">
           <p class="titulo">Horarios</p>
-          <p class="numero">Lunes a Sábado (11:00 - 15:00 , 17:00 - 19:00)</p>
+          <p class="numero">{{$contacto->Horario}}</p>
         </div>
       </div>
     </div>

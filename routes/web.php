@@ -118,7 +118,8 @@ Route::get('/ventas', 'ventasController@index')->name('ventas');
 //PERFIL DE CONSULTA
 Route::group(['middleware' => ['permission:Consulta']], function () {
     //CONSULTA
-    Route::get('/consulta-paciente/{IdPaciente}', 'PerfilConsultaController@index')->name('consulta.paciente');
+    Route::get('/consulta-paciente/{IdPaciente}-{IdCita}', 'PerfilConsultaController@index')->name('consulta.paciente');
+    Route::get('/consulta-paciente/{IdPaciente}', 'PerfilConsultaController@perfilUsuario')->name('consulta.pacientePerfil');
 });
 
 //HISTORIAL
@@ -137,7 +138,7 @@ Route::group(['middleware' => ['permission:InicarConsulta']], function () {
     Route::post('/consulta-paciente/consulta/AparatosSistemas/guardar', 'ConsultaController@guardarConsultaAparatosSistemas')->name('consulta.GuardarAparatosSistemas');
     Route::put('/consulta-paciente/consulta/AparatosSistemas/update', 'ConsultaController@updateConsultaAparatosSistemas')->name('consulta.updateAparatosSistemas');
     Route::get('/consulta-paciente/consulta/AparatosSistemas/ver-{IdConsulta}', 'ConsultaController@verAparatosSistemas')->name('consulta.verAparatosSistemas');
-    Route::get('/consulta-paciente/consulta/SintomasSubjetivos', 'ConsultaController@consultaSintomasSubjetivos')->name('consulta.SintomasSubjetivos');
+    Route::get('/consulta-paciente/consulta/SintomasSubjetivos/consulta-{IdConsulta}', 'ConsultaController@consultaSintomasSubjetivos')->name('consulta.SintomasSubjetivos');
     Route::post('/consulta-paciente/consulta/SintomasSubjetivos/guardar', 'ConsultaController@guardarConsultaSintomasSubjetivos')->name('consulta.GuardarSintomasSubjetivos');
     Route::put('/consulta-paciente/consulta/SintomasSubjetivos/update', 'ConsultaController@updateConsultaSintomasSubjetivos')->name('consulta.updateSintomasSubjetivos');
     Route::delete('/consulta-paciente/consulta/SintomasSubjetivos/delete', 'ConsultaController@deleteConsultaSintomasSubjetivos')->name('consulta.deleteSintomasSubjetivos');

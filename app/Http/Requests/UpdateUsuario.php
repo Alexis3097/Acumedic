@@ -30,7 +30,7 @@ class UpdateUsuario extends FormRequest
             'ApellidoPaterno' => 'required|max:190',
             'ApellidoMaterno' => 'required|max:190',
             'FechaNacimiento' => ['required',new FechaMenorAHoy],
-            'Telefono' => 'required|numeric|max:190',
+            'Telefono' => 'required|numeric',
             'IdSexo' => ['required',new OptionSelect],
             'Rol' => ['required',new  SelectRole],
             'email' => ['required','email','max:190'],
@@ -55,7 +55,6 @@ class UpdateUsuario extends FormRequest
             'name.max' => 'Solo puedes agregar 190 caracteres',
             'ApellidoPaterno.max' => 'Solo puedes agregar 190 caracteres',
             'ApellidoMaterno.max' => 'Solo puedes agregar 190 caracteres',
-            'Telefono.max' => 'Solo puedes agregar 190 caracteres',
             'email.max' => 'Solo puedes agregar 190 caracteres',
             
         ];

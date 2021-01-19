@@ -16,8 +16,12 @@ class ProductoController extends Controller
 
     public function show($id, ProductoViewModel $ProductoViewModel){
         $producto = $ProductoViewModel->getProducto($id);
-        $productos = $ProductoViewModel->otrosProductosParaVenta($id);
-        return view('Cliente.producto-detallado',compact('producto','productos'));
+        if(!is_null($producto)){
+            $productos = $ProductoViewModel->otrosProductosParaVenta($id);
+            return view('Cliente.producto-detallado',compact('producto','productos'));
+        }else{
+            return redirect()->route('productos');
+        }
     }
 
     public function ordenDeCompra(StoreOrdenDeCompra $request, ProductoViewModel $ProductoViewModel){

@@ -67,7 +67,7 @@
                         <div class="card-body p-0">
                             <div class="media p-3">
                                 <div class="media-body">
-                                    <span class="text-muted text-uppercase font-size-12 font-weight-bold">Solicitudes de citas pendientes</span>
+                                    <span class="text-muted text-uppercase font-size-12 font-weight-bold">Solicitude de citas</span>
                                     @if($numeroSolicitudPendientes == 0)
                                         <h2 class="mb-0">0</h2>
                                     @else

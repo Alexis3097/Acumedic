@@ -189,16 +189,18 @@ class ProductoViewModel
 
   public function delete($id){
     $producto = Producto::find($id);
-    if(isset($producto->inventario)){
-      $inventario = Inventario::where('producto_id',$id)->first();
-      $inventario->delete();
+    if(!is_null($producto)){
+      if(isset($producto->inventario)){
+        $inventario = Inventario::where('producto_id',$id)->first();
+        $inventario->delete();
+      }
+      $fotoProductos = fotoProducto::where('IdProducto', $id)->get();
+      foreach ($fotoProductos as $foto){
+        $this->deleteProductPhoto($foto->Nombre);
+        $foto->delete();
+      }
+      $producto->delete();
     }
-    $fotoProductos = fotoProducto::where('IdProducto', $id)->get();
-    foreach ($fotoProductos as $foto){
-      $this->deleteProductPhoto($foto->Nombre);
-      $foto->delete();
-    }
-    $producto->delete();
     return $producto;
   }
   public function deleteProductPhoto($nombreFoto){

@@ -17,7 +17,7 @@
                             <h2 class="mb-1 mt-0"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-file-prescription"></i> Antecedentes</span></h2>
                         </div>
                         <div class="col-sm-1 col-xl-1">
-                            <a href="{{route('consulta.paciente',['IdPaciente' =>$paciente->id])}}" class="btn btn-outline-primary">
+                            <a href="{{route('consulta.pacientePerfil',['IdPaciente' =>$paciente->id])}}" class="btn btn-outline-primary">
                                 <i class='fas fa-arrow-left'></i> Regresar
                             </a>
                         </div>
@@ -89,7 +89,7 @@
                                                 <input type="text" class="form-control" name="Otros" id="Otros" placeholder="Otro antecedente patologico">
                                             </div>
                                         <div class="form-group col-md-12" style="padding-top:2%;">
-                                            <a href="{{route('consulta.paciente',['IdPaciente' =>$paciente->id])}}" class="btn btn-danger" >Cancelar</a>
+                                            <a href="{{route('consulta.pacientePerfil',['IdPaciente' =>$paciente->id])}}" class="btn btn-danger" >Cancelar</a>
                                             <button href="{{ route('antecedente.patologico.guardar') }}" class="btn btn-primary" type="submit">Guardar</button>
                                         </div>
                                     </form>

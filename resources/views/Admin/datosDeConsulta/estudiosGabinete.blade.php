@@ -9,7 +9,7 @@
                             <h2 class="mb-1 mt-0"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-file-prescription"></i> Estudios de gabinete</span></h2>
                         </div>
                         <div class="col-sm-6 col-xl-6 col-md-6">
-                                    <a href="{{route('consulta.paciente',['IdPaciente' => $IdPaciente])}}" class="btn btn-outline-primary">
+                                    <a href="{{route('consulta.pacientePerfil',['IdPaciente' => $IdPaciente])}}" class="btn btn-outline-primary">
                                         <i class='fas fa-arrow-left'></i> Regresar
                                     </a>
                                     <button type="button" data-toggle="modal" data-target="#bs-example-modal-lg" class="btn btn-outline-primary">
