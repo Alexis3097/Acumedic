@@ -72,6 +72,8 @@ class ServicioViewModel
       }
       
       $servicio = $this->getServicio($id);
+      $this->deleteServicePhoto($servicio->Logo);
+      $this->deleteServicePhoto($servicio->Imagen);
       $servicio->delete();
       return $servicio;
     }

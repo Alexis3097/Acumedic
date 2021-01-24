@@ -577,6 +577,8 @@ input {
 .serviciosCont .servicio-col .container-servicio .desc .descripcion{
   text-align: justify;
   font-size: var(--font-s);
+  height:10vh;
+  overflow:hidden;
 }
 .serviciosCont .servicio-col .container-servicio .desc{
   padding:1%;
@@ -1471,6 +1473,19 @@ footer .colFooter .sublinks ul li a:hover{
   }
   /* pantallas más grandes  */
   @media only screen and (max-width: 700px) and (min-width: 300px) { 
+    .producto-single .producto{
+      display: contents!important;
+    }
+    .producto-single .gallery {
+      width: 100%;
+      display: inline-block;
+      padding-top: 100px;
+      padding-bottom: 10px;
+      position: inherit;
+    }
+    .producto-single .gallery img{
+      width:19%;
+    }
     .info-numeros .info-contador .counter{
       font-size: var(--font-gtitle);
     }
