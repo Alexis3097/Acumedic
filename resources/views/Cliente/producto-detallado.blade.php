@@ -79,22 +79,22 @@
     <div style="border-bottom:1px solid #fff;"class="col-md-12">
     <h4 style="font-weight:bold;">Datos Principales</h4>
     </div>
-      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+      <div class="form-group col-md-3 col-lg-3">
         <label for="NombreCompleto">Nombre Completo</label>
         <input type="text" class="form-control" id="NombreCompleto" name="NombreCompleto" aria-describedby="emailHelp" placeholder="Añade tú nombre" maxlength="190">
         <div class="errorLabel" id="errorNombre"></div>
       </div>
-      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+      <div class="form-group col-md-3 col-lg-3">
         <label for="Correo">Correo electronico</label>
         <input type="email" class="form-control" id="Correo"  name="Correo" aria-describedby="emailHelp" placeholder="tucorreo@tudominio.com" maxlength="190">
         <div class="errorLabel" id="errorCorreo"></div>
       </div>
-      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+      <div class="form-group col-md-3 col-lg-3">
         <label for="Telefono">Telefono</label>
         <input type="text" class="form-control" id="Telefono" name="Telefono" placeholder="Escribe aqui tú número" maxlength="190">
         <div class="errorLabel" id="errorTelefono"></div>
       </div>
-      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+      <div class="form-group col-md-3 col-lg-3">
         <label for="Cantidad">Cantidad a pedir:</label>
         <input min="0" class="form-control" type="number" id="Cantidad"  name="Cantidad" step="1" value="0">
         <div class="errorLabel" id="errorCantidad"></div>
@@ -102,22 +102,22 @@
       <div style="border-bottom:1px solid #fff;" class="col-md-12">
       <h4 style="font-weight:bold;">Dirección</h4>
       </div>
-      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+      <div class="form-group col-md-3 col-lg-3">
         <label for="Estado">Estado</label>
         <input type="text" class="form-control" id="Estado" name="Estado" aria-describedby="emailHelp" placeholder="Ingresa tú estado" maxlength="190">
         <div class="errorLabel" id="errorEstado"></div>
       </div>
-      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+      <div class="form-group col-md-3 col-lg-3">
         <label for="Municipio">Municipio</label>
         <input type="text" class="form-control" id="Municipio" name="Municipio" aria-describedby="emailHelp" placeholder="Ingresa tú municipio" maxlength="190">
         <div class="errorLabel" id="errorMunicipio"></div>
       </div>
-      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+      <div class="form-group col-md-3 col-lg-3">
         <label for="Colonia">Colonia</label>
         <input type="text" class="form-control" id="Colonia" name="Colonia" aria-describedby="emailHelp" placeholder="Ingresa tú colonia" maxlength="190">
         <div class="errorLabel" id="errorColonia"></div>
       </div>
-      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+      <div class="form-group col-md-3 col-lg-3">
         <label for="Calle">Calle</label>
         <input type="text" class="form-control" id="Calle" name="Calle" aria-describedby="emailHelp" placeholder="Ingresa tú calle" maxlength="190">
         <div class="errorLabel" id="errorCalle"></div>
@@ -125,19 +125,19 @@
       <div style="border-bottom:1px solid #fff;" class="col-md-12">
       <h4 style="font-weight:bold;">Referencias (Opcional)</h4>
       </div>
-      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+      <div class="form-group col-md-3 col-lg-3">
         <label for="NoInterior">No. Interior</label>
         <input type="text" class="form-control" id="NoInterior" name="NoInterior" aria-describedby="emailHelp" placeholder="Ingresa tú número interior" maxlength="190">
       </div>
-      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+      <div class="form-group col-md-3 col-lg-3">
         <label for="Calle1">Entre calle</label>
         <input type="text" class="form-control" id="Calle1" name="Calle1" aria-describedby="emailHelp" placeholder="Ingresa tú primer referencia" maxlength="190">
       </div>
-      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+      <div class="form-group col-md-3 col-lg-3">
         <label for="Calle2">Y calle</label>
         <input type="text" class="form-control" id="Calle2" name="Calle2" aria-describedby="emailHelp" placeholder="Ingresa tú segunda referencia" maxlength="190">
       </div>
-      <div class="form-group col-md-3 col-xs-3 col-lg-3">
+      <div class="form-group col-md-3 col-lg-3">
         <label for="NoExterior">No. Exterior</label>
         <input type="text" class="form-control" id="NoExterior" name="NoExterior" aria-describedby="emailHelp" placeholder="Ingresa tú no. exterior" maxlength="190">
       </div>

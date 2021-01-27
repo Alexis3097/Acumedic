@@ -9,9 +9,9 @@
         <div class="col-md-6">
           <div class="titulo-sitio">
             <h1 class="titulo">
-              A Passion for Healing Medical Center
+            Acumedic, Acupuntura médica
             </h1>
-            <h2>lorems ipsum dolos is a met a lorems ipsum</h2>
+            <h2>Servicios de Homeopatía en Tuxtla Gutiérrez.</h2>
           </div>
           <div class="button">
             <a href="{{route('servicios')}}" class="btn-1">Ver más</a>
@@ -68,20 +68,20 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3 info-contador">
-          <div class="counter" data-count="2018">0</div>
-          <p class="desc">lorem impsum</p>
+          <div class="counter" data-count="1600">0</div>
+          <p class="desc">Servicios Realizados</p>
         </div>
         <div class="col-md-3 info-contador">
-          <div class="counter" data-count="2019">0</div>
-          <p class="desc">lorem impsum</p>
+          <div class="counter" data-count="1500">0</div>
+          <p class="desc">Pacientes rehabilitados</p>
         </div>
         <div class="col-md-3 info-contador">
-          <div class="counter" data-count="2020">0</div>
-          <p class="desc">lorem impsum</p>
+          <div class="counter" data-count="200">0</div>
+          <p class="desc">Tipos de tratamientos</p>
         </div>
         <div class="col-md-3 info-contador">
-          <div class="counter" data-count="2021">0</div>
-          <p class="desc">lorem impsum</p>
+          <div class="counter" data-count="40">0</div>
+          <p class="desc">Años de experiencia</p>
         </div>
       </div>
     </div>
@@ -95,8 +95,7 @@
           <div class="title-section">
             <h3>Servicios de Homeopatía</h3>
           </div>
-          <p class="desc-section">Nullam quis dolor sed ante ultricies mattis. Mauris luctus felis nec nulla eleifend
-            pulvinar. In imperdiet mi vitae quam placerat dapibus.</p>
+          <p class="desc-section">Estos son algunos de los servicios que manejamos en nuestra clínica.</p>
         </div>
         @foreach($servicios as $servicio)
           <div class="col-md-4">

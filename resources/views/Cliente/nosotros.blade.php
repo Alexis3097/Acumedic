@@ -130,29 +130,29 @@
           <div class="col-md-3">
             <div class="icon"><i class="icono fa fa-h-square"></i></div>
             <div class="desc">
-              <h3 class="titulo">Free shiping</h3>
-              <p class="subtitulo">lorem ipsum dolor is a met</p>
+              <h3 class="titulo">Tratamiento personal</h3>
+              <p class="subtitulo">Seguimiento clínico.</p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="icon"><i class="icono fas fa-user-md"></i></div>
             <div class="desc">
-              <h3 class="titulo">Free shiping</h3>
-              <p class="subtitulo">lorem ipsum dolor is a met</p>
+              <h3 class="titulo">Citas</h3>
+              <p class="subtitulo">Agendamiento de citas.</p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="icon"><i class="icono fa fa-book-medical"></i></div>
             <div class="desc">
-              <h3 class="titulo">Free shiping</h3>
-              <p class="subtitulo">lorem ipsum dolor is a met</p>
+              <h3 class="titulo">Servicios</h3>
+              <p class="subtitulo">Servicios personales.</p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="icon"><i class="icono fab fa-paypal"></i></div>
             <div class="desc">
-              <h3 class="titulo">Free shiping</h3>
-              <p class="subtitulo">lorem ipsum dolor is a met</p>
+              <h3 class="titulo">Pagos</h3>
+              <p class="subtitulo">Acuerdo de pagos.</p>
             </div>
           </div>
           
