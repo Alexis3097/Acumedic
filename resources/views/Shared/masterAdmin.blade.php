@@ -222,7 +222,7 @@
                                     @can('OrdenDeCompra')
                                         <a href="{{route('ordenes.pendientes')}}" class="dropdown-item notify-item">
                                             <i data-feather="shopping-bag" class="icon-dual icon-xs mr-2"></i>
-                                            <span>Ordenes</span>
+                                            <span>Órdenes</span>
                                         </a>
                                     @endcan
                                     @can('SolicitudDeCita')
