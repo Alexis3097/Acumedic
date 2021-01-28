@@ -40,7 +40,7 @@
                     </div>
                     <div class="desc">
                       <p class="descripcion">Monseni, Número #124. Fraccionamiento Montserrat. C.P. 29070</p>
-                      <p class="descripcion">Horarios: Luneas a Sábado de 10:00 a.m. a 20:00</p>
+                      <p class="descripcion">Horarios: Lunes a Sábado de 10:00 a 20:00 Hrs.</p>
                       <p class="descripcion">Domingo cerrado.</p>
                       <p class="descripcion">Correo electronico: medicalternativa@hotmail.com</p>
                     </div>

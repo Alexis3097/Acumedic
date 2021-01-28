@@ -18,9 +18,13 @@
               </div>
           </div>
       </section>
-      <section class="productos-page">
-          <div class="container">
-              <div class="row">
+      {{-- inicio de condicion en caso no haya producto --}}
+      @if(count($productos) <= 0)
+        <img src="{{asset('../img/Admin/sin-productos.png')}}">
+      @else
+        <section class="productos-page">
+            <div class="container">
+                <div class="row">
                 @foreach($productos as $producto)
                     <div class="col-md-3 single-product">
                         <div class="img-producto">
@@ -38,8 +42,9 @@
                         </div>
                     </div>
                 @endforeach
-              </div>
-          </div>
-      </section>
+                </div>
+            </div>
+        </section>
+      @endif
 </main>
 @endsection

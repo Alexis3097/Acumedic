@@ -79,13 +79,13 @@
                                     <div class="media px-3 py-4 border-bottom" style="margin-left: -1%; padding: 0% 0% 2% 0%!important;">
                                         <div class="media-body">
                                             <h3 class="mt-0 mb-1 font-size-22 font-weight-normal">Acciones a realizar</h3>
-                                            <span class="text-muted">Seleccionela la categoria que quieras ver a detalle</span>
+                                            <span class="text-muted">Seleccione la categoría que quieras ver a detalle</span>
                                         </div>
                                         <i data-feather=" settings" class="align-self-center icon-dual icon-lg"></i>
                                     </div>
                                     <div class="button-list">
                                     @can('Historial')
-                                        <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-prescription"></i> Historial Clínico</h6>
+                                        <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-prescription"></i> Historial clínico</h6>
                                         <p style="margin:0;">Permite ver el historial de las consultas previamente hechas</p>
                                         <a href="{{route('consulta.historial',['IdPaciente'=>$paciente->id])}}" style="margin:0;" class="btn btn-small btn--md btn-primary" data-toggle="tooltip" data-placement="left" title="Ver historial clinico">Realizar</a>
                                     @endcan

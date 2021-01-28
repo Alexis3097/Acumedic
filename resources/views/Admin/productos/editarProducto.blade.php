@@ -57,7 +57,7 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-4 mb-3">
-                                            <label for="PrecioPublico">Precio publico</label>
+                                            <label for="PrecioPublico">Precio público</label>
                                             <input maxlength="190" class="form-control @error('PrecioPublico') is-invalid @enderror"  value="{{old('PrecioPublico', $producto->PrecioPublico)}}" name="PrecioPublico" id="PrecioPublico" required placeholder="0.00">
                                             @error('PrecioPublico')
                                                 <div class="invalid-feedback">
@@ -135,20 +135,16 @@
                                                 @endif
                                             <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu Imagen de producto</h6>
-                                            <div class="form-group col-md-12">
-                                                <input id="cat_image"  name="Foto1" style="width:100%;" class="btn btn-info" type="file" accept="image/*"/>
+                                            <div class="form-group col-md-12" style="margin:0px;">
+                                                <input id="cat_image"  name="Foto1" style="width:100%;" class="btn btn-primary" type="file" accept="image/*"/>
                                                 @if($errors->has('Foto1'))
                                                     <span class="help-block text-danger">
                                                         <strong>{{$errors->first('Foto1')}}</strong>
                                                     </span>
                                                 @endif
                                             </div>
-                                            <!-- <div class="form-group col-md-12">
-                                                <button id="btn-example-file-reset" style="width:49%;" class="btn btn-info" class="btn btn-info" type="button">Reemplazar</button>
-                                                <button id="btn-example-file-reset" style="width:49%;" class="btn btn-info" name="delete_modal" data-toggle="modal" data-target="#borrarFoto" class="btn btn-info" type="button">Borrar definitivamente</button>
-                                            </div> -->
                                             <div class="form-group col-md-12">
-                                                <label for="Titulo1" style="text-align: left;">Titulo de la imagen</label>
+                                                <label for="Titulo1" style="text-align: left;">Título de la imagen</label>
                                                 <div>
                                                     <input maxlength="190" type="text" class="form-control @error('Titulo1') is-invalid @enderror" 
                                                     value="@if(isset($producto->fotoProductos[0])){{old('Titulo1', $producto->fotoProductos[0]->Titulo)}}@else{{old('Titulo1')}}@endif"
@@ -188,10 +184,10 @@
                                                     <input type="hidden" name="hayFoto2" value="1">
                                                 @endif
 
-                                            <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
+                                            <h5 class="mt-2 mb-0">Así se ve tu imagen de producto</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
-                                            <div class="form-group col-md-12">
-                                                <input id="cat_image1" name="Foto2" style="width:100%;" class="btn btn-info" type="file" accept="image/*" />
+                                            <div class="form-group col-md-12" style="margin:0px;">
+                                                <input id="cat_image1" name="Foto2" style="width:100%;" class="btn btn-primary" type="file" accept="image/*" />
                                                 @if ($errors->has('Foto2'))
                                                     <span class="help-block text-danger">
                                                         <strong>{{$errors->first('Foto2')}}</strong>
@@ -199,15 +195,15 @@
                                                 @endif
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <button id="btn-example-file-reset1" style="width:49%;"  class="btn btn-info" type="button">Reemplazar</button>
+                                                <button id="btn-example-file-reset1" style="width:99%; margin-top:1px; box-sizing:border-box;"  class="btn btn-primary" type="button">Reemplazar</button>
                                                 @if(isset($producto->fotoProductos[1]))
                                                     <input type="hidden" value="{{ $producto->fotoProductos[1]->id}}">
-                                                    <button id="btn-example-file-reset1" style="width:49%;"  name="delete_modal" data-toggle="modal" data-target="#borrarFoto" class="btn btn-info delete" type="button">Borrar definitivamente</button>
+                                                    <button id="btn-example-file-reset1" style="width:99%; margin-top:1px; box-sizing:border-box;"  name="delete_modal" data-toggle="modal" data-target="#borrarFoto" class="btn btn-primary delete" type="button">Borrar definitivamente</button>
                                                 @endif
 
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <label for="Titulo2" style="text-align: left;">Titulo de la imagen</label>
+                                                <label for="Titulo2" style="text-align: left;">Título de la imagen</label>
                                                 <div>
                                                     <input type="text" maxlength="190"
                                                     value="@if(isset($producto->fotoProductos[1])){{old('Titulo2', $producto->fotoProductos[1]->Titulo)}}@else{{old('Titulo2')}}@endif" 
@@ -248,10 +244,10 @@
                                                     <input type="hidden" name="hayFoto3" value="1">
                                                 @endif
 
-                                            <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
+                                            <h5 class="mt-2 mb-0">Así se ve tu imagen de producto</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
-                                            <div class="form-group col-md-12">
-                                                <input id="cat_image2" name="Foto3" style="width:100%;" class="btn btn-info"  type="file" accept="image/*" />
+                                            <div class="form-group col-md-12" style="margin:0px;">
+                                                <input id="cat_image2" name="Foto3" style="width:100%;" class="btn btn-primary"  type="file" accept="image/*" />
                                                 @if($errors->has('Foto3'))
                                                     <span class="help-block text-danger">
                                                         <strong>{{$errors->first('Foto3')}}</strong>
@@ -259,14 +255,14 @@
                                                 @endif
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <button id="btn-example-file-reset2" style="width:49%;"  class="btn btn-info" type="button">Reemplazar</button>
+                                                <button id="btn-example-file-reset2" style="width:99%; margin-top:1px; box-sizing:border-box;"  class="btn btn-primary" type="button">Reemplazar</button>
                                                 @if(isset($producto->fotoProductos[2]))
                                                     <input type="hidden" value="{{ $producto->fotoProductos[2]->id}}">
-                                                    <button id="btn-example-file-reset2" style="width:49%;"  name="delete_modal" data-toggle="modal" data-target="#borrarFoto" class="btn btn-info delete" type="button">Borrar definitivamente</button>
+                                                    <button id="btn-example-file-reset2" style="width:99%; margin-top:1px; box-sizing:border-box;"  name="delete_modal" data-toggle="modal" data-target="#borrarFoto" class="btn btn-primary delete" type="button">Borrar definitivamente</button>
                                                 @endif
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <label for="Titulo3" style="text-align: left;">Titulo de la imagen</label>
+                                                <label for="Titulo3" style="text-align: left;">Título de la imagen</label>
                                                 <div>
                                                     <input type="text" maxlength="190"
                                                     value="@if(isset($producto->fotoProductos[2])){{old('Titulo3', $producto->fotoProductos[2]->Titulo)}}@else{{old('Titulo3')}}@endif"  
@@ -306,25 +302,25 @@
                                                     <input type="hidden" name="hayFoto4" value="1">
                                                 @endif
 
-                                            <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
+                                            <h5 class="mt-2 mb-0">Así se ve tu imagen de producto</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image3" name="Foto4" style="width:100%;" class="btn btn-info" type="file" accept="image/*" />
+                                                <input id="cat_image3" name="Foto4" style="width:100%;" class="btn btn-primary" type="file" accept="image/*" />
                                                 @if($errors->has('Foto4'))
                                                     <span class="help-block text-danger">
                                                         <strong>{{$errors->first('Foto4')}}</strong>
                                                     </span>
                                                 @endif
-                                            <div class="form-group col-md-12">
-                                                <button id="btn-example-file-reset3" style="width:49%;"  class="btn btn-info" type="button">Reemplazar</button>
+                                            <div class="form-group col-md-12" style="padding:0%;">
+                                                <button id="btn-example-file-reset3" style="width:99%; margin-top:1px; box-sizing:border-box;"  class="btn btn-primary" type="button">Reemplazar</button>
                                                 @if(isset($producto->fotoProductos[3]))
                                                 <input type="hidden" value="{{ $producto->fotoProductos[3]->id}}">
-                                                <button id="btn-example-file-reset3" style="width:49%;"  name="delete_modal" data-toggle="modal" data-target="#borrarFoto" class="btn btn-info delete" type="button">Borrar definitivamente</button>
+                                                <button id="btn-example-file-reset3" style="width:99%; margin-top:1px; box-sizing:border-box;"  name="delete_modal" data-toggle="modal" data-target="#borrarFoto" class="btn btn-primary delete" type="button">Borrar definitivamente</button>
                                                 @endif
                                             </div>
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <label for="Titulo4" style="text-align: left;">Titulo de la imagen</label>
+                                                <label for="Titulo4" style="text-align: left;">Título de la imagen</label>
                                                 <div>
                                                     <input type="text" maxlength="190"
                                                     value="@if(isset($producto->fotoProductos[3])){{old('Titulo4', $producto->fotoProductos[3]->Titulo)}}@else{{old('Titulo4')}}@endif" 
@@ -382,10 +378,10 @@
                 <input type="hidden" name="IdFotoProducto" id="IdFotoProducto">
                 <input type="hidden" name="IdProducto" id="IdProducto" value="{{$producto->id}}">
                     <div class="modal-body">
-                    <p>¿Esta seguro que desea eliminar esta imagen definitivamente?</p>
+                    <p>¿Está seguro que desea eliminar esta imagen definitivamente?</p>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                            <button type="submit" class="btn btn-primary">Si, eliminar</button>
                     </div>
                     </div>
                 </form>

@@ -45,7 +45,7 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">Nombre de producto</th>
-                                                <th scope="col">Precio publico</th>
+                                                <th scope="col">Precio público</th>
                                                 <th scope="col">Código/Clave de producto</th>
                                                 <th scope="col">Acciones</th>
                                             </tr>
@@ -100,10 +100,10 @@
                     @csrf
                     @method('delete')
                     <input type="hidden" name="IdModal" id="IdModal">
-                    <p>¿Esta seguro que desea eliminar el producto? tambien se eliminara del inventario y toda su informacion</p>
+                    <p>¿Está seguro que desea eliminar el producto? también se eliminara del inventario y toda su información</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                        <button type="submit" class="btn btn-primary">Si, eliminar</button>
                     </div>
                 </form>
             </div>

@@ -5,12 +5,12 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row page-title align-items-center">
-                        <div class="col-sm-12 col-xl-11">
+                        <div class="col-xs-10 col-md-10 col-xl-10">
                             <h2 class="mb-1 mt-0"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-file-prescription"></i> Consulta médica</span></h2>
                         </div>
-                        <div class="col-sm-1 col-xl-1">
+                        <div class="col-xs-2 col-md-2 col-xl-2">
                             <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#finalizarConsulta">
-                                <i class='fas fa-arrow-left'></i> FINALIZAR CONSULTA
+                                <i class='fas fa-arrow-left'></i> Finalizar consulta
                             </button>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                         <div class="col-md-12 col-xl-12 col-xs-12">
                             <div class="card">
                                 <div class="card-body">
-                                <div class="media col-xl-2" style="display: inline-flex">
+                                <div class="media col-xs-3 col-md-3 col-xl-3" style="display: inline-flex">
                                         @if(is_null($paciente->Foto))
                                         <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}"
                                             class="avatar-lg rounded-circle mr-2" alt="shreyu">
@@ -180,7 +180,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">FINALIZAR CONSULTA</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Finalizar consulta</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -189,7 +189,7 @@
                 <form action="{{ route('consulta.finalizar')}}" method="post">
                     @csrf
                     <input type="hidden" name="IdConsulta" value="{{ $IdConsulta }}">
-                    <p>¿Esta seguro que desea finalizar la consulta?</p>
+                    <p>¿Está seguro que desea finalizar la consulta?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Si, finalizar</button>

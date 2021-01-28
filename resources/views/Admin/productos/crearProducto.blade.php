@@ -56,7 +56,7 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-4 mb-3">
-                                            <label for="PrecioPublico">Precio publico</label>
+                                            <label for="PrecioPublico">Precio público</label>
                                             <input class="form-control @error('PrecioPublico') is-invalid @enderror"  value="{{ old('PrecioPublico') }}" name="PrecioPublico" id="PrecioPublico"  maxlength="190" required placeholder="0.00">
                                             @error('PrecioPublico')
                                                 <div class="invalid-feedback">
@@ -64,10 +64,6 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                        <!-- <div class="form-group col-md-3 mb-3">
-                                            <label>Porcentaje de descuento</label>
-                                            <input data-toggle="touchspin" value="18.20" type="text" data-step="0.1" data-decimals="2" data-bts-postfix="%">
-                                        </div> -->
                                         <div class="form-group col-md-4 mb-3">
                                             <label>Estrellas de calidad</label>
                                             <select class="custom-select mb-2" name="Estrellas">
@@ -81,10 +77,6 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="CodigoBarra">Código/Clave de producto</label>
-                                            <!-- <div class="checkbox-1">
-                                                <input type="checkbox" name="check" value="1">
-                                                <label style="display:inline-block;">Generar automaticamente</label>
-                                            </div> -->
                                             <input type="text" class="form-control @error('CodigoBarra') is-invalid @enderror"  value="{{ old('CodigoBarra') }}" name="CodigoBarra" id="CodigoBarra" placeholder="Escribe el código" required  maxlength="190">
                                             @error('CodigoBarra')
                                                 <div class="invalid-feedback">
@@ -122,10 +114,10 @@
                                         <div class="imagen-producto" style="width:24%; display:inline-block;">
                                             <h4>Imagen de producto</h4>
                                             <img id="category-img-tag" src="{{asset('../img/upload.jpg')}}" alt=""style="width: 150px;" />
-                                            <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
-                                            <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu Imagen de producto</h6>
+                                            <h5 class="mt-2 mb-0">Así se ve tu Imagen de producto</h5>
+                                            <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image"  style="width:100%;" name="Foto1" type="file" class="btn btn-info"accept="image/*"/>
+                                                <input id="cat_image"  style="width:100%;" name="Foto1" type="file" class="btn btn-primary"accept="image/*"/>
                                                 @if ($errors->has('Foto1'))
                                                     <span class="help-block text-danger">
                                                         <strong>{{$errors->first('Foto1')}}</strong>
@@ -133,10 +125,10 @@
                                                 @endif
                                             </div>
                                             <div class="form-group col-md-12">
-                                            <button id="btn-example-file-reset" style="width:100%;"class="btn btn-info" type="button">Reemplazar</button>
+                                            <button id="btn-example-file-reset" style="width:100%;"class="btn btn-primary" type="button">Reemplazar</button>
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <label for="Titulo1" style="text-align: left;">Titulo de la imagen</label>
+                                                <label for="Titulo1" style="text-align: left;">Título de la imagen</label>
                                                 <div>
                                                     <input type="text"  maxlength="190" class="form-control @error('Titulo1') is-invalid @enderror" name="Titulo1" id="Titulo1" value="{{ old('Titulo1') }}" placeholder="Titulo">
                                                     @error('Titulo1')
@@ -162,10 +154,10 @@
                                         <div class="imagen-producto" style="width:24%; display:inline-block;">
                                             <h4>Imagen de producto</h4>
                                             <img id="category-img-tag1" src="{{asset('../img/upload.jpg')}}" alt=""style="width: 150px;" />
-                                            <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
+                                            <h5 class="mt-2 mb-0">Así se ve tu imagen de producto</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image1"  style="width:100%;" name="Foto2" type="file" accept="image/*" class="btn btn-info"/>
+                                                <input id="cat_image1"  style="width:100%;" name="Foto2" type="file" accept="image/*" class="btn btn-primary"/>
                                                 @if ($errors->has('Foto2'))
                                                     <span class="help-block text-danger">
                                                         <strong>{{$errors->first('Foto2')}}</strong>
@@ -173,10 +165,10 @@
                                                 @endif
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <button id="btn-example-file-reset1" style="width:100%;"class="btn btn-info" type="button">Reemplazar</button>
+                                                <button id="btn-example-file-reset1" style="width:100%;"class="btn btn-primary" type="button">Reemplazar</button>
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <label for="Titulo2" style="text-align: left;">Titulo de la imagen</label>
+                                                <label for="Titulo2" style="text-align: left;">Título de la imagen</label>
                                                 <div>
                                                     <input type="text"  maxlength="190" class="form-control @error('Titulo2') is-invalid @enderror" value="{{ old('Titulo2') }}" name="Titulo2" id="Titulo2" placeholder="Titulo" required>
                                                     @error('Titulo2')
@@ -202,10 +194,10 @@
                                         <div class="imagen-producto" style="width:24%; display:inline-block;">
                                             <h4>Imagen de producto</h4>
                                             <img id="category-img-tag2" src="{{asset('../img/upload.jpg')}}" alt=""style="width: 150px;" />
-                                            <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
+                                            <h5 class="mt-2 mb-0">Así se ve tu imagen de producto</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image2" name="Foto3" type="file" style="width:100%;"  accept="image/*"class="btn btn-info" />
+                                                <input id="cat_image2" name="Foto3" type="file" style="width:100%;"  accept="image/*"class="btn btn-primary" />
                                                 @if($errors->has('Foto3'))
                                                     <span class="help-block text-danger">
                                                         <strong>{{$errors->first('Foto3')}}</strong>
@@ -213,10 +205,10 @@
                                                 @endif
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <button id="btn-example-file-reset2" style="width:100%;"class="btn btn-info" type="button">Reemplazar</button>
+                                                <button id="btn-example-file-reset2" style="width:100%;"class="btn btn-primary" type="button">Reemplazar</button>
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <label for="Titulo3" style="text-align: left;">Titulo de la imagen</label>
+                                                <label for="Titulo3" style="text-align: left;">Título de la imagen</label>
                                                 <div>
                                                     <input type="text"  maxlength="190" class="form-control @error('Titulo3') is-invalid @enderror" value="{{ old('Titulo3') }}" name="Titulo3" id="Titulo3" placeholder="Titulo" required>
                                                     @error('Titulo3')
@@ -242,10 +234,10 @@
                                         <div class="imagen-producto" style="width:24%; display:inline-block;">
                                             <h4>Imagen de producto</h4>
                                             <img id="category-img-tag3" src="{{asset('../img/upload.jpg')}}" alt=""style="width: 150px;" />
-                                            <h5 class="mt-2 mb-0">Asi se ve tu Imagen de producto</h5>
+                                            <h5 class="mt-2 mb-0">Así se ve tu imagen de producto</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen de producto</h6>
                                             <div class="form-group col-md-12">
-                                                <input id="cat_image3" name="Foto4" style="width:100%;"  type="file" accept="image/*" class="btn btn-info"/>
+                                                <input id="cat_image3" name="Foto4" style="width:100%;"  type="file" accept="image/*" class="btn btn-primary"/>
                                                 @if($errors->has('Foto4'))
                                                     <span class="help-block text-danger">
                                                         <strong>{{$errors->first('Foto4')}}</strong>
@@ -253,10 +245,10 @@
                                                 @endif
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <button id="btn-example-file-reset3" style="width:100%;"  class="btn btn-info" type="button">Reemplazar</button>
+                                                <button id="btn-example-file-reset3" style="width:100%;"  class="btn btn-primary" type="button">Reemplazar</button>
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <label for="Titulo4" style="text-align: left;">Titulo de la imagen</label>
+                                                <label for="Titulo4" style="text-align: left;">Título de la imagen</label>
                                                 <div>
                                                     <input type="text"  maxlength="190" class="form-control @error('Titulo4') is-invalid @enderror" value="{{ old('Titulo4') }}" name="Titulo4" id="Titulo4" placeholder="Titulo" required>
                                                     @error('Titulo4')

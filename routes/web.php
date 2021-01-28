@@ -61,7 +61,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/mi-cuenta/changePassword', 'MiCuentaController@changePassword')->name('miCuenta.changePassword');
     Route::get('/mi-cuenta/editar/{IdUsuario}', 'MiCuentaController@edit')->name('miCuenta.edit');
     Route::put('/mi-cuenta/update/{IdUsuario}', 'MiCuentaController@update')->name('miCuenta.update');
-    Route::get('/mi-cuenta/update/{IdUsuario}', 'MiCuentaController@update')->name('miCuenta.update');
+    // Route::get('/mi-cuenta/update/{IdUsuario}', 'MiCuentaController@update')->name('miCuenta.update');
     Route::get('/markAsRead', function () {
         auth()->user()->unreadNotifications->markAsRead();
         return redirect()->back();

@@ -34,7 +34,7 @@
                                     @method('put')
                                     <input type="hidden" name="id" value="{{$sobreAcumedic->id}}">
                                         <div class="form-group col-md-12">
-                                            <label for="Titulo1">Titulo</label>
+                                            <label for="Titulo1">Título</label>
                                             <input type="text" class="form-control @error('Titulo1') is-invalid @enderror" value="{{old('Titulo1', $sobreAcumedic->Titulo1)}}" id="Titulo1" name="Titulo1" placeholder="Titulo" required maxlength="190">
                                             @error('Titulo1')
                                                 <div class="invalid-feedback">
@@ -89,7 +89,7 @@
                                     <h4>Logo de servicio</h4>
                                         <img id="category-img-tag" src="{{asset('../uploads/SobreAcumedic/'.$sobreAcumedic->Foto)}}" alt="{{$sobreAcumedic->TextoAlterno}}"
                                             style="width: 150px;" />
-                                        <h5 class="mt-2 mb-0">Asi se ve tu imagen</h5>
+                                        <h5 class="mt-2 mb-0">Así se ve tu imagen</h5>
                                         <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen
                                         </h6>
                                         <div class="form-group col-md-12">
@@ -101,7 +101,7 @@
                                             @endif
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="TituloImagen" style="text-align: left;">Titulo:</label>
+                                            <label for="TituloImagen" style="text-align: left;">Título:</label>
                                             <div>
                                                 <input type="text" class="form-control  @error('TituloImagen') is-invalid @enderror" maxlength="190" required value="{{old('TituloImagen',$sobreAcumedic->TituloImagen)}}"id="TituloImagen" name="TituloImagen" placeholder="Titulo" >
                                                 @error('TituloImagen')

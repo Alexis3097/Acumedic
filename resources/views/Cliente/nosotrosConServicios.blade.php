@@ -87,7 +87,7 @@
           </div>
           <div class="col-md-4" style="border-right:1px solid #cccccc; border-bottom:1px solid #cccccc;">
             <div  class="servicio-content">
-              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicios[0]->servicio->Imagen)}}" alt="{{$servicios[0]->servicio->TextoImagen}}">
+              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicios[0]->servicio->Logo)}}" alt="{{$servicios[0]->servicio->TextoLogo}}">
                 <p class="titulo-servicio">{{$servicios[0]->servicio->Nombre}}</p>
               </div>
               <div class="desc">
@@ -97,7 +97,7 @@
           </div>
           <div class="col-md-4" style="border-bottom:1px solid #cccccc;">
             <div  class="servicio-content">
-              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicios[1]->servicio->Imagen)}}" alt="{{$servicios[1]->servicio->TextoImagen}}">
+              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicios[1]->servicio->Logo)}}" alt="{{$servicios[1]->servicio->TextoLogo}}">
                 <p class="titulo-servicio">{{$servicios[1]->servicio->Nombre}}</p>
               </div>
               <div class="desc">
@@ -107,7 +107,7 @@
           </div>
           <div style="border-left:1px solid #cccccc; border-bottom:1px solid #cccccc;" class="col-md-4">
             <div class="servicio-content">
-              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicios[2]->servicio->Imagen)}}" alt="{{$servicios[2]->servicio->TextoImagen}}">
+              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicios[2]->servicio->Logo)}}" alt="{{$servicios[2]->servicio->TextoLogo}}">
                 <p class="titulo-servicio">{{$servicios[2]->servicio->Nombre}}</p>
               </div>
               <div class="desc">
@@ -117,7 +117,7 @@
           </div>
           <div style="border-right:1px solid #cccccc;"  class="col-md-4">
             <div class="servicio-content">
-              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicios[3]->servicio->Imagen)}}" alt="{{$servicios[3]->servicio->TextoImagen}}">
+              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicios[3]->servicio->Logo)}}" alt="{{$servicios[3]->servicio->TextoLogo}}">
                 <p class="titulo-servicio">{{$servicios[3]->servicio->Nombre}}</p>
               </div>
               <div class="desc">
@@ -127,7 +127,7 @@
           </div>
           <div class="col-md-4">
             <div class="servicio-content">
-              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicios[4]->servicio->Imagen)}}" alt="{{$servicios[4]->servicio->TextoImagen}}">
+              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicios[4]->servicio->Logo)}}" alt="{{$servicios[4]->servicio->TextoLogo}}">
                 <p class="titulo-servicio">{{$servicios[4]->servicio->Nombre}}</p>
               </div>
               <div class="desc">
@@ -137,7 +137,7 @@
           </div>
           <div style="border-left:1px solid #cccccc;" class="col-md-4">
             <div  class="servicio-content">
-              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicios[5]->servicio->Imagen)}}" alt="{{$servicios[5]->servicio->TextoImagen}}">
+              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicios[5]->servicio->Logo)}}" alt="{{$servicios[5]->servicio->TextoLogo}}">
                 <p class="titulo-servicio">{{$servicios[5]->servicio->Nombre}}</p>
               </div>
               <div class="desc">

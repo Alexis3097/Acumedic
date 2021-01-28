@@ -99,7 +99,7 @@
                     @method('put')
                     <input type="hidden" name="IdEstatus" id="IdEstatus">
                     <input type="hidden" name="IdSolicitudCita" id="IdSolicitudCita">
-                    <p>¿Esta seguro que desea cambiar el estatus?</p>
+                    <p>¿Está seguro que desea cambiar el estatus?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary Btndelete">Si, cambiar</button>

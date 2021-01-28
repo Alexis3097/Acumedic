@@ -38,7 +38,7 @@
                                 </div>
                         </form>
                             <div class="form-group mb-4">
-                                <a href="{{route('citas.list')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Citas del dia</a>
+                                <a href="{{route('citas.list')}}" style="margin:45px 40px 0px;" class="form-control btn btn-small width-xs btn-info">Citas del día</a>
                             </div>
                             </div>
                         </div>
@@ -137,10 +137,10 @@
                     @csrf
                     @method('delete')
                     <input type="hidden" name="IdModal" id="IdModal">
-                    <p>¿Esta seguro que desea eliminar esta cita?</p>
+                    <p>¿Está seguro que desea eliminar esta cita?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary Btndelete">Si, Eliminar</button>
+                        <button type="submit" class="btn btn-primary Btndelete">Si, eliminar</button>
                     </div>
                 </form>
             </div>

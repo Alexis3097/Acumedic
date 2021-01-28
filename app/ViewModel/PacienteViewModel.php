@@ -42,6 +42,10 @@ class PacienteViewModel
       }
       $paciente = Paciente::find($id);
       if(!is_null($paciente)){
+        $rutaImagen = public_path().'/uploads/'.$paciente->Foto;
+        if (@getimagesize($rutaImagen)){
+          unlink($rutaImagen);
+        }
         $paciente->delete();
       }
       return $paciente;

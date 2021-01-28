@@ -31,7 +31,7 @@
                     <div class="col-md-12 col-xl-12 col-xs-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="media col-xl-2" style="display: inline-flex">
+                                <div class="media col-sm-3 col-md-3 col-xl-3" style="display: inline-flex">
                                     @if(is_null($paciente->Foto))
                                     <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" class="avatar-lg rounded-circle mr-2"
                                         alt="foto">
@@ -44,10 +44,10 @@
                                         <h6 class="text-muted font-weight-normal mt-1 mb-4">{{$paciente->LugarOrigen}}</h6>
                                     </div>
                                 </div>
-                                <div class="media col-md-9 button-list" style="display: inline-flex; top:-35px;">
-                                    <a  href="{{route('antecedente.patologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">Patologicos</a>
+                                <div class="media col-sm-9 col-md-9 col-xl-9 button-list" style="display: inline-flex; top:-35px;">
+                                    <a  href="{{route('antecedente.patologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">Patológico</a>
                                     <a  href="{{route('antecedente.NoPatologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">No
-                                        Patologicos</a>
+                                    patológico</a>
                                     <a href="{{route('antecedente.ginecologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">Ginecológicos</a>
                                     <button class="btn btn-outline-info" data-toggle="modal" data-target="#modal-error"  style="width: 100%;" type="submit">H.
                                         Familiares</button>
@@ -69,8 +69,8 @@
                                     <input type="text" name="Diabetes" id="Diabetes" class="form-control" placeholder="Datos sobre diabetes" value="{{$anteHFamiliarez->Diabetes}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="Hipertension">Hipertension</label>
-                                    <input type="text" name="Hipertension" id="Hipertension" class="form-control" placeholder="Datos sobre hipertension" value="{{$anteHFamiliarez->Hipertension}}">
+                                    <label for="Hipertension">Hipertensión</label>
+                                    <input type="text" name="Hipertension" id="Hipertension" class="form-control" placeholder="Datos sobre hipertensión" value="{{$anteHFamiliarez->Hipertension}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="EnfTiroideas">Enermedades tiroideas</label>

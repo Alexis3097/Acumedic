@@ -176,7 +176,7 @@
                                                         <tr>
                                                             <th scope="col">Nombre de permisos</th>
                                                             <th scope="col">Sección sobre acumedic</th>
-                                                            <th scope="col">Ordenes de compra</th>
+                                                            <th scope="col">Órdenes de compra</th>
                                                             <th scope="col">Solicitud de citas</th>
                                                         </tr>
                                                     </thead>

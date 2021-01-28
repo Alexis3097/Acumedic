@@ -70,9 +70,9 @@
           </div>
           <div class="sublinks">
             <ul>
-              <li><a>Contacto</a></li>
-              <li><a>Productos</a></li>
-              <li><a>Servicios</a></li>
+              <li><a href="{{ route('contacto') }}">Contacto</a></li>
+              <li><a href="{{ route('productos') }}"> Productos</a></li>
+              <li><a href="{{ route('servicios') }}">Servicios</a></li>
             </ul>
           </div>
         </div>
@@ -82,8 +82,7 @@
           </div>
           <div class="sublinks">
             <ul>
-              <li><a>Nosotros</a></li>
-              <li><a>¿Qués es la Acunputura</a></li>
+              <li><a href="{{ route('nosotros') }}">Nosotros</a></li>
             </ul>
           </div>
         </div>
@@ -95,8 +94,8 @@
       <div class="row">
         <div class="col-md-6">
           <div class="social-media">
-            <a><i class="fab fa-facebook-f"></i></a>
-            <a><i class="fab fa-instagram"></i></a>
+            <a href="https://web.facebook.com/acumedictux"><i class="fab fa-facebook-f"></i></a>
+            <!-- <a><i class="fab fa-instagram"></i></a> -->
           </div>
         </div>
         <div class="col-md-6">

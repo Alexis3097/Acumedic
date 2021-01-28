@@ -43,8 +43,8 @@
                                     <table class="table table-hover table-nowrap mb-0">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Nombre de Servicio</th>
-                                                <th scope="col">Precio del Servicio</th>
+                                                <th scope="col">Nombre de servicio</th>
+                                                <th scope="col">Precio del servicio</th>
                                                 <th scope="col">Acciones</th>
                                             </tr>
                                         </thead>

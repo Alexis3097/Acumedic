@@ -20,6 +20,7 @@
         <script src="https://js.pusher.com/6.0/pusher.min.js"></script>
         @livewireStyles
         @yield('estilosCitas')
+        @yield('estilosAbouts')
         @yield('estilosCitasIndex')
         @yield('estilosAntecedentes')
         @yield('estilosVentas')
@@ -221,7 +222,7 @@
                                     @can('OrdenDeCompra')
                                         <a href="{{route('ordenes.pendientes')}}" class="dropdown-item notify-item">
                                             <i data-feather="shopping-bag" class="icon-dual icon-xs mr-2"></i>
-                                            <span>Ordenes</span>
+                                            <span>Órdenes</span>
                                         </a>
                                     @endcan
                                     @can('SolicitudDeCita')
@@ -286,6 +287,7 @@
     @livewireScripts
     @yield('scriptAntecedentes')
     @yield('scriptPacientes')
+    @yield('scriptAbout')
     @yield('scriptCrearCitas')
     @yield('scriptPacientesEdit')
     @yield('scriptEliminarEstudiosGabinete')

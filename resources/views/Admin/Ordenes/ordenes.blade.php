@@ -7,7 +7,7 @@
             <form action="{{route('ordenes.buscar')}}">
                 <div class="row page-title align-items-center">
                     <div class="col-sm-4 col-xl-6">
-                        <h4 class="mb-1 mt-0">Ordenes de productos pendientes</h4> 
+                        <h4 class="mb-1 mt-0">Órdenes de productos pendientes</h4> 
                         <div class="input-group">
                             <input type="text" name="buscar" class="form-control col-lg-12" placeholder="Buscar orden" required>
                         </div>    
@@ -27,7 +27,7 @@
                     <div class="col-xl-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title mt-0 mb-0 header-title">Lista de ordenes</h5>
+                                <h5 class="card-title mt-0 mb-0 header-title">Lista de órdenes</h5>
                                 <div class="table-responsive mt-12">
                                 <table class="table table-hover table-nowrap mb-0">
                                     <thead>
@@ -135,7 +135,7 @@
                     @method('put')
                     <input type="hidden" name="IdEstatus" id="IdEstatus">
                     <input type="hidden" name="IdOrden" id="IdOrdenEdit">
-                    <p>¿Esta seguro que desea cambiar el estatus?</p>
+                    <p>¿Está seguro que desea cambiar el estatus?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary Btndelete">Si, cambiar</button>

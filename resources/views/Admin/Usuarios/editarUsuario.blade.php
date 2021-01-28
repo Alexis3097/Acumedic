@@ -124,7 +124,7 @@
                                         <img id="category-img-tag" src="{{asset('../uploads/'.$usuario->Foto)}}" alt="Foto de perfil"
                                                     class="avatar-xl rounded-circle" />
                                 @endif
-                                        <h5 class="mt-2 mb-0">Asi se ve tu perfil</h5>
+                                        <h5 class="mt-2 mb-0">Así se ve tu perfil</h5>
                                         <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu foto de perfil
                                         </h6>
                                         <div class="form-group col-md-4">

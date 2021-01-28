@@ -29,7 +29,7 @@
                                 <table class="table table-borderless mb-0 text-muted">
                                     <tbody>
                                         <tr>
-                                            <th scope="row">Correo electronico</th>
+                                            <th scope="row">Correo electrónico</th>
                                             <td>{{Auth::user()->email}}</td>
                                         </tr>
                                         <tr>
@@ -106,7 +106,7 @@
                         <div id="errorpasswordActual" style="color:red;"></div>
                     </div>
                     <div class="form-group col-md-12 mb-3">
-                        <label for="password">Nueva contraseña (minimo 6 caracteres)</label>
+                        <label for="password">Nueva contraseña (mínimo 6 caracteres)</label>
                         <input type="password" class="form-control" name="password" id="password" placeholder="Escriba la contraseña" required maxlength="190">
                             <div id="errorPassword" style="color:red;"></div>
                     </div>

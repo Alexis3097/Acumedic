@@ -5,10 +5,10 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row page-title align-items-center">
-                        <div class="col-sm-6 col-xl-6 col-md-6">
+                        <div class="col-sm-9 col-xl-9 col-md-9">
                             <h2 class="mb-1 mt-0"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-file-prescription"></i> Estudios de gabinete</span></h2>
                         </div>
-                        <div class="col-sm-6 col-xl-6 col-md-6">
+                        <div class="col-sm-3 col-xl-3 col-md-3">
                                     <a href="{{route('consulta.pacientePerfil',['IdPaciente' => $IdPaciente])}}" class="btn btn-outline-primary">
                                         <i class='fas fa-arrow-left'></i> Regresar
                                     </a>
@@ -139,10 +139,10 @@
                 @csrf
                     <input type="hidden" name="IdModal" id="IdModal">
                     <input type="hidden" name="IdPaciente" value="{{$IdPaciente}}">
-                    <p>¿Esta seguro que desea eliminar la foto?</p>
+                    <p>¿Está seguro que desea eliminar la foto?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                        <button type="submit" class="btn btn-primary">Si, eliminar</button>
                     </div>
                 </form>
             </div>
