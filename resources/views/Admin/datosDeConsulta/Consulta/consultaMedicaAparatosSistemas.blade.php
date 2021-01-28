@@ -187,7 +187,7 @@
                 <form action="{{ route('consulta.finalizar')}}" method="post">
                     @csrf
                     <input type="hidden" name="IdConsulta" value="{{ $IdConsulta }}">
-                    <p>¿Esta seguro que desea finalizar la consulta?</p>
+                    <p>¿Está seguro que desea finalizar la consulta?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Si, finalizar</button>

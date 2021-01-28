@@ -31,7 +31,7 @@
                     <div class="col-md-12 col-xl-12 col-xs-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="media col-xs-3 col-md-3 col-xl-3" style="display: inline-flex">
+                                <div class="media col-sm-3 col-md-3 col-xl-3" style="display: inline-flex">
                                     @if(is_null($paciente->Foto))
                                     <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" class="avatar-lg rounded-circle mr-2"
                                         alt="foto">
@@ -45,9 +45,8 @@
                                     </div>
                                 </div>
                                 <div class="media col-md-9 button-list" style="display: inline-flex; top:-35px;">
-                                    <a href="{{route('antecedente.patologico',['IdPaciente'=>$paciente->id])}}"  class="btn btn-info" style="width: 100%;" >Patologicos</a>
-                                    <a href="{{route('antecedente.NoPatologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" >No
-                                        Patologicos</a>
+                                    <a href="{{route('antecedente.patologico',['IdPaciente'=>$paciente->id])}}"  class="btn btn-info" style="width: 100%;" >Patológicos</a>
+                                    <a href="{{route('antecedente.NoPatologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" >No patológicos</a>
                                     <button class="btn btn-outline-info" style="width: 100%;" data-toggle="modal"
                                         data-target="#modal-error" type="submit">Ginecológicos</button>
                                     <a href="{{route('antecedente.familiares',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" >H.
@@ -70,14 +69,14 @@
                                         name="FechaPrimeraMenstruacion" id="FechaPrimeraMenstruacion">
                                 </div>
                                 <div class="form-group">
-                                    <label for="FechaUltimaMenstruacion">Fecha de ultima menstruación</label>
+                                    <label for="FechaUltimaMenstruacion">Fecha de última menstruación</label>
                                     <input class="form-control" type="date" value="{{date_create()->format('Y-m-d')}}"
                                         name="FechaUltimaMenstruacion" id="FechaUltimaMenstruacion">
                                 </div>
                                 <div class="form-group mb-0">
-                                    <label for="CaractMenstruacion">Caracteristicas de menstruación</label>
+                                    <label for="CaractMenstruacion">Características de menstruación</label>
                                     <input type="text" name="CaractMenstruacion" id="CaractMenstruacion"
-                                        class="form-control" placeholder="Caracteristica de menstruación">
+                                        class="form-control" placeholder="Características de menstruación">
                                 </div>
                                 <div class="form-group mt-3 mt-xl-0">
                                     <label for="Embarazos">Embarazos</label>
@@ -85,19 +84,19 @@
                                         placeholder="Datos sobre embarazos">
                                 </div>
                                 <div class="form-group mt-3 mt-xl-0">
-                                    <label for="CancerCervico">Cancer cervico</label>
+                                    <label for="CancerCervico">Cáncer cervical</label>
                                     <input type="text" name="CancerCervico" id="CancerCervico" class="form-control"
-                                        placeholder="Datos sobre cancer cervico">
+                                        placeholder="Datos sobre cáncer cervical">
                                 </div>
                                 <div class="form-group mt-3 mt-xl-0">
-                                    <label for="CancerUterino">Cancer uterino</label>
+                                    <label for="CancerUterino">Cáncer uterino</label>
                                     <input type="text" id="CancerUterino" name="CancerUterino" class="form-control"
-                                        placeholder="Datos sobre cancer uterino">
+                                        placeholder="Datos sobre cáncer uterino">
                                 </div>
                                 <div class="form-group mt-3 mt-xl-0">
                                     <label for="Otros">Otros</label>
                                     <input type="text" name="Otros" id="Otros" class="form-control"
-                                        placeholder="Otro antecedente ginecologico">
+                                        placeholder="Otro antecedente ginecológicos">
                                 </div>
                                 <div class="form-group col-md-12" style="padding-top:2%;">
                                     <a href="{{route('consulta.pacientePerfil',['IdPaciente' =>$paciente->id])}}" class="btn btn-danger" >Cancelar</a>

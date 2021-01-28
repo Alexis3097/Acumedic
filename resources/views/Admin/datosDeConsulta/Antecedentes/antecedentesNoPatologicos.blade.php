@@ -45,9 +45,9 @@
                                     </div>
                                 </div>
                                 <div class="media col-md-9 button-list" style="display: inline-flex; top:-35px;">
-                                    <a href="{{route('antecedente.patologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">Patologicos</a>
+                                    <a href="{{route('antecedente.patologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">Patológicos</a>
                                     <button class="btn btn-outline-info" data-toggle="modal" data-target="#modal-error"
-                                        style="width: 100%;" type="submit">No Patologicos</button>
+                                        style="width: 100%;" type="submit">No patológicos</button>
                                     <a href="{{route('antecedente.ginecologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;"
                                         type="submit">Ginecológicos</a>
                                     <a href="{{route('antecedente.familiares',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">H.
@@ -60,12 +60,12 @@
                 <div class="col-xl-12 col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="mb-1 mt-0">No Patologicos</h4>
+                            <h4 class="mb-1 mt-0">No patológicos</h4>
                             <form action="{{ route('antecedente.NoPatologico.guardar') }}" method="post">
                             @csrf
                             <input type="hidden" name="IdPaciente" value="{{$paciente->id}}">
                                 <div class="form-group mt-3 mt-xl-0">
-                                    <label for="ActividadFisica">Actividades Físicas</label>
+                                    <label for="ActividadFisica">Actividades físicas</label>
                                     <input type="text" class="form-control" name="ActividadFisica" id="ActividadFisica"
                                         placeholder="Ingrese si el paciente hace alguna actividad física">
                                 </div>

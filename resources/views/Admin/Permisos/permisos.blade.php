@@ -68,10 +68,10 @@
                     @csrf
                     @method('delete')
                     <input type="hidden" name="IdModal" id="IdModal">
-                    <p>¿Esta seguro que desea eliminar el rol?</p>
+                    <p>¿Está seguro que desea eliminar el rol?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                        <button type="submit" class="btn btn-primary">Si, eliminar</button>
                     </div>
                 </form>
             </div>

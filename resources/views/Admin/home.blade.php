@@ -12,7 +12,7 @@
                         <div class="card-body p-0">
                             <div class="media p-3">
                                 <div class="media-body">
-                                    <span class="text-muted text-uppercase font-size-12 font-weight-bold">Citas Totales del Dia</span>
+                                    <span class="text-muted text-uppercase font-size-12 font-weight-bold">Citas Totales del Día</span>
                                     <h2 class="mb-0">{{$citasDelDia}}</h2>
                                 </div>
                                 <div class="align-self-center">
@@ -46,7 +46,7 @@
                         <div class="card-body p-0">
                             <div class="media p-3">
                                 <div class="media-body">
-                                    <span class="text-muted text-uppercase font-size-12 font-weight-bold">Ordenes pendientes</span>
+                                    <span class="text-muted text-uppercase font-size-12 font-weight-bold">Órdenes pendientes</span>
                                     @if($numeroOrdenes == 0)
                                         <h2 class="mb-0">0</h2>
                                     @else
@@ -67,7 +67,7 @@
                         <div class="card-body p-0">
                             <div class="media p-3">
                                 <div class="media-body">
-                                    <span class="text-muted text-uppercase font-size-12 font-weight-bold">Solicitude de citas</span>
+                                    <span class="text-muted text-uppercase font-size-12 font-weight-bold">Solicitudes de citas</span>
                                     @if($numeroSolicitudPendientes == 0)
                                         <h2 class="mb-0">0</h2>
                                     @else
@@ -113,7 +113,7 @@
                                     </tr>
                                 @endforeach
                                     <tr class="wCitas">
-                                        <p class="wCitas"> @if(count($citas)>0)Citas pendientes del dia <span class="icon-lg icon-dual-primary" data-feather="book"></span> @else Sin citas el día de hoy <span class="icon-lg icon-dual-primary" data-feather="trending-down"></span> @endif</p>
+                                        <p class="wCitas"> @if(count($citas)>0)Citas pendientes del día <span class="icon-lg icon-dual-primary" data-feather="book"></span> @else Sin citas el día de hoy <span class="icon-lg icon-dual-primary" data-feather="trending-down"></span> @endif</p>
                                     </tr>
                                 </tbody>
                             </table>

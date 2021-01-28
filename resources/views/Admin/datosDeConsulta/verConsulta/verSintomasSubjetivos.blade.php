@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-sm-1 col-xl-1">
                                 <a href="{{route('consulta.historial',['IdPaciente'=>$paciente->id] )}}" type="button" class="btn btn-outline-primary">
-                                    <i class='fas fa-arrow-left'></i> regresar
+                                    <i class='fas fa-arrow-left'></i> Regresar
                                 </a>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                     <div class="col-md-12 col-xl-12 col-xs-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title mt-0 mb-0 header-title">Lista de sintomas</h5>
+                                <h5 class="card-title mt-0 mb-0 header-title">Lista de síntomas</h5>
 
                                 <div class="table-responsive mt-12">
                                     <table class="table table-hover table-nowrap mb-0">
@@ -90,7 +90,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="myLargeModalLabel">Ver sintoma</h5>
+                    <h5 class="modal-title" id="myLargeModalLabel">Ver síntoma</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -100,7 +100,7 @@
                     @csrf
                         <div class="form-group col-md-12">
                             <input type="hidden" name="IdSintoma" id="IdSintoma">
-                            <label for="Nombre">Nombre del sintoma</label>
+                            <label for="Nombre">Nombre del síntoma</label>
                             <input type="text" class="form-control" id="NombreUpdate" name="Nombre" readonly>
                         </div>
                         <div class="form-group col-md-12">

@@ -41,7 +41,7 @@
                                                     <td>Descripción de tu empresa</td>
                                                     
                                                     <td>
-                                                        <span data-toggle="tooltip" data-placement="left" title="Ejemplo de como se veria"><button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verDescripcion1" ><i class="fa fa-eye"></i></button></span>
+                                                        <span data-toggle="tooltip" data-placement="left" title="Ejemplo de como se vería"><button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verDescripcion1" ><i class="fa fa-eye"></i></button></span>
                                                         <span data-toggle="tooltip" data-placement="left" title="Editar sección"><a href="{{ route('sobreNosotros.descripcion')}}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a></span>
 
                                                     </td>
@@ -59,7 +59,7 @@
                                                     </td>
                                                     
                                                     <td>
-                                                        <span data-toggle="tooltip" data-placement="left" title="Ejemplo de como se veria"><button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verDescripcion2" ><i class="fa fa-eye"></i></button></span>
+                                                        <span data-toggle="tooltip" data-placement="left" title="Ejemplo de como se vería"><button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verDescripcion2" ><i class="fa fa-eye"></i></button></span>
                                                         <span data-toggle="tooltip" data-placement="left" title="Editar sección"><a href="{{ route('sobreNosotros.segundaSeccion')}}" class="btn btn-outline-warning"  ><i class="fa fa-edit"></i></a></span>
                                                         @if($verSeccion[0]->Ver)
                                                         <span data-toggle="tooltip" data-placement="left" title="Ocultar sección"><button type="button" class="btn btn-outline-danger" name="delete_modal" data-toggle="modal" data-target="#visibilidadSegundaSeccion"><i class="fa fa-eye-slash"></i></button></span>
@@ -72,25 +72,25 @@
                                                     <td>Contacto</td>
                                                     
                                                     <td>
-                                                        <span data-toggle="tooltip" data-placement="left" title="Ejemplo de como se veria"><button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verInformacion" ><i class="fa fa-eye"></i></button></span>
+                                                        <span data-toggle="tooltip" data-placement="left" title="Ejemplo de como se vería"><button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verInformacion" ><i class="fa fa-eye"></i></button></span>
                                                         <span data-toggle="tooltip" data-placement="left" title="Editar sección"><button type="button" class="btn btn-outline-warning"  id="infoContacto"><i class="fa fa-edit"></i></button></span>
 
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>¿Cuales son tus servicios? (Solo funcional cuando tiene 6 o más servicios registrados) 
+                                                    <td>¿Cuáles son tus servicios? (Solo funcional cuando tiene 6 o más servicios registrados) 
                                                         <span>
                                                             @if($verSeccion[1]->Ver)
-                                                            <span data-toggle="tooltip" data-placement="right" title="Los servicios están visible"><i class="fa fa-eye"></i></span>
+                                                            <span data-toggle="tooltip" data-placement="right" title="Los servicios están visibles"><i class="fa fa-eye"></i></span>
                                                             @else
-                                                            <span data-toggle="tooltip" data-placement="right" title="Los servicios no están visible"><i class="fa fa-eye-slash"></i></span>
+                                                            <span data-toggle="tooltip" data-placement="right" title="Los servicios no están visibles"><i class="fa fa-eye-slash"></i></span>
                                                             @endif
                                                             
                                                         </span>
                                                     </td>
                                                     
                                                     <td>
-                                                        <span data-toggle="tooltip" data-placement="left" title="Ejemplo de como se veria"><button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verServicios" ><i class="fa fa-eye"></i></button></span>
+                                                        <span data-toggle="tooltip" data-placement="left" title="Ejemplo de como se vería"><button type="button" class="btn btn-outline-success"  name="delete_modal" data-toggle="modal" data-target="#verServicios" ><i class="fa fa-eye"></i></button></span>
                                                         <span data-toggle="tooltip" data-placement="left" title="Editar sección"><button type="button" class="btn btn-outline-warning editServ" id="agregarServicios" @if(count($servicios)>=6) enabled @else disabled @endif><i class="fa fa-edit"></i></button></span>
                                                         
                                                         <!-- ver es de tipo bool -->
@@ -272,16 +272,16 @@
                     @method('put')
                     <!-- con el item 1 se hace referncia al segundo registro de la tabla verSeccion , para servicios visibles en cliente(nosotros)-->
                     @if($verSeccion[1]->Ver) 
-                    <p>¿Esta seguro que quieres ocultar está sección?</p>
+                    <p>¿Está seguro que quieres ocultar está sección?</p>
                     <input type="hidden" name="opcion" value="0">
                     @else
-                    <p>¿Esta seguro que quieres hacer visible está sección?</p>
+                    <p>¿Está seguro que quieres hacer visible está sección?</p>
                     <input type="hidden" name="opcion" value="1"> 
                     @endif
                     
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Si</button>
+                        <button type="submit" class="btn btn-primary">Sí</button>
                     </div>
                 </form>
             </div>

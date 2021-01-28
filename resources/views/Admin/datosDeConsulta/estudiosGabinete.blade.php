@@ -139,10 +139,10 @@
                 @csrf
                     <input type="hidden" name="IdModal" id="IdModal">
                     <input type="hidden" name="IdPaciente" value="{{$IdPaciente}}">
-                    <p>¿Esta seguro que desea eliminar la foto?</p>
+                    <p>¿Está seguro que desea eliminar la foto?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                        <button type="submit" class="btn btn-primary">Si, eliminar</button>
                     </div>
                 </form>
             </div>

@@ -40,7 +40,7 @@
                         <img src="{{asset('../uploads/servicios/'.$servicio->Imagen)}}"  alt="{{$servicio->TextoImagen}}">
                     </div>
                     <div class="col-md-12">
-                        <h3 style="font-weight: bold;">$500.00</h3>
+                        <h3 style="font-weight: bold;font-size:6em; padding-top:2%; text-aling:left;  ">${{$servicio->Precio}} MXN</h3>
                     </div>
                     <div class="col-md-12">
                         <p class="descripcion-detail">
