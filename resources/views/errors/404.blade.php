@@ -1,15 +1,6 @@
 @extends('Shared.master')
 @section('title', 'Acumedic - Inicio')
 @section('content')
-<!-- <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8" />
-        <title>Not found</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-       
-    </head> -->
 <main>              
     <section class="error404">
         <div class="col-12 text-center cont">

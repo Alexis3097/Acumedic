@@ -20,30 +20,34 @@
         </div>
       </div>
     </section>
-    <!-- tipos de servicios -->
-    <section class="serviciosCont">
-      <div class="container cont">
-        <div class="row">
-          <div class="col-md-12">
-            @foreach($servicios as $servicio)
-              <div class="col-md-4 servicio-col">
-                <div class="container-servicio">
-                  <div class="img">
-                    <img src="{{asset('../uploads/servicios/'.$servicio->Imagen)}}"  alt="{{$servicio->TextoImagen}}">
-                  </div>
-                  <div class="desc">
-                    <h2 class="titulo-servicio">{{$servicio->Nombre}}</h2>
-                    <p class="descripcion">{{$servicio->DescripcionCorta}}</p>
-                    <a href="{{ route('servicio.detallado',['id'=>$servicio->id]) }}" class="goToServicio">Leer más</a>
+    @if(count($servicios) <= 0)
+      <img src="{{asset('../img/Admin/sin-servicios.png')}}">
+    @else
+      <!-- tipos de servicios -->
+      <section class="serviciosCont">
+        <div class="container cont">
+          <div class="row">
+            <div class="col-md-12">
+              @foreach($servicios as $servicio)
+                <div class="col-md-4 servicio-col">
+                  <div class="container-servicio">
+                    <div class="img">
+                      <img src="{{asset('../uploads/servicios/'.$servicio->Imagen)}}"  alt="{{$servicio->TextoImagen}}">
+                    </div>
+                    <div class="desc">
+                      <h2 class="titulo-servicio">{{$servicio->Nombre}}</h2>
+                      <p class="descripcion">{{$servicio->DescripcionCorta}}</p>
+                      <a href="{{ route('servicio.detallado',['id'=>$servicio->id]) }}" class="goToServicio">Leer más</a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            @endforeach
+              @endforeach
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- tipos de servicios -->
+      </section>
+      <!-- tipos de servicios -->
+    @endif
   <!-- infonumeros -->
   <section class="info-numeros" id="info-numeros2">
     <div class="container">
