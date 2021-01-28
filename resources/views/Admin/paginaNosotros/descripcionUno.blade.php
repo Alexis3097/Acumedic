@@ -34,7 +34,7 @@
                                     @method('put')
                                         <input type="hidden" name="id" value="{{$sobreAcumedic->id}}">
                                         <div class="form-group col-md-12">
-                                            <label for="Titulo1">Titulo</label>
+                                            <label for="Titulo1">Título</label>
                                             <input type="text" class="form-control @error('Titulo1') is-invalid @enderror" value="{{old('Titulo1', $sobreAcumedic->Titulo1)}}" id="Titulo1" name="Titulo1" placeholder="Titulo 1" required maxlength="190">
                                             @error('Titulo1')
                                                 <div class="invalid-feedback">
@@ -54,7 +54,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="Titulo2">Titulo</label>
+                                            <label for="Titulo2">Título</label>
                                             <input type="text" class="form-control @error('Titulo2') is-invalid @enderror" value="{{old('Titulo2', $sobreAcumedic->Titulo2)}}" value="{{ old('Titulo2') }}" id="Titulo2" maxlength="190" name="Titulo2" placeholder="Titulo 2" required>
                                             @error('Titulo2')
                                                 <div class="invalid-feedback">
@@ -74,7 +74,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="Titulo3">Titulo</label>
+                                            <label for="Titulo3">Título</label>
                                             <input type="text" class="form-control @error('Titulo3') is-invalid @enderror" value="{{old('Titulo3', $sobreAcumedic->Titulo3)}}" id="Titulo3" name="Titulo3" maxlength="190" placeholder="Titulo 3" required>
                                             @error('Titulo3')
                                                 <div class="invalid-feedback">
@@ -107,7 +107,7 @@
                                     <h4>Imagen de sección</h4>
                                         <img id="category-img-tag" src="{{asset('../uploads/SobreAcumedic/'.$sobreAcumedic->Foto)}}" alt="{{$sobreAcumedic->TextoAlterno}}"
                                             style="width: 150px;" />
-                                        <h5 class="mt-2 mb-0">Asi se ve tu imagen</h5>
+                                        <h5 class="mt-2 mb-0">Así se ve tu imagen</h5>
                                         <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu imagen
                                         </h6>
                                         <div class="form-group col-md-12">

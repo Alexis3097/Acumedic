@@ -39,8 +39,8 @@
                                             <tr>
                                                 <th scope="col">Nombre de producto</th>
                                                 <th scope="col">Cantidad total en inventario</th>
-                                                <th scope="col">Stock minimo</th>
-                                                <th scope="col">Precio publico</th>
+                                                <th scope="col">Stock mínimo</th>
+                                                <th scope="col">Precio público</th>
                                                 <th scope="col">Acciones</th>
                                             </tr>
                                         </thead>
@@ -103,7 +103,7 @@
                     @csrf
                     @method('delete')
                     <input type="hidden" name="IdModal" id="IdModal" class="IdProducto">
-                    <p>¿Esta seguro que desea vaciar el inventario de este producto?</p>
+                    <p>¿Está seguro que desea vaciar el inventario de este producto?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Si, vaciar</button>

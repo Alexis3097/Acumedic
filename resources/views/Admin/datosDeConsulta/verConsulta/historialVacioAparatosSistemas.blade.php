@@ -10,7 +10,7 @@
                         </div>
                         <div class="col-sm-1 col-xl-1">
                             <a href="{{route('consulta.historial',['IdPaciente'=>$paciente->id] )}}" class="btn btn-outline-primary" >
-                                <i class='fas fa-arrow-left'></i> regresar
+                                <i class='fas fa-arrow-left'></i> Regresar
                             </a>
                         </div>
                     </div>

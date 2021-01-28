@@ -13,7 +13,7 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row page-title align-items-center">
-                        <div class="col-xs-10 col-md-10 col-xl-10">
+                        <div class="col-sm-10 col-md-10 col-xl-10">
                             <h2 class="mb-1 mt-0"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-file-prescription"></i> Antecedentes</span></h2>
                         </div>
                         <div class="col-xs-2 col-md-2 col-xl-2">
@@ -44,8 +44,8 @@
                                         </div>
                                     </div>
                                     <div class="media col-md-9 button-list" style="display: inline-flex; top:-35px;">
-                                            <button class="btn btn-outline-info" data-toggle="modal" data-target="#modal-error" style="width: 100%;" type="submit">Patologicos</button>
-                                            <a href="{{route('antecedente.NoPatologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">No Patologicos</a>
+                                            <button class="btn btn-outline-info" data-toggle="modal" data-target="#modal-error" style="width: 100%;" type="submit">Patológicos</button>
+                                            <a href="{{route('antecedente.NoPatologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">No patológicos</a>
                                             <a href="{{route('antecedente.ginecologico',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">Ginecológicos</a>
                                             <a href="{{route('antecedente.familiares',['IdPaciente'=>$paciente->id])}}" class="btn btn-info" style="width: 100%;" type="submit">H. Familiares</a>
                                     </div>
@@ -56,7 +56,7 @@
                         <div class="col-xl-12 col-md-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="mb-1 mt-0">Patologicos</h4>
+                                    <h4 class="mb-1 mt-0">Patológicos</h4>
                                     <form action="{{ route('antecedente.patologico.guardar') }}" method="post">
                                     @csrf
                                     <input type="hidden" name="IdPaciente" value="{{$paciente->id}}">
@@ -65,8 +65,8 @@
                                                 <input type="text" class="form-control" name="Hospitalarios" id="Hospitalarios" placeholder="Antecedentes hospitalarios">
                                             </div>
                                             <div class="form-group">
-                                            <label for="Cirugias">Cirugias</label>
-                                                <input type="text" class="form-control" name="Cirugias" id="Cirugias"placeholder="Ingrese si el paciente a tenido alguna cirugia">
+                                            <label for="Cirugias">Cirugías</label>
+                                                <input type="text" class="form-control" name="Cirugias" id="Cirugias"placeholder="Ingrese si el paciente a tenido alguna cirugías">
                                             </div>                                                            
                                             <div class="form-group mb-0">
                                             <label for="EnfermedadesCardiacas">Enfermedades cardiacas</label>

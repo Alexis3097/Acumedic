@@ -86,7 +86,7 @@
                                         <h4>Logo de servicio</h4>
                                             <img id="category-img-tag" src="{{asset('../uploads/servicios/'.$servicio->Logo)}}" alt="{{$servicio->TextoLogo}}"
                                                 style="width: 150px;" />
-                                            <h5 class="mt-2 mb-0">Asi se ve tu logo de servicio</h5>
+                                            <h5 class="mt-2 mb-0">Así se ve tu logo de servicio</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu logo de servicio
                                             </h6>
                                             <div class="form-group col-md-12">
@@ -112,7 +112,7 @@
                                             <h4>Imagen de tu servicio</h4>
                                             <img id="category-img-tag1" src="{{asset('../uploads/servicios/'.$servicio->Imagen)}}" alt="{{$servicio->TextoImagen}}"
                                                 style="width: 150px;" />
-                                            <h5 class="mt-2 mb-0">Asi se ve la imagen de tu servicio</h5>
+                                            <h5 class="mt-2 mb-0">Así se ve la imagen de tu servicio</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu logo de servicio
                                             </h6>
                                             <div class="form-group col-md-12">

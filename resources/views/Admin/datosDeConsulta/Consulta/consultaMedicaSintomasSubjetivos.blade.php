@@ -8,11 +8,11 @@
                 <!-- row -->
                 <div class="row page-title align-items-center">
                     <div class="col-xs-10 col-sm-10 col-xl-10">
-                        <h2 class="mb-1 mt-0"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-file-prescription"></i> Consulta médica</span></h2>
+                        <h2 class="mb-1 mt-0"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-file-prescription"></i>Consulta médica</span></h2>
                     </div>
                     <div class="col-xs-2 col-md-2 col-xl-2">
                                 <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#finalizarConsulta">
-                                    <i class='fas fa-arrow-left'></i> Finlaizar consulta
+                                    <i class='fas fa-arrow-left'></i>Finalizar consulta
                                 </button>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                                 <a data-toggle="modal" data-target="#nuevo-sintoma" href="" style="margin-bottom:10px;" class="btn btn-primary btn-sm float-right">
                                     <i class='uil uil-export ml-2 fas fa-plus'></i> Nuevo sintoma
                                 </a>
-                                <h5 class="card-title mt-0 mb-0 header-title">Lista de sintomas</h5>
+                                <h5 class="card-title mt-0 mb-0 header-title">Lista de síntomas</h5>
 
                                 <div class="table-responsive mt-12">
                                 <input type="hidden" value="{{$IdConsulta}}">
@@ -96,7 +96,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="myLargeModalLabel">Agregar nuevo sintoma</h5>
+                    <h5 class="modal-title" id="myLargeModalLabel">Agregar nuevo síntoma</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -106,7 +106,7 @@
                     @csrf
                         <div class="form-group col-md-12">
                             <input type="hidden" name="IdConsulta" value="{{$IdConsulta}}">
-                            <label for="Nombre">Nombre del sintoma</label>
+                            <label for="Nombre">Nombre del síntoma</label>
                             <input type="text" class="form-control" id="Nombre" name="Nombre" required>
                         </div>
                         <div class="form-group col-md-12">
@@ -192,7 +192,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Eliminar sintoma subjetivo</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Eliminar síntoma subjetivo</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -203,10 +203,10 @@
                     @method('delete')
                     <input type="hidden" name="IdModal" id="IdModal">
                     <input type="hidden" name="IdConsulta" value="{{ $IdConsulta }}">
-                    <p>¿Esta seguro que desea eliminar este sintoma subjetivo?</p>
+                    <p>¿Está seguro que desea eliminar este síntoma subjetivo?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                        <button type="submit" class="btn btn-primary">Si, eliminar</button>
                     </div>
                 </form>
             </div>
@@ -219,7 +219,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">FINALIZAR CONSULTA</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Finalizar consulta</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -228,7 +228,7 @@
                 <form action="{{ route('consulta.finalizar')}}" method="post">
                     @csrf
                     <input type="hidden" name="IdConsulta" value="{{ $IdConsulta }}">
-                    <p>¿Esta seguro que desea finalizar la consulta?</p>
+                    <p>¿Está seguro que desea finalizar la consulta?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Si, finalizar</button>

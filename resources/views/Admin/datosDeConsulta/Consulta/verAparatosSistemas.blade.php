@@ -180,7 +180,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">FINALIZAR CONSULTA</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Finalizar consulta</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -189,7 +189,7 @@
                 <form action="{{ route('consulta.finalizar')}}" method="post">
                     @csrf
                     <input type="hidden" name="IdConsulta" value="{{ $IdConsulta }}">
-                    <p>¿Esta seguro que desea finalizar la consulta?</p>
+                    <p>¿Está seguro que desea finalizar la consulta?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Si, finalizar</button>

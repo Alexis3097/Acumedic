@@ -19,7 +19,7 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title mt-0 mb-0 header-title">Historial clinico</h5>
+                                    <h5 class="card-title mt-0 mb-0 header-title">Historial clínico</h5>
                                     <div class="table-responsive mt-12">
                                         <table class="table table-hover table-nowrap mb-0">
                                             <thead>
@@ -72,10 +72,10 @@
                     @csrf
                     @method('delete')
                     <input type="hidden" name="IdModal" id="IdModal">
-                    <p>¿Esta seguro que desea eliminar el historial de esta consulta?</p>
+                    <p>¿Está seguro que desea eliminar el historial de esta consulta?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Si, Eliminar</button>
+                        <button type="submit" class="btn btn-primary">Si, eliminar</button>
                     </div>
                 </form>
             </div>
