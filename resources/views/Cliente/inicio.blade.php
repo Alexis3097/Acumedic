@@ -87,6 +87,7 @@
     </div>
   </section>
   <!-- infonumeros -->
+@if(count($servicios) > 0)
   <!-- servicios -->
   <section class="servicios">
     <div class="container">
@@ -97,9 +98,6 @@
           </div>
           <p class="desc-section">Estos son algunos de los servicios que manejamos en nuestra clínica.</p>
         </div>
-        @if(count($servicios) <= 0)
-          <img src="{{asset('../img/Admin/sin-servicios.png')}}">
-        @else
           @foreach($servicios as $servicio)
             <div class="col-md-4">
               <div class="servicio-content">
@@ -118,13 +116,11 @@
               </div>
             </div>
           @endforeach
-        @endif
-       
-       
       </div>
     </div>
   </section>
   <!-- servicios -->
+@endif
   <!-- contacto -->
   <section class="contacto-formulario">
       <!-- <div class="row"> -->
