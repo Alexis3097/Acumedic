@@ -20,7 +20,7 @@
       </section>
       {{-- inicio de condicion en caso no haya producto --}}
       @if(count($productos) <= 0)
-        <img src="{{asset('../img/Admin/sin-productos.png')}}">
+        <img src="{{asset('../img/Admin/sin-productos.png')}}" style="width: 90%; display: block; margin: auto; padding: 2%;">
       @else
         <section class="productos-page">
             <div class="container">

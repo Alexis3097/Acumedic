@@ -97,24 +97,29 @@
           </div>
           <p class="desc-section">Estos son algunos de los servicios que manejamos en nuestra clínica.</p>
         </div>
-        @foreach($servicios as $servicio)
-          <div class="col-md-4">
-            <div class="servicio-content">
-              <div class="img"><img src="{{asset('../uploads/servicios/'.$servicio->Logo)}}" alt="{{$servicio->TextoLogo}}">
-                <p class="titulo-servicio">{{$servicio->Nombre}}</p>
-              </div>
-              <div class="price">
-                <p><span>$ </span>{{$servicio->Precio}}</p>
-              </div>
-              <div class="desc">
-                <p>{{$servicio->DescripcionCorta}}</p>
-              </div>
-              <div class="btn">
-                <a href="{{ route('servicio.detallado',['id'=>$servicio->id]) }}" class="btn-1 btn-primary">Ver más</a>
+        @if(count($servicios) <= 0)
+          <img src="{{asset('../img/Admin/sin-servicios.png')}}">
+        @else
+          @foreach($servicios as $servicio)
+            <div class="col-md-4">
+              <div class="servicio-content">
+                <div class="img"><img src="{{asset('../uploads/servicios/'.$servicio->Logo)}}" alt="{{$servicio->TextoLogo}}">
+                  <p class="titulo-servicio">{{$servicio->Nombre}}</p>
+                </div>
+                <div class="price">
+                  <p><span>$ </span>{{$servicio->Precio}}</p>
+                </div>
+                <div class="desc">
+                  <p>{{$servicio->DescripcionCorta}}</p>
+                </div>
+                <div class="btn">
+                  <a href="{{ route('servicio.detallado',['id'=>$servicio->id]) }}" class="btn-1 btn-primary">Ver más</a>
+                </div>
               </div>
             </div>
-          </div>
-        @endforeach
+          @endforeach
+        @endif
+       
        
       </div>
     </div>
