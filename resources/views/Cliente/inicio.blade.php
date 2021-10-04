@@ -80,8 +80,8 @@
           <p class="desc">Tipos de tratamientos</p>
         </div>
         <div class="col-md-3 info-contador">
-          <div class="counter" data-count="40">0</div>
-          <p class="desc">Años de experiencia</p>
+          <div class="counter" data-count="150">0</div>
+          <p class="desc">Citas al mes</p>
         </div>
       </div>
     </div>
