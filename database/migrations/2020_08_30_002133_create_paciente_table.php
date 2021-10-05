@@ -22,6 +22,7 @@ class CreatePacienteTable extends Migration
             $table->date("FechaNacimiento")->nullable();
             $table->string("Telefono");
             $table->string("Foto")->nullable();
+            $table->string("FotoId")->nullable();
             $table->string("LugarOrigen")->nullable();
             $table->string("Correo")->nullable();
             $table->string('TipoSangre')->nullable();

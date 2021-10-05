@@ -11,20 +11,19 @@ class EstudioGabineteViewModel
 
     public function create($data){
         $antecedenteGabinete = $data->except('_token');
-        if($archivo = $data->file('Url'))
-        {
-          $nombre = time().'.'.$archivo->getClientOriginalExtension();
-          $archivo->move('uploads', $nombre);
-          $antecedenteGabinete['Url']  = $nombre;
+        if(!is_null($data->file('Url'))){
+
+            $foto = cloudinary()->upload($data->file('Url')->getRealPath());
+            $antecedenteGabinete['Url']  = $foto->getSecurePath();
+            $antecedenteGabinete['UrlId']  =  $foto->getPublicId();
         }
         return FotoAntecedente::create($antecedenteGabinete);
     }
 
     public function delete($IdEstudio){
         $foto = FotoAntecedente::find($IdEstudio);
-        $rutaImagen = public_path().'/uploads/'.$foto->Url;
-        if (@getimagesize($rutaImagen)){
-              unlink($rutaImagen);
+        if(!is_null($foto)){
+            cloudinary()->destroy($foto->UrlId);
         }
         $foto->delete();
         return $foto;

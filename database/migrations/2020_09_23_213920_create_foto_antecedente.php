@@ -17,6 +17,7 @@ class CreateFotoAntecedente extends Migration
             $table->id();
             $table->unsignedBigInteger('IdPaciente');
             $table->String('Url');
+            $table->String('UrlId');
             $table->String('Nombre');
             $table->text('Descripcion');
             $table->timestamps();

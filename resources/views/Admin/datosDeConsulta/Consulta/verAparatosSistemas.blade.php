@@ -16,7 +16,7 @@
                     </div>
                     <!-- content -->
                     <!-- row -->
-            
+
                     <!-- products -->
                     <div class="row">
                         <div class="col-md-12 col-xl-12 col-xs-12">
@@ -27,7 +27,7 @@
                                         <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}"
                                             class="avatar-lg rounded-circle mr-2" alt="shreyu">
                                         @else
-                                        <img src="{{asset('../uploads/'.$paciente->Foto)}}"
+                                        <img src="{{$paciente->Foto}}"
                                             class="avatar-lg rounded-circle mr-2" alt="shreyu">
                                         @endif
                                         <div class="media-body">
@@ -141,7 +141,7 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                       
+
                                         <div class="form-group col-md-12">
                                                 <button class="btn btn-danger" type="button">Cancelar</button>
                                                 <button class="btn btn-primary" type="submit">Guardar</button>

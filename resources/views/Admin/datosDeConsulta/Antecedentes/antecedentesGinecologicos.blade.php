@@ -36,7 +36,7 @@
                                     <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" class="avatar-lg rounded-circle mr-2"
                                         alt="foto">
                                     @else
-                                    <img src="{{asset('../uploads/'.$paciente->Foto)}}" class="avatar-lg rounded-circle mr-2"
+                                    <img src="{{$paciente->Foto}}" class="avatar-lg rounded-circle mr-2"
                                         alt="foto">
                                     @endif
                                     <div class="media-body">
@@ -136,7 +136,7 @@
     </div><!-- /.modal -->
 @endsection
 @section('scriptAntecedentes')
-<script src="{{asset('js/jquery.js')}}"></script>   
+<script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/Admin/vendor.min.js')}}"></script>
 <script src="{{asset('js/Admin/app.min.js')}}"></script>
 <script src="{{asset('js/Admin/libs/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>

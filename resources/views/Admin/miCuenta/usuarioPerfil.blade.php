@@ -17,7 +17,7 @@
                         @if(is_null(Auth::user()->Foto))
                             <img style="width: 200px;" src="{{asset('../img/Admin/users/avatar-4.jpg')}}" alt="" class="rounded-circle" />
                         @else
-                            <img style="width: 200px;" src="{{asset('../uploads/'.Auth::user()->Foto)}}" alt="" class="rounded-circle" />
+                            <img style="width: 200px;" src="{{Auth::user()->Foto}}" alt="" class="rounded-circle" />
                         @endif
                         <h2 class="mt-2 mb-0">{{Auth::user()->name}}</h2>
                         <h6 class="text-muted font-weight-normal mt-1 mb-4">{{Auth::user()->ApellidoPaterno}} {{Auth::user()->ApellidoMaterno}}</h6>
@@ -50,9 +50,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- end card -->    
+                <!-- end card -->
                 </div>
-                
+
                 <div class="col-md-6 col-xl-12">
                 <div id="alerta"></div>
                     <div class="card">

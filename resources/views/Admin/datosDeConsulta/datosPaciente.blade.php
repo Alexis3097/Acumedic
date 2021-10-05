@@ -23,7 +23,7 @@
 
                     <!-- content -->
                     <!-- row -->
-            
+
                     <!-- products -->
                     <div class="row">
                         <div class="col-lg-6">
@@ -34,7 +34,7 @@
                                         <img style="width: 20%; height: 30%;" src="{{asset('../img/Admin/users/avatar-4.jpg')}}" alt=""
                                             class="avatar-xl rounded-circle" />
                                         @else
-                                        <img style="width: 20%; height: 30%;" src="{{asset('../uploads/'.$paciente->Foto)}}" alt=""
+                                        <img style="width: 20%; height: 30%;" src="{{$paciente->Foto}}" alt=""
                                             class="avatar-xl rounded-circle" />
                                         @endif
                                         <h3 class="mt-2 mb-0">Paciente: #{{$paciente->id}} </h3>
@@ -50,7 +50,7 @@
                                                 </div>
                                                 <i data-feather="users" class="align-self-center icon-dual icon-lg"></i>
                                             </div>
-    
+
                                             <!-- stat 2 -->
                                             <div class="media px-3 py-4 border-bottom">
                                                 <div class="media-body">
@@ -59,7 +59,7 @@
                                                 </div>
                                                 <i data-feather="phone" class="align-self-center icon-dual icon-lg"></i>
                                             </div>
-    
+
                                             <!-- stat 3 -->
                                             <div class="media px-3 py-4">
                                                 <div class="media-body">
@@ -92,7 +92,7 @@
                                     @can('InicarConsulta')
                                         <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-file-prescription"></i> Consulta médica</h6>
                                         <p style="margin:0;">Inicia la consulta y solicita los campos para ello</p>
-                                        <span data-toggle="tooltip" data-placement="left" title="Iniciar consulta"><button @if((int)$IdCita == 0) disabled @else enabled @endif data-toggle="modal" data-target="#iniciarConsulta" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</button></span> 
+                                        <span data-toggle="tooltip" data-placement="left" title="Iniciar consulta"><button @if((int)$IdCita == 0) disabled @else enabled @endif data-toggle="modal" data-target="#iniciarConsulta" style="margin:0;" class="btn btn-small btn--md btn-primary">Realizar</button></span>
                                     @endcan
                                     @can('Antecedentes')
                                         <h6 class="mt-0 mb-1 font-size-20 font-weight-normal" style="padding:1% 0%;"><i style="font-size: 1.2em; color:#232323;" class="icon-dual fas fa-diagnoses"></i> Antecedentes</h6>
@@ -107,7 +107,7 @@
                                     </div>
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
-                        </div> 
+                        </div>
                     </div>
                     <!-- end row -->
                     <!-- stats + charts -->

@@ -36,7 +36,7 @@
                                     <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" class="avatar-lg rounded-circle mr-2"
                                         alt="foto">
                                     @else
-                                    <img src="{{asset('../uploads/'.$paciente->Foto)}}" class="avatar-lg rounded-circle mr-2"
+                                    <img src="{{$paciente->Foto}}" class="avatar-lg rounded-circle mr-2"
                                         alt="foto">
                                     @endif
                                     <div class="media-body">
@@ -80,19 +80,19 @@
                                 <div class="form-group mt-3 mt-xl-0">
                                     <label for="Embarazos">Embarazos</label>
                                     <input type="text"  name="Embarazos"id="Embarazos" class="form-control" placeholder="Datos sobre embarazos" value="{{$anteGinecologico->Embarazos}}">
-                                </div> 
+                                </div>
                                 <div class="form-group mt-3 mt-xl-0">
                                     <label for="CancerCervico">Cáncer cervical</label>
                                     <input type="text" name="CancerCervico" id="CancerCervico" class="form-control" placeholder="Datos sobre cáncer cervical" value="{{$anteGinecologico->CancerCervico}}">
-                                </div> 
+                                </div>
                                 <div class="form-group mt-3 mt-xl-0">
                                     <label for="CancerUterino">Cáncer uterino</label>
                                     <input type="text" id="CancerUterino" name="CancerUterino" class="form-control" placeholder="Datos sobre cáncer uterino" value="{{$anteGinecologico->CancerUterino}}">
-                                </div> 
+                                </div>
                                 <div class="form-group mt-3 mt-xl-0">
                                     <label for="Otros">Otros</label>
                                     <input type="text" name="Otros" id="Otros" class="form-control" placeholder="Otro antecedente ginecológicos"  value="{{$anteGinecologico->Otros}}">
-                                </div> 
+                                </div>
                                 <div class="form-group col-md-12" style="padding-top:2%;">
                                     <a href="{{route('consulta.pacientePerfil',['IdPaciente' =>$paciente->id])}}" class="btn btn-danger" >Cancelar</a>
                                     <button class="btn btn-primary" type="submit">Actualizar</button>
@@ -131,7 +131,7 @@
     </div><!-- /.modal -->
 @endsection
 @section('scriptAntecedentes')
-<script src="{{asset('js/jquery.js')}}"></script>   
+<script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/Admin/vendor.min.js')}}"></script>
 <script src="{{asset('js/Admin/app.min.js')}}"></script>
 <script src="{{asset('js/Admin/libs/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>

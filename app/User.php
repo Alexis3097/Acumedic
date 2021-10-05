@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'IdSexo','name', 'ApellidoPaterno', 'ApellidoMaterno','FechaNacimiento','Telefono', 'email','Foto', 'password',
+        'IdSexo','name', 'ApellidoPaterno', 'ApellidoMaterno','FechaNacimiento','Telefono', 'email','Foto', 'FotoId','password',
     ];
 
     /**
@@ -37,7 +37,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
+
     public function getNombreCompletoAttribute()
     {
         return "{$this->name} {$this->ApellidoPaterno} {$this->ApellidoMaterno}";

@@ -19,7 +19,7 @@
                     </div>
                     <!-- content -->
                     <!-- row -->
-            
+
                     <!-- products -->
                     <div class="row">
                         <div class="col-xl-12 col-md-12">
@@ -31,15 +31,15 @@
                                           <!-- Esta es la imagen de galeria con su modal -->
                                       <div class="col-lg-4 col-md-12 mb-4">
                                         <!--Modal: Name-->
-                                        <div class="modal fade" id="modal{{$estudioGabinete->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+                                        <div class="modal fade" id="modal{{$estudioGabinete->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg" role="document">
                                             <!--Content-->
                                             <div class="modal-content">
                                               <!--Body-->
                                               <div class="modal-body mb-0 p-0">
-                                              <i class="fa fa-times" data-dismiss="modal" style="font-size:1em; position: absolute; z-index: 1; color: #fff; top: 10px; right: 15px;"></i> 
+                                              <i class="fa fa-times" data-dismiss="modal" style="font-size:1em; position: absolute; z-index: 1; color: #fff; top: 10px; right: 15px;"></i>
                                                   <div class="background-estudios embed-responsive embed-responsive-16by9 z-depth-1-half">
-                                                    <img class="background-estudios-img embed-responsive-item" src="{{asset('../uploads/'.$estudioGabinete->Url)}}" allowfullscreen>
+                                                    <img class="background-estudios-img embed-responsive-item" src="{{$estudioGabinete->Url}}" allowfullscreen>
                                                   </div>
                                               </div>
                                              <!--Footer-->
@@ -59,7 +59,7 @@
                                           </div>
                                         </div>
                                         <!--Modal: Name-->
-                                        <a><img class="img-fluid img-estudios z-depth-1" src="{{asset('../uploads/'.$estudioGabinete->Url)}}" alt="video" data-toggle="modal" data-target="#modal{{$estudioGabinete->id}}"></a>
+                                        <a><img class="img-fluid img-estudios z-depth-1" src="{{$estudioGabinete->Url}}" alt="foto" data-toggle="modal" data-target="#modal{{$estudioGabinete->id}}"></a>
                                       </div>
                                   <!-- Esta es la imagen de galeria con su modal -->
                                   @endforeach
@@ -74,7 +74,7 @@
                     <!-- stats + charts -->
 
                 </div>
-        </div> 
+        </div>
 </div><!-- content -->
 <a href="{{route('consulta.estudioGabinete',['IdPaciente'=>$IdPaciente])}}" id="sintomasList"></a>
 <!-- modal nueva foto -->
