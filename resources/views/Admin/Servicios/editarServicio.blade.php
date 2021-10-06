@@ -7,7 +7,7 @@
                     <div class="row page-title align-items-center">
                         <div class="col-sm-4 col-xl-6">
                             <h4 class="mb-1 mt-0">Editar servicio</h4>
-                           
+
                         </div>
                         <div class="col-sm-8 col-xl-6">
                             <form class="form-inline float-sm-right mt-3 mt-sm-0">
@@ -23,7 +23,7 @@
 
                     <!-- content -->
                     <!-- row -->
-            
+
                     <!-- products -->
                     <div class="row">
                         <div class="col-lg-8">
@@ -74,7 +74,7 @@
                                             <a href="{{ route('servicios.list')}}" class="btn btn-danger" >Cancelar</a>
                                             <button class="btn btn-primary" type="submit">Actualizar servicio</button>
                                         </div>
-                                    
+
 
                                     </div> <!-- end card-body-->
                                 </div> <!-- end card-->
@@ -84,7 +84,7 @@
                                     <div class="card-body pb-0">
                                     <div class=" mt-3" style="padding-bottom:4%" >
                                         <h4>Logo de servicio</h4>
-                                            <img id="category-img-tag" src="{{asset('../uploads/servicios/'.$servicio->Logo)}}" alt="{{$servicio->TextoLogo}}"
+                                            <img id="category-img-tag" src="{{$servicio->Logo}}" alt="{{$servicio->TextoLogo}}"
                                                 style="width: 150px;" />
                                             <h5 class="mt-2 mb-0">Así se ve tu logo de servicio</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu logo de servicio
@@ -107,10 +107,10 @@
                                                         </div>
                                                     @enderror
                                                 </div>
-                                                
+
                                             </div>
                                             <h4>Imagen de tu servicio</h4>
-                                            <img id="category-img-tag1" src="{{asset('../uploads/servicios/'.$servicio->Imagen)}}" alt="{{$servicio->TextoImagen}}"
+                                            <img id="category-img-tag1" src="{{$servicio->Imagen}}" alt="{{$servicio->TextoImagen}}"
                                                 style="width: 150px;" />
                                             <h5 class="mt-2 mb-0">Así se ve la imagen de tu servicio</h5>
                                             <h6 class="text-muted font-weight-normal mt-2 mb-4">Es una pequeña previsualización de tu logo de servicio
@@ -173,20 +173,20 @@
             function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-                
+
                 reader.onload = function (e) {
                     $('#category-img-tag').attr('src', e.target.result);
                 }
-                
+
                 reader.readAsDataURL(input.files[0]);
             }
         }
-        
+
         $("#cat_image").change(function(){
             readURL(this);
         });
         $(document).ready(function() {
-            $('#btn-example-file-reset').on('click', function() {     
+            $('#btn-example-file-reset').on('click', function() {
             $('#cat_image').val('');
             $('#category-img-tag').attr('src','../img/upload.jpg')
          });
@@ -196,20 +196,20 @@
             function readURL1(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-                
+
                 reader.onload = function (e) {
                     $('#category-img-tag1').attr('src', e.target.result);
                 }
-                
+
                 reader.readAsDataURL(input.files[0]);
             }
         }
-        
+
         $("#cat_image1").change(function(){
             readURL1(this);
         });
         $(document).ready(function() {
-            $('#btn-example-file-reset1').on('click', function() {     
+            $('#btn-example-file-reset1').on('click', function() {
             $('#cat_image1').val('');
             $('#category-img-tag1').attr('src','../img/upload.jpg')
          });

@@ -20,8 +20,10 @@ class CreateServicioTable extends Migration
             $table->text('DescripcionCorta');
             $table->text('DescripcionLarga');
             $table->string('Logo');
+            $table->string('LogoId');
             $table->string('TextoLogo');
             $table->string('Imagen');
+            $table->string('ImagenId');
             $table->string('TextoImagen');
             $table->timestamps();
         });

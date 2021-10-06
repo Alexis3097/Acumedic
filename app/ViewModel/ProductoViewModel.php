@@ -17,56 +17,50 @@ class ProductoViewModel
   public function create($productoData){
     $modelProducto =  $productoData->except('_token');
     $producto =  Producto::create($modelProducto);
-
-    if($archivo1 = $productoData->file('Foto1'))
-    {
-      $nombre = time().'1'.'.'.$archivo1->getClientOriginalExtension();
-      $archivo1->move('uploads/productos', $nombre);
+    if(!is_null($productoData->file('Foto1'))){
+      $foto = cloudinary()->upload($productoData->file('Foto1')->getRealPath());
       $fotoProducto = new fotoProducto;
       $fotoProducto->IdProducto = $producto->id;
-      $fotoProducto->Nombre = $nombre;
+      $fotoProducto->Nombre = $foto->getSecurePath();
+      $fotoProducto->fotoId = $foto->getPublicId();
       $fotoProducto->Titulo = $productoData->Titulo1;
       $fotoProducto->TextoAlterno = $productoData->TextoAlterno1;
       $fotoProducto->save();
     }
-    
-    if($archivo2 = $productoData->file('Foto2'))
-    {
-      $nombre = time().'2'.'.'.$archivo2->getClientOriginalExtension();
-      $archivo2->move('uploads/productos', $nombre);
+
+      if(!is_null($productoData->file('Foto2'))){
+      $foto = cloudinary()->upload($productoData->file('Foto2')->getRealPath());
       $fotoProducto = new fotoProducto;
       $fotoProducto->IdProducto = $producto->id;
-      $fotoProducto->Nombre = $nombre;
+      $fotoProducto->Nombre = $foto->getSecurePath();
+      $fotoProducto->fotoId = $foto->getPublicId();
       $fotoProducto->Titulo = $productoData->Titulo2;
       $fotoProducto->TextoAlterno = $productoData->TextoAlterno2;
       $fotoProducto->save();
     }
-
-    if($archivo3 = $productoData->file('Foto3'))
-    {
-      $nombre = time().'3'.'.'.$archivo3->getClientOriginalExtension();
-      $archivo3->move('uploads/productos', $nombre);
+    if(!is_null($productoData->file('Foto3'))){
+      $foto = cloudinary()->upload($productoData->file('Foto3')->getRealPath());
       $fotoProducto = new fotoProducto;
       $fotoProducto->IdProducto = $producto->id;
-      $fotoProducto->Nombre = $nombre;
+      $fotoProducto->Nombre = $foto->getSecurePath();
+      $fotoProducto->fotoId = $foto->getPublicId();
       $fotoProducto->Titulo = $productoData->Titulo3;
       $fotoProducto->TextoAlterno = $productoData->TextoAlterno3;
       $fotoProducto->save();
     }
 
-    if($archivo4 = $productoData->file('Foto4'))
-    {
-      $nombre = time().'4'.'.'.$archivo4->getClientOriginalExtension();
-      $archivo4->move('uploads/productos', $nombre);
+    if(!is_null($productoData->file('Foto4'))){
+      $foto = cloudinary()->upload($productoData->file('Foto4')->getRealPath());
       $fotoProducto = new fotoProducto;
       $fotoProducto->IdProducto = $producto->id;
-      $fotoProducto->Nombre = $nombre;
+      $fotoProducto->Nombre = $foto->getSecurePath();
+      $fotoProducto->fotoId = $foto->getPublicId();
       $fotoProducto->Titulo = $productoData->Titulo4;
       $fotoProducto->TextoAlterno = $productoData->TextoAlterno4;
       $fotoProducto->save();
     }
     return $producto;
-    
+
   }
 
   public function update($productoData, $id){
@@ -80,20 +74,26 @@ class ProductoViewModel
     $producto->CodigoBarra = $productoData->CodigoBarra;
     $producto->save();
 
-    if($archivo1 = $productoData->file('Foto1'))
-    {
-      $nombre = time().'1'.'.'.$archivo1->getClientOriginalExtension();
-      $archivo1->move('uploads/productos', $nombre);
-
+//      if(!is_null($pacienteData->file('Foto'))){
+//
+//          $foto = cloudinary()->upload($pacienteData->file('Foto')->getRealPath());
+//          $modelPaciente['Foto']  = $foto->getSecurePath();
+//          $modelPaciente['FotoId']  =  $foto->getPublicId();
+//      }
+     if(!is_null($productoData->file('Foto1')))
+     {
+      $foto = cloudinary()->upload($productoData->file('Foto1')->getRealPath());
       if(isset($producto->fotoProductos[0]->Nombre)){
         $fotoProducto1 = fotoProducto::find($producto->fotoProductos[0]->id);
-        $this->deleteProductPhoto($fotoProducto1->Nombre);
-        $fotoProducto1->Nombre = $nombre;
+        $this->deletePhotoCloudinary($fotoProducto1->fotoId);
+        $fotoProducto1->Nombre = $foto->getSecurePath();
+        $fotoProducto1->fotoId = $foto->getPublicId();
         $fotoProducto1->save();
       }else{
         $fotoProductoNuevo = new fotoProducto;
         $fotoProductoNuevo->IdProducto = $producto->id;
-        $fotoProductoNuevo->Nombre = $nombre;
+        $fotoProductoNuevo->Nombre =  $foto->getSecurePath();
+        $fotoProductoNuevo->fotoId = $foto->getPublicId();
         $fotoProductoNuevo->Titulo = $productoData->Titulo1;
         $fotoProductoNuevo->TextoAlterno =  $productoData->TextoAlterno1;
         $fotoProductoNuevo->save();
@@ -106,20 +106,20 @@ class ProductoViewModel
       $fotoProducto->save();
     }
 
-    if($archivo2 = $productoData->file('Foto2'))
+   if(!is_null($productoData->file('Foto2')))
     {
-      $nombre = time().'2'.'.'.$archivo2->getClientOriginalExtension();
-      $archivo2->move('uploads/productos', $nombre);
-
+      $foto = cloudinary()->upload($productoData->file('Foto2')->getRealPath());
       if(isset($producto->fotoProductos[1]->Nombre)){
         $fotoProducto2 = fotoProducto::find($producto->fotoProductos[1]->id);
-        $this->deleteProductPhoto($fotoProducto2->Nombre);
-        $fotoProducto2->Nombre = $nombre;
+        $this->deletePhotoCloudinary($fotoProducto2->fotoId);
+        $fotoProducto2->Nombre = $foto->getSecurePath();
+        $fotoProducto2->fotoId = $foto->getPublicId();
         $fotoProducto2->save();
       }else{
         $fotoProductoNuevo = new fotoProducto;
         $fotoProductoNuevo->IdProducto = $producto->id;
-        $fotoProductoNuevo->Nombre = $nombre;
+        $fotoProductoNuevo->Nombre =  $foto->getSecurePath();
+        $fotoProductoNuevo->fotoId = $foto->getPublicId();
         $fotoProductoNuevo->Titulo = $productoData->Titulo2;
         $fotoProductoNuevo->TextoAlterno =  $productoData->TextoAlterno2;
         $fotoProductoNuevo->save();
@@ -132,20 +132,20 @@ class ProductoViewModel
       $fotoProducto->save();
     }
 
-    if($archivo3 = $productoData->file('Foto3'))
+    if(!is_null($productoData->file('Foto3')))
     {
-      $nombre = time().'3'.'.'.$archivo3->getClientOriginalExtension();
-      $archivo3->move('uploads/productos', $nombre);
-
+        $foto = cloudinary()->upload($productoData->file('Foto3')->getRealPath());
       if(isset($producto->fotoProductos[2]->Nombre)){
         $fotoProducto3 = fotoProducto::find($producto->fotoProductos[2]->id);
-        $this->deleteProductPhoto($fotoProducto3->Nombre);
-        $fotoProducto3->Nombre = $nombre;
+        $this->deletePhotoCloudinary($fotoProducto3->fotoId);
+        $fotoProducto3->Nombre = $foto->getSecurePath();
+        $fotoProducto3->fotoId = $foto->getPublicId();
         $fotoProducto3->save();
       }else{
         $fotoProductoNuevo = new fotoProducto;
         $fotoProductoNuevo->IdProducto = $producto->id;
-        $fotoProductoNuevo->Nombre = $nombre;
+        $fotoProductoNuevo->Nombre =  $foto->getSecurePath();
+        $fotoProductoNuevo->fotoId = $foto->getPublicId();
         $fotoProductoNuevo->Titulo = $productoData->Titulo3;
         $fotoProductoNuevo->TextoAlterno =  $productoData->TextoAlterno3;
         $fotoProductoNuevo->save();
@@ -157,20 +157,20 @@ class ProductoViewModel
       $fotoProducto->TextoAlterno = $productoData->TextoAlterno3;
       $fotoProducto->save();
     }
-    if($archivo4 = $productoData->file('Foto4'))
+   if(!is_null($productoData->file('Foto4')))
     {
-      $nombre = time().'4'.'.'.$archivo4->getClientOriginalExtension();
-      $archivo4->move('uploads/productos', $nombre);
-
+        $foto = cloudinary()->upload($productoData->file('Foto4')->getRealPath());
       if(isset($producto->fotoProductos[3]->Nombre)){
         $fotoProducto4 = fotoProducto::find($producto->fotoProductos[3]->id);
-        $this->deleteProductPhoto($fotoProducto4->Nombre);
-        $fotoProducto4->Nombre = $nombre;
+        $this->deletePhotoCloudinary($fotoProducto4->fotoId);
+        $fotoProducto4->Nombre = $foto->getSecurePath();
+        $fotoProducto4->fotoId = $foto->getPublicId();
         $fotoProducto4->save();
       }else{
         $fotoProductoNuevo = new fotoProducto;
         $fotoProductoNuevo->IdProducto = $producto->id;
-        $fotoProductoNuevo->Nombre = $nombre;
+        $fotoProductoNuevo->Nombre =  $foto->getSecurePath();
+        $fotoProductoNuevo->fotoId = $foto->getPublicId();
         $fotoProductoNuevo->Titulo = $productoData->Titulo4;
         $fotoProductoNuevo->TextoAlterno =  $productoData->TextoAlterno4;
         $fotoProductoNuevo->save();
@@ -183,7 +183,7 @@ class ProductoViewModel
       $fotoProducto->save();
     }
 
-    
+
     return $producto;
   }
 
@@ -196,7 +196,7 @@ class ProductoViewModel
       }
       $fotoProductos = fotoProducto::where('IdProducto', $id)->get();
       foreach ($fotoProductos as $foto){
-        $this->deleteProductPhoto($foto->Nombre);
+        $this->deletePhotoCloudinary($foto->fotoId);
         $foto->delete();
       }
       $producto->delete();
@@ -208,6 +208,10 @@ class ProductoViewModel
     if (@getimagesize($rutaImagen)){
       unlink($rutaImagen);
     }
+  }
+
+  public function  deletePhotoCloudinary($fotoId){
+      cloudinary()->destroy($fotoId);
   }
   public function getProductos()
   {
@@ -237,13 +241,13 @@ class ProductoViewModel
 
   public function eliminarFotoProducto($IdFoto){
     $fotoProducto = fotoProducto::find($IdFoto);
-    $this->deleteProductPhoto($fotoProducto->Nombre);
+    $this->deletePhotoCloudinary($fotoProducto->fotoId);
     $fotoProducto->delete();
     return $fotoProducto;
 
   }
 
-  //CREAR ORDEN DE COMPRA DE PRODUCTO 
+  //CREAR ORDEN DE COMPRA DE PRODUCTO
 
   /**
    * recibe los datos de una nueva orden de producto
@@ -275,7 +279,7 @@ class ProductoViewModel
   public function crearDireccion($ordenData){
     $DireccionModel = Direccion::create($ordenData->toArray());
     return $DireccionModel;
-    
+
   }
 
   public function notificacionOrdenDeCompra($orden){
@@ -283,5 +287,5 @@ class ProductoViewModel
     return;
   }
 
- 
+
 }

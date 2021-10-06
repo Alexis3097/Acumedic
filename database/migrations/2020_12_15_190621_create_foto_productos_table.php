@@ -17,6 +17,7 @@ class CreateFotoProductosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('IdProducto');
             $table->string('Nombre');
+            $table->string('fotoId');
             $table->string('Titulo');
             $table->string('TextoAlterno');
             $table->timestamps();

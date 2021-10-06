@@ -132,7 +132,7 @@
                     <a id="h">12</a> :
                     <a id="m">00</a>:
                     <a id="s">00</a>
-                    <p style="font-size:.3em;">Version: 1.1.0</p>
+                    <p style="font-size:.3em;">Version: 1.0.0</p>
                 </div>
             </div>
         </div>
