@@ -31,22 +31,19 @@ class PacienteViewModel
     public static function delete($id)
     {
       $citas = Cita::where('IdPaciente', $id)->get();
-      
+
       if(count($citas)>0){
         foreach($citas as $cita)
         {
           $citasHorarios = CitaHorario::where('IdCita',$cita->id)->delete();
           $cita->delete();
         }
-       
+
       }
       $paciente = Paciente::find($id);
-      if(!is_null($paciente)){
-        $rutaImagen = public_path().'/uploads/'.$paciente->Foto;
-        if (@getimagesize($rutaImagen)){
-          unlink($rutaImagen);
-        }
-        $paciente->delete();
+      if(!is_null($paciente->Foto)){
+          cloudinary()->destroy($paciente->FotoId);
+          $paciente->delete();
       }
       return $paciente;
     }
@@ -54,11 +51,11 @@ class PacienteViewModel
     public function create($pacienteData): Paciente
     {
         $modelPaciente = $pacienteData->except('_token');
-        if($archivo = $pacienteData->file('Foto'))
-        {
-          $nombre = time().'.'.$archivo->getClientOriginalExtension();
-          $archivo->move('uploads', $nombre);
-          $modelPaciente['Foto']  = $nombre;
+        if(!is_null($pacienteData->file('Foto'))){
+
+            $foto = cloudinary()->upload($pacienteData->file('Foto')->getRealPath());
+            $modelPaciente['Foto']  = $foto->getSecurePath();
+            $modelPaciente['FotoId']  =  $foto->getPublicId();
         }
         return Paciente::create($modelPaciente);
     }
@@ -66,18 +63,18 @@ class PacienteViewModel
     public function update($pacienteData, $id)
     {
         $paciente = Paciente::find($id);
-        if($archivo = $pacienteData->file('Foto'))
-        {
-          if(!is_null($paciente->Foto)){
-             $rutaImagen = public_path().'/uploads/'.$paciente->Foto;
-            if (@getimagesize($rutaImagen)){
-              unlink($rutaImagen);
+
+        if(!is_null($pacienteData->file('Foto'))){
+            $foto = cloudinary()->upload($pacienteData->file('Foto')->getRealPath());
+            //elimino la foto vieja si es que tiene
+            if(!is_null($paciente->Foto)){
+                cloudinary()->destroy($paciente->FotoId);
             }
-          }
-          $nombre = time().'.'.$archivo->getClientOriginalExtension();
-          $archivo->move('uploads', $nombre);
-          $paciente->Foto = $nombre;
+            //actualizo el url de la nueva fotp
+            $paciente->Foto =$foto->getSecurePath();
+            $paciente->FotoId =$foto->getPublicId();
         }
+
         $paciente->IdSexo = $pacienteData->IdSexo;
         $paciente->Nombre = $pacienteData->Nombre;
         $paciente->ApellidoPaterno = $pacienteData->ApellidoPaterno;
@@ -91,7 +88,7 @@ class PacienteViewModel
         return  $paciente;
     }
 
-    public static function buscarPaciente($Nombre, $varibles) 
+    public static function buscarPaciente($Nombre, $varibles)
     {
       $pacientes = Paciente::where('Nombre', 'like','%' . $Nombre. '%')
                   ->orWhere('ApellidoPaterno', 'like','%' . $Nombre. '%')

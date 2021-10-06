@@ -15,18 +15,18 @@ class ServicioViewModel
     public function create($servicioData){
       $modelServicio =  $servicioData->except('_token');
 
-      if($Logo = $servicioData->file('Logo'))
+      if(!is_null($servicioData->file('Logo')))
         {
-          $nombre = time().'Logo'.'.'.$Logo->getClientOriginalExtension();
-          $Logo->move('uploads/servicios', $nombre);
-          $modelServicio['Logo']  = $nombre;
+          $foto = cloudinary()->upload($servicioData->file('Logo')->getRealPath());
+          $modelServicio['Logo']  = $foto->getSecurePath();
+          $modelServicio['LogoId']  = $foto->getPublicId();
         }
 
-      if($Imagen = $servicioData->file('Imagen'))
+       if(!is_null($servicioData->file('Imagen')))
         {
-          $nombre = time().'Imagen'.'.'.$Imagen->getClientOriginalExtension();
-          $Imagen->move('uploads/servicios', $nombre);
-          $modelServicio['Imagen']  = $nombre;
+          $foto = cloudinary()->upload($servicioData->file('Imagen')->getRealPath());
+          $modelServicio['Imagen']  = $foto->getSecurePath();
+          $modelServicio['ImagenId']  = $foto->getPublicId();
         }
 
         return Servicio::create($modelServicio);
@@ -36,20 +36,20 @@ class ServicioViewModel
       $servicio = $this->getServicio($id);
       $modelServicio =  $servicioData->except('_token');
 
-      if($Logo = $servicioData->file('Logo'))
+      if(!is_null($servicioData->file('Logo')))
         {
-          $nombre = time().'Logo'.'.'.$Logo->getClientOriginalExtension();
-          $Logo->move('uploads/servicios', $nombre);
-          $this->deleteServicePhoto($servicio->Logo);
-          $servicio->Logo  = $nombre;
+          $foto = cloudinary()->upload($servicioData->file('Logo')->getRealPath());
+          $this->deleteServicePhoto($servicio->LogoId);
+          $servicio->Logo  = $foto->getSecurePath();
+          $servicio->LogoId  = $foto->getPublicId();
         }
 
-      if($Imagen = $servicioData->file('Imagen'))
+      if(!is_null($servicioData->file('Imagen')))
         {
-          $nombre = time().'Imagen'.'.'.$Imagen->getClientOriginalExtension();
-          $Imagen->move('uploads/servicios', $nombre);
-          $this->deleteServicePhoto($servicio->Imagen);
-          $servicio->Imagen  = $nombre;
+          $foto = cloudinary()->upload($servicioData->file('Imagen')->getRealPath());
+          $this->deleteServicePhoto($servicio->ImagenId);
+          $servicio->Imagen  = $foto->getSecurePath();
+          $servicio->ImagenId  =  $foto->getPublicId();
         }
         $servicio->Nombre = $servicioData->Nombre;
         $servicio->Precio = $servicioData->Precio;
@@ -70,19 +70,16 @@ class ServicioViewModel
         $VerSeccion->Ver = 0;
         $VerSeccion->save();
       }
-      
+
       $servicio = $this->getServicio($id);
-      $this->deleteServicePhoto($servicio->Logo);
-      $this->deleteServicePhoto($servicio->Imagen);
+      $this->deleteServicePhoto($servicio->LogoId);
+      $this->deleteServicePhoto($servicio->ImagenId);
       $servicio->delete();
       return $servicio;
     }
 
-    public function deleteServicePhoto($nombreFoto){
-      $rutaImagen = public_path().'/uploads/servicios/'.$nombreFoto;
-      if (@getimagesize($rutaImagen)){
-        unlink($rutaImagen);
-      }
+    public function deleteServicePhoto($fotoId){
+        cloudinary()->destroy($fotoId);
     }
 
     public function getServicio($id){
@@ -114,9 +111,9 @@ class ServicioViewModel
       return Servicio::where('id', '!=',$id)->take(4)->orderBy('id','desc')->get();
     }
     /**
-     * @return 
+     * @return
      * registro con un campo servicio de tipo bool
-     * 
+     *
      */
     public function verSeccion(){
       return VerSeccion::all();
@@ -147,7 +144,7 @@ class ServicioViewModel
       $VerSeccion->Ver = $opcion;
       $VerSeccion->save();
       return $VerSeccion;
-     
+
     }
 
     /**
@@ -160,12 +157,12 @@ class ServicioViewModel
       $VerSeccion->save();
       return $VerSeccion;
     }
-    
+
 
     public function numeroDeServicios()
     {
       $ServiciosSeleccionado = ServiciosSeleccionado::all();
       return count($ServiciosSeleccionado);
-      
+
     }
 }

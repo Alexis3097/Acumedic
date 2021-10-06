@@ -9,7 +9,7 @@ class fotoProducto extends Model
 {
     protected $table = 'fotoProductos';
     protected $fillable = [
-        'IdProducto','Titulo','TextoAlterno',
+        'IdProducto','Nombre','fotoId','Titulo','TextoAlterno',
     ];
 
     public function producto()

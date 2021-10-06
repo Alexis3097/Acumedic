@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="align-self-center">
                                     <span class="icon-lg icon-dual-primary" data-feather="calendar"></span>
-                                </div>   
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="align-self-center">
                                     <span class="icon-lg icon-dual-primary" data-feather="user-check"></span>
-                                </div>    
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="align-self-center">
                                     <span class="icon-lg icon-dual-primary" data-feather="shopping-cart"></span>
-                                </div>    
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="align-self-center">
                                     <span class="icon-lg icon-dual-primary" data-feather="clipboard"></span>
-                                </div>    
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -24,7 +24,7 @@
                     </div>
                     <!-- content -->
                     <!-- row -->
-            
+
                     <!-- products -->
                     <div class="row">
                         <div class="col-md-12 col-xl-12 col-xs-12">
@@ -35,7 +35,7 @@
                                     <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" class="avatar-lg rounded-circle mr-2"
                                         alt="foto">
                                     @else
-                                    <img src="{{asset('../uploads/'.$paciente->Foto)}}" class="avatar-lg rounded-circle mr-2"
+                                    <img src="{{$paciente->Foto}}" class="avatar-lg rounded-circle mr-2"
                                         alt="foto">
                                     @endif
                                         <div class="media-body">
@@ -68,7 +68,7 @@
                                         <div class="form-group">
                                             <label for="Cirugias">Cirugías</label>
                                             <input type="text" class="form-control" name="Cirugias" id="Cirugias"placeholder="Ingrese si el paciente a tenido alguna cirugía" value="{{$antePatologico->Cirugias}}">
-                                        </div>                                                            
+                                        </div>
                                         <div class="form-group mb-0">
                                             <label for="EnfermedadesCardiacas">Enfermedades cardiacas</label>
                                             <input type="text" class="form-control" name="EnfermedadesCardiacas" id="EnfermedadesCardiacas" placeholder="Ingrese si el paciente tiene enfermedades cardiacas" value="{{$antePatologico->EnfermedadesCardiacas}}">
@@ -125,7 +125,7 @@
         </div><!-- /.modal -->
 @endsection
 @section('scriptAntecedentes')
-<script src="{{asset('js/jquery.js')}}"></script>   
+<script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/Admin/vendor.min.js')}}"></script>
 <script src="{{asset('js/Admin/app.min.js')}}"></script>
 <script src="{{asset('js/Admin/libs/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>

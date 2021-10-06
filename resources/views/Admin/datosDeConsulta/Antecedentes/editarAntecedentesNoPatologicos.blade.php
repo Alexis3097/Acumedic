@@ -36,7 +36,7 @@
                                     <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" class="avatar-lg rounded-circle mr-2"
                                         alt="foto">
                                     @else
-                                    <img src="{{asset('../uploads/'.$paciente->Foto)}}" class="avatar-lg rounded-circle mr-2"
+                                    <img src="{{$paciente->Foto}}" class="avatar-lg rounded-circle mr-2"
                                         alt="foto">
                                     @endif
                                     <div class="media-body">
@@ -68,11 +68,11 @@
                                 <div class="form-group mt-3 mt-xl-0">
                                     <label for="ActividadFisica">Actividades físicas</label>
                                     <input type="text" class="form-control" name="ActividadFisica" id="ActividadFisica" placeholder="Ingrese si el paciente hace alguna actividad física" value="{{$anteNoPatologico->ActividadFisica}}">
-                                </div> 
+                                </div>
                                 <div class="form-group">
                                     <label for="Tabaquismo">Tabaquismo</label>
                                     <input type="text" class="form-control" name="Tabaquismo" id="Tabaquismo" placeholder="Ingrese si el paciente consume tabaco" value="{{$anteNoPatologico->Tabaquismo}}">
-                                </div>                            
+                                </div>
                                 <div class="form-group mb-0">
                                     <label for="Alcoholismo">Alcoholismo</label>
                                     <input type="text" class="form-control" name="Alcoholismo" id="Alcoholismo"placeholder="Ingrese si el paciente consume alcohol" value="{{$anteNoPatologico->Alcoholismo}}">
@@ -127,7 +127,7 @@
     </div><!-- /.modal -->
 @endsection
 @section('scriptAntecedentes')
-<script src="{{asset('js/jquery.js')}}"></script>   
+<script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/Admin/vendor.min.js')}}"></script>
 <script src="{{asset('js/Admin/app.min.js')}}"></script>
 <script src="{{asset('js/Admin/libs/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}"></script>

@@ -11,14 +11,15 @@ use App\Models\AntGinecologico;
 use App\Models\AntHFamiliarez;
 use App\Models\AntNoPatologico;
 use App\Models\AntPatologico;
+use Cloudinary\Cloudinary;
 use Carbon\Carbon;
 class Paciente extends Model
 {
-    
+
     use SoftDeletes;
     protected $table = 'Paciente';
     protected $fillable = [
-        'IdSexo','Nombre','ApellidoPaterno','ApellidoMaterno','FechaNacimiento','Telefono', 'Foto','LugarOrigen','Correo','TipoSangre',
+        'IdSexo','Nombre','ApellidoPaterno','ApellidoMaterno','FechaNacimiento','Telefono', 'Foto','FotoId','LugarOrigen','Correo','TipoSangre',
     ];
 
     public function sexo()
@@ -55,7 +56,7 @@ class Paciente extends Model
     {
         return "{$this->Nombre} {$this->ApellidoPaterno} {$this->ApellidoMaterno}";
     }
-    
+
     public function getEdadAttribute()
     {
         if(is_null($this->FechaNacimiento))

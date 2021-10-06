@@ -8,7 +8,7 @@ class FotoAntecedente extends Model
 {
     protected $table = 'FotoAntecedente';
     protected $fillable = [
-        'IdPaciente','Tipo','Url','Nombre','Descripcion',
+        'IdPaciente','Tipo','Url','UrlId','Nombre','Descripcion',
     ];
 
     public function paciente()

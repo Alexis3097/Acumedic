@@ -8,12 +8,14 @@ class UsuarioViewModel
     public function create($userData){
         $modelUsuario = $userData->except('_token','password_confirmation');
         $modelUsuario['password'] = Hash::make($modelUsuario['password']);
-        if($archivo = $userData->file('Foto'))
-        {
-          $nombre = time().'.'.$archivo->getClientOriginalExtension();
-          $archivo->move('uploads', $nombre);
-          $modelUsuario['Foto']  = $nombre;
+
+        if(!is_null($userData->file('Foto'))){
+
+            $foto = cloudinary()->upload($userData->file('Foto')->getRealPath());
+            $modelUsuario['Foto']  = $foto->getSecurePath();
+            $modelUsuario['FotoId']  =  $foto->getPublicId();
         }
+
         $usuario =  User::create($modelUsuario);
         $usuario->assignRole($userData->Rol);
         return $usuario;
@@ -23,18 +25,16 @@ class UsuarioViewModel
       $usuario = User::find($id);
       $usuario->roles()->detach();
       $usuario->assignRole($userData->Rol);
-      if($archivo = $userData->file('Foto'))
-      {
-        if(!is_null($usuario->Foto)){
-           $rutaImagen = public_path().'/uploads/'.$usuario->Foto;
-          if (@getimagesize($rutaImagen)){
-            unlink($rutaImagen);
-          }
+        if(!is_null($userData->file('Foto'))){
+            $foto = cloudinary()->upload($userData->file('Foto')->getRealPath());
+            //elimino la foto vieja si es que tiene
+            if(!is_null($usuario->Foto)){
+                cloudinary()->destroy($usuario->FotoId);
+            }
+            //actualizo el url de la nueva fotp
+            $usuario->Foto =$foto->getSecurePath();
+            $usuario->FotoId =$foto->getPublicId();
         }
-        $nombre = time().'.'.$archivo->getClientOriginalExtension();
-        $archivo->move('uploads', $nombre);
-        $usuario->Foto = $nombre;
-      }
 
       $usuario->IdSexo = $userData->IdSexo;
       $usuario->name = $userData->name;
@@ -51,6 +51,9 @@ class UsuarioViewModel
       $usuario = User::find($id);
       if(!is_null($usuario)){
         $usuario->roles()->detach();
+          if(!is_null($usuario->Foto)){
+              cloudinary()->destroy($usuario->FotoId);
+          }
         $usuario->delete();
       }
       return $usuario;
@@ -97,18 +100,17 @@ class UsuarioViewModel
      */
     public function updateMyAcount($userData,$id){
       $usuario = User::find($id);
-      if($archivo = $userData->file('Foto'))
-      {
-        if(!is_null($usuario->Foto)){
-           $rutaImagen = public_path().'/uploads/'.$usuario->Foto;
-          if (@getimagesize($rutaImagen)){
-            unlink($rutaImagen);
-          }
+        if(!is_null($userData->file('Foto'))){
+            $foto = cloudinary()->upload($userData->file('Foto')->getRealPath());
+            //elimino la foto vieja si es que tiene
+            if(!is_null($usuario->Foto)){
+                cloudinary()->destroy($usuario->FotoId);
+            }
+            //actualizo el url de la nueva fotp
+            $usuario->Foto =$foto->getSecurePath();
+            $usuario->FotoId =$foto->getPublicId();
         }
-        $nombre = time().'.'.$archivo->getClientOriginalExtension();
-        $archivo->move('uploads', $nombre);
-        $usuario->Foto = $nombre;
-      }
+
       $usuario->IdSexo = $userData->IdSexo;
       $usuario->name = $userData->name;
       $usuario->ApellidoPaterno = $userData->ApellidoPaterno;

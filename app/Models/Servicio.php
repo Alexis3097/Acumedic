@@ -9,7 +9,7 @@ class Servicio extends Model
 {
     protected $table = 'Servicio';
     protected $fillable = [
-        'Nombre','Precio','DescripcionCorta','DescripcionLarga','Logo','Imagen','TextoImagen','TextoLogo'
+        'Nombre','Precio','DescripcionCorta','DescripcionLarga','Logo','LogoId','Imagen','ImagenId','TextoImagen','TextoLogo'
     ];
 
     public function ServiciosSeleccionado()

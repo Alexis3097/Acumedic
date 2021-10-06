@@ -7,7 +7,7 @@
                     <div class="row page-title align-items-center">
                         <div class="col-sm-4 col-xl-6">
                             <h4 class="mb-1 mt-0">Editar Usuario</h4>
-                           
+
                         </div>
                     </div>
                     <!-- content -->
@@ -90,7 +90,7 @@
                                                 </div>
                                             @enderror
                                         </div>
-                             
+
                                         <div class="form-group col-md-4">
                                             <label for="Rol">Rol</label>
                                             <select data-plugin="customselect" class="form-control @error('Rol') is-invalid @enderror" name="Rol">
@@ -121,7 +121,7 @@
                                         <img id="category-img-tag" src="{{asset('../img/Admin/users/avatar-4.jpg')}}" alt="Foto de perfil"
                                             class="avatar-xl rounded-circle" />
                                 @else
-                                        <img id="category-img-tag" src="{{asset('../uploads/'.$usuario->Foto)}}" alt="Foto de perfil"
+                                        <img id="category-img-tag" src="{{$usuario->Foto}}" alt="Foto de perfil"
                                                     class="avatar-xl rounded-circle" />
                                 @endif
                                         <h5 class="mt-2 mb-0">Así se ve tu perfil</h5>
@@ -148,15 +148,15 @@
         function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-            
+
             reader.onload = function (e) {
                 $('#category-img-tag').attr('src', e.target.result);
             }
-            
+
             reader.readAsDataURL(input.files[0]);
         }
     }
-    
+
     $("#cat_image").change(function(){
         readURL(this);
     });

@@ -56,7 +56,7 @@
                         <audio src="{{asset('../notificacion.mp3')}}" id="sonido"></audio>
                         <!-- NOTIFICACIONES -->
                         <li class="dropdown notification-list" data-toggle="tooltip" data-placement="left"
-                        
+
                             @if(auth()->user()->unreadNotifications()->count() > 0)
                                 title="{{auth()->user()->unreadNotifications()->count()}} Notificación sin leer"
                             @else
@@ -123,7 +123,7 @@
                     @if(is_null(Auth::user()->Foto))
                         <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}" class="avatar-sm rounded-circle mr-2" alt="Foto de perfil" />
                     @else
-                        <img src="{{asset('../uploads/'.Auth::user()->Foto)}}" class="avatar-sm rounded-circle mr-2" alt="Foto de perfil" />
+                        <img src="{{Auth::user()->Foto}}" class="avatar-sm rounded-circle mr-2" alt="Foto de perfil" />
                     @endif
                     <div class="media-body">
                         <h6 class="pro-user-name mt-0 mb-0">{{Auth::user()->name}}</h6>
@@ -182,7 +182,7 @@
                                 <li>
                                     <a href="{{ route('paciente.list') }}">
                                         <i data-feather="user"></i>
-                                        <span> Pacientes </span>                                  
+                                        <span> Pacientes </span>
                                     </a>
                                 </li>
                                 @endcan
@@ -202,7 +202,7 @@
                                                 <span>Productos</span>
                                             </a>
                                         @endcan
-                                    @endif 
+                                    @endif
                                     @if(auth()->user()->can('ListadoInventario'))
                                         @canany(['ListadoInventario','CrearInventario','EditarInventario','EliminarInventario'])
                                             <a href="{{ route('inventario.list')}}" class="dropdown-item notify-item">
@@ -283,7 +283,7 @@
         <script src="{{asset('js/Admin/libs/flatpickr/flatpickr.min.js')}}"></script>
         <!-- <script src="{{asset('js/dashboard.init.js')}}"></script> -->
         <script src="{{asset('js/Admin/app.min.js')}}"></script>
-       
+
     @livewireScripts
     @yield('scriptAntecedentes')
     @yield('scriptPacientes')
@@ -305,19 +305,19 @@
     @yield('miCuenta')
     @yield('orden')
     <script>
-    
-        
+
+
         // // Enable pusher logging - don't include this in production
         // Pusher.logToConsole = true;
-  
+
         var pusher = new Pusher('{{env('PUSHER_APP_KEY')}}', {
             cluster: '{{env('PUSHER_APP_CLUSTER')}}',
             forceTLS: true
         });
-        
+
         var channel = pusher.subscribe('Orden-producto');
         var channel2 = pusher.subscribe('Solicitud-cita');
-        
+
         channel.bind('Orden-producto', function(data) {
             $('#sonido')[0].play();
             $('#notificacion').append(`<span class="noti-icon-badge"></span>`);
@@ -334,7 +334,7 @@
                                             <div class="notify-icon"><img src="{{asset('../iconos/SVG/clipboard-g.svg')}}"></div>
                                             <p class="notify-details">Nueva Solicitud de cita.<small class="text-muted">Hace unos segundos</small>
                                             </p>
-                                        </a>`);       
+                                        </a>`);
         });
     </script>
     </body>

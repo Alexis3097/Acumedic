@@ -14,7 +14,7 @@
                     <div class="row page-title align-items-center">
                         <div class="col-sm-4 col-xl-6">
                             <h4 class="mb-1 mt-0">Editar producto</h4>
-                           
+
                         </div>
                         <div class="col-sm-8 col-xl-6">
                             <div class="form-inline float-sm-right mt-3 mt-sm-0">
@@ -29,7 +29,7 @@
 
                     <!-- content -->
                     <!-- row -->
-            
+
                     <!-- products -->
                     <div class="row">
                         <div class="col-lg-12">
@@ -79,7 +79,7 @@
                                                 <option value="4" @if($producto->Estrellas == 4) selected='selected' @endif>4</option>
                                                 <option value="5" @if($producto->Estrellas == 5) selected='selected' @endif>5</option>
                                             </select>
-                                            
+
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="CodigoBarra">Código/Clave de producto</label>
@@ -123,11 +123,11 @@
                                     <div class=" mt-3" style="padding-bottom:4%;" >
                                         <div class="imagen-producto" style="width:24%; display:inline-block;">
                                             <h4>Imagen de producto</h4>
-                                            <img id="category-img-tag" 
-                                                src="@if(isset($producto->fotoProductos[0])) {{asset('../uploads/productos/'.$producto->fotoProductos[0]->Nombre)}} @else {{asset('../img/upload.jpg')}} @endif" 
+                                            <img id="category-img-tag"
+                                                src="@if(isset($producto->fotoProductos[0])) {{$producto->fotoProductos[0]->Nombre}} @else {{asset('../img/upload.jpg')}} @endif"
                                                 alt=""style="width: 150px;" />
 
-                                                <input type="hidden" name="idFoto1" 
+                                                <input type="hidden" name="idFoto1"
                                                     value="@if(isset($producto->fotoProductos[0])) {{$producto->fotoProductos[0]->id}}  @else{{0}}@endif"
                                                 >
                                                 @if(!isset($producto->fotoProductos[0]))
@@ -146,7 +146,7 @@
                                             <div class="form-group col-md-12">
                                                 <label for="Titulo1" style="text-align: left;">Título de la imagen</label>
                                                 <div>
-                                                    <input maxlength="190" type="text" class="form-control @error('Titulo1') is-invalid @enderror" 
+                                                    <input maxlength="190" type="text" class="form-control @error('Titulo1') is-invalid @enderror"
                                                     value="@if(isset($producto->fotoProductos[0])){{old('Titulo1', $producto->fotoProductos[0]->Titulo)}}@else{{old('Titulo1')}}@endif"
                                                     name="Titulo1" id="Titulo1" placeholder="Titulo">
                                                     @error('Titulo1')
@@ -159,7 +159,7 @@
                                             <div class="form-group col-md-12">
                                                 <label for="TextoAlterno1" style="text-align: left;">Texto alternado</label>
                                                 <div>
-                                                    <input maxlength="190" type="text" class="form-control @error('TextoAlterno1') is-invalid @enderror" 
+                                                    <input maxlength="190" type="text" class="form-control @error('TextoAlterno1') is-invalid @enderror"
                                                     value="@if(isset($producto->fotoProductos[0])){{old('TextoAlterno1', $producto->fotoProductos[0]->TextoAlterno)}}@else{{old('TextoAlterno1')}}@endif"
                                                     name="TextoAlterno1" id="TextoAlterno1" placeholder="Texto alterno de imagen" >
                                                     @error('TextoAlterno1')
@@ -173,11 +173,11 @@
 
                                         <div class="imagen-producto" style="width:24%; display:inline-block;">
                                             <h4>Imagen de producto</h4>
-                                            <img id="category-img-tag1" 
-                                                src="@if(isset($producto->fotoProductos[1])) {{asset('../uploads/productos/'.$producto->fotoProductos[1]->Nombre)}} @else {{asset('../img/upload.jpg')}} @endif" 
+                                            <img id="category-img-tag1"
+                                                src="@if(isset($producto->fotoProductos[1])) {{$producto->fotoProductos[1]->Nombre}} @else {{asset('../img/upload.jpg')}} @endif"
                                                 alt=""style="width: 150px;" />
 
-                                                <input type="hidden" name="idFoto2" 
+                                                <input type="hidden" name="idFoto2"
                                                     value="@if(isset($producto->fotoProductos[1])) {{$producto->fotoProductos[1]->id}}  @else{{0}}@endif"
                                                 >
                                                 @if(!isset($producto->fotoProductos[1]))
@@ -206,7 +206,7 @@
                                                 <label for="Titulo2" style="text-align: left;">Título de la imagen</label>
                                                 <div>
                                                     <input type="text" maxlength="190"
-                                                    value="@if(isset($producto->fotoProductos[1])){{old('Titulo2', $producto->fotoProductos[1]->Titulo)}}@else{{old('Titulo2')}}@endif" 
+                                                    value="@if(isset($producto->fotoProductos[1])){{old('Titulo2', $producto->fotoProductos[1]->Titulo)}}@else{{old('Titulo2')}}@endif"
                                                     class="form-control @error('Titulo2') is-invalid @enderror" name="Titulo2" id="Titulo2" placeholder="Titulo">
                                                     @error('Titulo2')
                                                     <div class="invalid-feedback">
@@ -219,7 +219,7 @@
                                                 <label for="TextoAlterno2" style="text-align: left;">Texto alternado</label>
                                                 <div>
                                                     <input type="text" maxlength="190"
-                                                    value="@if(isset($producto->fotoProductos[1])){{old('TextoAlterno2', $producto->fotoProductos[1]->TextoAlterno)}}@else{{old('TextoAlterno2')}}@endif" 
+                                                    value="@if(isset($producto->fotoProductos[1])){{old('TextoAlterno2', $producto->fotoProductos[1]->TextoAlterno)}}@else{{old('TextoAlterno2')}}@endif"
                                                     class="form-control @error('TextoAlterno2') is-invalid @enderror" name="TextoAlterno2" id="TextoAlterno2" placeholder="Texto alterno de imagen">
                                                     @error('TextoAlterno2')
                                                     <div class="invalid-feedback">
@@ -232,11 +232,11 @@
 
                                         <div class="imagen-producto" style="width:24%; display:inline-block;">
                                             <h4>Imagen de producto</h4>
-                                            <img id="category-img-tag2" 
-                                                src="@if(isset($producto->fotoProductos[2])) {{asset('../uploads/productos/'.$producto->fotoProductos[2]->Nombre)}} @else {{asset('../img/upload.jpg')}} @endif" 
+                                            <img id="category-img-tag2"
+                                                src="@if(isset($producto->fotoProductos[2])) {{$producto->fotoProductos[2]->Nombre}} @else {{asset('../img/upload.jpg')}} @endif"
                                                 alt=""style="width: 150px;" />
 
-                                                <input type="hidden" name="idFoto3" 
+                                                <input type="hidden" name="idFoto3"
                                                     value="@if(isset($producto->fotoProductos[2])) {{$producto->fotoProductos[2]->id}}  @else{{0}}@endif"
                                                 >
 
@@ -265,7 +265,7 @@
                                                 <label for="Titulo3" style="text-align: left;">Título de la imagen</label>
                                                 <div>
                                                     <input type="text" maxlength="190"
-                                                    value="@if(isset($producto->fotoProductos[2])){{old('Titulo3', $producto->fotoProductos[2]->Titulo)}}@else{{old('Titulo3')}}@endif"  
+                                                    value="@if(isset($producto->fotoProductos[2])){{old('Titulo3', $producto->fotoProductos[2]->Titulo)}}@else{{old('Titulo3')}}@endif"
                                                     class="form-control @error('Titulo3') is-invalid @enderror" name="Titulo3" id="Titulo3" placeholder="Titulo">
                                                     @error('Titulo3')
                                                     <div class="invalid-feedback">
@@ -277,7 +277,7 @@
                                             <div class="form-group col-md-12">
                                                 <label for="TextoAlterno3" style="text-align: left;">Texto alternado</label>
                                                 <div>
-                                                    <input type="text" maxlength="190" value="@if(isset($producto->fotoProductos[2])){{old('TextoAlterno3', $producto->fotoProductos[2]->TextoAlterno)}}@else{{old('TextoAlterno3')}}@endif" 
+                                                    <input type="text" maxlength="190" value="@if(isset($producto->fotoProductos[2])){{old('TextoAlterno3', $producto->fotoProductos[2]->TextoAlterno)}}@else{{old('TextoAlterno3')}}@endif"
                                                     class="form-control @error('TextoAlterno3') is-invalid @enderror" name="TextoAlterno3" id="TextoAlterno3" placeholder="Texto alterno de imagen">
                                                     @error('TextoAlterno3')
                                                         <div class="invalid-feedback">
@@ -290,11 +290,11 @@
 
                                         <div class="imagen-producto" style="width:24%; display:inline-block;">
                                             <h4>Imagen de producto</h4>
-                                                <img id="category-img-tag3" 
-                                                src="@if(isset($producto->fotoProductos[3])) {{asset('../uploads/productos/'.$producto->fotoProductos[3]->Nombre)}} @else {{asset('../img/upload.jpg')}} @endif" 
+                                                <img id="category-img-tag3"
+                                                src="@if(isset($producto->fotoProductos[3])) {{$producto->fotoProductos[3]->Nombre}} @else {{asset('../img/upload.jpg')}} @endif"
                                                 alt=""style="width: 150px;" />
 
-                                                <input type="hidden" name="idFoto4" 
+                                                <input type="hidden" name="idFoto4"
                                                     value="@if(isset($producto->fotoProductos[3])) {{$producto->fotoProductos[3]->id}}  @else{{0}}@endif"
                                                 >
 
@@ -323,7 +323,7 @@
                                                 <label for="Titulo4" style="text-align: left;">Título de la imagen</label>
                                                 <div>
                                                     <input type="text" maxlength="190"
-                                                    value="@if(isset($producto->fotoProductos[3])){{old('Titulo4', $producto->fotoProductos[3]->Titulo)}}@else{{old('Titulo4')}}@endif" 
+                                                    value="@if(isset($producto->fotoProductos[3])){{old('Titulo4', $producto->fotoProductos[3]->Titulo)}}@else{{old('Titulo4')}}@endif"
                                                     class="form-control @error('Titulo4') is-invalid @enderror" name="Titulo4" id="Titulo4" placeholder="Titulo">
                                                     @error('Titulo4')
                                                         <div class="invalid-feedback">
@@ -335,7 +335,7 @@
                                             <div class="form-group col-md-12">
                                                 <label for="TextoAlterno4" style="text-align: left;">Texto alternado</label>
                                                 <div>
-                                                    <input type="text"  maxlength="190" value="@if(isset($producto->fotoProductos[3])){{old('TextoAlterno4', $producto->fotoProductos[3]->TextoAlterno)}}@else{{old('TextoAlterno4')}}@endif" 
+                                                    <input type="text"  maxlength="190" value="@if(isset($producto->fotoProductos[3])){{old('TextoAlterno4', $producto->fotoProductos[3]->TextoAlterno)}}@else{{old('TextoAlterno4')}}@endif"
                                                     class="form-control @error('TextoAlterno4') is-invalid @enderror" name="TextoAlterno4" id="TextoAlterno4" placeholder="Texto alterno de imagen">
                                                     @error('TextoAlterno4')
                                                         <div class="invalid-feedback">
@@ -402,19 +402,19 @@
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-                
+
                 reader.onload = function (e) {
                     $('#category-img-tag').attr('src', e.target.result);
                 }
-                
+
                 reader.readAsDataURL(input.files[0]);
             }
-        }        
+        }
         $("#cat_image").change(function(){
             readURL(this);
         });
         $(document).ready(function() {
-            $('#btn-example-file-reset').on('click', function() {    
+            $('#btn-example-file-reset').on('click', function() {
             $('#cat_image').val('');
             $('#category-img-tag').attr('src','../img/upload.jpg')
          });
@@ -422,19 +422,19 @@
         function readURL1(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-                
+
                 reader.onload = function (e) {
                     $('#category-img-tag1').attr('src', e.target.result);
                 }
-                
+
                 reader.readAsDataURL(input.files[0]);
             }
-        }        
+        }
         $("#cat_image1").change(function(){
             readURL1(this);
         });
         $(document).ready(function() {
-            $('#btn-example-file-reset1').on('click', function() {     
+            $('#btn-example-file-reset1').on('click', function() {
             $('#cat_image1').val('');
             $('#category-img-tag1').attr('src','../img/upload.jpg')
          });
@@ -442,19 +442,19 @@
         function readURL2(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-                
+
                 reader.onload = function (e) {
                     $('#category-img-tag2').attr('src', e.target.result);
                 }
-                
+
                 reader.readAsDataURL(input.files[0]);
             }
-        }        
+        }
         $("#cat_image2").change(function(){
             readURL2(this);
         });
         $(document).ready(function() {
-            $('#btn-example-file-reset2').on('click', function() {    
+            $('#btn-example-file-reset2').on('click', function() {
             $('#cat_image2').val('');
             $('#category-img-tag2').attr('src','../img/upload.jpg')
          });
@@ -462,19 +462,19 @@
         function readURL3(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-                
+
                 reader.onload = function (e) {
                     $('#category-img-tag3').attr('src', e.target.result);
                 }
-                
+
                 reader.readAsDataURL(input.files[0]);
             }
-        }        
+        }
         $("#cat_image3").change(function(){
             readURL3(this);
         });
         $(document).ready(function() {
-            $('#btn-example-file-reset3').on('click', function() {     
+            $('#btn-example-file-reset3').on('click', function() {
             $('#cat_image3').val('');
             $('#category-img-tag3').attr('src','../img/upload.jpg')
          });

@@ -26,7 +26,7 @@
                                         <img src="{{asset('../img/Admin/users/avatar-4.jpg')}}"
                                             class="avatar-lg rounded-circle mr-2" alt="perfil">
                                         @else
-                                        <img src="{{asset('../uploads/'.$paciente->Foto)}}"
+                                        <img src="{{$paciente->Foto}}"
                                             class="avatar-lg rounded-circle mr-2" alt="perfil">
                                         @endif
                                     <div class="media-body">

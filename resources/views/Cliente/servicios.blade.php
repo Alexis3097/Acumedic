@@ -32,7 +32,7 @@
                 <div class="col-md-4 servicio-col">
                   <div class="container-servicio">
                     <div class="img">
-                      <img src="{{asset('../uploads/servicios/'.$servicio->Imagen)}}"  alt="{{$servicio->TextoImagen}}">
+                      <img src="{{$servicio->Imagen}}"  alt="{{$servicio->TextoImagen}}">
                     </div>
                     <div class="desc">
                       <h2 class="titulo-servicio">{{$servicio->Nombre}}</h2>
@@ -104,7 +104,7 @@
               <p class="subtitulo">Acuerdo de pagos.</p>
             </div>
           </div>
-          
+
         </div>
       </div>
     </section>
