@@ -101,7 +101,7 @@
           @foreach($servicios as $servicio)
             <div class="col-md-4">
               <div class="servicio-content">
-                <div class="img"><img src="{{asset('../uploads/servicios/'.$servicio->Logo)}}" alt="{{$servicio->TextoLogo}}">
+                <div class="img"><img src="{{$servicio->Logo}}" alt="{{$servicio->TextoLogo}}">
                   <p class="titulo-servicio">{{$servicio->Nombre}}</p>
                 </div>
                 <div class="price">
