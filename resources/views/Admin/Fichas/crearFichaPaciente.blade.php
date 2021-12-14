@@ -19,7 +19,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="{{ route('ficha.create')}}" method="POST" class="needs-validation row">
+                                    <form action="{{ route('ficha.create')}}" method="POST" class="row">
                                     @csrf
                                         <input type="hidden" name="IdPaciente" value="{{$paciente->id}}"> 
                                         <div class="form-group col-md-12">
@@ -27,7 +27,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="LugarResidencia">Lugar de residencia</label>
-                                            <input type="text" class="form-control @error('LugarResidencia') is-invalid @enderror" value="{{ old('LugarResidencia')}}" id="LugarResidencia" name="LugarResidencia" required placeholder="Lugar de residencia">
+                                            <input type="text" class="form-control @error('LugarResidencia') is-invalid @enderror" value="{{ old('LugarResidencia')}}" id="LugarResidencia" name="LugarResidencia"  placeholder="Lugar de residencia">
                                             @error('LugarResidencia')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -36,7 +36,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Direccion">Dirección</label>
-                                            <input type="text" class="form-control @error('Direccion') is-invalid @enderror" value="{{ old('Direccion')}}" id="Direccion" name="Direccion" required placeholder="Direccion actual">
+                                            <input type="text" class="form-control @error('Direccion') is-invalid @enderror" value="{{ old('Direccion')}}" id="Direccion" name="Direccion"  placeholder="Direccion actual">
                                             @error('Direccion')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -45,7 +45,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Peso">Peso</label>
-                                            <input type="text" class="form-control @error('Peso') is-invalid @enderror" value="{{ old('Peso')}}" id="Peso" name="Peso" required placeholder="Peso">
+                                            <input type="text" class="form-control @error('Peso') is-invalid @enderror" value="{{ old('Peso')}}" id="Peso" name="Peso"  placeholder="Peso">
                                             @error('Peso')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -54,7 +54,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Talla">Talla</label>
-                                            <input type="text" class="form-control @error('Talla') is-invalid @enderror" value="{{ old('Talla')}}" id="Talla" name="Talla" required placeholder="Talla">
+                                            <input type="text" class="form-control @error('Talla') is-invalid @enderror" value="{{ old('Talla')}}" id="Talla" name="Talla"  placeholder="Talla">
                                             @error('Talla')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -63,7 +63,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="SPO2">SPO2</label>
-                                            <input type="text" class="form-control @error('SPO2') is-invalid @enderror" value="{{ old('SPO2')}}" id="SPO2" name="SPO2" required placeholder="Nivel de Saturación de oxígeno">
+                                            <input type="text" class="form-control @error('SPO2') is-invalid @enderror" value="{{ old('SPO2')}}" id="SPO2" name="SPO2"  placeholder="Nivel de Saturación de oxígeno">
                                             @error('SPO2')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -72,7 +72,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="FC">FC</label>
-                                            <input type="text" class="form-control @error('FC') is-invalid @enderror" value="{{ old('FC')}}" id="FC" name="FC" required placeholder="Frecuencia respiratoria">
+                                            <input type="text" class="form-control @error('FC') is-invalid @enderror" value="{{ old('FC')}}" id="FC" name="FC"  placeholder="Frecuencia respiratoria">
                                             @error('FC')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -81,7 +81,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="FR">FR</label>
-                                            <input type="text"class="form-control @error('FR') is-invalid @enderror" value="{{ old('FR')}}" id="FR" name="FR" required placeholder="Factor reumatoide">
+                                            <input type="text"class="form-control @error('FR') is-invalid @enderror" value="{{ old('FR')}}" id="FR" name="FR"  placeholder="Factor reumatoide">
                                             @error('FR')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -90,7 +90,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="TA">TA</label>
-                                            <input type="text" class="form-control @error('TA') is-invalid @enderror" value="{{ old('TA')}}" id="TA" name="TA" required placeholder="Tensión arterial">
+                                            <input type="text" class="form-control @error('TA') is-invalid @enderror" value="{{ old('TA')}}" id="TA" name="TA"  placeholder="Tensión arterial">
                                             @error('TA')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -99,7 +99,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="Dextrosis">Dextrosis</label>
-                                            <input type="text" class="form-control @error('Dextrosis') is-invalid @enderror" value="{{ old('Dextrosis')}}" id="Dextrosis" name="Dextrosis" required placeholder="Dextrosis">
+                                            <input type="text" class="form-control @error('Dextrosis') is-invalid @enderror" value="{{ old('Dextrosis')}}" id="Dextrosis" name="Dextrosis"  placeholder="Dextrosis">
                                             @error('Dextrosis')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}

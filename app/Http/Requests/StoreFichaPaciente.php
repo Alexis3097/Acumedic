@@ -24,38 +24,26 @@ class StoreFichaPaciente extends FormRequest
     public function rules()
     {
         return [
-            'LugarResidencia' => 'required',
-            'Direccion' => 'required',
-            'Peso' => 'required|numeric',
-            'Talla' => 'required|numeric',
-            'SPO2' => 'required|numeric',
-            'FC' => 'required|numeric',
-            'FR' => 'required|numeric',
-            'TA' => 'required|numeric',
-            'Dextrosis' => 'required|numeric',
+            'Peso' =>   'nullable|numeric',
+            'Talla' =>  'nullable|numeric',
+            'SPO2' =>   'nullable|numeric',
+            'FC' =>     'nullable|numeric',
+            'FR' =>     'nullable|numeric',
+            'TA' =>     'nullable|numeric',
+            'Dextrosis' => 'nullable|numeric',
         ];
     }
 
     public function messages()
     {
         return [
-            'LugarResidencia.required' => 'El campo :attribute es requerido',
-            'Direccion.required' => 'El campo :attribute es requerido',
-            'Peso.required' => 'El campo :attribute es requerido',
             'Peso.numeric' => 'El campo :attribute debe ser tipo numerico',
-            'Talla.required' => 'El campo :attribute es requerido',
             'Talla.numeric' => 'El campo :attribute debe ser tipo numerico',
-            'SPO2.required' => 'El campo :attribute es requerido',
             'SPO2.numeric' => 'El campo :attribute debe ser tipo numerico',
-            'FC.required' => 'El campo :attribute es requerido',
             'FC.numeric' => 'El campo :attribute debe ser tipo numerico',
-            'FR.required' => 'El campo :attribute es requerido',
             'FR.numeric' => 'El campo :attribute debe ser tipo numerico',
-            'TA.required' => 'El campo :attribute es requerido',
             'TA.numeric' => 'El campo :attribute debe ser tipo numerico',
-            'Dextrosis.required' => 'El campo :attribute es requerido',
             'Dextrosis.numeric' => 'El campo :attribute debe ser tipo numerico',
-            
             
         ];
     }

@@ -6,6 +6,8 @@ use App\ViewModel\PacienteViewModel;
 use App\ViewModel\FichaPacienteViewModel;
 use App\Http\Requests\StoreFichaPaciente;
 use Illuminate\Http\Request;
+use Throwable;
+
 class FichaController extends Controller
 {
     public function __construct()
@@ -21,7 +23,7 @@ class FichaController extends Controller
     public function index($id)
     {
         $fichas = FichaPacienteViewModel::getFichasXPaciente($id);
-        return view('Admin.Fichas.fichaPaciente', compact('fichas','id'));
+        return view('Admin.Fichas.fichaPaciente', compact('fichas', 'id'));
     }
 
     /**
@@ -31,8 +33,16 @@ class FichaController extends Controller
      */
     public function create(PacienteViewModel $PacienteViewModel, $id)
     {
-        $paciente = $PacienteViewModel->getPaciente($id);
-        return view('Admin.Fichas.crearFichaPaciente',compact('paciente'));
+        try {
+            $paciente = $PacienteViewModel->getPaciente($id);
+            if (!is_null($paciente)) {
+                return view('Admin.Fichas.crearFichaPaciente', compact('paciente'));
+            }else{
+                return redirect()->route('home');
+            }
+        } catch (Throwable $e) {
+            return redirect()->route('home');
+        }
     }
 
     /**
@@ -41,18 +51,7 @@ class FichaController extends Controller
     public function store(StoreFichaPaciente $request)
     {
         $fichaPaciente = FichaPacienteViewModel::create($request);
-        return redirect()->route('ficha.list',$fichaPaciente->IdPaciente);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect()->route('ficha.list', $fichaPaciente->IdPaciente);
     }
 
     /**
@@ -64,7 +63,7 @@ class FichaController extends Controller
     public function edit($IdFicha)
     {
         $ficha = FichaPacienteViewModel::getFichaXPaciente($IdFicha);
-        return view('Admin.Fichas.editarFichaPaciente',compact('ficha'));
+        return view('Admin.Fichas.editarFichaPaciente', compact('ficha'));
     }
 
     /**
@@ -76,8 +75,8 @@ class FichaController extends Controller
      */
     public function update(StoreFichaPaciente $request, $id)
     {
-        $ficha = FichaPacienteViewModel::update($request,$id);
-        return redirect()->route('ficha.list',$request->IdPaciente);
+        $ficha = FichaPacienteViewModel::update($request, $id);
+        return redirect()->route('ficha.list', $request->IdPaciente);
     }
 
     /**
@@ -89,6 +88,6 @@ class FichaController extends Controller
     public function destroy(Request $request)
     {
         $IdPaciente = FichaPacienteViewModel::delete($request->IdModal);
-        return redirect()->route('ficha.list',$IdPaciente);
+        return redirect()->route('ficha.list', $IdPaciente);
     }
 }

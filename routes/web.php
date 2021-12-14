@@ -14,15 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/test', function () {
-//     event(new OrderProductoEvents);
-//     return view('test');
-// });
+
 
 Auth::routes();
-// Route::pattern('IdPaciente', '[0-9]+');
-
-
+Route::get('/test', function () {
+    return view('test');
+});
 //Rutas de cliente
 //INDEX
 Route::get('/', 'Cliente\HomeController@index')->name('inicio');
@@ -51,7 +48,7 @@ Route::get('/productos/detallado/{id}', 'Cliente\ProductoController@show')->name
 Route::post('/productos/detallado/ordenDeCompra', 'Cliente\ProductoController@ordenDeCompra')->name('productos.ordenDeCompra');
 
 
-//SOLICITUD DE CITA 
+//SOLICITUD DE CITA
 Route::post('/solicitar-cita', 'Cliente\CitaController@solicitarCita')->name('solicitarCita');
 //-------------------------------Rutas de administrador-------------------------------
 Route::get('/home', 'HomeController@index')->name('home');
@@ -83,7 +80,7 @@ Route::group(['middleware' => ['permission:ListadoCitas|CrearCita|EditarCita|Eli
     Route::get('/citas/buscarPaciente', 'CitasController@buscarPaciente')->name('citas.buscarPaciente');
 });
 
-//SOLICITUD DE CITAS 
+//SOLICITUD DE CITAS
 Route::group(['middleware' => ['permission:SolicitudDeCita']], function () {
     Route::get('/solicitud-citas/pendientes', 'SolicitudCitasController@index')->name('solicitudCita.pendientes');
     Route::get('/solicitud-citas/todas', 'SolicitudCitasController@todas')->name('solicitudCita.todas');

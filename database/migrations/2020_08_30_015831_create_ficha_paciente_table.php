@@ -16,15 +16,15 @@ class CreateFichaPacienteTable extends Migration
         Schema::create('FichaPaciente', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('IdPaciente');
-            $table->string('LugarResidencia');
-            $table->string('Direccion');
-            $table->Integer('Peso');
-            $table->Integer('Talla');
-            $table->Integer('SPO2');
-            $table->Integer('FC');
-            $table->Integer('FR');
-            $table->Integer('TA');
-            $table->Integer('Dextrosis');
+            $table->string('LugarResidencia')->nullable();
+            $table->string('Direccion')->nullable();
+            $table->Integer('Peso')->nullable();
+            $table->Integer('Talla')->nullable();
+            $table->Integer('SPO2')->nullable();
+            $table->Integer('FC')->nullable();
+            $table->Integer('FR')->nullable();
+            $table->Integer('TA')->nullable();
+            $table->Integer('Dextrosis')->nullable();
             $table->softDeletes();
             $table->timestamps();
 
