@@ -38,10 +38,6 @@
                                             class="avatar-xl rounded-circle" />
                                         @endif
                                         <h3 class="mt-2 mb-0">Paciente: #{{$paciente->id}} </h3>
-                                        <!-- <h6 class="text-muted font-weight-normal mt-2 mb-4">User Experience
-                                            Specialist
-                                        </h6> -->
-
                                         <div class="mt-4 pt-3 border-top text-left">
                                             <div class="media px-3 py-4 border-bottom">
                                                 <div class="media-body">
